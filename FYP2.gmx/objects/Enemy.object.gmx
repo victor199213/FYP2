@@ -76,7 +76,7 @@ hsp = 0;
     break;
     case e_state.chase:
     {
-        dir = sign(obj_player.x - x);
+        dir = sign(Player.x - x);
         hsp = dir * 2;
         vsp = (min(7,vsp+0.05));
         if (distance_to_object(Player) &gt; 128)
