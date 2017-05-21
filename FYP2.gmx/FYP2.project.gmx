@@ -38,12 +38,25 @@
     <sprite>sprites\spr_explosion_3</sprite>
     <sprite>sprites\spr_explosion_4</sprite>
     <sprite>sprites\spr_explosion_5</sprite>
+    <sprites name="Characters">
+      <sprites name="Player">
+        <sprite>sprites\Sprite_Player_Idle_Right</sprite>
+        <sprite>sprites\Sprite_Player_Walk_Right</sprite>
+        <sprite>sprites\Sprite_Player_Jump</sprite>
+        <sprite>sprites\Sprite_Player_Die</sprite>
+        <sprite>sprites\Sprite_Player_Walk_Left</sprite>
+        <sprite>sprites\Sprite_Player_Idle_Left</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
     <background>background\scifi_floorTiles</background>
   </backgrounds>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\Player</object>
+  </objects>
   <rooms name="rooms">
     <room>rooms\scifiExampleRoom</room>
   </rooms>
