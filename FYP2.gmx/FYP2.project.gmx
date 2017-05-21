@@ -48,6 +48,9 @@
         <sprite>sprites\Sprite_Player_Idle_Left</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\TmpWall</sprite>
+    <sprite>sprites\TmpObjective</sprite>
+    <sprite>sprites\TmpEnemy</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -56,8 +59,12 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\Player</object>
+    <object>objects\Enemy</object>
+    <object>objects\Wall</object>
+    <object>objects\Objective</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room1</room>
     <room>rooms\scifiExampleRoom</room>
   </rooms>
   <help>
