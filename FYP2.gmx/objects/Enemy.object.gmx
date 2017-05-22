@@ -54,22 +54,26 @@ hsp = 0;
 {
     case e_state.idle:
     {   
-        if (distance_to_object(Player) &lt; 94) 
-        {
-            state = e_state.chase;
-        }
+    
         grid = mp_grid_create(32,16,room_width/32,room_height/32,32,32);
         path = path_add();
         mp_grid_add_instances(path,Wall,true);
         mp_grid_path(grid,path,x,y,Objective.x,Objective.y,true);
+        
+        if (distance_to_object(Player) &lt; 94) 
+        {
+            path_end();
+            state = e_state.chase;
+        }
             
         if(place_meeting(x,y + 1,Wall)== true)
         {
-            gravity = 0.2;
+            gravity = 0;
             path_start(path,1,"",false);
         }
         else
         {
+            gravity = 0.2;
             path_end();
         }
     }
@@ -79,9 +83,26 @@ hsp = 0;
         dir = sign(Player.x - x);
         hsp = dir * 2;
         vsp = (min(7,vsp+0.05));
+        
+        grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
+        path = path_add();
+        mp_grid_add_instances(path,Wall,true);
+        mp_grid_path(grid,path,x,y,Player.x,Player.y + 1,true);
+        
         if (distance_to_object(Player) &gt; 128)
         {
             state = e_state.idle;
+            path_end();
+        }
+        if(place_meeting(x,y + 1,Wall)== true)
+        {
+            gravity = 0;
+            path_start(path,1,"",false);
+        }
+        else
+        {
+            gravity = 0.2;
+            path_end();
         }
     }
     break;
