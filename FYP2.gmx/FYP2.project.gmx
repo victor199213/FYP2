@@ -42,10 +42,11 @@
       <sprites name="Player">
         <sprite>sprites\Sprite_Player_Idle_Right</sprite>
         <sprite>sprites\Sprite_Player_Walk_Right</sprite>
-        <sprite>sprites\Sprite_Player_Jump</sprite>
-        <sprite>sprites\Sprite_Player_Die</sprite>
-        <sprite>sprites\Sprite_Player_Walk_Left</sprite>
+        <sprite>sprites\Sprite_Player_Jump_Right</sprite>
         <sprite>sprites\Sprite_Player_Idle_Left</sprite>
+        <sprite>sprites\Sprite_Player_Walk_Left</sprite>
+        <sprite>sprites\Sprite_Player_Jump_Left</sprite>
+        <sprite>sprites\Sprite_Player_Die</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\TmpWall</sprite>

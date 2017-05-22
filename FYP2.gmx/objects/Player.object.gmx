@@ -29,7 +29,11 @@
 f_verticalSpeed = 0;
 f_horizontalSpeed = 0;
 f_jumpSpeed = 10;
-f_moveSpeed = 5;
+f_moveSpeed = 2;
+
+b_faceLeft = false;
+b_faceRight = true;
+b_isJumping = false;
 </string>
           </argument>
         </arguments>
@@ -61,7 +65,7 @@ JUMP = keyboard_check_pressed(vk_space);
 move = -MOVELEFT + MOVERIGHT;
 f_horizontalSpeed = move * f_moveSpeed;
 
-if (f_verticalSpeed &lt; 15)
+if (f_verticalSpeed &lt; 10)
 {
     f_verticalSpeed += global.f_gravity;
 }
@@ -69,6 +73,70 @@ if (f_verticalSpeed &lt; 15)
 if (place_meeting(x, y + 1, Wall))
 {
     f_verticalSpeed = JUMP * - f_jumpSpeed;
+    b_isJumping = false;
+}
+
+if (keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right))
+{
+    b_faceLeft = true;
+    b_faceRight = false;
+}
+
+if (!keyboard_check(vk_left) &amp;&amp; keyboard_check(vk_right))
+{
+    b_faceLeft = false;
+    b_faceRight = true;
+}
+
+if (JUMP)
+{
+    b_isJumping = true;
+}
+
+if (b_isJumping == true)
+{
+    if (b_faceLeft == true &amp;&amp; b_faceRight == false)
+    {
+        sprite_index = Sprite_Player_Jump_Left;
+    }
+    
+    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+    {
+        sprite_index = Sprite_Player_Jump_Right;
+    }
+}
+
+else
+{
+    if (b_faceLeft == true &amp;&amp; b_faceRight == false)
+    {
+        if (move &lt; 0)
+        {
+            sprite_index = Sprite_Player_Walk_Left;
+            image_speed = 10/60;
+        }
+        
+        else
+        {
+            sprite_index = Sprite_Player_Idle_Left;
+        }
+
+    }
+    
+    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+    {
+        if (move &gt; 0)
+        {
+            sprite_index = Sprite_Player_Walk_Right;
+        }
+        
+        else
+        {
+            sprite_index = Sprite_Player_Idle_Right;
+            image_speed = 10/60;
+        }
+
+    }
 }
 
 // Horizontal Collision
@@ -83,7 +151,7 @@ if (place_meeting(x + f_horizontalSpeed, y, Wall))
 
 x += f_horizontalSpeed;
 
-// Horizontal Collision
+// Vertical Collision
 if (place_meeting(x, y + f_verticalSpeed, Wall))
 {
     while (!place_meeting(x, y + sign(f_verticalSpeed), Wall))

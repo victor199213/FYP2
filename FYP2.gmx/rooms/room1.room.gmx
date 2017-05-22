@@ -11,7 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>// Shared Gravity across all objects in the room
-global.f_gravity = 0.2;
+global.f_gravity = 0.5;
 
 enum e_state
 {
