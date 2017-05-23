@@ -10,7 +10,15 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprites name="shooter">
+    <sprite>sprites\TmpSpawner</sprite>
+    <sprite>sprites\TmpObjective</sprite>
+    <sprite>sprites\TmpWall</sprite>
+    <sprites name="explosions">
+      <sprite>sprites\shooter_smokeExplosion</sprite>
+      <sprite>sprites\shooter_gunFire</sprite>
+      <sprite>sprites\shooter_grenadeExplosion</sprite>
+    </sprites>
+    <sprites name="Weaponry">
       <sprites name="guns">
         <sprite>sprites\shooter_smallGuns</sprite>
         <sprite>sprites\shooter_wood_smallGuns</sprite>
@@ -18,19 +26,11 @@
         <sprite>sprites\shooter_wood_bigGuns</sprite>
       </sprites>
       <sprites name="ammo">
-        <sprites name="bullets">
-          <sprite>sprites\shooter_bullets</sprite>
-          <sprite>sprites\shooter_ammo</sprite>
-          <sprite>sprites\shooter_rocket</sprite>
-        </sprites>
+        <sprite>sprites\shooter_ammo</sprite>
       </sprites>
-      <sprites name="explosions">
-        <sprite>sprites\shooter_smokeExplosion</sprite>
-        <sprite>sprites\shooter_gunFire</sprite>
-        <sprite>sprites\shooter_grenadeExplosion</sprite>
-      </sprites>
-      <sprites name="other">
-        <sprite>sprites\shooter_otherItems</sprite>
+      <sprites name="Projectiles">
+        <sprite>sprites\shooter_rocket</sprite>
+        <sprite>sprites\shooter_bullets</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_explosion_1</sprite>
@@ -49,11 +49,13 @@
         <sprite>sprites\Sprite_Player_Die_Right</sprite>
         <sprite>sprites\Sprite_Player_Die_Left</sprite>
       </sprites>
+      <sprites name="Enemies">
+        <sprite>sprites\TmpEnemy</sprite>
+      </sprites>
     </sprites>
-    <sprite>sprites\TmpWall</sprite>
-    <sprite>sprites\TmpObjective</sprite>
-    <sprite>sprites\TmpEnemy</sprite>
-    <sprite>sprites\TmpSpawner</sprite>
+    <sprites name="Items">
+      <sprite>sprites\shooter_otherItems</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -70,7 +72,7 @@
       <objects name="Guns">
         <object>objects\Handgun</object>
       </objects>
-      <objects name="Ammo">
+      <objects name="Projectiles">
         <object>objects\Handgun_Ammo</object>
       </objects>
     </objects>
