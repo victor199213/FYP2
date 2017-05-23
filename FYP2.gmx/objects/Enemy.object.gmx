@@ -28,6 +28,7 @@
             <string>state = e_state.idle;
 vsp = 0;
 hsp = 0;
+HP = 10
 </string>
           </argument>
         </arguments>
@@ -123,6 +124,15 @@ if (place_meeting(round(x),round(y+vsp),Wall))
     vsp = 0;
 }
 y += vsp;
+
+if(place_meeting(x,y,Handgun_Ammo))
+{
+    HP -= 3;
+    if(HP &lt; 0)
+    {
+        instance_destroy();
+    }
+}
 </string>
           </argument>
         </arguments>

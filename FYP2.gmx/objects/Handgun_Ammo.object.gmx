@@ -81,6 +81,12 @@ if (place_meeting(x + f_bullet_hspeed, y, Wall))
     instance_destroy();
 }
 
+if (place_meeting(x , y, Enemy))
+{
+    f_bullet_hspeed = 0;
+    instance_destroy();
+}
+
 x += f_bullet_hspeed;
 </string>
           </argument>
