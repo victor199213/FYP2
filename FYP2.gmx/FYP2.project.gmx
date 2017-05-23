@@ -53,6 +53,7 @@
     <sprite>sprites\TmpWall</sprite>
     <sprite>sprites\TmpObjective</sprite>
     <sprite>sprites\TmpEnemy</sprite>
+    <sprite>sprites\TmpSpawner</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -61,6 +62,7 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\Player</object>
+    <object>objects\Spawner</object>
     <object>objects\Enemy</object>
     <object>objects\Wall</object>
     <object>objects\Objective</object>
