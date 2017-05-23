@@ -39,7 +39,7 @@ b_faceLeft = false;
 b_faceRight = true;
 
 // Creating the depth of the player
-depth = -1;
+depth = 0;
 </string>
           </argument>
         </arguments>

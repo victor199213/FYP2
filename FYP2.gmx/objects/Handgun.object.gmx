@@ -80,8 +80,8 @@ if (Player.SHOOT &amp;&amp; Handgun.b_fire == true)
     }
 }
 
-Handgun.x = Player.x + Handgun.offset_x;
-Handgun.y = Player.y + Handgun.offset_y;
+x = Player.x + offset_x;
+y = Player.y + offset_y;
 
 // Rotate the image if the player is facing left
 if (Player.b_faceLeft == true)
@@ -116,6 +116,7 @@ else if (Player.b_faceRight == true)
           <argument>
             <kind>1</kind>
             <string>draw_text(10, 2, "Ammo: " + string(i_ammo));
+draw_self();
 </string>
           </argument>
         </arguments>
