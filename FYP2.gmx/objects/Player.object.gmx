@@ -29,11 +29,17 @@
 f_verticalSpeed = 0;
 f_horizontalSpeed = 0;
 f_jumpSpeed = 10;
-f_moveSpeed = 2;
+f_moveSpeed = 3;
 
+// Checks if the player is jumping
+b_isJumping = false;
+
+// Checks if the player is facing left or right
 b_faceLeft = false;
 b_faceRight = true;
-b_isJumping = false;
+
+// Creating the depth of the player
+depth = -1;
 </string>
           </argument>
         </arguments>
@@ -60,6 +66,7 @@ b_isJumping = false;
 MOVELEFT = keyboard_check(vk_left);
 MOVERIGHT = keyboard_check(vk_right);
 JUMP = keyboard_check_pressed(vk_space);
+SHOOT = keyboard_check(vk_lshift);
 
 // React to inputs
 move = -MOVELEFT + MOVERIGHT;

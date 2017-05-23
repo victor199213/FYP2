@@ -46,7 +46,8 @@
         <sprite>sprites\Sprite_Player_Idle_Left</sprite>
         <sprite>sprites\Sprite_Player_Walk_Left</sprite>
         <sprite>sprites\Sprite_Player_Jump_Left</sprite>
-        <sprite>sprites\Sprite_Player_Die</sprite>
+        <sprite>sprites\Sprite_Player_Die_Right</sprite>
+        <sprite>sprites\Sprite_Player_Die_Left</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\TmpWall</sprite>
@@ -63,6 +64,14 @@
     <object>objects\Enemy</object>
     <object>objects\Wall</object>
     <object>objects\Objective</object>
+    <objects name="Weaponry">
+      <objects name="Guns">
+        <object>objects\Handgun</object>
+      </objects>
+      <objects name="Ammo">
+        <object>objects\Handgun_Ammo</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
