@@ -56,10 +56,11 @@ HP = 10
     case e_state.idle:
     {   
     
-        grid = mp_grid_create(32,16,room_width/32,room_height/32,32,32);
+        grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
         path = path_add();
         mp_grid_add_instances(path,Wall,true);
-        mp_grid_path(grid,path,x,y,Objective.x,Objective.y,true);
+        mp_grid_add_instances(path,Avoid,true);
+        mp_grid_path(grid,path,x,y,Objective.x,Objective.y,false);
         
         if (distance_to_object(Player) &lt; 94) 
         {
@@ -67,15 +68,15 @@ HP = 10
             state = e_state.chase;
         }
             
-        if(place_meeting(x,y + 1,Wall)== true)
+        if(place_meeting(x ,y + 1,Wall)== true)
         {
+            path_start(path,2,"",false);
             gravity = 0;
-            path_start(path,1,"",false);
         }
-        else
+        else if(place_meeting(x,y,Wall)== false)
         {
-            gravity = 0.2;
             path_end();
+            gravity = 0.2;
         }
     }
     break;
@@ -88,7 +89,7 @@ HP = 10
         grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
         path = path_add();
         mp_grid_add_instances(path,Wall,true);
-        mp_grid_path(grid,path,x,y,Player.x,Player.y + 1,true);
+        mp_grid_path(grid,path,x,y,Player.x,Player.y + 1,false);
         
         if (distance_to_object(Player) &gt; 128)
         {
@@ -97,13 +98,13 @@ HP = 10
         }
         if(place_meeting(x,y + 1,Wall)== true)
         {
+            path_start(path,2,"",false);
             gravity = 0;
-            path_start(path,1,"",false);
         }
-        else
+        else if(place_meeting(x,y,Wall)== false)
         {
-            gravity = 0.2;
             path_end();
+            gravity = 0.2;
         }
     }
     break;

@@ -56,6 +56,7 @@
     <sprites name="Items">
       <sprite>sprites\shooter_otherItems</sprite>
     </sprites>
+    <sprite>sprites\PathAvoid</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -76,6 +77,7 @@
         <object>objects\Handgun_Ammo</object>
       </objects>
     </objects>
+    <object>objects\Avoid</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
