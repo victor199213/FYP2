@@ -51,6 +51,8 @@
       </sprites>
       <sprites name="Enemies">
         <sprite>sprites\TmpEnemy</sprite>
+        <sprite>sprites\Enemy_right</sprite>
+        <sprite>sprites\Enemy_left</sprite>
       </sprites>
     </sprites>
     <sprites name="Items">
