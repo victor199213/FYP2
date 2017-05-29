@@ -53,6 +53,7 @@ HP = 10
           <argument>
             <kind>1</kind>
             <string>image_speed = 10/60;
+
 switch (state)
 {
     case e_state.idle:
@@ -79,6 +80,15 @@ switch (state)
         {
             path_end();
             gravity = 0.2;
+        }
+        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        {
+            sprite_index=Enemy_left;
+        
+        }
+        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        {
+            sprite_index=Enemy_right;
         }
     }
     break;
@@ -108,6 +118,17 @@ switch (state)
             path_end();
             gravity = 0.2;
         }
+        
+        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        {
+          sprite_index=Enemy_right;
+        }
+        
+        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        {
+            sprite_index=Enemy_left;
+        }
+        
     }
     break;
 }
@@ -130,7 +151,7 @@ y += vsp;
 
 if(place_meeting(x,y,Handgun_Ammo))
 {
-    HP -= 3;
+    HP -= Handgun_Ammo.i_damage;
     if(HP &lt; 0)
     {
         instance_destroy();
@@ -140,15 +161,7 @@ if(place_meeting(x,y,Objective))
 {
     instance_destroy();
 }
-if(direction &lt; 180 &amp;&amp; direction &gt; 90)
-{
-    sprite_index=Enemy_left;
 
-}
-if(direction &gt; 0 &amp;&amp; direction &lt; 90)
-{
-    sprite_index=Enemy_right;
-}
 </string>
           </argument>
         </arguments>

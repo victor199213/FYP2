@@ -43,6 +43,8 @@ else if (Player.b_faceRight == true)
 
 image_index = 6;
 image_speed = 0;
+image_xscale *= 2;
+image_yscale *= 2;
 
 // Creating the depth of the Handgun Ammo
 depth = -2;

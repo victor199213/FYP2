@@ -80,6 +80,11 @@
       </objects>
     </objects>
     <object>objects\Avoid</object>
+    <objects name="Explosions">
+      <objects name="GunFire">
+        <object>objects\Gunfire</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

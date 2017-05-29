@@ -48,9 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>seconds += (delta_time/1000000)*room_speed;
+            <string>seconds += 1 / room_speed;
 
-if(seconds &gt; 50)
+if(seconds &gt; 5)
 {
     seconds = 0;
     instance_create(x, y, Enemy);
@@ -77,7 +77,7 @@ if(seconds &gt; 50)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text (x,y , string(seconds div 3600) + ":" + string(seconds div 60) + ":" + string(seconds mod 60))
+            <string>//draw_text (x,y , string(seconds div 3600) + ":" + string(seconds div 60) + ":" + string(seconds mod 60))
 </string>
           </argument>
         </arguments>
