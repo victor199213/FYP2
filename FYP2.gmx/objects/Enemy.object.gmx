@@ -28,7 +28,32 @@
             <string>state = e_state.idle;
 vsp = 0;
 hsp = 0;
-HP = 10
+HP = 100;
+damage = 10;
+
+switch(Spawner.wave)
+{
+    case 1:
+        HP = 100;
+        damage = 10;
+    break;
+    case 2:
+        HP = 110;
+        damage = 10;
+    break;
+    case 3:
+        HP = 120;
+        damage = 20;
+    break;
+    case 4:
+        HP = 130;
+        damage = 30;
+    break;
+    case 5:
+        HP = 140;
+        damage = 40;
+    break;
+}
 
 </string>
           </argument>
@@ -58,7 +83,6 @@ switch (state)
 {
     case e_state.idle:
     {   
-    
         grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
         path = path_add();
         mp_grid_add_instances(path,Wall,true);
@@ -159,6 +183,10 @@ if(place_meeting(x,y,Handgun_Ammo))
     }
 }
 if(place_meeting(x,y,Objective))
+{
+    instance_destroy();
+}
+if(Spawner.waveTime &gt;= 60)
 {
     instance_destroy();
 }
