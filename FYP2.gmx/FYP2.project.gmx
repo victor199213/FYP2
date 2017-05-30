@@ -50,7 +50,6 @@
         <sprite>sprites\Sprite_Player_Die_Left</sprite>
       </sprites>
       <sprites name="Enemies">
-        <sprite>sprites\TmpEnemy</sprite>
         <sprite>sprites\Enemy_right</sprite>
         <sprite>sprites\Enemy_left</sprite>
       </sprites>
@@ -59,6 +58,7 @@
       <sprite>sprites\shooter_otherItems</sprite>
     </sprites>
     <sprite>sprites\PathAvoid</sprite>
+    <sprite>sprites\spark</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -85,6 +85,7 @@
         <object>objects\Gunfire</object>
       </objects>
     </objects>
+    <object>objects\sparkObj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
