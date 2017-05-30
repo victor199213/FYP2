@@ -3,10 +3,98 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="5" name="datafiles">
+    <datafile>
+      <name>Stats_Full.psd</name>
+      <exists>-1</exists>
+      <size>151554</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Stats_Full.psd</filename>
+    </datafile>
+    <datafile>
+      <name>Paused_Menu_Full.psd</name>
+      <exists>-1</exists>
+      <size>458782</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Paused_Menu_Full.psd</filename>
+    </datafile>
+    <datafile>
+      <name>Inventory.psd</name>
+      <exists>-1</exists>
+      <size>289654</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Inventory.psd</filename>
+    </datafile>
+    <datafile>
+      <name>Login_Full.psd</name>
+      <exists>-1</exists>
+      <size>187812</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Login_Full.psd</filename>
+    </datafile>
+    <datafile>
+      <name>Read me.txt</name>
+      <exists>-1</exists>
+      <size>1572</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Read me.txt</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\Pixel Art Gun Sprite Pack</extension>
     <extension index="1">extensions\HQ Explosion Pack</extension>
     <extension index="2">extensions\SciFi Tileset</extension>
+    <extension index="3">extensions\Sci-Fi themed GUI</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -59,19 +147,117 @@
     </sprites>
     <sprite>sprites\PathAvoid</sprite>
     <sprite>sprites\spark</sprite>
+    <sprites name="GUI">
+      <sprites name="Buttons">
+        <sprite>sprites\spr_plus_round</sprite>
+        <sprite>sprites\spr_min_round</sprite>
+        <sprite>sprites\spr_plus_square</sprite>
+        <sprite>sprites\spr_min_square</sprite>
+        <sprite>sprites\spr_button</sprite>
+        <sprite>sprites\spr_closebtn</sprite>
+        <sprite>sprites\spr_loadbtn</sprite>
+        <sprite>sprites\spr_cancelbtn</sprite>
+        <sprite>sprites\spr_donebtn</sprite>
+        <sprite>sprites\spr_exitbtn</sprite>
+        <sprite>sprites\spr_menubtn</sprite>
+        <sprite>sprites\spr_okbtn</sprite>
+        <sprite>sprites\spr_optionsbtn</sprite>
+        <sprite>sprites\spr_restartbtn</sprite>
+        <sprite>sprites\spr_resumebtn</sprite>
+        <sprite>sprites\spr_savebtn</sprite>
+        <sprite>sprites\spr_startbtn</sprite>
+        <sprites name="Extra Titels">
+          <sprite>sprites\spr_settings</sprite>
+          <sprite>sprites\spr_victory</sprite>
+          <sprite>sprites\spr_weapons</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Stats">
+        <sprite>sprites\spr_title_stat</sprite>
+        <sprite>sprites\spr_deco_dl_stat</sprite>
+        <sprite>sprites\spr_deco_dr_stat</sprite>
+        <sprite>sprites\spr_deco_tl_stat</sprite>
+        <sprite>sprites\spr_deco_tr_stat</sprite>
+        <sprite>sprites\spr_add_stat</sprite>
+        <sprite>sprites\spr_textfield_stat</sprite>
+        <sprite>sprites\spr_background_stat</sprite>
+        <sprite>sprites\spr_closebtn_stat</sprite>
+      </sprites>
+      <sprites name="Pause Menu">
+        <sprite>sprites\spr_title_pm</sprite>
+        <sprite>sprites\spr_deco_dl_pm</sprite>
+        <sprite>sprites\spr_deco_dr_pm</sprite>
+        <sprite>sprites\spr_deco_tl_pm</sprite>
+        <sprite>sprites\spr_deco_tr_pm</sprite>
+        <sprite>sprites\spr_resumebtn_pm</sprite>
+        <sprite>sprites\spr_weaponsbtn_pm</sprite>
+        <sprite>sprites\spr_optionsbtn_pm</sprite>
+        <sprite>sprites\spr_exitbtn_pm</sprite>
+        <sprite>sprites\spr_background_pm</sprite>
+      </sprites>
+      <sprites name="Login">
+        <sprite>sprites\spr_title_log</sprite>
+        <sprite>sprites\spr_deco_dl_log</sprite>
+        <sprite>sprites\spr_deco_dr_log</sprite>
+        <sprite>sprites\spr_deco_tl_log</sprite>
+        <sprite>sprites\spr_deco_tr_log</sprite>
+        <sprite>sprites\spr_passfield_log</sprite>
+        <sprite>sprites\spr_userfield_log</sprite>
+        <sprite>sprites\spr_loginbtn_log</sprite>
+        <sprite>sprites\spr_signupbtn_log</sprite>
+        <sprite>sprites\spr_background_log</sprite>
+        <sprite>sprites\spr_closebtn_log</sprite>
+      </sprites>
+      <sprites name="Inventory">
+        <sprite>sprites\spr_title_inv</sprite>
+        <sprite>sprites\spr_slot_inv</sprite>
+        <sprite>sprites\spr_fg_inv</sprite>
+        <sprite>sprites\spr_closebtn_inv</sprite>
+        <sprite>sprites\spr_background_inv</sprite>
+        <sprite>sprites\spr_backgroundandcashfield_inv</sprite>
+      </sprites>
+      <sprites name="HUD">
+        <sprite>sprites\spr_arrow_down</sprite>
+        <sprite>sprites\spr_arrow_left</sprite>
+        <sprite>sprites\spr_arrow_right</sprite>
+        <sprite>sprites\spr_arrow_up</sprite>
+        <sprite>sprites\spr_hud1_back</sprite>
+        <sprite>sprites\spr_hud1_fg</sprite>
+        <sprite>sprites\spr_hud2_back</sprite>
+        <sprite>sprites\spr_hud2_fg</sprite>
+        <sprite>sprites\spr_hud2_nametag</sprite>
+        <sprite>sprites\spr_healthbar_fill</sprite>
+        <sprite>sprites\spr_healthbar_back</sprite>
+        <sprite>sprites\spr_loadingbar_back</sprite>
+        <sprite>sprites\spr_loadingbar_fill</sprite>
+        <sprite>sprites\spr_loadingbar_top</sprite>
+        <sprite>sprites\spr_loadingbar_text</sprite>
+      </sprites>
+      <sprites name="Gear">
+        <sprite>sprites\spr_title_gear</sprite>
+        <sprite>sprites\spr_fg_gear</sprite>
+        <sprite>sprites\spr_slot_gear</sprite>
+        <sprite>sprites\spr_quickstats_gear</sprite>
+        <sprite>sprites\spr_closebtn_gear</sprite>
+        <sprite>sprites\spr_background_gear</sprite>
+      </sprites>
+      <sprites name="Free Stuff">
+        <sprite>sprites\spr_free_stuff</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
     <background>background\scifi_floorTiles</background>
+    <background>background\Free_background</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\Player</object>
     <object>objects\Spawner</object>
     <object>objects\Enemy</object>
     <object>objects\Wall</object>
     <object>objects\Objective</object>
-    <objects name="Weaponry">
+    <objects name="Weaponry Objects">
       <objects name="Guns">
         <object>objects\Handgun</object>
       </objects>
@@ -86,6 +272,27 @@
       </objects>
     </objects>
     <object>objects\sparkObj</object>
+    <objects name="Player Objects">
+      <object>objects\Player</object>
+    </objects>
+    <objects name="Login">
+      <object>objects\back</object>
+      <object>objects\deco1</object>
+      <object>objects\deco2</object>
+      <object>objects\deco3</object>
+      <object>objects\deco4</object>
+      <object>objects\pass</object>
+      <object>objects\user</object>
+      <object>objects\login</object>
+      <object>objects\signup</object>
+      <object>objects\title</object>
+      <object>objects\close</object>
+    </objects>
+    <objects name="HUD">
+      <objects name="In-Game GUI">
+        <object>objects\CurrEquipGUIBorder</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
