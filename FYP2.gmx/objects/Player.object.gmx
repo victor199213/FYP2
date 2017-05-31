@@ -67,6 +67,7 @@ MOVELEFT = keyboard_check(vk_left);
 MOVERIGHT = keyboard_check(vk_right);
 JUMP = keyboard_check_pressed(vk_space);
 SHOOT = keyboard_check(ord('Z'));
+OPEN = keyboard_check_pressed(ord('O'));
 
 // React to inputs
 move = -MOVELEFT + MOVERIGHT;

@@ -253,11 +253,12 @@
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
+    <object>objects\Player</object>
     <object>objects\Spawner</object>
     <object>objects\Enemy</object>
     <object>objects\Wall</object>
     <object>objects\Objective</object>
-    <objects name="Weaponry Objects">
+    <objects name="Weaponry_Objects">
       <objects name="Guns">
         <object>objects\Handgun</object>
       </objects>
@@ -272,22 +273,6 @@
       </objects>
     </objects>
     <object>objects\sparkObj</object>
-    <objects name="Player Objects">
-      <object>objects\Player</object>
-    </objects>
-    <objects name="Login">
-      <object>objects\back</object>
-      <object>objects\deco1</object>
-      <object>objects\deco2</object>
-      <object>objects\deco3</object>
-      <object>objects\deco4</object>
-      <object>objects\pass</object>
-      <object>objects\user</object>
-      <object>objects\login</object>
-      <object>objects\signup</object>
-      <object>objects\title</object>
-      <object>objects\close</object>
-    </objects>
     <objects name="HUD">
       <objects name="In-Game GUI">
         <object>objects\CurrEquipGUIBorder</object>
