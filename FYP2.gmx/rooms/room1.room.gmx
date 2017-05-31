@@ -38,7 +38,7 @@ enum e_state
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="Free_background" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -58,43 +58,143 @@ enum e_state
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="Wall" x="0" y="576" name="inst_0F5BBD69" locked="0" code="" scaleX="1" scaleY="17.75" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="0" y="576" name="inst_0F5BBD69" locked="0" code="" scaleX="1" scaleY="17.75" colour="4278190080" rotation="0"/>
     <instance objName="Wall" x="1984" y="576" name="inst_D6619E12" locked="0" code="" scaleX="1" scaleY="17.75" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="992" y="0" name="inst_FFA5063F" locked="0" code="" scaleX="31.3125" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="992" y="1088" name="inst_62061FAD" locked="0" code="" scaleX="30.2222213745117" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="768" y="160" name="inst_4F1EA901" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="832" y="160" name="inst_27B6649C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="896" y="160" name="inst_655B5E5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="960" y="160" name="inst_72A24EAB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="1024" y="160" name="inst_7D1EF5E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="1088" y="160" name="inst_01F282BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="1152" y="160" name="inst_B13E45F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="1216" y="160" name="inst_4D46F308" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="480" y="352" name="inst_9B7F7523" locked="0" code="" scaleX="13.96875" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="448" y="352" name="inst_9B7F7523" locked="0" code="" scaleX="14.859375" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="1568" y="352" name="inst_4DC9DB67" locked="0" code="" scaleX="13.96875" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="1024" y="576" name="inst_F7ADCB03" locked="0" code="" scaleX="7.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="256" y="576" name="inst_F327969E" locked="0" code="" scaleX="7.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="1728" y="576" name="inst_ED2CC6D3" locked="0" code="" scaleX="7.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="640" y="832" name="inst_4CDC2C54" locked="0" code="" scaleX="7.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="1472" y="832" name="inst_C09C2981" locked="0" code="" scaleX="7.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="1024" y="576" name="inst_F7ADCB03" locked="0" code="" scaleX="6.85714292526245" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="256" y="576" name="inst_F327969E" locked="0" code="" scaleX="6.85714292526245" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="1760" y="576" name="inst_ED2CC6D3" locked="0" code="" scaleX="7.84126996994019" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="640" y="832" name="inst_4CDC2C54" locked="0" code="" scaleX="6.85714292526245" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="1472" y="832" name="inst_C09C2981" locked="0" code="" scaleX="6.85714292526245" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Objective" x="1024" y="1024" name="inst_02DE52D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="960" y="352" name="inst_12E989CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="1088" y="352" name="inst_20411D88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="1472" y="576" name="inst_DFF53E59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="1280" y="576" name="inst_0890E3A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="768" y="576" name="inst_30F8B571" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="512" y="576" name="inst_0F9AE481" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="896" y="832" name="inst_D175E895" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="1216" y="832" name="inst_6167058F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="384" y="832" name="inst_87BB1156" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="1728" y="832" name="inst_2B991CB0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="704" y="160" name="inst_21ED5713" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="1280" y="160" name="inst_096C8E38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="960" y="352" name="inst_12E989CE" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="1088" y="352" name="inst_20411D88" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="1472" y="576" name="inst_DFF53E59" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="1280" y="576" name="inst_0890E3A4" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="768" y="576" name="inst_30F8B571" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="512" y="576" name="inst_0F9AE481" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="896" y="832" name="inst_D175E895" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="1216" y="832" name="inst_6167058F" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="384" y="832" name="inst_87BB1156" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="1728" y="832" name="inst_2B991CB0" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="704" y="160" name="inst_21ED5713" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="1280" y="160" name="inst_096C8E38" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
     <instance objName="Player" x="704" y="704" name="inst_8FD565AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Handgun" x="736" y="704" name="inst_CA57E2F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Spawner" x="1024" y="64" name="inst_AB163DD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="992" y="160" name="inst_1C1DCD8D" locked="0" code="" scaleX="7.859375" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
-  <tiles/>
+  <tiles>
+    <tile bgName="scifi_wallTiles" x="736" y="128" w="64" h="128" xo="64" yo="48" id="10000778" name="inst_5CC48028" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="800" y="128" w="64" h="128" xo="64" yo="48" id="10000779" name="inst_E7DBD00C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="864" y="128" w="64" h="128" xo="64" yo="48" id="10000780" name="inst_06761CA9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="928" y="128" w="64" h="128" xo="64" yo="48" id="10000781" name="inst_61324D1C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="992" y="128" w="64" h="128" xo="64" yo="48" id="10000782" name="inst_CD6FC35C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1056" y="128" w="64" h="128" xo="64" yo="48" id="10000783" name="inst_EB31A709" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1120" y="128" w="64" h="128" xo="64" yo="48" id="10000784" name="inst_B14BED0A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1184" y="128" w="64" h="128" xo="64" yo="48" id="10000785" name="inst_B4B7A225" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="864" y="320" w="64" h="128" xo="64" yo="48" id="10000786" name="inst_CD2B93F6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="800" y="320" w="64" h="128" xo="64" yo="48" id="10000787" name="inst_82498A2C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="736" y="320" w="64" h="128" xo="64" yo="48" id="10000788" name="inst_5AEB1983" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="672" y="320" w="64" h="128" xo="64" yo="48" id="10000789" name="inst_1923F10B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="608" y="320" w="64" h="128" xo="64" yo="48" id="10000790" name="inst_0615537A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="544" y="320" w="64" h="128" xo="64" yo="48" id="10000791" name="inst_34B8211A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="480" y="320" w="64" h="128" xo="64" yo="48" id="10000792" name="inst_FFC9AB59" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="416" y="320" w="64" h="128" xo="64" yo="48" id="10000793" name="inst_1C216D1B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="352" y="320" w="64" h="128" xo="64" yo="48" id="10000794" name="inst_6AD960F2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="288" y="320" w="64" h="128" xo="64" yo="48" id="10000795" name="inst_4A5D2186" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="224" y="320" w="64" h="128" xo="64" yo="48" id="10000796" name="inst_9E4B15B2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="160" y="320" w="64" h="128" xo="64" yo="48" id="10000797" name="inst_A5924483" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="96" y="320" w="64" h="128" xo="64" yo="48" id="10000798" name="inst_65888FCA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="32" y="320" w="64" h="128" xo="64" yo="48" id="10000799" name="inst_38F2CC57" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1120" y="320" w="64" h="128" xo="64" yo="48" id="10000800" name="inst_DFDDDBA1" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1184" y="320" w="64" h="128" xo="64" yo="48" id="10000801" name="inst_D59D16E2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1248" y="320" w="64" h="128" xo="64" yo="48" id="10000802" name="inst_97EC6521" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1312" y="320" w="64" h="128" xo="64" yo="48" id="10000803" name="inst_F9D352C9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1376" y="320" w="64" h="128" xo="64" yo="48" id="10000804" name="inst_AA7DD0C0" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1440" y="320" w="64" h="128" xo="64" yo="48" id="10000805" name="inst_188CCC23" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1504" y="320" w="64" h="128" xo="64" yo="48" id="10000806" name="inst_B9273CA1" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1568" y="320" w="64" h="128" xo="64" yo="48" id="10000807" name="inst_BAF59E10" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1632" y="320" w="64" h="128" xo="64" yo="48" id="10000808" name="inst_3F5D9C16" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1696" y="320" w="64" h="128" xo="64" yo="48" id="10000809" name="inst_D54DA0F3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1760" y="320" w="64" h="128" xo="64" yo="48" id="10000810" name="inst_E4F08B69" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1824" y="320" w="64" h="128" xo="64" yo="48" id="10000811" name="inst_863DA978" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1888" y="320" w="64" h="128" xo="64" yo="48" id="10000812" name="inst_9D98B9E7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="416" y="544" w="64" h="128" xo="64" yo="48" id="10000813" name="inst_50FE777C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="352" y="544" w="64" h="128" xo="64" yo="48" id="10000814" name="inst_FEB808D8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="288" y="544" w="64" h="128" xo="64" yo="48" id="10000815" name="inst_5937C922" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="224" y="544" w="64" h="128" xo="64" yo="48" id="10000816" name="inst_67800944" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="160" y="544" w="64" h="128" xo="64" yo="48" id="10000817" name="inst_5C5DA8B9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="96" y="544" w="64" h="128" xo="64" yo="48" id="10000818" name="inst_B84467CF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="32" y="544" w="64" h="128" xo="64" yo="48" id="10000819" name="inst_744F7976" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="800" y="544" w="64" h="128" xo="64" yo="48" id="10000820" name="inst_B8E60A8F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="864" y="544" w="64" h="128" xo="64" yo="48" id="10000821" name="inst_D8C7F6AF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="928" y="544" w="64" h="128" xo="64" yo="48" id="10000822" name="inst_460D2478" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="992" y="544" w="64" h="128" xo="64" yo="48" id="10000823" name="inst_3F1C3E2F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1056" y="544" w="64" h="128" xo="64" yo="48" id="10000824" name="inst_F6E2A67A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1120" y="544" w="64" h="128" xo="64" yo="48" id="10000825" name="inst_3E7D6D75" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1184" y="544" w="64" h="128" xo="64" yo="48" id="10000826" name="inst_645374D3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1504" y="544" w="64" h="128" xo="64" yo="48" id="10000827" name="inst_6D92BE85" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1568" y="544" w="64" h="128" xo="64" yo="48" id="10000828" name="inst_F4AE71D8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1632" y="544" w="64" h="128" xo="64" yo="48" id="10000829" name="inst_277297E7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1696" y="544" w="64" h="128" xo="64" yo="48" id="10000830" name="inst_2139FD6A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1760" y="544" w="64" h="128" xo="64" yo="48" id="10000831" name="inst_166F4808" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1824" y="544" w="64" h="128" xo="64" yo="48" id="10000832" name="inst_B6117CFE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1888" y="544" w="64" h="128" xo="64" yo="48" id="10000833" name="inst_80CD2E0D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="416" y="800" w="64" h="128" xo="64" yo="48" id="10000834" name="inst_7DEBCEA6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="480" y="800" w="64" h="128" xo="64" yo="48" id="10000835" name="inst_0FDDF34E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="544" y="800" w="64" h="128" xo="64" yo="48" id="10000836" name="inst_E9835397" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="608" y="800" w="64" h="128" xo="64" yo="48" id="10000837" name="inst_290FA515" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="672" y="800" w="64" h="128" xo="64" yo="48" id="10000838" name="inst_33634C33" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="736" y="800" w="64" h="128" xo="64" yo="48" id="10000839" name="inst_663CC5FD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="800" y="800" w="64" h="128" xo="64" yo="48" id="10000840" name="inst_402C52C7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1248" y="800" w="64" h="128" xo="64" yo="48" id="10000841" name="inst_C6CD61C2" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1312" y="800" w="64" h="128" xo="64" yo="48" id="10000842" name="inst_7D77E182" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1376" y="800" w="64" h="128" xo="64" yo="48" id="10000843" name="inst_9988BE5B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1440" y="800" w="64" h="128" xo="64" yo="48" id="10000844" name="inst_3F2EC619" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1504" y="800" w="64" h="128" xo="64" yo="48" id="10000845" name="inst_57E70D68" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1568" y="800" w="64" h="128" xo="64" yo="48" id="10000846" name="inst_BB81B2A9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1632" y="800" w="64" h="128" xo="64" yo="48" id="10000847" name="inst_8F563AEA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1888" y="1056" w="64" h="128" xo="64" yo="48" id="10000848" name="inst_FD28A76C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1824" y="1056" w="64" h="128" xo="64" yo="48" id="10000849" name="inst_288C7FE7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1760" y="1056" w="64" h="128" xo="64" yo="48" id="10000850" name="inst_46DE2EE6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1696" y="1056" w="64" h="128" xo="64" yo="48" id="10000851" name="inst_5703A6DC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1632" y="1056" w="64" h="128" xo="64" yo="48" id="10000852" name="inst_F498D710" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1568" y="1056" w="64" h="128" xo="64" yo="48" id="10000853" name="inst_FAEBDE58" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1504" y="1056" w="64" h="128" xo="64" yo="48" id="10000854" name="inst_A9881BA6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1440" y="1056" w="64" h="128" xo="64" yo="48" id="10000855" name="inst_ACCBD90B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1376" y="1056" w="64" h="128" xo="64" yo="48" id="10000856" name="inst_91EDCDF7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1312" y="1056" w="64" h="128" xo="64" yo="48" id="10000857" name="inst_2B5C45A8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1248" y="1056" w="64" h="128" xo="64" yo="48" id="10000858" name="inst_5098593D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1184" y="1056" w="64" h="128" xo="64" yo="48" id="10000859" name="inst_CE81FD74" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1120" y="1056" w="64" h="128" xo="64" yo="48" id="10000860" name="inst_E4AE1DC3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1056" y="1056" w="64" h="128" xo="64" yo="48" id="10000861" name="inst_65DD6F82" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="992" y="1056" w="64" h="128" xo="64" yo="48" id="10000862" name="inst_63E18A1E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="928" y="1056" w="64" h="128" xo="64" yo="48" id="10000863" name="inst_922CC24D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="864" y="1056" w="64" h="128" xo="64" yo="48" id="10000864" name="inst_6CFD7A90" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="800" y="1056" w="64" h="128" xo="64" yo="48" id="10000865" name="inst_09BC47ED" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="736" y="1056" w="64" h="128" xo="64" yo="48" id="10000866" name="inst_93EFEF27" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="672" y="1056" w="64" h="128" xo="64" yo="48" id="10000867" name="inst_3A3990F9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="608" y="1056" w="64" h="128" xo="64" yo="48" id="10000868" name="inst_D008A848" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="544" y="1056" w="64" h="128" xo="64" yo="48" id="10000869" name="inst_033765AC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="480" y="1056" w="64" h="128" xo="64" yo="48" id="10000870" name="inst_FA5EA7EE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="416" y="1056" w="64" h="128" xo="64" yo="48" id="10000871" name="inst_279FA4A5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="352" y="1056" w="64" h="128" xo="64" yo="48" id="10000872" name="inst_F590E49D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="288" y="1056" w="64" h="128" xo="64" yo="48" id="10000873" name="inst_26A7C8A5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="224" y="1056" w="64" h="128" xo="64" yo="48" id="10000874" name="inst_504C9E3A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="160" y="1056" w="64" h="128" xo="64" yo="48" id="10000875" name="inst_73405FCA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="96" y="1056" w="64" h="128" xo="64" yo="48" id="10000876" name="inst_75A8BE0B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="32" y="1056" w="64" h="128" xo="64" yo="48" id="10000877" name="inst_1F5DBC34" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1952" y="1056" w="64" h="128" xo="64" yo="48" id="10000881" name="inst_7F1FBDE8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="-32" y="1056" w="64" h="128" xo="64" yo="48" id="10000882" name="inst_E1884EA5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="-32" y="320" w="64" h="128" xo="64" yo="48" id="10000914" name="inst_0D3950DD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1952" y="544" w="64" h="128" xo="64" yo="48" id="10000915" name="inst_4C7096CE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="1952" y="320" w="64" h="128" xo="64" yo="48" id="10000916" name="inst_FC500ED9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_wallTiles" x="-32" y="544" w="64" h="128" xo="64" yo="48" id="10000917" name="inst_349E2283" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+  </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>
