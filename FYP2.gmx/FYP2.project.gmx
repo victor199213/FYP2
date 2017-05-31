@@ -95,6 +95,7 @@
     <extension index="1">extensions\HQ Explosion Pack</extension>
     <extension index="2">extensions\SciFi Tileset</extension>
     <extension index="3">extensions\Sci-Fi themed GUI</extension>
+    <extension index="4">extensions\Horizontal city background</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -253,6 +254,8 @@
     <background>background\scifi_wallTiles</background>
     <background>background\scifi_floorTiles</background>
     <background>background\Free_background</background>
+    <background>background\night</background>
+    <background>background\day</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
