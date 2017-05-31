@@ -314,6 +314,7 @@
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
+    <object>objects\Player</object>
     <object>objects\Spawner</object>
     <object>objects\Enemy</object>
     <object>objects\EnemyShooting</object>
@@ -333,9 +334,6 @@
       <objects name="GunFire">
         <object>objects\Gunfire</object>
       </objects>
-    </objects>
-    <objects name="Player Objects">
-      <object>objects\Player</object>
     </objects>
     <objects name="Login">
       <object>objects\back</object>
