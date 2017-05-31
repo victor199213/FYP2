@@ -297,6 +297,7 @@
         <object>objects\CurrEquipGUIBorder</object>
       </objects>
     </objects>
+    <object>objects\EnemyProjectileParticle</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
