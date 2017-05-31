@@ -96,6 +96,12 @@
     <extension index="2">extensions\SciFi Tileset</extension>
     <extension index="3">extensions\Sci-Fi themed GUI</extension>
     <extension index="4">extensions\Horizontal city background</extension>
+    <extension index="5">extensions\OPP - Jungle temple tiles</extension>
+    <extension index="6">extensions\Basic Platformer Tiles</extension>
+    <extension index="7">extensions\TileSet 1 and bonus Wallset</extension>
+    <extension index="8">extensions\Free 16 32x32 pixelart tiles</extension>
+    <extension index="9">extensions\Street Tile Set</extension>
+    <extension index="10">extensions\wall tiles</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -249,6 +255,7 @@
         <sprite>sprites\spr_free_stuff</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_street_tile</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -256,6 +263,54 @@
     <background>background\Free_background</background>
     <background>background\night</background>
     <background>background\day</background>
+    <background>background\vines</background>
+    <background>background\bottom_brown</background>
+    <background>background\bottom_grey</background>
+    <background>background\bottom_blue</background>
+    <background>background\bridge</background>
+    <background>background\top_brown</background>
+    <background>background\top_grey</background>
+    <background>background\objects_plants</background>
+    <background>background\slope_brown</background>
+    <background>background\slope_grey</background>
+    <background>background\tree_dark</background>
+    <background>background\tree_bright</background>
+    <background>background\treelimb</background>
+    <background>background\vegetation</background>
+    <background>background\wall_brown</background>
+    <background>background\wall_grey</background>
+    <background>background\water</background>
+    <background>background\temple</background>
+    <background>background\til_platformtiles</background>
+    <background>background\bg_brickwall</background>
+    <background>background\tileSet_grass</background>
+    <background>background\tileSet_Rocks</background>
+    <background>background\tileSet_Ice</background>
+    <background>background\tileSet_Lava</background>
+    <background>background\tileSet_desert</background>
+    <background>background\tileSet_greyTiles</background>
+    <background>background\bonusWallset</background>
+    <background>background\Tileset</background>
+    <background>background\tile1</background>
+    <background>background\Tile2</background>
+    <background>background\Tile3</background>
+    <background>background\Tile4</background>
+    <background>background\Tile5</background>
+    <background>background\Tile6</background>
+    <background>background\Tile7</background>
+    <background>background\Tile8</background>
+    <background>background\Tile9</background>
+    <background>background\Tile10</background>
+    <background>background\Tile11</background>
+    <background>background\Tile12</background>
+    <background>background\Tile13</background>
+    <background>background\Tile14</background>
+    <background>background\Tile15</background>
+    <background>background\tile16</background>
+    <background>background\bg_tileset_walls1</background>
+    <background>background\bg_tileset_walls2</background>
+    <background>background\bg_ground1</background>
+    <background>background\bg_ground2</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
@@ -304,7 +359,6 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
-    <room>rooms\scifiExampleRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

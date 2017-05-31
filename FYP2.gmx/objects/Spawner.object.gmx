@@ -147,6 +147,7 @@ if(wave &lt; 5)
           <argument>
             <kind>1</kind>
             <string>draw_text(20,20,"Wave: " + string( wave) + " WaveTime: " + string(waveTime) + "WaveDelay: " + string(waveDelay));
+draw_text(20, 40, "FPS = " + string(fps_real));
 </string>
           </argument>
         </arguments>
