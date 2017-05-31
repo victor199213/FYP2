@@ -70,18 +70,18 @@ enum e_state
     <instance objName="Wall" x="640" y="832" name="inst_4CDC2C54" locked="0" code="" scaleX="6.85714292526245" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="1472" y="832" name="inst_C09C2981" locked="0" code="" scaleX="6.85714292526245" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Objective" x="1024" y="1024" name="inst_02DE52D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="960" y="352" name="inst_12E989CE" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="1088" y="352" name="inst_20411D88" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="1472" y="576" name="inst_DFF53E59" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="1280" y="576" name="inst_0890E3A4" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="768" y="576" name="inst_30F8B571" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="512" y="576" name="inst_0F9AE481" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="896" y="832" name="inst_D175E895" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="1216" y="832" name="inst_6167058F" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="384" y="832" name="inst_87BB1156" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="1728" y="832" name="inst_2B991CB0" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="704" y="160" name="inst_21ED5713" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="Avoid" x="1280" y="160" name="inst_096C8E38" locked="0" code="" scaleX="1" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="Avoid" x="960" y="352" name="inst_12E989CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="1088" y="352" name="inst_20411D88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="1472" y="576" name="inst_DFF53E59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="1280" y="576" name="inst_0890E3A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="768" y="576" name="inst_30F8B571" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="512" y="576" name="inst_0F9AE481" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="896" y="832" name="inst_D175E895" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="1216" y="832" name="inst_6167058F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="384" y="832" name="inst_87BB1156" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="1728" y="832" name="inst_2B991CB0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="704" y="160" name="inst_21ED5713" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="1280" y="160" name="inst_096C8E38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Player" x="704" y="704" name="inst_8FD565AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Handgun" x="736" y="704" name="inst_CA57E2F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Spawner" x="1024" y="64" name="inst_AB163DD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
