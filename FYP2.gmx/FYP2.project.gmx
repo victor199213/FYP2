@@ -119,6 +119,7 @@
       <sprites name="Projectiles">
         <sprite>sprites\shooter_rocket</sprite>
         <sprite>sprites\shooter_bullets</sprite>
+        <sprite>sprites\EnemyProjectile</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_explosion_1</sprite>
@@ -140,6 +141,8 @@
       <sprites name="Enemies">
         <sprite>sprites\Enemy_right</sprite>
         <sprite>sprites\Enemy_left</sprite>
+        <sprite>sprites\ShootingEnemy_left</sprite>
+        <sprite>sprites\ShootingEnemy_right</sprite>
       </sprites>
     </sprites>
     <sprites name="Items">
@@ -255,6 +258,7 @@
   <objects name="objects">
     <object>objects\Spawner</object>
     <object>objects\Enemy</object>
+    <object>objects\EnemyShooting</object>
     <object>objects\Wall</object>
     <object>objects\Objective</object>
     <objects name="Weaponry Objects">
@@ -263,6 +267,7 @@
       </objects>
       <objects name="Projectiles">
         <object>objects\Handgun_Ammo</object>
+        <object>objects\EnemyProObj</object>
       </objects>
     </objects>
     <object>objects\Avoid</object>
@@ -271,7 +276,6 @@
         <object>objects\Gunfire</object>
       </objects>
     </objects>
-    <object>objects\sparkObj</object>
     <objects name="Player Objects">
       <object>objects\Player</object>
     </objects>
