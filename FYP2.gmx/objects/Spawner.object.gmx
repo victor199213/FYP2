@@ -80,7 +80,15 @@ if(waveTime &lt;= 60)
                 y = room_height * 0.05 ;
                 break;
         }
-        instance_create(x, y, Enemy);
+        switch(irandom_range(1,2))
+        {
+            case 1:
+                instance_create(x, y, EnemyShooting);
+                break;
+            case 2:
+                instance_create(x, y, Enemy);
+                break;
+        }
         seconds = 0;
     }
 }
@@ -139,6 +147,7 @@ if(wave &lt; 5)
           <argument>
             <kind>1</kind>
             <string>draw_text(20,20,"Wave: " + string( wave) + " WaveTime: " + string(waveTime) + "WaveDelay: " + string(waveDelay));
+draw_text(20, 40, "FPS = " + string(fps_real));
 </string>
           </argument>
         </arguments>

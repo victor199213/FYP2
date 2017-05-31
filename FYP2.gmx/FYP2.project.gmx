@@ -95,6 +95,13 @@
     <extension index="1">extensions\HQ Explosion Pack</extension>
     <extension index="2">extensions\SciFi Tileset</extension>
     <extension index="3">extensions\Sci-Fi themed GUI</extension>
+    <extension index="4">extensions\Horizontal city background</extension>
+    <extension index="5">extensions\OPP - Jungle temple tiles</extension>
+    <extension index="6">extensions\Basic Platformer Tiles</extension>
+    <extension index="7">extensions\TileSet 1 and bonus Wallset</extension>
+    <extension index="8">extensions\Free 16 32x32 pixelart tiles</extension>
+    <extension index="9">extensions\Street Tile Set</extension>
+    <extension index="10">extensions\wall tiles</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -119,6 +126,7 @@
       <sprites name="Projectiles">
         <sprite>sprites\shooter_rocket</sprite>
         <sprite>sprites\shooter_bullets</sprite>
+        <sprite>sprites\EnemyProjectile</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_explosion_1</sprite>
@@ -140,6 +148,8 @@
       <sprites name="Enemies">
         <sprite>sprites\Enemy_right</sprite>
         <sprite>sprites\Enemy_left</sprite>
+        <sprite>sprites\ShootingEnemy_left</sprite>
+        <sprite>sprites\ShootingEnemy_right</sprite>
       </sprites>
     </sprites>
     <sprites name="Items">
@@ -245,25 +255,77 @@
         <sprite>sprites\spr_free_stuff</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_street_tile</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
     <background>background\scifi_floorTiles</background>
     <background>background\Free_background</background>
+    <background>background\night</background>
+    <background>background\day</background>
+    <background>background\vines</background>
+    <background>background\bottom_brown</background>
+    <background>background\bottom_grey</background>
+    <background>background\bottom_blue</background>
+    <background>background\bridge</background>
+    <background>background\top_brown</background>
+    <background>background\top_grey</background>
+    <background>background\objects_plants</background>
+    <background>background\slope_brown</background>
+    <background>background\slope_grey</background>
+    <background>background\tree_dark</background>
+    <background>background\tree_bright</background>
+    <background>background\treelimb</background>
+    <background>background\vegetation</background>
+    <background>background\wall_brown</background>
+    <background>background\wall_grey</background>
+    <background>background\water</background>
+    <background>background\temple</background>
+    <background>background\til_platformtiles</background>
+    <background>background\bg_brickwall</background>
+    <background>background\tileSet_grass</background>
+    <background>background\tileSet_Rocks</background>
+    <background>background\tileSet_Ice</background>
+    <background>background\tileSet_Lava</background>
+    <background>background\tileSet_desert</background>
+    <background>background\tileSet_greyTiles</background>
+    <background>background\bonusWallset</background>
+    <background>background\Tileset</background>
+    <background>background\tile1</background>
+    <background>background\Tile2</background>
+    <background>background\Tile3</background>
+    <background>background\Tile4</background>
+    <background>background\Tile5</background>
+    <background>background\Tile6</background>
+    <background>background\Tile7</background>
+    <background>background\Tile8</background>
+    <background>background\Tile9</background>
+    <background>background\Tile10</background>
+    <background>background\Tile11</background>
+    <background>background\Tile12</background>
+    <background>background\Tile13</background>
+    <background>background\Tile14</background>
+    <background>background\Tile15</background>
+    <background>background\tile16</background>
+    <background>background\bg_tileset_walls1</background>
+    <background>background\bg_tileset_walls2</background>
+    <background>background\bg_ground1</background>
+    <background>background\bg_ground2</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\Player</object>
     <object>objects\Spawner</object>
     <object>objects\Enemy</object>
+    <object>objects\EnemyShooting</object>
     <object>objects\Wall</object>
     <object>objects\Objective</object>
-    <objects name="Weaponry_Objects">
+    <objects name="Weaponry Objects">
       <objects name="Guns">
         <object>objects\Handgun</object>
       </objects>
       <objects name="Projectiles">
         <object>objects\Handgun_Ammo</object>
+        <object>objects\EnemyProObj</object>
       </objects>
     </objects>
     <object>objects\Avoid</object>
@@ -272,16 +334,31 @@
         <object>objects\Gunfire</object>
       </objects>
     </objects>
-    <object>objects\sparkObj</object>
+    <objects name="Player Objects">
+      <object>objects\Player</object>
+    </objects>
+    <objects name="Login">
+      <object>objects\back</object>
+      <object>objects\deco1</object>
+      <object>objects\deco2</object>
+      <object>objects\deco3</object>
+      <object>objects\deco4</object>
+      <object>objects\pass</object>
+      <object>objects\user</object>
+      <object>objects\login</object>
+      <object>objects\signup</object>
+      <object>objects\title</object>
+      <object>objects\close</object>
+    </objects>
     <objects name="HUD">
       <objects name="In-Game GUI">
         <object>objects\CurrEquipGUIBorder</object>
       </objects>
     </objects>
+    <object>objects\EnemyProjectileParticle</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>
-    <room>rooms\scifiExampleRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
