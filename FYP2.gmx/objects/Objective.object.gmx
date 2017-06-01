@@ -26,10 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>// Creating variables to open up the Shop System
-b_shopIsOpen = true;
+b_shopIsOpen = false;
 b_menuIsOpen = false;
-
-// Setting GUI size for width and height
 </string>
           </argument>
         </arguments>
@@ -58,6 +56,11 @@ if (Spawner.waveDelay &lt; 60 &amp;&amp; b_shopIsOpen == false)
     b_shopIsOpen = true;
 }
 
+else if (Spawner.waveDelay &gt;= 60 &amp;&amp; b_shopIsOpen == true)
+{
+    b_shopIsOpen = false;
+}
+
 // Checking if player is nearby the Objective point to access the shop menu
 if (b_shopIsOpen == true)
 {
@@ -66,16 +69,25 @@ if (b_shopIsOpen == true)
         if (b_menuIsOpen == false)
         {
             b_menuIsOpen = true;
-            if (instance_exists(Shop == false))
+            if (object_exists(Shop))
             {
                 instance_create(0, 0, Shop);
-                instance_activate_object(Shop);
             }
             
             else
             {
-                instance_activate_object(Shop);
+                instance_activate_object(Shop);            
             }
+
+        }
+        
+        else if (b_menuIsOpen == true)
+        {
+            b_menuIsOpen = false;
+            if (instance_exists(Shop == true))
+            {
+                instance_deactivate_object(Shop);
+            }                
         }
     }
     
@@ -89,6 +101,18 @@ if (b_shopIsOpen == true)
                 instance_deactivate_object(Shop);
             }
         }
+    }
+}
+
+else
+{
+    if (b_menuIsOpen == true)
+    {
+        b_menuIsOpen = false;
+        if (instance_exists(Shop == true))
+        {
+            instance_deactivate_object(Shop);
+        }    
     }
 }
 </string>
