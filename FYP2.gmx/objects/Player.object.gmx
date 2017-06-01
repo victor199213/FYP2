@@ -28,7 +28,7 @@
             <string>// Initialize Variables
 f_verticalSpeed = 0;
 f_horizontalSpeed = 0;
-f_jumpSpeed = 10;
+f_jumpSpeed = 12;
 f_moveSpeed = 3;
 
 // Checks if the player is jumping
@@ -38,8 +38,16 @@ b_isJumping = false;
 b_faceLeft = false;
 b_faceRight = true;
 
+name = ds_list_find_value(global.EquipmentList,ds_list_size(global.EquipmentList) - 1);
+if (name == "Handgun")
+{
+    instance_create(0, 0, Handgun);
+}
+
 // Creating the depth of the player
 depth = -1;
+
+// Player's stats for upgrades
 </string>
           </argument>
         </arguments>

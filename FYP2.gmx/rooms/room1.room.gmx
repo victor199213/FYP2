@@ -13,6 +13,10 @@
   <code>// Shared Gravity across all objects in the room
 global.f_gravity = 0.5;
 
+// Shared GUI sizes across all objects in the room
+global.GUI_width = display_get_gui_width();
+global.GUI_height = display_get_gui_height();
+
 enum e_state
 {
     idle,
@@ -83,7 +87,6 @@ enum e_state
     <instance objName="Avoid" x="704" y="160" name="inst_21ED5713" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Avoid" x="1280" y="160" name="inst_096C8E38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Player" x="704" y="704" name="inst_8FD565AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Handgun" x="736" y="704" name="inst_CA57E2F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Spawner" x="1024" y="64" name="inst_AB163DD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="992" y="160" name="inst_1C1DCD8D" locked="0" code="" scaleX="7.859375" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>

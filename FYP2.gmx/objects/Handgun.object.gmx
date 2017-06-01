@@ -27,19 +27,41 @@
             <kind>1</kind>
             <string>// Properties of a Handgun
 i_ammo = 20;
+i_maxAmmo = 20;
+i_magazine = 1;
+i_maxMagazine = 1;
 f_cooldown = 1;
 f_cooldown_timer = 0;
+i_damage = 1;
 b_fire = true;
+name = "Handgun";
 
 image_index = 0;
 image_speed = 0;
 
+image_xscale *= 1.5;
+image_yscale *= 1.5;
+
 // Creating offsets to match with Pleyer
-offset_x = 0;
-offset_y = 20;
+offset_x = sprite_get_width(Player) * 0.4;
+offset_y = 15;
 
 // Creating the depth of the Handgun
 depth = -2;
+
+// Handgun's upgrades available, and its cost
+i_MaxLevel = 3;
+// Maximum number of Magazines upgrade
+i_maxMagazineLevel = 1;
+i_maxMagazineUpgradeCost = 10;
+
+// Damage upgrade
+i_damageLevel = 1;
+i_damageUpgradeCost = 15;
+
+// Handgun's fire rate upgrade
+i_cooldownLevel = 1;
+i_cooldownUpgradeCost = 30;
 </string>
           </argument>
         </arguments>
@@ -87,12 +109,14 @@ y = Player.y + offset_y;
 // Rotate the image if the player is facing left
 if (Player.b_faceLeft == true)
 {
-    image_xscale = -1;
+    image_xscale = -1.5;
+    offset_x = sprite_get_width(Player) * 0.3 * -1;
 }
 
 else if (Player.b_faceRight == true)
 {
-    image_xscale = 1;
+    image_xscale = 1.5;
+    offset_x = sprite_get_width(Player) * 0.3;
 }
 </string>
           </argument>
@@ -117,6 +141,8 @@ else if (Player.b_faceRight == true)
           <argument>
             <kind>1</kind>
             <string>draw_text(50, 50, "Ammo: " + string(i_ammo));
+draw_text(50, 100, "Damage: " + string(i_damage));
+draw_text(50, 150, "Magazine: " + string(i_maxMagazine));
 draw_self();
 </string>
           </argument>

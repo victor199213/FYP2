@@ -313,6 +313,11 @@
     <background>background\bg_ground2</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\fnt_UIName</font>
+    <font>fonts\fnt_UIDescription</font>
+    <font>fonts\fnt_UIDescriptiontwo</font>
+  </fonts>
   <objects name="objects">
     <object>objects\Player</object>
     <object>objects\Spawner</object>
@@ -350,12 +355,13 @@
     </objects>
     <objects name="HUD">
       <objects name="In-Game GUI">
-        <object>objects\CurrEquipGUIBorder</object>
+        <object>objects\Shop</object>
       </objects>
     </objects>
     <object>objects\EnemyProjectileParticle</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Global_Variable_Instance_Room</room>
     <room>rooms\room1</room>
   </rooms>
   <help>
