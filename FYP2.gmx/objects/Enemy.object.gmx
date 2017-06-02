@@ -29,32 +29,38 @@
 vsp = 0;
 hsp = 0;
 HP = 100;
+maxHP = 100;
 damage = 10;
+pc = 0;
 
 switch(Spawner.wave)
 {
     case 1:
-        HP = 100;
+        maxHP = 100;
+        HP = maxHP;
         damage = 10;
     break;
     case 2:
-        HP = 110;
+        maxHP = 110;
+        HP = maxHP;
         damage = 10;
     break;
     case 3:
-        HP = 120;
+        maxHP = 120;
+        HP = maxHP;
         damage = 20;
     break;
     case 4:
-        HP = 130;
+        maxHP = 130;
+        HP = maxHP;
         damage = 30;
     break;
     case 5:
-        HP = 140;
+        maxHP = 140;
+        HP = maxHP;
         damage = 40;
     break;
 }
-
 </string>
           </argument>
         </arguments>
@@ -78,6 +84,7 @@ switch(Spawner.wave)
           <argument>
             <kind>1</kind>
             <string>image_speed = 10/60;
+pc = (HP / maxHP) * 100;
 
 switch (state)
 {
@@ -138,7 +145,7 @@ switch (state)
             path_start(path,2,"",false);
             gravity = 0;
         }
-        else if(place_meeting(x,y,Wall)== false)
+        if(place_meeting(x,y,Wall)== false)
         {
             path_end();
             gravity = 0.2;
@@ -190,6 +197,30 @@ if(Spawner.waveTime &gt;= 60)
     instance_destroy();
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+draw_healthbar(x - 30,y - 40, x+ 30, y - 50, HP, c_black, c_red, c_lime, 0, true, true);
 </string>
           </argument>
         </arguments>
