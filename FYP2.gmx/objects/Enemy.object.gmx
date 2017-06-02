@@ -152,12 +152,12 @@ switch (state)
         }
         if(direction &gt; 90 &amp;&amp; direction &lt; 270)
         {
-            sprite_index=Enemy_right;
+            sprite_index=Enemy_left;
         
         }
         if(direction &lt; 90 &amp;&amp; direction &gt; -90)
         {
-            sprite_index=Enemy_left;
+            sprite_index=Enemy_right;
         }
         
     }
