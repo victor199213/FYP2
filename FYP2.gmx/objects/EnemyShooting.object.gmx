@@ -160,6 +160,7 @@ switch (state)
     break;
     case e_state.dying:
     {
+        direction = point_direction(x, y, Player.x, Player.y);
         path_end();
         speed = 0;
         if(direction &gt; 90 &amp;&amp; direction &lt; 270)
@@ -170,6 +171,7 @@ switch (state)
         {
             sprite_index=ShootingEnemy_dying_right;
         }
+        
         if(image_index &gt;= 7)
         {
             instance_destroy();
@@ -199,8 +201,6 @@ if(place_meeting(x,y,Handgun_Ammo))
     HP -= Handgun_Ammo.i_damage;
     if(HP &lt;= 0)
     {
-        path_end();
-        speed = 0;
         state = e_state.dying;
     }
 }
