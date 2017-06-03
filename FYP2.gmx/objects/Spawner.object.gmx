@@ -29,7 +29,7 @@
 waveTime = 0;
 wave = 1;
 waveDelay = 60;
-
+randomize();
 
 particle = part_system_create();
 part_system_depth(particle,50);
