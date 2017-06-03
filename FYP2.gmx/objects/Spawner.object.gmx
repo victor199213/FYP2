@@ -104,7 +104,7 @@ if(waveTime &gt;= 60)
     }
 }
 
-if(wave &gt;= 5)
+if(wave &gt;= 6)
 {
     instance_destroy();
     part_emitter_destroy_all(particle);
