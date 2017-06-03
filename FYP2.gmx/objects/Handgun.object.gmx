@@ -32,7 +32,7 @@ i_magazine = 1;
 i_maxMagazine = 1;
 f_cooldown = 1;
 f_cooldown_timer = 0;
-i_damage = 10;
+i_damage = 200;
 b_fire = true;
 name = "Handgun";
 
