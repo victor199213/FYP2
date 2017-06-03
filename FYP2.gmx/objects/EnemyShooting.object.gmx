@@ -197,7 +197,7 @@ y += vsp;
 if(place_meeting(x,y,Handgun_Ammo))
 {
     HP -= Handgun_Ammo.i_damage;
-    if(HP &lt; 0)
+    if(HP &lt;= 0)
     {
         path_end();
         speed = 0;

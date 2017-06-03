@@ -10,12 +10,25 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>// Player's equipment for the gun
+  <code>randomize();
+
+// Shared GUI sizes across all objects in the room
+global.GUI_width = display_get_gui_width();
+global.GUI_height = display_get_gui_height();
+
+// Player's equipment for the gun
 global.EquipmentList = ds_list_create();
 ds_list_add(global.EquipmentList, "Handgun");
 
 // Player's wallet for cash during game-play
-global.i_currency = 50;
+global.i_currency = 5000;
+global.i_baseLoot = 10;
+
+// Player's Upgrade Description
+global.maxhealth_description = "Increases Max Health.";
+global.maxdamage_description = "Gives Damage Multiplier.";
+global.maxmovespeed_description = "Moves faster.";
+global.maxarmour_description = "Reduce damage taken";
 
 // Guns description
 global.magazine_description = "+1 Max Magazine."

@@ -38,14 +38,45 @@ b_faceLeft = false;
 b_faceRight = true;
 
 // Stats for the player
+// 1. Health, and the max Health. Can be upgraded.
 i_health = 100;
+i_maxHealthIncrement = 10;
+i_baseMaxHealth = 100;
 i_maxHealth = 100;
+// Max Health upgrade
+i_maxHealthLevel = 1;
+i_maxHealthUpgradeCost = 50;
+
+// 2. Damage Multiplier
+f_damageMultiplier = 1;
+f_damageMultiplierIncrement = 0.1;
+f_baseDamageMultiplier = 1;
+f_maxDamageMultiplier = 1.3;
+// Damage multiplier upgrade
+i_maxDamageMultiplierLevel = 1;
+i_maxDamageMultiplierCost = 50;
+
+// 3. Movement Speed
+f_moveSpeed = 3;
+f_moveSpeedIncrement = 0.5;;
+f_baseMoveSpeed = 3;
+f_maxMoveSpeed = 15;
+// Move speed upgrade
+f_moveSpeedLevel = 1;
+i_moveSpeedUpgradeCost = 30;
+
+// 4. Armor
+f_armour = 1;
+f_armourIncrement = 0.05;
+f_baseArmour = 1;
+f_maxArmour = 0.5;
+// Armour upgrade
+i_maxArmourLevel = 1;
+i_maxArmourUpgradeCost = 80;
+
+// Stats to be added during power up
 i_armourPierceDamage = 0;
 i_armourPierceMaxDamage = 50;
-f_moveSpeed = 3;
-f_maxMoveSpeed = 15;
-i_armour = 1;
-i_maxArmour = 0.5;
 
 //Getting the first weapon on the list of EquipmentList
 name = ds_list_find_value(global.EquipmentList, 0);
@@ -59,13 +90,6 @@ depth = -1;
 
 // Player's stats for upgrades
 i_playerMaxUpgrade = 3;
-
-i_maxHealthLevel = 1;
-i_maxHealthUpgradeCost = 50;
-f_moveSpeedLevel = 1;
-i_moveSpeedUpgradeCost = 30;
-i_maxArmourLevel = 1;
-i_maxArmourUpgradeCost = 80;
 </string>
           </argument>
         </arguments>
@@ -94,6 +118,7 @@ MOVERIGHT = keyboard_check(vk_right);
 JUMP = keyboard_check_pressed(vk_space);
 SHOOT = keyboard_check(ord('Z'));
 OPEN = keyboard_check_pressed(ord('O'));
+RELOAD = keyboard_check_pressed(ord('R'));
 
 // React to inputs
 move = -MOVELEFT + MOVERIGHT;
@@ -196,6 +221,32 @@ if (place_meeting(x, y + f_verticalSpeed, Wall))
 }
 
 y += f_verticalSpeed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(global.GUI_width * 0.7, 50, global.i_currency);
+draw_text(global.GUI_width * 0.7, 150, i_maxHealth);
+draw_text(global.GUI_width * 0.7, 175, f_damageMultiplier);
+draw_text(global.GUI_width * 0.7, 200, f_moveSpeed);
 </string>
           </argument>
         </arguments>

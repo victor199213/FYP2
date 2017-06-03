@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>state = e_state.idle;
+            <string>// Currency multiplier every time it dies
+f_multiplierLoot = random_range(0.3, 0.5);
+i_loot = 0;
+
+state = e_state.idle;
 vsp = 0;
 hsp = 0;
 HP = 100;
@@ -176,6 +180,8 @@ switch (state)
         }
         if(image_index &gt;= 7)
         {
+            i_loot = round(f_multiplierLoot * global.i_baseLoot);
+            global.i_currency += i_loot;
             instance_destroy();
         }
     }
@@ -201,7 +207,7 @@ y += vsp;
 if(place_meeting(x,y,Handgun_Ammo))
 {
     HP -= Handgun_Ammo.i_damage;
-    if(HP &lt; 0)
+    if(HP &lt;= 0)
     {
         path_end();
         speed = 0;

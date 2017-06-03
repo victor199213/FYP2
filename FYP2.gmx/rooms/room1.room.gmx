@@ -13,9 +13,7 @@
   <code>// Shared Gravity across all objects in the room
 global.f_gravity = 0.5;
 
-// Shared GUI sizes across all objects in the room
-global.GUI_width = display_get_gui_width();
-global.GUI_height = display_get_gui_height();
+
 
 enum e_state
 {

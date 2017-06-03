@@ -28,11 +28,38 @@
             <string>// Properties of a Handgun
 i_ammo = 20;
 i_maxAmmo = 20;
+
+// Magazines of handgun, and the total number of magazines you can hold. Can be upgraded
 i_magazine = 1;
+i_maxMagazineIncrement = 1;
+i_baseMagazine = 1;
 i_maxMagazine = 1;
-f_cooldown = 1;
-f_cooldown_timer = 0;
+// Maximum number of Magazines upgrade
+i_maxMagazineLevel = 1;
+i_maxMagazineUpgradeCost = 10;
+
+// Damage of the handgun. Can be upgraded
 i_damage = 10;
+i_damageIncrement = 5;
+i_baseDamage = 10;
+i_maxDamage = 30;
+// Damage upgrade
+i_damageLevel = 1;
+i_damageUpgradeCost = 15;
+
+// Fire rate of the handgun. Can be upgraded
+f_cooldown = 1;
+f_cooldownIncrement = 0.1;
+f_maxcooldown = 0.5;
+f_basecooldown = 1;
+f_cooldown_timer = 0;
+// Handgun's fire rate upgrade
+i_cooldownLevel = 1;
+i_cooldownUpgradeCost = 30;
+
+// Handgun's upgrades available, and its cost
+i_MaxLevel = 3;
+
 b_fire = true;
 name = "Handgun";
 
@@ -48,20 +75,6 @@ offset_y = 15;
 
 // Creating the depth of the Handgun
 depth = -2;
-
-// Handgun's upgrades available, and its cost
-i_MaxLevel = 3;
-// Maximum number of Magazines upgrade
-i_maxMagazineLevel = 1;
-i_maxMagazineUpgradeCost = 10;
-
-// Damage upgrade
-i_damageLevel = 1;
-i_damageUpgradeCost = 15;
-
-// Handgun's fire rate upgrade
-i_cooldownLevel = 1;
-i_cooldownUpgradeCost = 30;
 </string>
           </argument>
         </arguments>
