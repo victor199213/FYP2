@@ -112,6 +112,14 @@ switch (state)
             path_end();
             gravity = 0.2;
         }
+        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        {
+            sprite_index=ShootingEnemy_left;
+        }
+        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        {
+            sprite_index=ShootingEnemy_right;
+        }
     }
     break;
     case e_state.chase:
@@ -140,6 +148,32 @@ switch (state)
             direction = point_direction(x, y, Player.x, Player.y);
             gravity = 0;
         }
+        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        {
+            sprite_index=ShootingEnemy_left;
+        }
+        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        {
+            sprite_index=ShootingEnemy_right;
+        }
+    }
+    break;
+    case e_state.dying:
+    {
+        path_end();
+        speed = 0;
+        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        {
+            sprite_index=ShootingEnemy_dying_left;
+        }
+        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        {
+            sprite_index=ShootingEnemy_dying_right;
+        }
+        if(image_index &gt;= 7)
+        {
+            instance_destroy();
+        }
     }
     break;
 }
@@ -165,26 +199,21 @@ if(place_meeting(x,y,Handgun_Ammo))
     HP -= Handgun_Ammo.i_damage;
     if(HP &lt; 0)
     {
-        instance_destroy();
+        path_end();
+        speed = 0;
+        state = e_state.dying;
     }
 }
 
 if(place_meeting(x,y,Objective))
 {
     instance_destroy();
+    instance_create(x,y,EnemyExplode)
 }
 if(Spawner.waveTime &gt;= 60)
 {
     instance_destroy();
-}
-
-if(direction &gt; 90 &amp;&amp; direction &lt; 270)
-{
-    sprite_index=ShootingEnemy_left;
-}
-if(direction &lt; 90 &amp;&amp; direction &gt; -90)
-{
-    sprite_index=ShootingEnemy_right;
+    instance_create(x,y,EnemyExplode)
 }
 </string>
           </argument>

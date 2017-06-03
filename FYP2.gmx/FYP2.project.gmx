@@ -150,13 +150,16 @@
         <sprite>sprites\Enemy_left</sprite>
         <sprite>sprites\ShootingEnemy_left</sprite>
         <sprite>sprites\ShootingEnemy_right</sprite>
+        <sprite>sprites\Enemy_dying_right</sprite>
+        <sprite>sprites\Enemy_dying_left</sprite>
+        <sprite>sprites\ShootingEnemy_dying_right</sprite>
+        <sprite>sprites\ShootingEnemy_dying_left</sprite>
       </sprites>
     </sprites>
     <sprites name="Items">
       <sprite>sprites\shooter_otherItems</sprite>
     </sprites>
     <sprite>sprites\PathAvoid</sprite>
-    <sprite>sprites\spark</sprite>
     <sprites name="GUI">
       <sprites name="Buttons">
         <sprite>sprites\spr_plus_round</sprite>
@@ -359,6 +362,7 @@
       </objects>
     </objects>
     <object>objects\EnemyProjectileParticle</object>
+    <object>objects\EnemyExplode</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Global_Variable_Instance_Room</room>

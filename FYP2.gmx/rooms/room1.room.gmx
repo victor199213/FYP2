@@ -20,7 +20,8 @@ global.GUI_height = display_get_gui_height();
 enum e_state
 {
     idle,
-    chase
+    chase,
+    dying
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
