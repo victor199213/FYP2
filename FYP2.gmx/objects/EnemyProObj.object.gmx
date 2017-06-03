@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction = point_direction(EnemyShooting.x,EnemyShooting.y,Player.x,Player.y);
-speed = 10;
+            <string>speed = 10;
 seconds = 0;
+direction = point_direction(x, y, Player.x, Player.y);
 </string>
           </argument>
         </arguments>
