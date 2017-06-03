@@ -316,7 +316,6 @@
     <background>background\bg_ground2</background>
   </backgrounds>
   <paths name="paths"/>
-  <scripts name="scripts"/>
   <fonts name="fonts">
     <font>fonts\fnt_UIName</font>
     <font>fonts\fnt_UIDescription</font>
