@@ -90,7 +90,6 @@ if (i_selectedSlot == 1)
         // When the first equipment is Handgun
         case "Handgun":
             draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.375, global.GUI_height * 0.35, 3, 3, 0, c_white, 1);
-                          
             // Giving the available options for upgrades, along with the name of the Item
             // Name of the weapon in first slot
             draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
@@ -231,7 +230,16 @@ if (i_selectedSlot == 1)
 
 else
 {
-    draw_sprite_ext(spr_slot_inv, 0, global.GUI_width * 0.375, global.GUI_height * 0.35, 1.5, 1.5, 0, c_white, 1); 
+    draw_sprite_ext(spr_slot_inv, 0, global.GUI_width * 0.375, global.GUI_height * 0.35, 1.5, 1.5, 0, c_white, 1);
+    switch (equipmentNames[0])
+    {
+        default:
+        break;
+        
+        case "Handgun":
+        draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.375, global.GUI_height * 0.35, 3, 3, 0, c_white, 1);
+        break;
+    }
 } 
 
 // Slot 2
