@@ -28,7 +28,7 @@
             <string>// Initialize Variables
 f_verticalSpeed = 0;
 f_horizontalSpeed = 0;
-f_jumpSpeed = 12;
+f_jumpSpeed = 14;
 
 // Checks if the player is jumping
 b_isJumping = false;
