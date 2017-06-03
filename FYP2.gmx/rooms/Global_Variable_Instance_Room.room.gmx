@@ -10,8 +10,12 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>global.EquipmentList = ds_list_create();
+  <code>// Player's equipment for the gun
+global.EquipmentList = ds_list_create();
 ds_list_add(global.EquipmentList, "Handgun");
+
+// Player's wallet for cash during game-play
+global.i_currency = 50;
 
 // Guns description
 global.magazine_description = "+1 Max Magazine."

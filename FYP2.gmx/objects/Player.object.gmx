@@ -29,7 +29,6 @@
 f_verticalSpeed = 0;
 f_horizontalSpeed = 0;
 f_jumpSpeed = 12;
-f_moveSpeed = 3;
 
 // Checks if the player is jumping
 b_isJumping = false;
@@ -38,7 +37,18 @@ b_isJumping = false;
 b_faceLeft = false;
 b_faceRight = true;
 
-name = ds_list_find_value(global.EquipmentList,ds_list_size(global.EquipmentList) - 1);
+// Stats for the player
+i_health = 100;
+i_maxHealth = 100;
+i_armourPierceDamage = 0;
+i_armourPierceMaxDamage = 50;
+f_moveSpeed = 3;
+f_maxMoveSpeed = 15;
+i_armour = 1;
+i_maxArmour = 0.5;
+
+//Getting the first weapon on the list of EquipmentList
+name = ds_list_find_value(global.EquipmentList, 0);
 if (name == "Handgun")
 {
     instance_create(0, 0, Handgun);
@@ -48,6 +58,14 @@ if (name == "Handgun")
 depth = -1;
 
 // Player's stats for upgrades
+i_playerMaxUpgrade = 3;
+
+i_maxHealthLevel = 1;
+i_maxHealthUpgradeCost = 50;
+f_moveSpeedLevel = 1;
+i_moveSpeedUpgradeCost = 30;
+i_maxArmourLevel = 1;
+i_maxArmourUpgradeCost = 80;
 </string>
           </argument>
         </arguments>
