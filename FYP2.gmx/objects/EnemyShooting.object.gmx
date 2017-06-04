@@ -108,7 +108,17 @@ switch (state)
         
         if (b_isKnockback == true)
         {
-            x -= f_knockback_speed;    
+            if (position_meeting(x - f_knockback_speed, y, Wall))
+            {
+                f_knockback_timer = 0;
+                x = x + sign(ammo_onhit_x - x) * 20;
+                f_knockback_speed = 0;
+                b_isKnockback = false;
+            }
+            else
+            {
+                x -= f_knockback_speed;
+            }    
         }
         
         if (distance_to_object(Player) &lt; 94) 
@@ -148,7 +158,18 @@ switch (state)
         
         if (b_isKnockback == true)
         {
-            x -= f_knockback_speed;    
+            if (position_meeting(x - f_knockback_speed, y, Wall) || position_meeting(x - f_knockback_speed, y + 1, Wall))
+            {
+                f_knockback_timer = 0;
+                x = x + sign(ammo_onhit_x - x) * 20;
+                f_knockback_speed = 0;
+                b_isKnockback = false;
+            }
+            
+            else
+            {
+                x -= f_knockback_speed;
+            }    
         }
         
         if(seconds &gt;= 0.5)

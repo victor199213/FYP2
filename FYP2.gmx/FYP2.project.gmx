@@ -322,6 +322,7 @@
     <font>fonts\fnt_UIName</font>
     <font>fonts\fnt_UIDescription</font>
     <font>fonts\fnt_UIDescriptiontwo</font>
+    <font>fonts\font3</font>
   </fonts>
   <objects name="objects">
     <object>objects\Player</object>
