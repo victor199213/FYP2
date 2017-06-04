@@ -172,7 +172,7 @@ else
         if (move &lt; 0)
         {
             sprite_index = Sprite_Player_Walk_Left;
-            image_speed = 10/60;
+            image_speed = 10 / room_speed;
         }
         
         else
@@ -192,7 +192,7 @@ else
         else
         {
             sprite_index = Sprite_Player_Idle_Right;
-            image_speed = 10/60;
+            image_speed = 10 / room_speed;
         }
 
     }

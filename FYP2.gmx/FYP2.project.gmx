@@ -112,6 +112,11 @@
       <sprite>sprites\shooter_smokeExplosion</sprite>
       <sprite>sprites\shooter_gunFire</sprite>
       <sprite>sprites\shooter_grenadeExplosion</sprite>
+      <sprite>sprites\spr_explosion_1</sprite>
+      <sprite>sprites\spr_explosion_2</sprite>
+      <sprite>sprites\spr_explosion_3</sprite>
+      <sprite>sprites\spr_explosion_4</sprite>
+      <sprite>sprites\spr_explosion_5</sprite>
     </sprites>
     <sprites name="Weaponry">
       <sprites name="guns">
@@ -129,11 +134,6 @@
         <sprite>sprites\EnemyProjectile</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_explosion_1</sprite>
-    <sprite>sprites\spr_explosion_2</sprite>
-    <sprite>sprites\spr_explosion_3</sprite>
-    <sprite>sprites\spr_explosion_4</sprite>
-    <sprite>sprites\spr_explosion_5</sprite>
     <sprites name="Characters">
       <sprites name="Player">
         <sprite>sprites\Sprite_Player_Idle_Right</sprite>
@@ -341,6 +341,7 @@
     <objects name="Explosions">
       <objects name="GunFire">
         <object>objects\Gunfire</object>
+        <object>objects\AmmoExplosion</object>
       </objects>
     </objects>
     <objects name="Login">
