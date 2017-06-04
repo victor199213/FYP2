@@ -73,6 +73,7 @@ f_armour = 1;
 f_armourIncrement = 0.05;
 f_baseArmour = 1;
 f_maxArmour = 0.5;
+i_reducedDamage = 0;
 // Armour upgrade
 i_maxArmourLevel = 1;
 i_maxArmourUpgradeCost = 80;
@@ -224,9 +225,10 @@ if (place_meeting(x, y, Enemy))
 {
     if (b_noDamage == false)
     {
-        if (i_health &gt; Enemy.damage)
+        i_reducedDamage = round(Enemy.damage * f_armour);
+        if (i_health &gt; i_reducedDamage)
         {
-            i_health = i_health - Enemy.damage;        
+            i_health = i_health - i_reducedDamage;        
         }
         
         else
@@ -242,9 +244,10 @@ if (place_meeting(x, y, EnemyProObj))
 {
     if (b_noDamage == false)
     {
-        if (i_health &gt; EnemyShooting.damage)
+        i_reducedDamage = round(EnemyShooting.damage * f_armour);
+        if (i_health &gt; i_reducedDamage)
         {
-            i_health = i_health - EnemyShooting.damage;        
+            i_health = i_health - i_reducedDamage;        
         }
         
         else
@@ -261,6 +264,7 @@ if (b_noDamage == true)
     if (f_noDamageTimer &gt; f_noDamageCooldown)
     {
         f_noDamageTimer = 0;
+        i_reducedDamage = 0;
         b_noDamage = false;
     }
 }
@@ -310,10 +314,10 @@ y += f_verticalSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*draw_text(global.GUI_width * 0.7, 50, global.i_currency);
-draw_text(global.GUI_width * 0.7, 150, i_maxHealth);
-draw_text(global.GUI_width * 0.7, 175, f_damageMultiplier);
-draw_text(global.GUI_width * 0.7, 200, f_moveSpeed);*/
+            <string>//draw_text(global.GUI_width * 0.7, 50, global.i_currency);
+//draw_text(global.GUI_width * 0.7, 150, i_maxHealth);
+//draw_text(global.GUI_width * 0.7, 175, f_damageMultiplier);
+//draw_text(global.GUI_width * 0.8, 200, string(i_reducedDamage));
 
 // GUI for the Player.
 draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.15, global.GUI_height * 0.09, 0.8, 0.5, 0, c_white, 0.75);
