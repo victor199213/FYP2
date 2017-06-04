@@ -29,6 +29,9 @@
 f_verticalSpeed = 0;
 f_horizontalSpeed = 0;
 f_jumpSpeed = 14;
+f_noDamageCooldown = 2;
+f_noDamageTimer = 0;
+b_noDamage = false;
 
 // Checks if the player is jumping
 b_isJumping = false;
@@ -70,6 +73,7 @@ f_armour = 1;
 f_armourIncrement = 0.05;
 f_baseArmour = 1;
 f_maxArmour = 0.5;
+i_reducedDamage = 0;
 // Armour upgrade
 i_maxArmourLevel = 1;
 i_maxArmourUpgradeCost = 80;
@@ -215,6 +219,56 @@ else
     }
 }
 
+// Taking damage from the enemy
+// 1. Melee enemy
+if (place_meeting(x, y, Enemy))
+{
+    if (b_noDamage == false)
+    {
+        i_reducedDamage = round(Enemy.damage * f_armour);
+        if (i_health &gt; i_reducedDamage)
+        {
+            i_health = i_health - i_reducedDamage;        
+        }
+        
+        else
+        {
+            i_health = 0;
+        }
+        b_noDamage = true;
+    }
+}
+
+// 2. Ranged enemy
+if (place_meeting(x, y, EnemyProObj))
+{
+    if (b_noDamage == false)
+    {
+        i_reducedDamage = round(EnemyShooting.damage * f_armour);
+        if (i_health &gt; i_reducedDamage)
+        {
+            i_health = i_health - i_reducedDamage;        
+        }
+        
+        else
+        {
+            i_health = 0;
+        }    
+        b_noDamage = true;
+    }
+}
+
+if (b_noDamage == true)
+{
+    f_noDamageTimer = f_noDamageTimer + (1 / room_speed);
+    if (f_noDamageTimer &gt; f_noDamageCooldown)
+    {
+        f_noDamageTimer = 0;
+        i_reducedDamage = 0;
+        b_noDamage = false;
+    }
+}
+
 // Horizontal Collision
 if (place_meeting(x + f_horizontalSpeed, y, Wall))
 {
@@ -260,10 +314,10 @@ y += f_verticalSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*draw_text(global.GUI_width * 0.7, 50, global.i_currency);
-draw_text(global.GUI_width * 0.7, 150, i_maxHealth);
-draw_text(global.GUI_width * 0.7, 175, f_damageMultiplier);
-draw_text(global.GUI_width * 0.7, 200, f_moveSpeed);*/
+            <string>//draw_text(global.GUI_width * 0.7, 50, global.i_currency);
+//draw_text(global.GUI_width * 0.7, 150, i_maxHealth);
+//draw_text(global.GUI_width * 0.7, 175, f_damageMultiplier);
+//draw_text(global.GUI_width * 0.8, 200, string(i_reducedDamage));
 
 // GUI for the Player.
 draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.15, global.GUI_height * 0.09, 0.8, 0.5, 0, c_white, 0.75);

@@ -44,7 +44,7 @@ vsp = 0;
 hsp = 0;
 HP = 100;
 maxHP = 100;
-damage = 10;
+damage = 0;
 pc = 0;
 
 switch(Spawner.wave)

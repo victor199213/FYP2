@@ -30,7 +30,7 @@ vsp = 0;
 hsp = 0;
 HP = 100;
 maxHP = 100;
-damage = 10;
+damage = 0;
 seconds = 2;
 
 // Knockback timer and physics based calculation
