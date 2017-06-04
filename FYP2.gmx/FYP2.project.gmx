@@ -316,6 +316,8 @@
     <background>background\bg_tileset_walls2</background>
     <background>background\bg_ground1</background>
     <background>background\bg_ground2</background>
+    <background>background\WinTmp</background>
+    <background>background\GameOverTmp</background>
   </backgrounds>
   <paths name="paths"/>
   <fonts name="fonts">
@@ -366,10 +368,13 @@
     </objects>
     <object>objects\EnemyProjectileParticle</object>
     <object>objects\EnemyExplode</object>
+    <object>objects\TmpSwitchRoom</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Global_Variable_Instance_Room</room>
     <room>rooms\room1</room>
+    <room>rooms\GameOver</room>
+    <room>rooms\Win</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -123,7 +123,6 @@ if(wave &lt; 5)
     part_emitter_region(particle,particle_emitter,x - 30, x + 30,y,y,ps_shape_ellipse,ps_distr_linear);
     part_emitter_stream(particle,particle_emitter,sparkle,1);
 }
-
 </string>
           </argument>
         </arguments>
@@ -146,8 +145,8 @@ if(wave &lt; 5)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(20,20,"Wave: " + string( wave) + " WaveTime: " + string(waveTime) + "WaveDelay: " + string(waveDelay));
-draw_text(20, 40, "FPS = " + string(fps_real));
+            <string>draw_text(800,20,"Wave: " + string( wave) + " WaveTime: " + string(waveTime) + "WaveDelay: " + string(waveDelay));
+draw_text(800, 40, "FPS = " + string(fps_real));
 </string>
           </argument>
         </arguments>
