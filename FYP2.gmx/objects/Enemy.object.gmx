@@ -36,7 +36,7 @@ f_knockback_timer = 0;
 f_maxKnockback_time = 1;
 f_knockback_speed = 0;
 // Knock back distance on enemies upon hitting Ammo
-knockback_acceleration = 3;
+knockback_acceleration = 10;
 ammo_onhit_x = 0;
 
 state = e_state.idle;
@@ -115,9 +115,17 @@ switch (state)
             if (position_meeting(x - f_knockback_speed, y, Wall))
             {
                 f_knockback_timer = 0;
-                x = x + sign(ammo_onhit_x - x) * 20;
+                x = x + sign(ammo_onhit_x - x) * 30;
                 f_knockback_speed = 0;
+                
+                if(place_meeting(x,y,Wall)== false)
+                {
+                    path_end();
+                    gravity = 0.2;
+                }
+                
                 b_isKnockback = false;
+                
             }
             else
             {
@@ -160,11 +168,18 @@ switch (state)
         
         if (b_isKnockback == true)
         {
-            if (position_meeting(x - f_knockback_speed, y, Wall) || position_meeting(x - f_knockback_speed, y + 1, Wall))
+            if (position_meeting(x - f_knockback_speed, y, Wall))
             {
                 f_knockback_timer = 0;
-                x = x + sign(ammo_onhit_x - x) * 20;
+                x = x + sign(ammo_onhit_x - x) * 30;
                 f_knockback_speed = 0;
+                
+                if(place_meeting(x,y,Wall)== false)
+                {
+                    path_end();
+                    gravity = 0.2;
+                }
+                
                 b_isKnockback = false;
             }
             
