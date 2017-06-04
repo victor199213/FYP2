@@ -108,6 +108,14 @@ if(wave &gt;= 6)
 {
     instance_destroy();
     part_emitter_destroy_all(particle);
+    room_goto(3);
+}
+
+if(Player.i_health &lt;= 0)
+{
+    instance_destroy();
+    part_emitter_destroy_all(particle);
+    room_goto(2);
 }
 
 if(wave &lt; 5)

@@ -260,6 +260,7 @@ if (f_knockback_timer &gt;= f_maxKnockback_time)
 
 if(place_meeting(x,y,Objective))
 {
+    Objective.health -= 10;
     instance_destroy();
     instance_create(x,y,EnemyExplode)
 }
