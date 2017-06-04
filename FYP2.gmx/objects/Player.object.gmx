@@ -29,6 +29,9 @@
 f_verticalSpeed = 0;
 f_horizontalSpeed = 0;
 f_jumpSpeed = 14;
+f_noDamageCooldown = 2;
+f_noDamageTimer = 0;
+b_noDamage = false;
 
 // Checks if the player is jumping
 b_isJumping = false;
@@ -212,6 +215,53 @@ else
             image_speed = 10 / room_speed;
         }
 
+    }
+}
+
+// Taking damage from the enemy
+// 1. Melee enemy
+if (place_meeting(x, y, Enemy))
+{
+    if (b_noDamage == false)
+    {
+        if (i_health &gt; Enemy.damage)
+        {
+            i_health = i_health - Enemy.damage;        
+        }
+        
+        else
+        {
+            i_health = 0;
+        }
+        b_noDamage = true;
+    }
+}
+
+// 2. Ranged enemy
+if (place_meeting(x, y, EnemyProObj))
+{
+    if (b_noDamage == false)
+    {
+        if (i_health &gt; EnemyShooting.damage)
+        {
+            i_health = i_health - EnemyShooting.damage;        
+        }
+        
+        else
+        {
+            i_health = 0;
+        }    
+        b_noDamage = true;
+    }
+}
+
+if (b_noDamage == true)
+{
+    f_noDamageTimer = f_noDamageTimer + (1 / room_speed);
+    if (f_noDamageTimer &gt; f_noDamageCooldown)
+    {
+        f_noDamageTimer = 0;
+        b_noDamage = false;
     }
 }
 
