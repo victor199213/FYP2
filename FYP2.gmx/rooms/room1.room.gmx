@@ -102,6 +102,7 @@ enum e_state
     <instance objName="Avoid" x="480" y="608" name="inst_F90ED9C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Avoid" x="352" y="608" name="inst_94E0A668" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="576" y="768" name="inst_0BA04996" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="TmpSwitchRoom" x="96" y="992" name="inst_CB5DF0BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="scifi_floorTiles" x="768" y="896" w="64" h="64" xo="64" yo="384" id="10001114" name="inst_8370CA76" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
