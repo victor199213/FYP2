@@ -44,10 +44,10 @@ i_maxMagazineLevel = 1;
 i_maxMagazineUpgradeCost = 10;
 
 // Damage of the handgun. Can be upgraded
-i_damage = 10;
+i_damage = 30;
 i_damageIncrement = 5;
-i_baseDamage = 10;
-i_maxDamage = 30;
+i_baseDamage = 30;
+i_maxDamage = 100;
 // Damage upgrade
 i_damageLevel = 1;
 i_damageUpgradeCost = 15;
