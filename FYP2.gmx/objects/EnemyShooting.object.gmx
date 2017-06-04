@@ -257,6 +257,11 @@ if(place_meeting(x,y,Handgun_Ammo))
         b_isKnockback = true;
     }
     
+    else
+    {
+        f_knockback_timer = 0;
+    }
+    
     if(HP &lt;= 0)
     {
         state = e_state.dying;

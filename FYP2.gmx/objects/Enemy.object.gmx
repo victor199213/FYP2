@@ -271,7 +271,7 @@ if(place_meeting(x,y,Handgun_Ammo))
     
     else
     {
-        f_knockback_timer = 1;
+        f_knockback_timer = 0;
     }
     
     if(HP &lt;= 0)
