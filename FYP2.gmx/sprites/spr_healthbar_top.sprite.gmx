@@ -2,24 +2,24 @@
 <sprite>
   <type>0</type>
   <xorig>180</xorig>
-  <yorigin>14</yorigin>
+  <yorigin>13</yorigin>
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
-  <bbox_right>360</bbox_right>
+  <bbox_right>359</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>27</bbox_bottom>
+  <bbox_bottom>26</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>361</width>
-  <height>28</height>
+  <width>360</width>
+  <height>27</height>
   <frames>
-    <frame index="0">images\spr_healthbar_fill_0.png</frame>
+    <frame index="0">images\spr_healthbar_top_0.png</frame>
   </frames>
 </sprite>

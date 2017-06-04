@@ -241,6 +241,7 @@
         <sprite>sprites\spr_hud2_nametag</sprite>
         <sprite>sprites\spr_healthbar_fill</sprite>
         <sprite>sprites\spr_healthbar_back</sprite>
+        <sprite>sprites\spr_healthbar_top</sprite>
         <sprite>sprites\spr_loadingbar_back</sprite>
         <sprite>sprites\spr_loadingbar_fill</sprite>
         <sprite>sprites\spr_loadingbar_top</sprite>
@@ -259,6 +260,7 @@
       </sprites>
     </sprites>
     <sprite>sprites\spr_street_tile</sprite>
+    <sprite>sprites\Coin</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>

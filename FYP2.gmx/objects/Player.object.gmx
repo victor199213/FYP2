@@ -79,11 +79,27 @@ i_armourPierceDamage = 0;
 i_armourPierceMaxDamage = 50;
 
 //Getting the first weapon on the list of EquipmentList
-name = ds_list_find_value(global.EquipmentList, 0);
-if (name == "Handgun")
+i_currEquip = 1;
+var i;
+for (i = 0; i &lt; ds_list_size(global.EquipmentList); i += 1)
+{
+    name[i] = ds_list_find_value(global.EquipmentList, i);
+}
+
+switch (name[0])
+{
+    default:
+    break;
+    
+    case "Handgun":
+    instance_create(0, 0, Handgun);
+    break;
+}
+
+/*if (name == "Handgun")
 {
     instance_create(0, 0, Handgun);
-}
+}*/
 
 // Creating the depth of the player
 depth = -1;
@@ -119,6 +135,7 @@ JUMP = keyboard_check_pressed(vk_space);
 SHOOT = keyboard_check(ord('Z'));
 OPEN = keyboard_check_pressed(ord('O'));
 RELOAD = keyboard_check_pressed(ord('R'));
+
 
 // React to inputs
 move = -MOVELEFT + MOVERIGHT;
@@ -243,10 +260,61 @@ y += f_verticalSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(global.GUI_width * 0.7, 50, global.i_currency);
+            <string>/*draw_text(global.GUI_width * 0.7, 50, global.i_currency);
 draw_text(global.GUI_width * 0.7, 150, i_maxHealth);
 draw_text(global.GUI_width * 0.7, 175, f_damageMultiplier);
-draw_text(global.GUI_width * 0.7, 200, f_moveSpeed);
+draw_text(global.GUI_width * 0.7, 200, f_moveSpeed);*/
+
+// GUI for the Player.
+draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.15, global.GUI_height * 0.09, 0.8, 0.5, 0, c_white, 0.75);
+draw_set_font(fnt_UIDescription);
+draw_set_color(c_white);
+
+// Drawing the health bar
+draw_text(global.GUI_width * 0.05, global.GUI_height * 0.025, "Health: ");
+draw_healthbar(global.GUI_width * 0.1, global.GUI_height * 0.0275, global.GUI_width * 0.2, global.GUI_height * 0.04, i_health, c_gray, c_red, c_lime, 0, true, true);
+
+// Drawing the currency the player currently has
+draw_text(global.GUI_width * 0.05, global.GUI_height * 0.05, "Currency: ");
+draw_text(global.GUI_width * 0.1, global.GUI_height * 0.05, global.i_currency);
+
+// Drawing the current equipped weapon sprite
+draw_sprite_ext(spr_slot_gear, 0, global.GUI_width * 0.065, global.GUI_height * 0.115, 1, 1, 0, c_white, 1);
+
+switch (i_currEquip)
+{
+    default:
+    break;
+    
+    case 1:
+    switch (name[0])
+    {
+        default:
+        break;
+        
+        case "Handgun":
+        draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.065, global.GUI_height * 0.115, 2, 2, 0, c_white, 1);
+        
+        // Drawing the number of ammos
+        draw_text(global.GUI_width * 0.09, global.GUI_height * 0.08, "Ammo: ");
+        draw_text(global.GUI_width * 0.14, global.GUI_height * 0.08, string(Handgun.i_ammo));
+        // Drawing the number of magazine the player has currently
+        draw_text(global.GUI_width * 0.09, global.GUI_height * 0.105, "Magazine: ");
+        draw_text(global.GUI_width * 0.14, global.GUI_height * 0.105, string(Handgun.i_magazine));
+        //Drawing the damage of the Gun
+        draw_text(global.GUI_width * 0.09, global.GUI_height * 0.13, "Damage: ");
+        draw_text(global.GUI_width * 0.14, global.GUI_height * 0.13, string(Handgun.i_damage));
+        break;
+    }
+    break;
+    
+    case 2:
+    break;
+}
+
+// Setting back to the original fonts to prevent further change of fonts
+draw_set_font(-1);
+draw_set_color(c_black);
 </string>
           </argument>
         </arguments>

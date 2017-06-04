@@ -29,8 +29,13 @@
 i_ammo = 20;
 i_maxAmmo = 20;
 
+// Reload speed of the handgun. Cannot be upgraded
+f_reloadSpeed = 1;
+f_reloadTime = 0;
+b_isReload = false;
+
 // Magazines of handgun, and the total number of magazines you can hold. Can be upgraded
-i_magazine = 1;
+i_magazine = 3;
 i_maxMagazineIncrement = 1;
 i_baseMagazine = 1;
 i_maxMagazine = 1;
@@ -104,7 +109,7 @@ if (Handgun.f_cooldown_timer &gt; Handgun.f_cooldown)
     Handgun.b_fire = true;
 }
 
-if (Player.SHOOT &amp;&amp; Handgun.b_fire == true)
+if (Player.SHOOT &amp;&amp; Handgun.b_fire == true &amp;&amp; b_isReload == false)
 {
     if (i_ammo &gt; 0)
     {      
@@ -113,6 +118,38 @@ if (Player.SHOOT &amp;&amp; Handgun.b_fire == true)
         instance_create(Handgun.x, Handgun.y, Gunfire);
         instance_create(Handgun.x, Handgun.y, Handgun_Ammo);
         i_ammo -= 1;
+    }
+}
+
+if (Player.RELOAD &amp;&amp; b_isReload == false)
+{
+    if (i_magazine &gt; 0)
+    {
+        b_isReload = true;
+        i_magazine = i_magazine - 1;    
+    }
+
+}
+
+if (b_isReload == true)
+{
+    f_reloadTime = f_reloadTime + (1 / room_speed);
+    if (Player.b_faceLeft == true)
+    {
+        image_angle = -90;
+    }
+    
+    else if (Player.b_faceRight == true)
+    {
+        image_angle = 90;
+    }
+    
+    if (f_reloadTime &gt; f_reloadSpeed)
+    {
+        i_ammo = i_maxAmmo;
+        f_reloadTime = 0;
+        image_angle = 0;
+        b_isReload = false;
     }
 }
 
@@ -131,32 +168,6 @@ else if (Player.b_faceRight == true)
     image_xscale = 1.5;
     offset_x = sprite_get_width(Player) * 0.3;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_text(50, 50, "Ammo: " + string(i_ammo));
-draw_text(50, 100, "Damage: " + string(i_damage));
-draw_text(50, 150, "Magazine: " + string(i_maxMagazine));
-draw_self();
 </string>
           </argument>
         </arguments>
