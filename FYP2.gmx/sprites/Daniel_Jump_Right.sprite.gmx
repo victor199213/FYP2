@@ -20,6 +20,6 @@
   <width>64</width>
   <height>64</height>
   <frames>
-    <frame index="0">images\Sprite_Player_Jump_Right_0.png</frame>
+    <frame index="0">images\Daniel_Jump_Right_0.png</frame>
   </frames>
 </sprite>
