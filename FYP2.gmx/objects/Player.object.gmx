@@ -342,7 +342,7 @@ if (b_viewPlayerTab == true)
 {
     // GUI for the Player.
     draw_sprite_ext(spr_slot_gear, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 1.2, 1.2, 0, c_white, 1);
-    draw_sprite_ext(Sprite_Player_Idle_Right, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 0.8, 0.8, 0, c_white, 1);
+    draw_sprite_ext(Daniel_Idle_Right, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 0.8, 0.8, 0, c_white, 1);
 
     // Drawing the currency the player currently has
     draw_set_colour(c_aqua);

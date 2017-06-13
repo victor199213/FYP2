@@ -135,16 +135,6 @@
       </sprites>
     </sprites>
     <sprites name="Characters">
-      <sprites name="Player">
-        <sprite>sprites\Sprite_Player_Idle_Right</sprite>
-        <sprite>sprites\Sprite_Player_Walk_Right</sprite>
-        <sprite>sprites\Sprite_Player_Jump_Right</sprite>
-        <sprite>sprites\Sprite_Player_Idle_Left</sprite>
-        <sprite>sprites\Sprite_Player_Walk_Left</sprite>
-        <sprite>sprites\Sprite_Player_Jump_Left</sprite>
-        <sprite>sprites\Sprite_Player_Die_Right</sprite>
-        <sprite>sprites\Sprite_Player_Die_Left</sprite>
-      </sprites>
       <sprites name="Enemies">
         <sprite>sprites\Enemy_right</sprite>
         <sprite>sprites\Enemy_left</sprite>
@@ -154,6 +144,21 @@
         <sprite>sprites\Enemy_dying_left</sprite>
         <sprite>sprites\ShootingEnemy_dying_right</sprite>
         <sprite>sprites\ShootingEnemy_dying_left</sprite>
+      </sprites>
+      <sprites name="Player">
+        <sprites name="Character One">
+          <sprite>sprites\Daniel_Idle_Right</sprite>
+          <sprite>sprites\Daniel_Walk_Right</sprite>
+          <sprite>sprites\Daniel_Jump_Right</sprite>
+          <sprite>sprites\Daniel_Die_Right</sprite>
+          <sprite>sprites\Daniel_Idle_Left</sprite>
+          <sprite>sprites\Daniel_Walk_Left</sprite>
+          <sprite>sprites\Daniel_Jump_Left</sprite>
+          <sprite>sprites\Daniel_Die_Left</sprite>
+        </sprites>
+        <sprites name="Character Two">
+          <sprite>sprites\Terry_Idle_Right</sprite>
+        </sprites>
       </sprites>
     </sprites>
     <sprites name="Items">
@@ -318,13 +323,14 @@
     <background>background\bg_ground2</background>
     <background>background\WinTmp</background>
     <background>background\GameOverTmp</background>
+    <background>background\bg_mainmenu</background>
   </backgrounds>
   <paths name="paths"/>
   <fonts name="fonts">
+    <font>fonts\fnt_UITitle</font>
     <font>fonts\fnt_UIName</font>
     <font>fonts\fnt_UIDescription</font>
     <font>fonts\fnt_UIDescriptiontwo</font>
-    <font>fonts\font3</font>
   </fonts>
   <objects name="objects">
     <object>objects\Player</object>
@@ -366,6 +372,13 @@
       <objects name="In-Game GUI">
         <object>objects\Shop</object>
       </objects>
+      <objects name="Main Menu GUI">
+        <object>objects\MainMenuStructure</object>
+        <object>objects\Start_Button</object>
+        <object>objects\Option_Button</object>
+        <object>objects\Exit_Button</object>
+        <object>objects\Game_Title</object>
+      </objects>
     </objects>
     <object>objects\EnemyProjectileParticle</object>
     <object>objects\EnemyExplode</object>
@@ -373,6 +386,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\Global_Variable_Instance_Room</room>
+    <room>rooms\MainMenu</room>
     <room>rooms\room1</room>
     <room>rooms\GameOver</room>
     <room>rooms\Win</room>
