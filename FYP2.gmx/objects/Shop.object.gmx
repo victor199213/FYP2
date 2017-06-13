@@ -479,7 +479,7 @@ if (i_selectedSlot == 3)
                         global.i_currency = global.i_currency - Player.i_maxArmourUpgradeCost;
                         Player.i_maxArmourLevel += 1;
                         Player.i_maxArmourUpgradeCost = round(Player.i_maxArmourUpgradeCost * 1.5);
-                        Player.f_armour = Player.f_baseArmour - ((Player.i_maxArmourLevel - 1) * Player.f_armourIncrement);                        
+                        Player.f_armour = Player.f_baseArmour + ((Player.i_maxArmourLevel - 1) * Player.f_armourIncrement);                        
                     }
                 }
             }

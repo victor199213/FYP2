@@ -61,7 +61,7 @@ i_maxDamageMultiplierCost = 50;
 
 // 3. Movement Speed
 f_moveSpeed = 3;
-f_moveSpeedIncrement = 0.5;;
+f_moveSpeedIncrement = 0.5;
 f_baseMoveSpeed = 3;
 f_maxMoveSpeed = 15;
 // Move speed upgrade
@@ -72,7 +72,7 @@ i_moveSpeedUpgradeCost = 30;
 f_armour = 1;
 f_armourIncrement = 0.05;
 f_baseArmour = 1;
-f_maxArmour = 0.5;
+f_maxArmour = 1.5;
 i_reducedDamage = 0;
 // Armour upgrade
 i_maxArmourLevel = 1;
@@ -243,7 +243,7 @@ if (place_meeting(x, y, Enemy))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(Enemy.damage * f_armour);
+        i_reducedDamage = round(Enemy.damage / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        
@@ -262,7 +262,7 @@ if (place_meeting(x, y, EnemyProObj))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(EnemyShooting.damage * f_armour);
+        i_reducedDamage = round(EnemyShooting.damage / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        
