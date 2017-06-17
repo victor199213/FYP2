@@ -158,6 +158,13 @@
         </sprites>
         <sprites name="Character Two">
           <sprite>sprites\Terry_Idle_Right</sprite>
+          <sprite>sprites\Terry_Walk_Right</sprite>
+          <sprite>sprites\Terry_Jump_Right</sprite>
+          <sprite>sprites\Terry_Die_Right</sprite>
+          <sprite>sprites\Terry_Idle_Left</sprite>
+          <sprite>sprites\Terry_Walk_Left</sprite>
+          <sprite>sprites\Terry_Jump_Left</sprite>
+          <sprite>sprites\Terry_Die_Left</sprite>
         </sprites>
       </sprites>
     </sprites>
@@ -379,6 +386,12 @@
         <object>objects\Exit_Button</object>
         <object>objects\Game_Title</object>
       </objects>
+      <objects name="Pre-Game GUI">
+        <object>objects\Pregame_Background</object>
+        <object>objects\Item_Button</object>
+        <object>objects\Character_Button</object>
+        <object>objects\Back_Button</object>
+      </objects>
     </objects>
     <object>objects\EnemyProjectileParticle</object>
     <object>objects\EnemyExplode</object>
@@ -391,6 +404,9 @@
     <room>rooms\GameOver</room>
     <room>rooms\Win</room>
   </rooms>
+  <constants number="1">
+    <constant name="c_DanielDescription">"An average man with an average stats. However, he can be nutured to become a better soldier."</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

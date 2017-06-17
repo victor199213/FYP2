@@ -38,38 +38,6 @@ y = room_height * 0.3;
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (MainMenuStructure.b_start == false)
-{
-    draw_alpha += global.f_alphaTime * (1 / room_speed);
-    draw_set_alpha(draw_alpha);
-    if (draw_alpha &gt;= 1)
-    {
-        draw_alpha = 1;
-        MainMenuStructure.b_start = true;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -99,6 +67,7 @@ draw_set_font(-1);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_black);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

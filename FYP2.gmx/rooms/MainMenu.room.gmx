@@ -14,7 +14,7 @@
 instance_create(1, 1, MainMenuStructure);
 
 // Alpha related variables for animations on instances
-global.f_alphaTime = 0.5;</code>
+global.f_alphaTime = 0.25;</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

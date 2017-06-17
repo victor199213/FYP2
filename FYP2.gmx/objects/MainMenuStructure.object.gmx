@@ -29,13 +29,49 @@
 f_alphaAnimUnselected = 0;
 f_alphaAnimMainPage = 1;
 
-// Creating the first buttons in the main menu
+/*
+    This object handles all of the object instancing, deactivation when not
+    in the correct Menu, and steps that the button instances will have.
+    It is mainly all about animations. All buttons will not handle their own
+    steps.
+    The sequences will include:
+    1. Main Menu
+        a. Pregame Selection (Item, Character Selection)
+        b. Map Selection (Choosing of map to play with)
+            
+    2. Option
+        - Volume
+            - BGM
+            - SFX
+        - Screen Size
+    
+    3. Exit (Exit Game)
+*/
+
+/*
+    1. Main Menu
+    Instancing the buttons in the main menu
+*/
 instance_create(1, 1, Game_Title);
 instance_create(1, 1, Start_Button);
 instance_create(1, 1, Option_Button);
 instance_create(1, 1, Exit_Button);
 
-// Making sure the starting animation do not get cut off.
+/*
+    1a. Pregame Selection
+    Creating
+    Instancing the buttons in the Pregame selection
+*/
+_Pregame_Selection = "Items";
+instance_create(room_width * 0.5, room_height * 0.5, Pregame_Background);
+instance_create(0, 0, Item_Button);
+instance_create(0, 0, Character_Button);
+
+instance_deactivate_object(Pregame_Background);
+instance_deactivate_object(Item_Button);
+instance_deactivate_object(Character_Button);
+
+// A boolean to lock for start of game
 b_start = false;
 
 // Creating a value for switch cases to go around with menus
@@ -62,15 +98,166 @@ menu_choice = "Main Menu";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (menu_choice)
+            <string>/*
+    This is where this object will handle all of the animations, starting with:
+    1. Main Menu
+        - Pregame Selection (Item, Character Selection)
+            - Map Selection (Choosing of map to play with)
+            
+    2. Option
+        - Volume
+            - BGM
+            - SFX
+        - Screen Size
+    
+    3. Exit (Exit Game)
+*/
+
+switch (menu_choice)
 {
     default:
     break;
     
     case "Main Menu":
+    // The starting animation for all Main Menu. Run only once until the game is exited.
+    with (Game_Title)
+    {
+        if (MainMenuStructure.b_start == false)
+        {
+            draw_alpha += global.f_alphaTime * (1 / room_speed);
+            draw_set_alpha(draw_alpha);
+            
+            with (Start_Button)
+            {
+                image_alpha = Game_Title.draw_alpha + global.f_alphaTime * (1 / room_speed);
+                if (image_alpha &gt;= 1)
+                {
+                    image_alpha = 1;
+                }
+            }
+            
+            with (Option_Button)
+            {
+                image_alpha = Game_Title.draw_alpha + global.f_alphaTime * (1 / room_speed);
+                if (image_alpha &gt;= 1)
+                {
+                    image_alpha = 1;
+                }
+            }
+            
+            with (Exit_Button)
+            {
+                image_alpha = Game_Title.draw_alpha + global.f_alphaTime * (1 / room_speed);
+                if (image_alpha &gt;= 1)
+                {
+                    image_alpha = 1;
+                }
+            }
+            
+            if (draw_alpha &gt;= 1)
+            {
+                draw_alpha = 1;
+                MainMenuStructure.b_start = true;
+            }
+        }
+    }
+    // Animation for Start Button
+    with (Start_Button)
+    {
+        if (b_startAnim == true)
+        {
+            image_index = 1;
+            with(Option_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
+            with(Exit_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
+            with(Game_Title)
+            {
+                draw_alpha = 0;
+                draw_set_alpha(draw_alpha);
+            }
+            
+            f_translate_y = f_translate_y + 25 * (1 / room_speed);
+            y = y - f_translate_y;
+            
+            instance_deactivate_object(Option_Button);
+            instance_deactivate_object(Exit_Button);
+            instance_deactivate_object(Game_Title);
+            
+            if (y &lt; (0 - sprite_height))
+            {
+                draw_set_alpha(1);
+                y = _posy;
+                f_translate_y = 0;
+                b_startAnim = false;
+                image_index = 0;
+                MainMenuStructure.menu_choice = "Pregame Selection";
+                instance_deactivate_object(Start_Button);
+                instance_activate_object(Pregame_Background);
+                instance_activate_object(Item_Button);
+                instance_activate_object(Character_Button);
+
+            }
+        }
+    }
+    
+    with (Option_Button)
+    {
+
+    }
+    
+    with (Exit_Button)
+    {
+   
+    }
     break;
     
-    case "Game Selection":
+    case "Pregame Selection":
+    with (Pregame_Background)
+    {
+        if (b_startAnim == true)
+        {
+            f_translate_y = f_translate_y + 25 * (1 / room_speed);
+            y = y + f_translate_y;
+            
+            with (Item_Button)
+            {
+                y = _posy;
+            }
+            
+            with (Character_Button)
+            {
+                y = _posy;
+            }
+            
+            if (y &gt; _posy)
+            {
+                y = _posy;
+                
+                with (Item_Button)
+                {
+                    y = _posy;
+                }
+                
+                with (Character_Button)
+                {
+                    y = _posy;
+                }
+                                
+                f_translate_y = 0;
+                b_startAnim = false;
+            }
+        }
+    }
+    break;
+    
+    case "Map Selection":
     break;
     
     case "Option":
