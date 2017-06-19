@@ -338,6 +338,35 @@
     <background>background\bg_mainmenu</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="Global Variables">
+      <script>scripts\Global_Variables_Reset.gml</script>
+    </scripts>
+    <scripts name="Main Menu Scripts">
+      <script>scripts\Start_Button_Soft_Reset.gml</script>
+      <script>scripts\Start_Button_Hard_Reset.gml</script>
+      <script>scripts\Option_Button_Soft_Reset.gml</script>
+      <script>scripts\Option_Button_Hard_Reset.gml</script>
+      <script>scripts\Exit_Button_Soft_Reset.gml</script>
+      <script>scripts\Exit_Button_Hard_Reset.gml</script>
+      <script>scripts\Game_Title_Soft_Reset.gml</script>
+      <script>scripts\Game_Title_Hard_Reset.gml</script>
+      <script>scripts\MainMenuStructure_Soft_Reset.gml</script>
+      <scripts name="Pregame Selection Scripts">
+        <script>scripts\Pregame_Background_Reset.gml</script>
+        <script>scripts\Back_Button_Reset.gml</script>
+        <scripts name="Solo">
+          <script>scripts\Item_Button_Reset.gml</script>
+          <script>scripts\Character_Button_Reset.gml</script>
+          <script>scripts\Weapon_Button_Reset.gml</script>
+          <script>scripts\Single_Button_Reset.gml</script>
+        </scripts>
+        <scripts name="Multiplayer">
+          <script>scripts\Multi_Button_Reset.gml</script>
+        </scripts>
+      </scripts>
+    </scripts>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_UITitle</font>
     <font>fonts\fnt_UIName</font>
@@ -395,10 +424,17 @@
       </objects>
       <objects name="Pre-Game GUI">
         <object>objects\Pregame_Background</object>
-        <object>objects\Item_Button</object>
-        <object>objects\Character_Button</object>
-        <object>objects\Weapon_Button</object>
         <object>objects\Back_Button</object>
+        <objects name="Solo">
+          <object>objects\Item_Button</object>
+          <object>objects\Character_Button</object>
+          <object>objects\Weapon_Button</object>
+          <object>objects\Single_Button</object>
+          <object>objects\Solo_OK_Button</object>
+        </objects>
+        <objects name="Multiplayer">
+          <object>objects\Multi_Button</object>
+        </objects>
       </objects>
     </objects>
     <object>objects\EnemyProjectileParticle</object>

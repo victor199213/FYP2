@@ -3,7 +3,7 @@
   <spriteName>spr_cancelbtn</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,13 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>// Setting variable for fixed position of x and y, and sprite size
-_posx = Pregame_Background.x + Pregame_Background._sprite_size_x - room_width * 0.2;
-_posy = Pregame_Background.y + (Pregame_Background._sprite_size_y * 0.75);
+_posx = Pregame_Background.x - Pregame_Background._sprite_size_x + room_width * 0.15;
+_posy = Pregame_Background.y + (Pregame_Background._sprite_size_y * 0.8);
 
 // Changing the image Properties
-image_xscale = 1.5;
-image_yscale = 1.5;
+image_xscale = 1.1;
+image_yscale = 1.1;
 image_speed = 0;
+image_index = 0;
 
 x = _posx;
 y = _posy;
@@ -58,8 +59,32 @@ y = _posy;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_posx = Pregame_Background.x + Pregame_Background._sprite_size_x - room_width * 0.2;
-_posy = Pregame_Background.y + (Pregame_Background._sprite_size_y * 0.75);
+            <string>_posx = Pregame_Background.x - Pregame_Background._sprite_size_x + room_width * 0.15;
+_posy = Pregame_Background.y + (Pregame_Background._sprite_size_y * 0.8);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
+image_index = 0;
 </string>
           </argument>
         </arguments>
@@ -82,7 +107,36 @@ _posy = Pregame_Background.y + (Pregame_Background._sprite_size_y * 0.75);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
+image_index = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
+{
+    Pregame_Background.b_backAnim = true;
+    image_index = 1;
+}
+</string>
           </argument>
         </arguments>
       </action>

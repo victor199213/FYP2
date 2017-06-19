@@ -79,20 +79,6 @@ y = _posy;
             <kind>1</kind>
             <string>_posx = Pregame_Background.x - Pregame_Background._sprite_size_x + room_width * 0.125;
 _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
-
-/*switch (MainMenuStructure._Pregame_Selection)
-{
-    default:
-    break;
-    
-    case "Items":
-    image_index = 1;
-    break;
-    
-    case "Characters":
-    image_index = 0;
-    break;
-}*/
 </string>
           </argument>
         </arguments>
@@ -115,23 +101,27 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (MainMenuStructure._Pregame_Selection)
+            <string>if (MainMenuStructure.b_solo == true)
 {
-    default:
-    break;
-    
-    case "Items":
-    image_index = 3;
-    break;
-    
-    case "Characters":
-    image_index = 0;
-    break;
-    
-    case "Weapons":
-    image_index = 0;
-    break;
+    switch (MainMenuStructure._Pregame_Selection)
+    {
+        default:
+        break;
+        
+        case "Items":
+        image_index = 3;
+        break;
+        
+        case "Characters":
+        image_index = 0;
+        break;
+        
+        case "Weapons":
+        image_index = 0;
+        break;
+    }
 }
+
 </string>
           </argument>
         </arguments>
@@ -154,7 +144,11 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = 2;
+            <string>if (MainMenuStructure.b_solo == true)
+{
+    image_index = 2;
+}
+
 </string>
           </argument>
         </arguments>
@@ -177,7 +171,7 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (MainMenuStructure._Pregame_Selection != "Items")
+            <string>if (MainMenuStructure._Pregame_Selection != "Items" &amp;&amp; MainMenuStructure.b_solo == true)
 {
     MainMenuStructure._Pregame_Selection = "Items";
     image_index = 3;
@@ -206,18 +200,22 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-draw_set_font(fnt_UIName);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_set_color(make_color_rgb(224,255,255));
+            <string>if (MainMenuStructure.b_solo == true)
+{
+    draw_self();
+    draw_set_font(fnt_UIName);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_color(make_color_rgb(224,255,255));
+    
+    draw_text_transformed(x, y, "Items", 1.2, 1.2, 0);
+    
+    draw_set_font(-1);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_color(c_black);
+}
 
-draw_text_transformed(x, y, "Items", 1.2, 1.2, 0);
-
-draw_set_font(-1);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_color(c_black);
 </string>
           </argument>
         </arguments>

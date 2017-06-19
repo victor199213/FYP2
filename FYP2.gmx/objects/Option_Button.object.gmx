@@ -25,15 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Changing the image Properties
+            <string>// Setting variable for fixed position of x and y
+_posx = room_width * 0.5;
+_posy = room_height * 0.6;
+
+// Changing the image Properties
 image_xscale = 1.5;
 image_yscale = 1.5;
 image_speed = 0;
 image_alpha = 0;
 
 // Positioning of the instance
-x = room_width * 0.5;
-y = room_height * 0.6;
+x = _posx;
+y = _posy;
 </string>
           </argument>
         </arguments>

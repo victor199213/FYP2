@@ -48,27 +48,28 @@ global._baseArmour = 0;
 global._maxArmour = 0;
 global._reducedDamage = 0;
 
-// Player's equipment for the gun
+// Player's equipment for the gun. Does not need reset
 global.EquipmentList = ds_list_create();
 ds_list_add(global.EquipmentList, "Handgun");
+ds_list_add(global.EquipmentList, "Machine-gun");
 
 // Player's wallet for cash during game-play
 global.i_currency = 5000;
 global.i_baseLoot = 10;
 
-// Player's Upgrade Description
+// Player's Upgrade Description. Does not need reset
 global.maxhealth_description = "Increases Max Health.";
 global.maxdamage_description = "Gives Damage Multiplier.";
 global.maxmovespeed_description = "Moves faster.";
 global.maxarmour_description = "Reduce damage taken";
 
-// Guns description
+// Guns description. Does not need reset
 global.magazine_description = "+1 Max Magazine."
 global.damage_description = "More damage to your ammo.";
 global.cooldown_description = "Shoots faster."
 
 
-room_goto(room1);</code>
+room_goto(MainMenu);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

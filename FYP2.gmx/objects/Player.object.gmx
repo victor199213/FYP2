@@ -87,13 +87,14 @@ b_viewPlayerTab = false;
 
 //Getting the first weapon on the list of EquipmentList
 i_currEquip = 1;
+
 var i;
-for (i = 0; i &lt; ds_list_size(global.EquipmentList); i += 1)
+for (i = 0; i &lt; array_length_1d(global._equippedSlot); i += 1)
 {
-    name[i] = ds_list_find_value(global.EquipmentList, i);
+    global._equippedSlot[i] = ds_list_find_value(global.EquipmentList, i);
 }
 
-switch (name[0])
+switch (global._equippedSlot[0])
 {
     default:
     break;
@@ -419,7 +420,7 @@ if (b_viewPlayerTab == false)
         break;
         
         case 1:
-        switch (name[0])
+        switch (global._equippedSlot[0])
         {
             default:
             break;

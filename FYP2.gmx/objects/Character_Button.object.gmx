@@ -47,6 +47,10 @@ switch (MainMenuStructure._Pregame_Selection)
     case "Characters":
     image_index = 3;
     break;
+    
+    case "Weapons":
+    image_index = 0;
+    break;
 }
 
 // Fixing the position of the button
@@ -68,7 +72,7 @@ for (i = 0; i &lt; 3; i += 1)
 }
 b_characterSelected = false;
 
-_character = "Daniel";
+_character = "";
 </string>
           </argument>
         </arguments>
@@ -94,19 +98,20 @@ _character = "Daniel";
             <string>_posx = Pregame_Background.x
 _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
 
-/*switch (MainMenuStructure._Pregame_Selection)
+if (b_selectedSlot[0] == true)
 {
-    default:
-    break;
-    
-    case "Items":
-    image_index = 0;
-    break;
-    
-    case "Characters":
-    image_index = 1;
-    break;
-}*/
+    _character = "Daniel";
+}
+
+if (b_selectedSlot[1] == true)
+{
+    _character = "Terry";
+}
+
+if (b_selectedSlot[2] == true)
+{
+    _character = "Keith";
+}
 </string>
           </argument>
         </arguments>
@@ -129,23 +134,27 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (MainMenuStructure._Pregame_Selection)
+            <string>if (MainMenuStructure.b_solo == true)
 {
-    default:
-    break;
-    
-    case "Items":
-    image_index = 0;
-    break;
-    
-    case "Characters":
-    image_index = 3;
-    break;
-    
-    case "Weapons":
-    image_index = 0;
-    break;
+    switch (MainMenuStructure._Pregame_Selection)
+    {
+        default:
+        break;
+        
+        case "Items":
+        image_index = 0;
+        break;
+        
+        case "Characters":
+        image_index = 3;
+        break;
+        
+        case "Weapons":
+        image_index = 0;
+        break;
+    }
 }
+
 </string>
           </argument>
         </arguments>
@@ -168,7 +177,11 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = 2;
+            <string>if (MainMenuStructure.b_solo == true)
+{
+    image_index = 2;
+}
+
 </string>
           </argument>
         </arguments>
@@ -191,7 +204,7 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (MainMenuStructure._Pregame_Selection != "Characters")
+            <string>if (MainMenuStructure._Pregame_Selection != "Characters" &amp;&amp; MainMenuStructure.b_solo == true)
 {
     MainMenuStructure._Pregame_Selection = "Characters";
     image_index = 3;
@@ -225,7 +238,8 @@ draw_set_valign(fa_middle);
 draw_set_color(make_color_rgb(224,255,255));
 
 // Animations of what happens during pre-game selection for characters
-if (MainMenuStructure._Pregame_Selection == "Characters")
+if (MainMenuStructure._Pregame_Selection == "Characters" &amp;&amp; MainMenuStructure.b_solo == true &amp;&amp;
+    Pregame_Background.b_backAnim == false)
 {   
     // Backgroun used for each characters
     draw_sprite_ext(spr_background_gear, 0, f_firstBox, global.GUI_height * 0.5, 0.7, 0.7, 0, c_white, 1);
@@ -436,18 +450,22 @@ draw_set_color(c_black);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-draw_set_font(fnt_UIName);
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_set_color(make_color_rgb(224,255,255));
+            <string>if (MainMenuStructure.b_solo == true)
+{
+    draw_self();
+    draw_set_font(fnt_UIName);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_color(make_color_rgb(224,255,255));
+    
+    draw_text_transformed(x, y, "Characters", 1.2, 1.2, 0);
+    
+    draw_set_font(-1);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_color(c_black);
+}
 
-draw_text_transformed(x, y, "Characters", 1.2, 1.2, 0);
-
-draw_set_font(-1);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_color(c_black);
 </string>
           </argument>
         </arguments>

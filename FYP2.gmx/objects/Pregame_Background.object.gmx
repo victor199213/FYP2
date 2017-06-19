@@ -46,6 +46,8 @@ f_translate_y = 0;
 
 // Own boolean switch for animation purpose
 b_startAnim = true;
+b_backAnim = false;
+b_nextAnim = false;
 </string>
           </argument>
         </arguments>
