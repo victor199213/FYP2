@@ -19,6 +19,7 @@ enum e_state
 {
     idle,
     chase,
+    shoot,
     dying
 }</code>
   <enableViews>0</enableViews>

@@ -132,6 +132,7 @@
         <sprite>sprites\shooter_rocket</sprite>
         <sprite>sprites\shooter_bullets</sprite>
         <sprite>sprites\EnemyProjectile</sprite>
+        <sprite>sprites\sprite131</sprite>
       </sprites>
     </sprites>
     <sprites name="Characters">
@@ -144,6 +145,10 @@
         <sprite>sprites\Enemy_dying_left</sprite>
         <sprite>sprites\ShootingEnemy_dying_right</sprite>
         <sprite>sprites\ShootingEnemy_dying_left</sprite>
+        <sprite>sprites\Elite_right</sprite>
+        <sprite>sprites\Elite_left</sprite>
+        <sprite>sprites\Elite_dying_right</sprite>
+        <sprite>sprites\Elite_dying_left</sprite>
       </sprites>
       <sprites name="Player">
         <sprites name="Character One">
@@ -343,6 +348,7 @@
     <object>objects\Player</object>
     <object>objects\Spawner</object>
     <object>objects\Enemy</object>
+    <object>objects\EnemyElite</object>
     <object>objects\EnemyShooting</object>
     <object>objects\Wall</object>
     <object>objects\Objective</object>
@@ -353,6 +359,7 @@
       <objects name="Projectiles">
         <object>objects\Handgun_Ammo</object>
         <object>objects\EnemyProObj</object>
+        <object>objects\EnemyEliteProObj</object>
       </objects>
     </objects>
     <object>objects\Avoid</object>
