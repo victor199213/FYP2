@@ -276,6 +276,44 @@ if (place_meeting(x, y, EnemyProObj))
     }
 }
 
+// 3. EnemyElite range attack
+if (place_meeting(x, y, EnemyEliteProObj))
+{
+    if (b_noDamage == false)
+    {
+        i_reducedDamage = round(EnemyElite.damage / f_armour);
+        if (i_health &gt; i_reducedDamage)
+        {
+            i_health = i_health - i_reducedDamage;        
+        }
+        
+        else
+        {
+            i_health = 0;
+        }    
+        b_noDamage = true;
+    }
+}
+
+// 3. EnemyElite close attack
+if (place_meeting(x, y, EnemyElite))
+{
+    if (b_noDamage == false)
+    {
+        i_reducedDamage = round(EnemyElite.damage / f_armour);
+        if (i_health &gt; i_reducedDamage)
+        {
+            i_health = i_health - i_reducedDamage;        
+        }
+        
+        else
+        {
+            i_health = 0;
+        }    
+        b_noDamage = true;
+    }
+}
+
 if (b_noDamage == true)
 {
     f_noDamageTimer = f_noDamageTimer + (1 / room_speed);
