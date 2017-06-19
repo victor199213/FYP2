@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>// Setting variable for fixed position of x and y, and sprite size
-_posx = Pregame_Background.x + Pregame_Background._sprite_size_x - room_width * 0.2;
+_posx = Pregame_Background.x;
 _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
 
 // Changing the image Properties
@@ -91,7 +91,7 @@ _character = "Daniel";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_posx = Pregame_Background.x - Pregame_Background._sprite_size_x + room_width * 0.2;
+            <string>_posx = Pregame_Background.x
 _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
 
 /*switch (MainMenuStructure._Pregame_Selection)
@@ -140,6 +140,10 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
     
     case "Characters":
     image_index = 3;
+    break;
+    
+    case "Weapons":
+    image_index = 0;
     break;
 }
 </string>
@@ -192,6 +196,7 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
     MainMenuStructure._Pregame_Selection = "Characters";
     image_index = 3;
     Item_Button.image_index = 0;
+    Weapon_Button.image_index = 0;
 }
 </string>
           </argument>

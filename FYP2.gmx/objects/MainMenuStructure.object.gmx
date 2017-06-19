@@ -36,7 +36,7 @@ f_alphaAnimMainPage = 1;
     steps.
     The sequences will include:
     1. Main Menu
-        a. Pregame Selection (Item, Character Selection)
+        a. Pregame Selection (Item, Character Selection, Weapons)
         b. Map Selection (Choosing of map to play with)
             
     2. Option
@@ -66,10 +66,14 @@ _Pregame_Selection = "Items";
 instance_create(room_width * 0.5, room_height * 0.5, Pregame_Background);
 instance_create(0, 0, Item_Button);
 instance_create(0, 0, Character_Button);
+instance_create(0, 0, Weapon_Button);
+instance_create(0, 0, Back_Button);
 
 instance_deactivate_object(Pregame_Background);
 instance_deactivate_object(Item_Button);
 instance_deactivate_object(Character_Button);
+instance_deactivate_object(Weapon_Button);
+instance_deactivate_object(Back_Button);
 
 // A boolean to lock for start of game
 b_start = false;
@@ -202,6 +206,7 @@ switch (menu_choice)
                 instance_activate_object(Pregame_Background);
                 instance_activate_object(Item_Button);
                 instance_activate_object(Character_Button);
+                instance_activate_object(Weapon_Button);
 
             }
         }
@@ -236,6 +241,11 @@ switch (menu_choice)
                 y = _posy;
             }
             
+            with (Weapon_Button)
+            {
+                y = _posy;
+            }
+            
             if (y &gt; _posy)
             {
                 y = _posy;
@@ -246,6 +256,11 @@ switch (menu_choice)
                 }
                 
                 with (Character_Button)
+                {
+                    y = _posy;
+                }
+                
+                with (Weapon_Button)
                 {
                     y = _posy;
                 }

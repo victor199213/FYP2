@@ -390,6 +390,7 @@
         <object>objects\Pregame_Background</object>
         <object>objects\Item_Button</object>
         <object>objects\Character_Button</object>
+        <object>objects\Weapon_Button</object>
         <object>objects\Back_Button</object>
       </objects>
     </objects>
@@ -404,8 +405,9 @@
     <room>rooms\GameOver</room>
     <room>rooms\Win</room>
   </rooms>
-  <constants number="1">
+  <constants number="2">
     <constant name="c_DanielDescription">"An average man with an average stats. However, he can be nutured to become a better soldier."</constant>
+    <constant name="c_HandgunDescription">"The most basic weapon you can ever have. Very useful in tight situations."</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
