@@ -223,7 +223,8 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
           <argument>
             <kind>1</kind>
             <string>/// GUI with Interactions
-if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim == false)
+if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim == false &amp;&amp;
+    Pregame_Background.b_nextAnim == false)
 {
     draw_set_font(fnt_UIName);
     draw_set_valign(fa_middle);
@@ -251,7 +252,7 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
             // Checking on mouse left-click to determine chosen weapon on which slot
             if (device_mouse_check_button_pressed(0, mb_left))
             {
-                if (_equippedSlot[0] == "" &amp;&amp; (_equippedSlot[1] == "" || _equippedSlot[1] != ""))
+                if (_equippedSlot[0] == "" &amp;&amp; (_equippedSlot[1] == "" || _equippedSlot[1] != "") &amp;&amp; _slotweaponName != _equippedSlot[1])
                 {
                     switch (i_weaponrySlot)
                     {
@@ -273,7 +274,7 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                     }
                 }
                 
-                else if (_equippedSlot[0] != "" &amp;&amp; _equippedSlot[1] == "")
+                else if (_equippedSlot[0] != "" &amp;&amp; _equippedSlot[1] == "" &amp;&amp; _slotweaponName != _equippedSlot[0])
                 {
                     switch (i_weaponrySlot)
                     {

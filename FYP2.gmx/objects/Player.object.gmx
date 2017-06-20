@@ -42,38 +42,38 @@ b_faceRight = true;
 
 // Stats for the player
 // 1. Health, and the max Health. Can be upgraded.
-i_health = 100;
-i_maxHealthIncrement = 10;
-i_baseMaxHealth = 100;
-i_maxHealth = 100;
+i_health = global._health;
+i_maxHealthIncrement = global._maxHealthIncrement;
+i_baseMaxHealth = global._baseMaxHealth;
+i_maxHealth = global._maxHealth;
 // Max Health upgrade
 i_maxHealthLevel = 1;
 i_maxHealthUpgradeCost = 50;
 
 // 2. Damage Multiplier
-f_damageMultiplier = 1;
-f_damageMultiplierIncrement = 0.1;
-f_baseDamageMultiplier = 1;
-f_maxDamageMultiplier = 1.3;
+f_damageMultiplier = global._damageMultiplier;
+f_damageMultiplierIncrement = global._damageMultiplierIncrement;
+f_baseDamageMultiplier = global._baseDamageMultiplier;
+f_maxDamageMultiplier = global._maxDamageMultiplier;
 // Damage multiplier upgrade
 i_maxDamageMultiplierLevel = 1;
 i_maxDamageMultiplierCost = 50;
 
 // 3. Movement Speed
-f_moveSpeed = 3;
-f_moveSpeedIncrement = 0.5;
-f_baseMoveSpeed = 3;
-f_maxMoveSpeed = 15;
+f_moveSpeed = global._moveSpeed;
+f_moveSpeedIncrement = global._moveSpeedIncrement;
+f_baseMoveSpeed = global._baseMoveSpeed;
+f_maxMoveSpeed = global._maxMoveSpeed;
 // Move speed upgrade
 f_moveSpeedLevel = 1;
 i_moveSpeedUpgradeCost = 30;
 
 // 4. Armor
-f_armour = 1;
-f_armourIncrement = 0.05;
-f_baseArmour = 1;
-f_maxArmour = 1.5;
-i_reducedDamage = 0;
+f_armour = global._armour;
+f_armourIncrement = global._armourIncrement;
+f_baseArmour = global._baseArmour;
+f_maxArmour = global._maxArmour;
+i_reducedDamage = global._reducedDamage;
 // Armour upgrade
 i_maxArmourLevel = 1;
 i_maxArmourUpgradeCost = 80;
@@ -88,13 +88,18 @@ b_viewPlayerTab = false;
 //Getting the first weapon on the list of EquipmentList
 i_currEquip = 1;
 
-var i;
-for (i = 0; i &lt; array_length_1d(global._equippedSlot); i += 1)
+
+switch (global._equipment[0])
 {
-    global._equippedSlot[i] = ds_list_find_value(global.EquipmentList, i);
+    default:
+    break;
+    
+    case "Handgun":
+    instance_create(0, 0, Handgun);
+    break;
 }
 
-switch (global._equippedSlot[0])
+switch (global._equipment[1])
 {
     default:
     break;
@@ -349,6 +354,9 @@ if (place_meeting(x, y + f_verticalSpeed, Wall))
 }
 
 y += f_verticalSpeed;
+
+show_debug_message(i_health)
+show_debug_message(i_maxHealth)
 </string>
           </argument>
         </arguments>
@@ -420,7 +428,7 @@ if (b_viewPlayerTab == false)
         break;
         
         case 1:
-        switch (global._equippedSlot[0])
+        switch (global._equipment[0])
         {
             default:
             break;

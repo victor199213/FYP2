@@ -36,13 +36,8 @@ There will be pages for player slot Upgrade
 */
 i_playerSlotPage = 1;
 i_totalEquipments = ds_list_size(global.EquipmentList);
-
-var i;
-for (i = 0; i &lt; i_totalEquipments; i += 1)
-{
-    tempName = ds_list_find_value(global.EquipmentList, 0 + i);
-    equipmentNames[i] = tempName;
-}
+equipmentNames[0] = global._equipment[0];
+equipmentNames[1] = global._equipment[1];
 </string>
           </argument>
         </arguments>
@@ -239,12 +234,165 @@ else
 // Slot 2
 if (i_selectedSlot == 2)
 {
-    draw_sprite_ext(spr_slot_inv, 0, global.GUI_width * 0.375, global.GUI_height * 0.5, 1.5, 1.5, 0, c_white, 0.5); 
+    draw_sprite_ext(spr_slot_inv, 0, global.GUI_width * 0.375, global.GUI_height * 0.5, 1.5, 1.5, 0, c_white, 0.5);
+    switch (equipmentNames[1])
+    {
+        default:
+        break;
+        
+        // When the first equipment is Handgun
+        case "Handgun":
+            draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.375, global.GUI_height * 0.55, 3, 3, 0, c_white, 1);
+            // Giving the available options for upgrades, along with the name of the Item
+            // Name of the weapon in first slot
+            draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
+            draw_set_font(fnt_UIName);
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.525, global.GUI_height * 0.31, equipmentNames[1]);
+            
+            // Available upgrades
+            // First Option           
+            if (Handgun.i_maxMagazineLevel &lt;= Handgun.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Magazine Level: " + string(Handgun.i_maxMagazineLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(Handgun.i_maxMagazineUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, global.magazine_description);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.45 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.45 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= Handgun.i_maxMagazineUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - Handgun.i_maxMagazineUpgradeCost;
+                            Handgun.i_maxMagazineLevel += 1;
+                            Handgun.i_maxMagazineUpgradeCost = round(Handgun.i_maxMagazineUpgradeCost * 1.5);
+                            Handgun.i_maxMagazine = Handgun.i_baseMagazine + Handgun.i_maxMagazineIncrement;                        
+                        }
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                }            
+            }
+            
+            else
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Magazine Level: Max");                
+            }
+            
+            //Second Option
+            if (Handgun.i_damageLevel &lt;= Handgun.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Damage Level: " + string(Handgun.i_damageLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(Handgun.i_damageUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, global.damage_description);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.55 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.55 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= Handgun.i_damageUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - Handgun.i_damageUpgradeCost;
+                            
+                            Handgun.i_damageLevel += 1;
+                            Handgun.i_damageUpgradeCost = round(Handgun.i_maxMagazineUpgradeCost * 1.5);
+                            Handgun.i_damage = Handgun.i_baseDamage + ((Handgun.i_damageLevel - 1) * Handgun.i_damageIncrement);
+                        }
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                }           
+            }
+            
+            else
+            {
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Damage Level: Max");            
+            }
+                
+            //Third Option
+            if (Handgun.i_cooldownLevel &lt;= Handgun.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.625, "Fire-rate Level: " + string(Handgun.i_cooldownLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.65, "Cost: " + string(Handgun.i_cooldownUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, global.cooldown_description);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.65 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.65 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.65, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= Handgun.i_damageUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - Handgun.i_cooldownUpgradeCost;
+                        
+                            Handgun.i_cooldownLevel += 1;
+                            Handgun.i_cooldownUpgradeCost = round(Handgun.i_cooldownUpgradeCost * 1.5);
+                            Handgun.f_cooldown = Handgun.f_basecooldown - ((Handgun.i_cooldownLevel - 1) * Handgun.f_cooldownIncrement);
+                        }                        
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.65, 1, 1, 0, c_white, 1);
+                }            
+            }
+            
+            else
+            {
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.625, "Fire-rate Level: Max");
+            }
+            
+        break;
+    }
 }
 
 else
 {
-    draw_sprite_ext(spr_slot_inv, 0, global.GUI_width * 0.375, global.GUI_height * 0.5, 1.5, 1.5, 0, c_white, 1); 
+    draw_sprite_ext(spr_slot_inv, 0, global.GUI_width * 0.375, global.GUI_height * 0.5, 1.5, 1.5, 0, c_white, 1);
+    switch (equipmentNames[1])
+    {
+        default:
+        break;
+        
+        case "Handgun":
+        draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.375, global.GUI_height * 0.5, 3, 3, 0, c_white, 1);
+        break;
+    }
 }
 
 // Slot 3

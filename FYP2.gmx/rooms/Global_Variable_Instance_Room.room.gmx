@@ -48,7 +48,11 @@ global._baseArmour = 0;
 global._maxArmour = 0;
 global._reducedDamage = 0;
 
-// Player's equipment for the gun. Does not need reset
+// Player's equipment during game-play
+global._equipment[0] = "";
+global._equipment[1] = "";
+
+// Player's equipment list for the gun. Does not need reset
 global.EquipmentList = ds_list_create();
 ds_list_add(global.EquipmentList, "Handgun");
 ds_list_add(global.EquipmentList, "Machine-gun");

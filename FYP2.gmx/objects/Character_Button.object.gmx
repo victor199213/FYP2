@@ -239,7 +239,7 @@ draw_set_color(make_color_rgb(224,255,255));
 
 // Animations of what happens during pre-game selection for characters
 if (MainMenuStructure._Pregame_Selection == "Characters" &amp;&amp; MainMenuStructure.b_solo == true &amp;&amp;
-    Pregame_Background.b_backAnim == false)
+    Pregame_Background.b_backAnim == false &amp;&amp; Pregame_Background.b_nextAnim == false)
 {   
     // Backgroun used for each characters
     draw_sprite_ext(spr_background_gear, 0, f_firstBox, global.GUI_height * 0.5, 0.7, 0.7, 0, c_white, 1);

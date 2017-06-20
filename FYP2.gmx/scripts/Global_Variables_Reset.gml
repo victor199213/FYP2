@@ -33,3 +33,7 @@ global._reducedDamage = 0;
 // Player's wallet for cash during game-play
 global.i_currency = 5000;
 global.i_baseLoot = 10;
+
+// Player's equipment during game-play
+global._equipment[0] = "";
+global._equipment[1] = "";
