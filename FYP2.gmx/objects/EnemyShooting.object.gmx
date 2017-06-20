@@ -257,18 +257,6 @@ y += vsp;
 if(place_meeting(x,y,Handgun_Ammo))
 {
     HP -= Handgun_Ammo.i_damage;
-    
-    with (Handgun_Ammo)
-    {
-        f_bullet_hspeed = 0;
-        EnemyShooting.ammo_onhit_x = x;
-
-        instance_create(x, y, AmmoExplosion);
-        AmmoExplosion.image_xscale *= 0.5;
-        AmmoExplosion.image_yscale *= 0.5;
-        instance_destroy();    
-    }
-    
     if (b_isKnockback == false)
     {
         b_isKnockback = true;
@@ -289,19 +277,7 @@ if(place_meeting(x,y,Handgun_Ammo))
 if(place_meeting(x,y,AK_47_Ammo))
 {
 
-    HP -= AK_47_Ammo.i_damage;
-
-    with (AK_47_Ammo)
-    {
-        f_bullet_hspeed = 0;
-        EnemyShooting.ammo_onhit_x = x;
-
-        instance_create(x, y, AmmoExplosion);
-        AmmoExplosion.image_xscale *= 0.5;
-        AmmoExplosion.image_yscale *= 0.5;
-        instance_destroy();    
-    }
-    
+    HP -= AK_47_Ammo.i_damage;   
     if (b_isKnockback == false)
     {
         b_isKnockback = true;

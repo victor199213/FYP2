@@ -737,7 +737,7 @@ if (i_selectedSlot == 3)
             
             draw_set_font(fnt_UIDescriptiontwo);
             draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(Player.i_maxHealthUpgradeCost));
-            draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, global.maxhealth_description);
+            draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
             
             if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
             device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -781,7 +781,7 @@ if (i_selectedSlot == 3)
             
             draw_set_font(fnt_UIDescriptiontwo);
             draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(Player.i_maxDamageMultiplierCost));
-            draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, global.maxdamage_description);
+            draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_MaxDamageInfo);
         
             if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
             device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -825,7 +825,7 @@ if (i_selectedSlot == 3)
             
             draw_set_font(fnt_UIDescriptiontwo);
             draw_text(global.GUI_width * 0.5, global.GUI_height * 0.65, "Cost: " + string(Player.i_moveSpeedUpgradeCost));
-            draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, global.maxmovespeed_description);
+            draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, c_MaxSpeedInfo);
         
             if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
             device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -895,7 +895,7 @@ if (i_selectedSlot == 3)
             
             draw_set_font(fnt_UIDescriptiontwo);
             draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(Player.i_maxArmourUpgradeCost));
-            draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, global.maxarmour_description);
+            draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_MaxArmourInfo);
             
             if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
             device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 

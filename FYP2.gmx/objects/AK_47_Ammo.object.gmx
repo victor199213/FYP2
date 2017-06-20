@@ -96,6 +96,39 @@ if (place_meeting(x + f_bullet_hspeed, y, Wall))
     instance_destroy();
 }
 
+if (place_meeting(x, y, Enemy))
+{
+    f_bullet_hspeed = 0;
+    Enemy.ammo_onhit_x = x;
+
+    instance_create(x, y, AmmoExplosion);
+    AmmoExplosion.image_xscale *= 0.5;
+    AmmoExplosion.image_yscale *= 0.5;
+    instance_destroy();
+}
+
+if (place_meeting(x, y, EnemyShooting))
+{
+    f_bullet_hspeed = 0;
+    EnemyShooting.ammo_onhit_x = x;
+
+    instance_create(x, y, AmmoExplosion);
+    AmmoExplosion.image_xscale *= 0.5;
+    AmmoExplosion.image_yscale *= 0.5;
+    instance_destroy();  
+}
+
+if (place_meeting(x, y, EnemyElite))
+{
+    f_bullet_hspeed = 0;
+    EnemyElite.ammo_onhit_x = x;
+
+    instance_create(x, y, AmmoExplosion);
+    AmmoExplosion.image_xscale *= 0.5;
+    AmmoExplosion.image_yscale *= 0.5;
+    instance_destroy();    
+}
+
 x += f_bullet_hspeed;
 </string>
           </argument>
