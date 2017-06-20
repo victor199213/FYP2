@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>// Currency multiplier every time it dies
-f_multiplierLoot = random_range(0.3, 0.5);
+f_multiplierLoot = random_range(0.5, 0.8);
 i_loot = 0;
 
 // Knockback timer and physics based calculation
@@ -335,12 +335,48 @@ if (place_meeting(round(x),round(y+vsp),Wall))
 }
 y += vsp;
 
+// damage taken from handgun
 if(place_meeting(x,y,Handgun_Ammo))
 {
 
     HP -= Handgun_Ammo.i_damage;
 
     with (Handgun_Ammo)
+    {
+        f_bullet_hspeed = 0;
+        EnemyElite.ammo_onhit_x = x;
+
+        instance_create(x, y, AmmoExplosion);
+        AmmoExplosion.image_xscale *= 0.5;
+        AmmoExplosion.image_yscale *= 0.5;
+        instance_destroy();    
+    }
+    
+    if (b_isKnockback == false)
+    {
+        b_isKnockback = true;
+    }
+    
+    else
+    {
+        f_knockback_timer = 0;
+    }
+    
+    if(HP &lt;= 0)
+    {
+        path_end();
+        speed = 0;
+        state = e_state.dying;
+    }
+}
+
+// Damage taken from AK_47
+if(place_meeting(x,y,AK_47_Ammo))
+{
+
+    HP -= AK_47_Ammo.i_damage;
+
+    with (AK_47_Ammo)
     {
         f_bullet_hspeed = 0;
         EnemyElite.ammo_onhit_x = x;

@@ -267,7 +267,7 @@ if (MainMenuStructure._Pregame_Selection == "Characters" &amp;&amp; MainMenuStru
     
     // Character Two
     draw_set_color(c_aqua);
-    draw_sprite_ext(Daniel_Idle_Right, 0, f_secondBox, global.GUI_height * 0.35, 1.5, 1.5, 0, c_white, 1);
+    draw_sprite_ext(Terry_Idle_Right, 0, f_secondBox, global.GUI_height * 0.35, 1.5, 1.5, 0, c_white, 1);
     draw_text_transformed(global.GUI_width * 0.445, global.GUI_height * 0.42, "Health:", 0.6, 0.6, 0);
     draw_text_transformed(global.GUI_width * 0.445, global.GUI_height * 0.45, "Dmg Multiplier:", 0.6, 0.6, 0);
     draw_text_transformed(global.GUI_width * 0.445, global.GUI_height * 0.48, "Move Speed:", 0.6, 0.6, 0);
@@ -296,7 +296,7 @@ if (MainMenuStructure._Pregame_Selection == "Characters" &amp;&amp; MainMenuStru
     // Character Two
     draw_text_transformed(global.GUI_width * 0.555, global.GUI_height * 0.42, "Excellent", 0.6, 0.6, 0);
     draw_text_transformed(global.GUI_width * 0.555, global.GUI_height * 0.45, "Sub-par", 0.6, 0.6, 0);
-    draw_text_transformed(global.GUI_width * 0.555, global.GUI_height * 0.48, "Average", 0.6, 0.6, 0);
+    draw_text_transformed(global.GUI_width * 0.555, global.GUI_height * 0.48, "Sub-par", 0.6, 0.6, 0);
     draw_text_transformed(global.GUI_width * 0.555, global.GUI_height * 0.51, "Good", 0.6, 0.6, 0);
     
     // Character Three
@@ -309,7 +309,7 @@ if (MainMenuStructure._Pregame_Selection == "Characters" &amp;&amp; MainMenuStru
     draw_set_halign(fa_middle);
     // Character One
     draw_text_ext_transformed(f_firstBox, global.GUI_height * 0.6, c_DanielDescription, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);
-    draw_text_ext_transformed(f_secondBox, global.GUI_height * 0.6, c_DanielDescription, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);
+    draw_text_ext_transformed(f_secondBox, global.GUI_height * 0.6, c_TerryDescription, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);
     draw_text_ext_transformed(f_thirdBox, global.GUI_height * 0.6, c_DanielDescription, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);
     
     draw_set_halign(fa_left);

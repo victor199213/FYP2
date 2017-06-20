@@ -2,6 +2,7 @@
     Creating Daniel's stats onto the global variable
     Daniel's Main Role: Tanker
 */
+global.b_isDaniel = true;
 // 1. Health, and the max Health.
 global._health = 100;
 global._maxHealthIncrement = 10;

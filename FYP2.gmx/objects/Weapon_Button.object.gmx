@@ -264,6 +264,7 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                         break;
                         
                         case 2:
+                            _equippedSlot[0] = _slotweaponName;
                         break;
                         
                         case 3:
@@ -286,6 +287,7 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                         break;
                         
                         case 2:
+                            _equippedSlot[0] = _slotweaponName;
                         break;
                         
                         case 3:
@@ -335,8 +337,9 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
             break;
             
             case 2:
+                _slotweaponName = "AK-47";
                 // Weapon Sprite
-                //draw_sprite_ext(shooter_wood_smallGuns, 0, _draw_weapon_posx, _draw_weapon_posy, 3, 3, 0, c_white, 1);
+                draw_sprite_ext(shooter_wood_smallGuns, 1, _draw_weapon_posx, _draw_weapon_posy, 3, 3, 0, c_white, 1);
                 
                 // Weapon Stats
                 draw_set_color(c_aqua);
@@ -484,6 +487,10 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
             case "Handgun":
             draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.65, global.GUI_height * 0.4, 2, 2, 0, c_white, 1);
             break;
+            
+            case "AK-47":
+            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.65, global.GUI_height * 0.4, 2, 2, 0, c_white, 1);
+            break;
         }
         
         
@@ -516,6 +523,10 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
             
             case "Handgun":
             draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.65, global.GUI_height * 0.55, 2, 2, 0, c_white, 1);
+            break;
+            
+            case "AK-47":
+            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.65, global.GUI_height * 0.4, 2, 2, 0, c_white, 1);
             break;
         }
     }

@@ -253,6 +253,7 @@ if (place_meeting(round(x),round(y+vsp),Wall))
 }
 y += vsp;
 
+// Damage taken from handgun
 if(place_meeting(x,y,Handgun_Ammo))
 {
     HP -= Handgun_Ammo.i_damage;
@@ -280,6 +281,41 @@ if(place_meeting(x,y,Handgun_Ammo))
     
     if(HP &lt;= 0)
     {
+        state = e_state.dying;
+    }
+}
+
+// Damage taken from AK_47
+if(place_meeting(x,y,AK_47_Ammo))
+{
+
+    HP -= AK_47_Ammo.i_damage;
+
+    with (AK_47_Ammo)
+    {
+        f_bullet_hspeed = 0;
+        EnemyShooting.ammo_onhit_x = x;
+
+        instance_create(x, y, AmmoExplosion);
+        AmmoExplosion.image_xscale *= 0.5;
+        AmmoExplosion.image_yscale *= 0.5;
+        instance_destroy();    
+    }
+    
+    if (b_isKnockback == false)
+    {
+        b_isKnockback = true;
+    }
+    
+    else
+    {
+        f_knockback_timer = 0;
+    }
+    
+    if(HP &lt;= 0)
+    {
+        path_end();
+        speed = 0;
         state = e_state.dying;
     }
 }

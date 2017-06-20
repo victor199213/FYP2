@@ -48,6 +48,11 @@ global._baseArmour = 0;
 global._maxArmour = 0;
 global._reducedDamage = 0;
 
+// Player's chosen character to play
+global.b_isDaniel = false;
+global.b_isTerry = false;
+global.b_isKeith = false;
+
 // Player's equipment during game-play
 global._equipment[0] = "";
 global._equipment[1] = "";
@@ -55,23 +60,11 @@ global._equipment[1] = "";
 // Player's equipment list for the gun. Does not need reset
 global.EquipmentList = ds_list_create();
 ds_list_add(global.EquipmentList, "Handgun");
-ds_list_add(global.EquipmentList, "Machine-gun");
+ds_list_add(global.EquipmentList, "AK-47");
 
 // Player's wallet for cash during game-play
 global.i_currency = 5000;
 global.i_baseLoot = 10;
-
-// Player's Upgrade Description. Does not need reset
-global.maxhealth_description = "Increases Max Health.";
-global.maxdamage_description = "Gives Damage Multiplier.";
-global.maxmovespeed_description = "Moves faster.";
-global.maxarmour_description = "Reduce damage taken";
-
-// Guns description. Does not need reset
-global.magazine_description = "+1 Max Magazine."
-global.damage_description = "More damage to your ammo.";
-global.cooldown_description = "Shoots faster."
-
 
 room_goto(MainMenu);</code>
   <enableViews>0</enableViews>

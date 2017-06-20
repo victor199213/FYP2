@@ -2,6 +2,7 @@
     Creating Terry's stats onto the global variable
     Daniel's Main Role: Tanker
 */
+global.b_isTerry = true;
 // 1. Health, and the max Health.
 global._health = 120;
 global._maxHealthIncrement = 40;
@@ -15,10 +16,10 @@ global._baseDamageMultiplier = 0.8;
 global._maxDamageMultiplier = 1.2;
 
 // 3. Movement Speed
-global._moveSpeed = 3;
-global._moveSpeedIncrement = 0.5;
-global._baseMoveSpeed = 3;
-global._maxMoveSpeed = 15;
+global._moveSpeed = 2.1;
+global._moveSpeedIncrement = 0.3;
+global._baseMoveSpeed = 2.1;
+global._maxMoveSpeed = 8;
 
 // 4. Armor
 global._armour = 1.2;

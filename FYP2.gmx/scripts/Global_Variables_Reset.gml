@@ -30,10 +30,15 @@ global._baseArmour = 0;
 global._maxArmour = 0;
 global._reducedDamage = 0;
 
-// Player's wallet for cash during game-play
-global.i_currency = 5000;
-global.i_baseLoot = 10;
+// Player's chosen character to play
+global.b_isDaniel = false;
+global.b_isTerry = false;
+global.b_isKeith = false;
 
 // Player's equipment during game-play
 global._equipment[0] = "";
 global._equipment[1] = "";
+
+// Player's wallet for cash during game-play
+global.i_currency = 50;
+global.i_baseLoot = 10;

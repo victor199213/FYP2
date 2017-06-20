@@ -2,6 +2,7 @@
     Creating Keith's stats onto the global variable
     Keith's Main Role: Hit & Run
 */
+global.b_isKeith = true;
 // 1. Health, and the max Health.
 global._health = 50;
 global._maxHealthIncrement = 15;

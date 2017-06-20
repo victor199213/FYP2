@@ -87,7 +87,7 @@ if (i_selectedSlot == 1)
             draw_text(global.GUI_width * 0.525, global.GUI_height * 0.31, equipmentNames[0]);
             
             // Available upgrades
-            // First Option           
+            // First Option: Max Magazine
             if (Handgun.i_maxMagazineLevel &lt;= Handgun.i_MaxLevel)
             {
                 draw_set_font(fnt_UIDescription);
@@ -95,7 +95,7 @@ if (i_selectedSlot == 1)
                 
                 draw_set_font(fnt_UIDescriptiontwo);
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(Handgun.i_maxMagazineUpgradeCost));
-                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, global.magazine_description);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_MaxMagazineInfo);
             
                 if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                 device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -129,7 +129,7 @@ if (i_selectedSlot == 1)
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Magazine Level: Max");                
             }
             
-            //Second Option
+            //Second Option: Ammo Damage
             if (Handgun.i_damageLevel &lt;= Handgun.i_MaxLevel)
             {
                 draw_set_font(fnt_UIDescription);
@@ -137,7 +137,7 @@ if (i_selectedSlot == 1)
                 
                 draw_set_font(fnt_UIDescriptiontwo);
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(Handgun.i_damageUpgradeCost));
-                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, global.damage_description);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_AmmoDamageInfo);
             
                 if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                 device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -171,7 +171,7 @@ if (i_selectedSlot == 1)
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Damage Level: Max");            
             }
                 
-            //Third Option
+            //Third Option: Fire rate
             if (Handgun.i_cooldownLevel &lt;= Handgun.i_MaxLevel)
             {
                 draw_set_font(fnt_UIDescription);
@@ -179,7 +179,7 @@ if (i_selectedSlot == 1)
                 
                 draw_set_font(fnt_UIDescriptiontwo);
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.65, "Cost: " + string(Handgun.i_cooldownUpgradeCost));
-                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, global.cooldown_description);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, c_CooldownInfo);
             
                 if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                 device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -197,6 +197,144 @@ if (i_selectedSlot == 1)
                             Handgun.i_cooldownLevel += 1;
                             Handgun.i_cooldownUpgradeCost = round(Handgun.i_cooldownUpgradeCost * 1.5);
                             Handgun.f_cooldown = Handgun.f_basecooldown - ((Handgun.i_cooldownLevel - 1) * Handgun.f_cooldownIncrement);
+                        }                        
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.65, 1, 1, 0, c_white, 1);
+                }            
+            }
+            
+            else
+            {
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.625, "Fire-rate Level: Max");
+            }
+            
+        break;
+        
+        case "AK-47":
+            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.375, global.GUI_height * 0.35, 3, 3, 0, c_white, 1);
+            // Giving the available options for upgrades, along with the name of the Item
+            // Name of the weapon in first slot
+            draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
+            draw_set_font(fnt_UIName);
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.525, global.GUI_height * 0.31, equipmentNames[0]);
+            
+            // Available upgrades
+            // First Option: Max Magazine
+            if (AK_47.i_maxMagazineLevel &lt;= AK_47.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Magazine Level: " + string(AK_47.i_maxMagazineLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(AK_47.i_maxMagazineUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_MaxMagazineInfo);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.45 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.45 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= AK_47.i_maxMagazineUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - AK_47.i_maxMagazineUpgradeCost;
+                            AK_47.i_maxMagazineLevel += 1;
+                            AK_47.i_maxMagazineUpgradeCost = round(AK_47.i_maxMagazineUpgradeCost * 1.5);
+                            AK_47.i_maxMagazine = AK_47.i_baseMagazine + AK_47.i_maxMagazineIncrement;                        
+                        }
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                }            
+            }
+            
+            else
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Magazine Level: Max");                
+            }
+            
+            //Second Option: Ammo Damage
+            if (AK_47.i_damageLevel &lt;= AK_47.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Damage Level: " + string(AK_47.i_damageLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(AK_47.i_damageUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_AmmoDamageInfo);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.55 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.55 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= AK_47.i_damageUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - AK_47.i_damageUpgradeCost;
+                            
+                            AK_47.i_damageLevel += 1;
+                            AK_47.i_damageUpgradeCost = round(AK_47.i_maxMagazineUpgradeCost * 1.5);
+                            AK_47.i_damage = AK_47.i_baseDamage + ((AK_47.i_damageLevel - 1) * AK_47.i_damageIncrement);
+                        }
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                }           
+            }
+            
+            else
+            {
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Damage Level: Max");            
+            }
+                
+            //Third Option: Fire rate
+            if (AK_47.i_cooldownLevel &lt;= AK_47.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.625, "Fire-rate Level: " + string(AK_47.i_cooldownLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.65, "Cost: " + string(AK_47.i_cooldownUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, c_CooldownInfo);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.65 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.65 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.65, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= AK_47.i_damageUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - AK_47.i_cooldownUpgradeCost;
+                        
+                            AK_47.i_cooldownLevel += 1;
+                            AK_47.i_cooldownUpgradeCost = round(AK_47.i_cooldownUpgradeCost * 1.5);
+                            AK_47.f_cooldown = AK_47.f_basecooldown - ((AK_47.i_cooldownLevel - 1) * AK_47.f_cooldownIncrement);
                         }                        
                     }
                 }
@@ -228,6 +366,10 @@ else
         case "Handgun":
         draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.375, global.GUI_height * 0.35, 3, 3, 0, c_white, 1);
         break;
+        
+        case "AK-47":
+        draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.375, global.GUI_height * 0.35, 3, 3, 0, c_white, 1);
+        break;
     }
 } 
 
@@ -251,7 +393,7 @@ if (i_selectedSlot == 2)
             draw_text(global.GUI_width * 0.525, global.GUI_height * 0.31, equipmentNames[1]);
             
             // Available upgrades
-            // First Option           
+            // First Option: Max Magazine
             if (Handgun.i_maxMagazineLevel &lt;= Handgun.i_MaxLevel)
             {
                 draw_set_font(fnt_UIDescription);
@@ -259,7 +401,7 @@ if (i_selectedSlot == 2)
                 
                 draw_set_font(fnt_UIDescriptiontwo);
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(Handgun.i_maxMagazineUpgradeCost));
-                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, global.magazine_description);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_MaxMagazineInfo);
             
                 if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                 device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -293,7 +435,7 @@ if (i_selectedSlot == 2)
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Magazine Level: Max");                
             }
             
-            //Second Option
+            //Second Option: Ammo Damage
             if (Handgun.i_damageLevel &lt;= Handgun.i_MaxLevel)
             {
                 draw_set_font(fnt_UIDescription);
@@ -301,7 +443,7 @@ if (i_selectedSlot == 2)
                 
                 draw_set_font(fnt_UIDescriptiontwo);
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(Handgun.i_damageUpgradeCost));
-                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, global.damage_description);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_AmmoDamageInfo);
             
                 if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                 device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -335,7 +477,7 @@ if (i_selectedSlot == 2)
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Damage Level: Max");            
             }
                 
-            //Third Option
+            //Third Option: Fire-rate
             if (Handgun.i_cooldownLevel &lt;= Handgun.i_MaxLevel)
             {
                 draw_set_font(fnt_UIDescription);
@@ -343,7 +485,7 @@ if (i_selectedSlot == 2)
                 
                 draw_set_font(fnt_UIDescriptiontwo);
                 draw_text(global.GUI_width * 0.5, global.GUI_height * 0.65, "Cost: " + string(Handgun.i_cooldownUpgradeCost));
-                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, global.cooldown_description);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, c_CooldownInfo);
             
                 if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                 device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -378,6 +520,144 @@ if (i_selectedSlot == 2)
             }
             
         break;
+        
+        case "AK-47":
+            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.375, global.GUI_height * 0.55, 3, 3, 0, c_white, 1);
+            // Giving the available options for upgrades, along with the name of the Item
+            // Name of the weapon in first slot
+            draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
+            draw_set_font(fnt_UIName);
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.525, global.GUI_height * 0.31, equipmentNames[1]);
+            
+            // Available upgrades
+            // First Option: Max Magazine
+            if (AK_47.i_maxMagazineLevel &lt;= AK_47.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Magazine Level: " + string(AK_47.i_maxMagazineLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(AK_47.i_maxMagazineUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_MaxMagazineInfo);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.45 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.45 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= AK_47.i_maxMagazineUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - AK_47.i_maxMagazineUpgradeCost;
+                            AK_47.i_maxMagazineLevel += 1;
+                            AK_47.i_maxMagazineUpgradeCost = round(AK_47.i_maxMagazineUpgradeCost * 1.5);
+                            AK_47.i_maxMagazine = AK_47.i_baseMagazine + AK_47.i_maxMagazineIncrement;                        
+                        }
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                }            
+            }
+            
+            else
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Magazine Level: Max");                
+            }
+            
+            //Second Option: Ammo Damage
+            if (AK_47.i_damageLevel &lt;= AK_47.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Damage Level: " + string(AK_47.i_damageLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(AK_47.i_damageUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_AmmoDamageInfo);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.55 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.55 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= AK_47.i_damageUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - AK_47.i_damageUpgradeCost;
+                            
+                            AK_47.i_damageLevel += 1;
+                            AK_47.i_damageUpgradeCost = round(AK_47.i_maxMagazineUpgradeCost * 1.5);
+                            AK_47.i_damage = AK_47.i_baseDamage + ((AK_47.i_damageLevel - 1) * AK_47.i_damageIncrement);
+                        }
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                }           
+            }
+            
+            else
+            {
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Damage Level: Max");            
+            }
+                
+            //Third Option: Fire-rate
+            if (AK_47.i_cooldownLevel &lt;= AK_47.i_MaxLevel)
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.625, "Fire-rate Level: " + string(AK_47.i_cooldownLevel));
+                
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.65, "Cost: " + string(AK_47.i_cooldownUpgradeCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, c_CooldownInfo);
+            
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.65 - 17) &amp;&amp; 
+                device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.65 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.65, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                        if (global.i_currency &gt;= AK_47.i_damageUpgradeCost)
+                        {
+                            global.i_currency = global.i_currency - AK_47.i_cooldownUpgradeCost;
+                        
+                            AK_47.i_cooldownLevel += 1;
+                            AK_47.i_cooldownUpgradeCost = round(AK_47.i_cooldownUpgradeCost * 1.5);
+                            AK_47.f_cooldown = AK_47.f_basecooldown - ((AK_47.i_cooldownLevel - 1) * AK_47.f_cooldownIncrement);
+                        }                        
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.65, 1, 1, 0, c_white, 1);
+                }            
+            }
+            
+            else
+            {
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.625, "Fire-rate Level: Max");
+            }
+            
+        break;
     }
 }
 
@@ -391,6 +671,10 @@ else
         
         case "Handgun":
         draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.375, global.GUI_height * 0.5, 3, 3, 0, c_white, 1);
+        break;
+        
+        case "AK-47":
+        draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.375, global.GUI_height * 0.5, 3, 3, 0, c_white, 1);
         break;
     }
 }
