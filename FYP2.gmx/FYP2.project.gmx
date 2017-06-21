@@ -507,6 +507,7 @@
     <object>objects\REnemyEliteProObj</object>
     <object>objects\REnemyElite</object>
     <object>objects\REnemy</object>
+    <object>objects\PVPgui</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Global_Variable_Instance_Room</room>

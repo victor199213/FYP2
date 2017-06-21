@@ -26,9 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>seconds = 0;
-waveTime = 0;
-wave = 1;
-waveDelay = 60;
 randomize();
 
 particle = part_system_create();
@@ -58,10 +55,9 @@ particle_emitter = part_emitter_create(particle);
           <argument>
             <kind>1</kind>
             <string>seconds += 1 / room_speed;
-waveTime += 1 / room_speed;
 image_speed = 10/60;
 
-if(waveTime &lt;= 60)
+if(PVPgui.sec &gt; 0)
 {
     if(seconds &gt;= 5)
     {
@@ -82,33 +78,8 @@ if(waveTime &lt;= 60)
         seconds = 0;
     }
 }
-if(waveTime &gt;= 60)
-{
-    waveTime = 60;
-    waveDelay -= 1 / room_speed;
-    if(waveDelay &lt; 0)
-    {
-        wave += 1;
-        waveDelay = 60;
-        waveTime = 0;
-    }
-}
 
-if(wave &gt;= 6)
-{
-    instance_destroy();
-    part_emitter_destroy_all(particle);
-    room_goto(3);
-}
-
-if(Player.i_health &lt;= 0)
-{
-    instance_destroy();
-    part_emitter_destroy_all(particle);
-    room_goto(2);
-}
-
-if(wave &lt; 5)
+if(PVPgui.sec &gt;= 0)
 {
     part_type_shape(sparkle,pt_shape_spark);
     part_type_orientation(sparkle,0,0,0,0,1);
