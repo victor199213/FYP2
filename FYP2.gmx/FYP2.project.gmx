@@ -133,6 +133,10 @@
         <sprite>sprites\shooter_bullets</sprite>
         <sprite>sprites\EnemyProjectile</sprite>
         <sprite>sprites\sprite131</sprite>
+        <sprite>sprites\REnemyProjectile</sprite>
+        <sprite>sprites\REliteProjectile</sprite>
+        <sprite>sprites\BEnemyProjectile</sprite>
+        <sprite>sprites\BEliteProjectile</sprite>
       </sprites>
     </sprites>
     <sprites name="Characters">
@@ -149,6 +153,32 @@
         <sprite>sprites\Elite_left</sprite>
         <sprite>sprites\Elite_dying_right</sprite>
         <sprite>sprites\Elite_dying_left</sprite>
+        <sprites name="PVP">
+          <sprite>sprites\BElite_dying_left</sprite>
+          <sprite>sprites\BElite_dying_right</sprite>
+          <sprite>sprites\BElite_left</sprite>
+          <sprite>sprites\BElite_right</sprite>
+          <sprite>sprites\BEnemy_dying_left</sprite>
+          <sprite>sprites\BEnemy_dying_right</sprite>
+          <sprite>sprites\BEnemy_left</sprite>
+          <sprite>sprites\BEnemy_right</sprite>
+          <sprite>sprites\BShootingEnemy_dying_left</sprite>
+          <sprite>sprites\BShootingEnemy_dying_right</sprite>
+          <sprite>sprites\BShootingEnemy_left</sprite>
+          <sprite>sprites\BShootingEnemy_right</sprite>
+          <sprite>sprites\RElite_dying_left</sprite>
+          <sprite>sprites\RElite_dying_right</sprite>
+          <sprite>sprites\RElite_left</sprite>
+          <sprite>sprites\RElite_right</sprite>
+          <sprite>sprites\REnemy_dying_left</sprite>
+          <sprite>sprites\REnemy_dying_right</sprite>
+          <sprite>sprites\REnemy_left</sprite>
+          <sprite>sprites\REnemy_right</sprite>
+          <sprite>sprites\RShootingEnemy_dying_left</sprite>
+          <sprite>sprites\RShootingEnemy_dying_right</sprite>
+          <sprite>sprites\RShootingEnemy_left</sprite>
+          <sprite>sprites\RShootingEnemy_right</sprite>
+        </sprites>
       </sprites>
       <sprites name="Player">
         <sprites name="Character One">
@@ -463,12 +493,27 @@
     <object>objects\EnemyProjectileParticle</object>
     <object>objects\EnemyExplode</object>
     <object>objects\TmpSwitchRoom</object>
+    <object>objects\BSpawner</object>
+    <object>objects\BObjective</object>
+    <object>objects\BEnemyShooting</object>
+    <object>objects\BEnemyProObj</object>
+    <object>objects\BEnemyEliteProObj</object>
+    <object>objects\BEnemyElite</object>
+    <object>objects\BEnemy</object>
+    <object>objects\RSpawner</object>
+    <object>objects\RObjective</object>
+    <object>objects\REnemyShooting</object>
+    <object>objects\REnemyProObj</object>
+    <object>objects\REnemyEliteProObj</object>
+    <object>objects\REnemyElite</object>
+    <object>objects\REnemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Global_Variable_Instance_Room</room>
     <room>rooms\MainMenu</room>
     <room>rooms\Game_Loading_Room</room>
     <room>rooms\room1</room>
+    <room>rooms\room2</room>
     <room>rooms\GameOver</room>
     <room>rooms\Win</room>
   </rooms>
