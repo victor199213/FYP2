@@ -17,44 +17,44 @@ global.GUI_width = display_get_gui_width();
 global.GUI_height = display_get_gui_height();
 
 // Chosen Character to be used during game-play
-global.chosenCharacter = "Daniel";
+global.chosenCharacter = "";
 /* 
 global stats for chosen characters, to be determined during
 character selection page. This now sets the global variables
 to be used across all characters.
 */
 // 1. Health, and the max Health.
-global._health = 10;
-global._maxHealthIncrement = 10;
-global._baseMaxHealth = 10;
-global._maxHealth = 10;
+global._health = 0;
+global._maxHealthIncrement = 0;
+global._baseMaxHealth = 0;
+global._maxHealth = 0;
 
 // 2. Damage Multiplier
-global._damageMultiplier = 10;
-global._damageMultiplierIncrement = 10;
-global._baseDamageMultiplier = 10;
-global._maxDamageMultiplier = 10;
+global._damageMultiplier = 0;
+global._damageMultiplierIncrement = 0;
+global._baseDamageMultiplier = 0;
+global._maxDamageMultiplier = 0;
 
 // 3. Movement Speed
-global._moveSpeed = 10;
-global._moveSpeedIncrement = 10;
-global._baseMoveSpeed = 10;
-global._maxMoveSpeed = 10;
+global._moveSpeed = 0;
+global._moveSpeedIncrement = 0;
+global._baseMoveSpeed = 0;
+global._maxMoveSpeed = 0;
 
 // 4. Armor
-global._armour = 10;
-global._armourIncrement = 10;
-global._baseArmour = 10;
-global._maxArmour = 10;
-global._reducedDamage = 10;
+global._armour = 0;
+global._armourIncrement = 0;
+global._baseArmour = 0;
+global._maxArmour = 0;
+global._reducedDamage = 0;
 
 // Player's chosen character to play
-global.b_isDaniel = true;
+global.b_isDaniel = false;
 global.b_isTerry = false;
 global.b_isKeith = false;
 
 // Player's equipment during game-play
-global._equipment[0] = "Handgun";
+global._equipment[0] = "";
 global._equipment[1] = "";
 
 // Player's equipment list for the gun. Does not need reset

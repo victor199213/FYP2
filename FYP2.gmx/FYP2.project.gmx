@@ -181,25 +181,49 @@
         </sprites>
       </sprites>
       <sprites name="Player">
-        <sprites name="Character One">
-          <sprite>sprites\Daniel_Idle_Right</sprite>
-          <sprite>sprites\Daniel_Walk_Right</sprite>
-          <sprite>sprites\Daniel_Jump_Right</sprite>
-          <sprite>sprites\Daniel_Die_Right</sprite>
-          <sprite>sprites\Daniel_Idle_Left</sprite>
-          <sprite>sprites\Daniel_Walk_Left</sprite>
-          <sprite>sprites\Daniel_Jump_Left</sprite>
-          <sprite>sprites\Daniel_Die_Left</sprite>
+        <sprites name="Multiplayer">
+          <sprites name="R_Player">
+            <sprite>sprites\R_Player_Idle_Right</sprite>
+            <sprite>sprites\R_Player_Walk_Right</sprite>
+            <sprite>sprites\R_Player_Jump_Right</sprite>
+            <sprite>sprites\R_Player_Die_Right</sprite>
+            <sprite>sprites\R_Player_Idle_Left</sprite>
+            <sprite>sprites\R_Player_Walk_Left</sprite>
+            <sprite>sprites\R_Player_Jump_Left</sprite>
+            <sprite>sprites\R_Player_Die_Left</sprite>
+          </sprites>
+          <sprites name="B_Player">
+            <sprite>sprites\B_Player_Idle_Right</sprite>
+            <sprite>sprites\B_Player_Walk_Right</sprite>
+            <sprite>sprites\B_Player_Jump_Right</sprite>
+            <sprite>sprites\B_Player_Die_Right</sprite>
+            <sprite>sprites\B_Player_Idle_Left</sprite>
+            <sprite>sprites\B_Player_Walk_Left</sprite>
+            <sprite>sprites\B_Player_Jump_Left</sprite>
+            <sprite>sprites\B_Player_Die_Left</sprite>
+          </sprites>
         </sprites>
-        <sprites name="Character Two">
-          <sprite>sprites\Terry_Idle_Right</sprite>
-          <sprite>sprites\Terry_Walk_Right</sprite>
-          <sprite>sprites\Terry_Jump_Right</sprite>
-          <sprite>sprites\Terry_Die_Right</sprite>
-          <sprite>sprites\Terry_Idle_Left</sprite>
-          <sprite>sprites\Terry_Walk_Left</sprite>
-          <sprite>sprites\Terry_Jump_Left</sprite>
-          <sprite>sprites\Terry_Die_Left</sprite>
+        <sprites name="Solo">
+          <sprites name="Character One">
+            <sprite>sprites\Daniel_Idle_Right</sprite>
+            <sprite>sprites\Daniel_Walk_Right</sprite>
+            <sprite>sprites\Daniel_Jump_Right</sprite>
+            <sprite>sprites\Daniel_Die_Right</sprite>
+            <sprite>sprites\Daniel_Idle_Left</sprite>
+            <sprite>sprites\Daniel_Walk_Left</sprite>
+            <sprite>sprites\Daniel_Jump_Left</sprite>
+            <sprite>sprites\Daniel_Die_Left</sprite>
+          </sprites>
+          <sprites name="Character Two">
+            <sprite>sprites\Terry_Idle_Right</sprite>
+            <sprite>sprites\Terry_Walk_Right</sprite>
+            <sprite>sprites\Terry_Jump_Right</sprite>
+            <sprite>sprites\Terry_Die_Right</sprite>
+            <sprite>sprites\Terry_Idle_Left</sprite>
+            <sprite>sprites\Terry_Walk_Left</sprite>
+            <sprite>sprites\Terry_Jump_Left</sprite>
+            <sprite>sprites\Terry_Die_Left</sprite>
+          </sprites>
         </sprites>
       </sprites>
     </sprites>
@@ -420,6 +444,14 @@
     <font>fonts\fnt_UIDescriptiontwo</font>
   </fonts>
   <objects name="objects">
+    <objects name="Multiplayer">
+      <objects name="Characters">
+        <objects name="PVP">
+          <object>objects\R_Player</object>
+          <object>objects\B_Player</object>
+        </objects>
+      </objects>
+    </objects>
     <object>objects\Player</object>
     <object>objects\Spawner</object>
     <object>objects\Enemy</object>
@@ -431,12 +463,20 @@
       <objects name="Guns">
         <object>objects\Handgun</object>
         <object>objects\AK_47</object>
+        <objects name="Multiplayer">
+          <object>objects\R_Handgun</object>
+          <object>objects\B_Handgun</object>
+        </objects>
       </objects>
       <objects name="Projectiles">
         <object>objects\Handgun_Ammo</object>
         <object>objects\AK_47_Ammo</object>
         <object>objects\EnemyProObj</object>
         <object>objects\EnemyEliteProObj</object>
+        <objects name="Multiplayer">
+          <object>objects\R_Player_Handgun_Ammo</object>
+          <object>objects\B_Player_Handgun_Ammo</object>
+        </objects>
       </objects>
     </objects>
     <object>objects\Avoid</object>

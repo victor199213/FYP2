@@ -382,8 +382,8 @@ switch (menu_choice)
                 }
                 
                 else if (Character_Button.b_selectedSlot[0] == false &amp;&amp;
-                    Character_Button.b_selectedSlot[1] == true &amp;&amp; 
-                    Character_Button.b_selectedSlot[2] == false)
+                        Character_Button.b_selectedSlot[1] == true &amp;&amp; 
+                        Character_Button.b_selectedSlot[2] == false)
                 {
                     script_execute(Terry_Stats);
                 }

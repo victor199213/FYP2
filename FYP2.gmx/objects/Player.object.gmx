@@ -128,6 +128,8 @@ i_playerMaxUpgrade = 3;
 b_daniel_sprite = global.b_isDaniel;
 b_terry_sprite = global.b_isTerry;
 b_keith_sprite = global.b_isKeith;
+show_debug_message(b_daniel_sprite)
+show_debug_message(b_terry_sprite)
 
 if (b_daniel_sprite == true)
 {
@@ -429,9 +431,6 @@ if (place_meeting(x, y + f_verticalSpeed, Wall))
 }
 
 y += f_verticalSpeed;
-
-show_debug_message(i_health)
-show_debug_message(i_maxHealth)
 </string>
           </argument>
         </arguments>
@@ -601,7 +600,7 @@ draw_set_color(c_black);
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), i_health, c_black, c_red, c_lime, 0, true, true);
+draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), (i_health / i_maxHealth) * 100, c_black, c_red, c_lime, 0, true, true);
 
 </string>
           </argument>
