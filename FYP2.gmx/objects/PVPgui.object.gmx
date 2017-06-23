@@ -97,6 +97,22 @@ else
 draw_text(750,20,"B:" + string(BScore));
 draw_text(950,20,"R:" + string(RScore));
 draw_text(800, 40, "FPS = " + string(fps_real));
+
+if(sec &lt; 1)
+{   
+    if(BScore &gt; RScore)
+    {   
+        draw_text(800,80,"Blue Win");
+    }
+    if(BScore &lt; RScore)
+    {   
+        draw_text(800,80,"Red Win");
+    }
+    if(BScore == RScore)
+    {   
+        draw_text(800,80,"Draw");
+    }
+}
 </string>
           </argument>
         </arguments>

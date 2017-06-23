@@ -30,7 +30,7 @@ vsp = 0;
 hsp = 0;
 HP = 100;
 maxHP = 100;
-damage = 0;
+damage = 10;
 seconds = 2;
 
 f_multiplierLoot = random_range(0.3, 0.6);
@@ -276,6 +276,12 @@ if(place_meeting(x,y,RObjective))
     RObjective.score += 10;
     instance_destroy();
     instance_create(x,y,EnemyExplode)
+}
+
+if(PVPgui.sec &lt; 1)
+{
+    instance_create(x,y,EnemyExplode);
+    instance_destroy();
 }
 </string>
           </argument>

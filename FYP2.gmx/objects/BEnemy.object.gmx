@@ -44,7 +44,7 @@ vsp = 0;
 hsp = 0;
 HP = 100;
 maxHP = 100;
-damage = 0;
+damage = 10;
 pc = 0;
 </string>
           </argument>
@@ -287,6 +287,12 @@ if (f_knockback_timer &gt;= f_maxKnockback_time)
 if(place_meeting(x,y,BObjective))
 {
     BObjective.health -= 10;
+    instance_create(x,y,EnemyExplode);
+    instance_destroy();
+}
+
+if(PVPgui.sec &lt; 1)
+{
     instance_create(x,y,EnemyExplode);
     instance_destroy();
 }

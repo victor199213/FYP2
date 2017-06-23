@@ -42,7 +42,7 @@ b_faceRight = true;
 
 // Stats for the player
 // 1. Health, and the max Health. Can be upgraded.
-i_health = 400
+i_health = 100
 i_maxHealth = 400
 
 // 2. Damage Multiplier
