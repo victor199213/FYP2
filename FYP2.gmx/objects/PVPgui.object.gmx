@@ -28,6 +28,8 @@
             <string>minute = 0;
 sec = 180;
 showSec = 60;
+BScore = 0;
+RScore = 0;
 </string>
           </argument>
         </arguments>
@@ -92,6 +94,8 @@ else
           <argument>
             <kind>1</kind>
             <string>draw_text(800,20,"Minute: " + string(minute) + " Sec:" + string(floor(showSec)));
+draw_text(750,20,"B:" + string(BScore));
+draw_text(950,20,"R:" + string(RScore));
 draw_text(800, 40, "FPS = " + string(fps_real));
 </string>
           </argument>

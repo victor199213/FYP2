@@ -86,29 +86,29 @@ if (f_cooldown_timer &gt; f_cooldown)
 
 if (B_Player.b_deadAnim == false &amp;&amp; B_Player.b_isDead == false)
 {
-    if (B_Player.SHOOT &amp;&amp; b_fire == true &amp;&amp; b_isReload == false)
+    if (B_Player.SHOOT &amp;&amp; b_fire == true)
     {
         if (i_ammo &gt; 0)
         {      
             b_fire = false;
             f_cooldown_timer = 0;
-            instance_create(x, y, Gunfire);
+            instance_create(x, y, B_Gunfire);
             instance_create(x, y, B_Player_Handgun_Ammo);
         }
     }
 }
 
-x = Player.x + offset_x;
-y = Player.y + offset_y;
+x = B_Player.x + offset_x;
+y = B_Player.y + offset_y;
 
 // Rotate the image if the player is facing left
-if (Player.b_faceLeft == true)
+if (B_Player.b_faceLeft == true)
 {
     image_xscale = -1.5;
     offset_x = sprite_get_width(B_Player) * 0.3 * -1;
 }
 
-else if (Player.b_faceRight == true)
+else if (B_Player.b_faceRight == true)
 {
     image_xscale = 1.5;
     offset_x = sprite_get_width(B_Player) * 0.3;

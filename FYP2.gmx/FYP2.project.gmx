@@ -483,6 +483,8 @@
     <objects name="Explosions">
       <objects name="GunFire">
         <object>objects\Gunfire</object>
+        <object>objects\R_Gunfire</object>
+        <object>objects\B_Gunfire</object>
         <object>objects\AmmoExplosion</object>
       </objects>
     </objects>

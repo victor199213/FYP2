@@ -26,17 +26,17 @@
           <argument>
             <kind>1</kind>
             <string>// Properties of a Handgun Ammo
-i_damage = round(R_Handgun.i_damage * R_Player.f_damageMultiplier);
+i_damage = round(R_Handgun.i_damage * B_Player.f_damageMultiplier);
 f_bullet_hspeed = 0;
 i_spawnTime = 3;
 i_spawnCounter = 0;
 
-if (R_Player.b_faceLeft == true)
+if (B_Player.b_faceLeft == true)
 {
     direction = 180;
 }
 
-else if (R_Player.b_faceRight == true)
+else if (B_Player.b_faceRight == true)
 {
     direction = 0;
 }
@@ -96,10 +96,10 @@ if (place_meeting(x + f_bullet_hspeed, y, Wall))
     instance_destroy();
 }
 
-if (place_meeting(x, y, Enemy))
+if (place_meeting(x, y, REnemy))
 {
     f_bullet_hspeed = 0;
-    Enemy.ammo_onhit_x = x;
+    REnemy.ammo_onhit_x = x;
 
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;
@@ -107,10 +107,10 @@ if (place_meeting(x, y, Enemy))
     instance_destroy();
 }
 
-if (place_meeting(x, y, EnemyShooting))
+if (place_meeting(x, y, REnemyShooting))
 {
     f_bullet_hspeed = 0;
-    EnemyShooting.ammo_onhit_x = x;
+    REnemyShooting.ammo_onhit_x = x;
 
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;
@@ -118,10 +118,10 @@ if (place_meeting(x, y, EnemyShooting))
     instance_destroy();
 }
 
-if (place_meeting(x, y, EnemyElite))
+if (place_meeting(x, y, REnemyElite))
 {
     f_bullet_hspeed = 0;
-    EnemyElite.ammo_onhit_x = x;
+    REnemyElite.ammo_onhit_x = x;
 
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;

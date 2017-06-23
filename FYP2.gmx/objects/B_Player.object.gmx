@@ -98,11 +98,11 @@ b_respawnTime = 5;
           <argument>
             <kind>1</kind>
             <string>// Creating player's movement
-MOVELEFT = keyboard_check(vk_left);
-MOVERIGHT = keyboard_check(vk_right);
-JUMP = keyboard_check_pressed(vk_space);
-SHOOT = keyboard_check(ord('Z'));
-RELOAD = keyboard_check_pressed(ord('R'));
+MOVELEFT = keyboard_check(ord('J'));
+MOVERIGHT = keyboard_check(ord('L'));
+JUMP = keyboard_check_pressed(ord('I'));
+SHOOT = keyboard_check(ord('P'));
+//RELOAD = keyboard_check_pressed(ord('R'));
 
 // React to inputs
 move = -MOVELEFT + MOVERIGHT;
@@ -121,13 +121,13 @@ if (place_meeting(x, y + 1, Wall))
 
 if (b_deadAnim == false &amp;&amp; b_isDead == false)
 {
-    if (keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right))
+    if (keyboard_check(ord('J')) &amp;&amp; !keyboard_check(ord('L')))
     {
         b_faceLeft = true;
         b_faceRight = false;
     }
     
-    if (!keyboard_check(vk_left) &amp;&amp; keyboard_check(vk_right))
+    if (!keyboard_check(ord('J')) &amp;&amp; keyboard_check(ord('L')))
     {
         b_faceLeft = false;
         b_faceRight = true;
@@ -138,7 +138,6 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
         b_isJumping = true;
     }
 }
-
 
 if (b_isJumping == true)
 {
@@ -186,11 +185,11 @@ else
 
 // Taking damage from the enemy
 // 1. Melee enemy
-if (place_meeting(x, y, Enemy))
+if (place_meeting(x, y, REnemy))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(Enemy.damage / f_armour);
+        i_reducedDamage = round(REnemy.damage / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        
@@ -206,11 +205,11 @@ if (place_meeting(x, y, Enemy))
 }
 
 // 2. Ranged enemy
-if (place_meeting(x, y, EnemyProObj))
+if (place_meeting(x, y, REnemyProObj))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(EnemyShooting.damage / f_armour);
+        i_reducedDamage = round(REnemyShooting.damage / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        
@@ -226,11 +225,11 @@ if (place_meeting(x, y, EnemyProObj))
 }
 
 // 3. EnemyElite range attack
-if (place_meeting(x, y, EnemyEliteProObj))
+if (place_meeting(x, y, REnemyEliteProObj))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(EnemyElite.damage / f_armour);
+        i_reducedDamage = round(REnemyElite.damage / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        
@@ -246,11 +245,11 @@ if (place_meeting(x, y, EnemyEliteProObj))
 }
 
 // 3. EnemyElite close attack
-if (place_meeting(x, y, EnemyElite))
+if (place_meeting(x, y, REnemyElite))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(EnemyElite.damage / f_armour);
+        i_reducedDamage = round(REnemyElite.damage / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        

@@ -100,7 +100,7 @@ switch (state)
             }    
         }
         
-        if (distance_to_object(Player) &lt; 94) 
+        if (distance_to_object(B_Player) &lt; 94) 
         {
             path_end();
             state = e_state.shoot;
@@ -129,7 +129,7 @@ switch (state)
     case e_state.shoot:
     {
         path_end();
-        dir = sign(Player.x - x);
+        dir = sign(B_Player.x - x);
         hsp = dir * 2;
         vsp = (min(7,vsp+0.05));
         
@@ -163,7 +163,7 @@ switch (state)
             seconds = 0;
         }
         
-        if (distance_to_object(Player) &gt; 128)
+        if (distance_to_object(B_Player) &gt; 128)
         {
             path_end();
             state = e_state.idle;
@@ -171,7 +171,7 @@ switch (state)
         if(place_meeting(x ,y + 1,Wall)== true)
         {
             speed = 0;
-            direction = point_direction(x, y, Player.x, Player.y);
+            direction = point_direction(x, y, B_Player.x, B_Player.y);
             gravity = 0;
         }
         if(direction &gt; 90 &amp;&amp; direction &lt; 270)
@@ -186,7 +186,7 @@ switch (state)
     break;
     case e_state.dying:
     {
-        direction = point_direction(x, y, Player.x, Player.y);
+        direction = point_direction(x, y, B_Player.x, B_Player.y);
         path_end();
         speed = 0;
         if(direction &gt; 90 &amp;&amp; direction &lt; 270)
@@ -224,14 +224,14 @@ if (place_meeting(round(x),round(y+vsp),Wall))
 }
 y += vsp;
 
-if(place_meeting(x,y,Handgun_Ammo))
+if(place_meeting(x,y,B_Player_Handgun_Ammo))
 {
-    HP -= Handgun_Ammo.i_damage;
+    HP -= B_Player_Handgun_Ammo.i_damage;
     
-    with (Handgun_Ammo)
+    with (B_Player_Handgun_Ammo)
     {
         f_bullet_hspeed = 0;
-        EnemyShooting.ammo_onhit_x = x;
+        REnemyShooting.ammo_onhit_x = x;
 
         instance_create(x, y, AmmoExplosion);
         AmmoExplosion.image_xscale *= 0.5;

@@ -86,20 +86,20 @@ if (f_cooldown_timer &gt; f_cooldown)
 
 if (R_Player.b_deadAnim == false &amp;&amp; R_Player.b_isDead == false)
 {
-    if (R_Player.SHOOT &amp;&amp; b_fire == true &amp;&amp; b_isReload == false)
+    if (R_Player.SHOOT &amp;&amp; b_fire == true)
     {
         if (i_ammo &gt; 0)
         {      
             b_fire = false;
             f_cooldown_timer = 0;
-            instance_create(x, y, Gunfire);
+            instance_create(x, y, R_Gunfire);
             instance_create(x, y, R_Player_Handgun_Ammo);
         }
     }
 }
 
-x = Player.x + offset_x;
-y = Player.y + offset_y;
+x = R_Player.x + offset_x;
+y = R_Player.y + offset_y;
 
 // Rotate the image if the player is facing left
 if (R_Player.b_faceLeft == true)
