@@ -42,7 +42,7 @@ b_faceRight = true;
 
 // Stats for the player
 // 1. Health, and the max Health. Can be upgraded.
-i_health = 100
+i_health = 1
 i_maxHealth = 400
 
 // 2. Damage Multiplier
@@ -102,25 +102,24 @@ MOVELEFT = keyboard_check(ord('A'));
 MOVERIGHT = keyboard_check(ord('D'));
 JUMP = keyboard_check_pressed(ord('W'));
 SHOOT = keyboard_check(ord('C'));
-//RELOAD = keyboard_check_pressed(ord('R'));
-
-// React to inputs
-move = -MOVELEFT + MOVERIGHT;
-f_horizontalSpeed = move * f_moveSpeed;
 
 if (f_verticalSpeed &lt; 10)
 {
     f_verticalSpeed += global.f_gravity;
 }
 
-if (place_meeting(x, y + 1, Wall))
-{
-    f_verticalSpeed = JUMP * - f_jumpSpeed;
-    b_isJumping = false;
-}
-
 if (b_deadAnim == false &amp;&amp; b_isDead == false)
 {
+    // React to inputs
+    move = -MOVELEFT + MOVERIGHT;
+    f_horizontalSpeed = move * f_moveSpeed;
+    if (place_meeting(x, y + 1, Wall))
+    {
+        f_verticalSpeed = JUMP * - f_jumpSpeed;
+        b_isJumping = false;
+    }
+
+       
     if (keyboard_check(ord('A')) &amp;&amp; !keyboard_check(ord('D')))
     {
         b_faceLeft = true;
@@ -137,48 +136,48 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
     {
         b_isJumping = true;
     }
-}
-
-if (b_isJumping == true)
-{
-    if (b_faceLeft == true &amp;&amp; b_faceRight == false)
-    {
-        sprite_index = R_Player_Jump_Left;
-    }
     
-    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+    if (b_isJumping == true)
     {
-        sprite_index = R_Player_Jump_Right;
-    }
-}
-
-else
-{
-    if (b_faceLeft == true &amp;&amp; b_faceRight == false)
-    {
-        if (move &lt; 0)
+        if (b_faceLeft == true &amp;&amp; b_faceRight == false)
         {
-            sprite_index = R_Player_Walk_Left;            
-            image_speed = 10 / room_speed;
+            sprite_index = R_Player_Jump_Left;
         }
         
-        else
+        if (b_faceLeft == false &amp;&amp; b_faceRight == true)
         {
-            sprite_index = R_Player_Idle_Left;
+            sprite_index = R_Player_Jump_Right;
         }
     }
     
-    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+    else
     {
-        if (move &gt; 0)
+        if (b_faceLeft == true &amp;&amp; b_faceRight == false)
         {
-            sprite_index = R_Player_Walk_Right;
-            image_speed = 10 / room_speed;
+            if (move &lt; 0)
+            {
+                sprite_index = R_Player_Walk_Left;            
+                image_speed = 10 / room_speed;
+            }
+            
+            else
+            {
+                sprite_index = R_Player_Idle_Left;
+            }
         }
         
-        else
+        if (b_faceLeft == false &amp;&amp; b_faceRight == true)
         {
-            sprite_index = R_Player_Idle_Right;
+            if (move &gt; 0)
+            {
+                sprite_index = R_Player_Walk_Right;
+                image_speed = 10 / room_speed;
+            }
+            
+            else
+            {
+                sprite_index = R_Player_Idle_Right;
+            }
         }
     }
 }
@@ -277,9 +276,11 @@ if (b_deadAnim == true)
     }
     
     image_speed = 6 / room_speed;
+    f_horizontalSpeed = 0;
     if (image_index &gt; image_number - 1)
     {
-        b_deadAnim = false;
+        image_index = image_number - 1;
+        image_speed = 0;
         b_isDead = true;
     }
 }
@@ -292,6 +293,7 @@ if (b_isDead == true)
         b_respawnTimer = 0;
         b_deadAnim = false;
         b_isDead = false;
+        b_noDamage = true;
         if (b_faceLeft == true &amp;&amp; b_faceRight == false)
         sprite_index = R_Player_Idle_Left;
         
@@ -357,7 +359,12 @@ y += f_verticalSpeed;
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), (i_health / i_maxHealth) * 100, c_black, c_red, c_lime, 0, true, true);
+
+if (b_deadAnim == false &amp;&amp; b_isDead == false)
+{
+    draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), (i_health / i_maxHealth) * 100, c_black, c_red, c_lime, 0, true, true);
+}
+
 </string>
           </argument>
         </arguments>

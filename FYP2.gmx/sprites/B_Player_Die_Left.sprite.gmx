@@ -30,5 +30,6 @@
     <frame index="7">images\B_Player_Die_Left_7.png</frame>
     <frame index="8">images\B_Player_Die_Left_8.png</frame>
     <frame index="9">images\B_Player_Die_Left_9.png</frame>
+    <frame index="10">images\B_Player_Die_Left_10.png</frame>
   </frames>
 </sprite>

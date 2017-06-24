@@ -102,25 +102,23 @@ MOVELEFT = keyboard_check(ord('J'));
 MOVERIGHT = keyboard_check(ord('L'));
 JUMP = keyboard_check_pressed(ord('I'));
 SHOOT = keyboard_check(ord('P'));
-//RELOAD = keyboard_check_pressed(ord('R'));
-
-// React to inputs
-move = -MOVELEFT + MOVERIGHT;
-f_horizontalSpeed = move * f_moveSpeed;
 
 if (f_verticalSpeed &lt; 10)
 {
     f_verticalSpeed += global.f_gravity;
 }
 
-if (place_meeting(x, y + 1, Wall))
-{
-    f_verticalSpeed = JUMP * - f_jumpSpeed;
-    b_isJumping = false;
-}
-
 if (b_deadAnim == false &amp;&amp; b_isDead == false)
 {
+    // React to inputs
+    move = -MOVELEFT + MOVERIGHT;
+    f_horizontalSpeed = move * f_moveSpeed;
+    if (place_meeting(x, y + 1, Wall))
+    {
+        f_verticalSpeed = JUMP * - f_jumpSpeed;
+        b_isJumping = false;
+    }
+
     if (keyboard_check(ord('J')) &amp;&amp; !keyboard_check(ord('L')))
     {
         b_faceLeft = true;
@@ -277,9 +275,11 @@ if (b_deadAnim == true)
     }
     
     image_speed = 6 / room_speed;
+    f_horizontalSpeed = 0;
     if (image_index &gt; image_number - 1)
     {
-        b_deadAnim = false;
+        image_index = image_number - 1;
+        image_speed = 0;
         b_isDead = true;
     }
 }
@@ -292,6 +292,7 @@ if (b_isDead == true)
         b_respawnTimer = 0;
         b_deadAnim = false;
         b_isDead = false;
+        b_noDamage = true;
         if (b_faceLeft == true &amp;&amp; b_faceRight == false)
         sprite_index = B_Player_Idle_Left;
         
