@@ -42,7 +42,7 @@ b_faceRight = true;
 
 // Stats for the player
 // 1. Health, and the max Health. Can be upgraded.
-i_health = 400
+i_health = 1
 i_maxHealth = 400
 
 // 2. Damage Multiplier
@@ -132,48 +132,48 @@ if (b_deadAnim == false)
     {
         b_isJumping = true;
     }
-}
-
-if (b_isJumping == true)
-{
-    if (b_faceLeft == true &amp;&amp; b_faceRight == false)
-    {
-        sprite_index = B_Player_Jump_Left;
-    }
     
-    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+    if (b_isJumping == true)
     {
-        sprite_index = B_Player_Jump_Right;
-    }
-}
-
-else
-{
-    if (b_faceLeft == true &amp;&amp; b_faceRight == false)
-    {
-        if (move &lt; 0)
+        if (b_faceLeft == true &amp;&amp; b_faceRight == false)
         {
-            sprite_index = B_Player_Walk_Left;            
-            image_speed = 10 / room_speed;
+            sprite_index = B_Player_Jump_Left;
         }
         
-        else
+        if (b_faceLeft == false &amp;&amp; b_faceRight == true)
         {
-            sprite_index = B_Player_Idle_Left;
+            sprite_index = B_Player_Jump_Right;
         }
     }
     
-    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+    else
     {
-        if (move &gt; 0)
+        if (b_faceLeft == true &amp;&amp; b_faceRight == false)
         {
-            sprite_index = B_Player_Walk_Right;
-            image_speed = 10 / room_speed;
+            if (move &lt; 0)
+            {
+                sprite_index = B_Player_Walk_Left;            
+                image_speed = 10 / room_speed;
+            }
+            
+            else
+            {
+                sprite_index = B_Player_Idle_Left;
+            }
         }
         
-        else
+        if (b_faceLeft == false &amp;&amp; b_faceRight == true)
         {
-            sprite_index = B_Player_Idle_Right;
+            if (move &gt; 0)
+            {
+                sprite_index = B_Player_Walk_Right;
+                image_speed = 10 / room_speed;
+            }
+            
+            else
+            {
+                sprite_index = B_Player_Idle_Right;
+            }
         }
     }
 }

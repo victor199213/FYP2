@@ -112,8 +112,7 @@ if (b_deadAnim == false)
         f_verticalSpeed = JUMP * - f_jumpSpeed;
         b_isJumping = false;
     }
-
-       
+      
     if (keyboard_check(ord('A')) &amp;&amp; !keyboard_check(ord('D')))
     {
         b_faceLeft = true;

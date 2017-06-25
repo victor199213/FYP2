@@ -105,8 +105,7 @@ switch (state)
             path_end();
             state = e_state.shoot;
         }
-        
-            
+                   
         if(place_meeting(x ,y + 1,Wall)== true)
         {
             path_start(path,2,"",false);
