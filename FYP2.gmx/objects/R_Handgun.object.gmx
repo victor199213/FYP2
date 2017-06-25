@@ -84,7 +84,7 @@ if (f_cooldown_timer &gt; f_cooldown)
     b_fire = true;
 }
 
-if (R_Player.b_deadAnim == false &amp;&amp; R_Player.b_isDead == false)
+if (R_Player.b_deadAnim == false)
 {
     if (R_Player.SHOOT &amp;&amp; b_fire == true)
     {
@@ -135,7 +135,7 @@ else if (R_Player.b_faceRight == true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (R_Player.b_isDead == false &amp;&amp; R_Player.b_deadAnim == false)
+            <string>if (R_Player.b_deadAnim == false)
 {
     draw_self();
 }

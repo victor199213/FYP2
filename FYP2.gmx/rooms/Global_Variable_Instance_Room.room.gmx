@@ -49,7 +49,7 @@ global._maxArmour = 10;
 global._reducedDamage = 10;
 
 // Player's chosen character to play
-global.b_isDaniel = true;
+global.b_isDaniel = false;
 global.b_isTerry = false;
 global.b_isKeith = false;
 

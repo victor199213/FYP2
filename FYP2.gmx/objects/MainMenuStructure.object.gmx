@@ -70,7 +70,7 @@ instance_create(1, 1, Exit_Button);
     Instancing the buttons in the Pregame selection
 */
 _Pregame_Selection = "Items";
-// Pregame Selection Objects
+// Pregame Selection Objects (Solo)
 instance_create(room_width * 0.5, room_height * 0.5, Pregame_Background);
 instance_create(0, 0, Item_Button);
 instance_create(0, 0, Character_Button);
@@ -79,6 +79,10 @@ instance_create(0, 0, Back_Button);
 instance_create(0, 0, Single_Button);
 instance_create(0, 0, Multi_Button);
 instance_create(0, 0, Solo_OK_Button);
+
+// Pregame Selection Objects (Multiplayer)
+instance_create(0, 0, Coop_Button);
+instance_create(0, 0, Versus_Button);
 /*
     1b. Pregame Selection
     Creating
@@ -98,6 +102,8 @@ instance_deactivate_object(Back_Button);
 instance_deactivate_object(Single_Button);
 instance_deactivate_object(Solo_OK_Button);
 instance_deactivate_object(Multi_Button);
+instance_deactivate_object(Coop_Button);
+instance_deactivate_object(Versus_Button);
 
 // Deactivate Map Selection Objects
 instance_deactivate_object(Map_Background);
@@ -125,7 +131,8 @@ instance_deactivate_object(Start_Game_Button);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>/// Menu Choice: Main Menu
+/*
     This is where this object will handle all of the animations, starting with:
     1. Main Menu
         - Pregame Selection (Item, Character Selection)
@@ -140,12 +147,8 @@ instance_deactivate_object(Start_Game_Button);
     3. Exit (Exit Game)
 */
 
-switch (menu_choice)
+if (menu_choice == "Main Menu")
 {
-    default:
-    break;
-    
-    case "Main Menu":
     // The starting animation for all Main Menu. Run only once until the game is exited.
     with (Game_Title)
     {
@@ -225,7 +228,9 @@ switch (menu_choice)
                 b_startAnim = false;
                 image_index = 0;
                 MainMenuStructure.menu_choice = "Pregame Selection";
+                
                 instance_deactivate_object(Start_Button);
+                // Pregame Selection activation (Solo)
                 instance_activate_object(Pregame_Background);
                 instance_activate_object(Item_Button);
                 instance_activate_object(Character_Button);
@@ -234,6 +239,9 @@ switch (menu_choice)
                 instance_activate_object(Multi_Button);
                 instance_activate_object(Solo_OK_Button);
                 instance_activate_object(Back_Button);
+                // Pregame Selection activation (Multiplayer)
+                instance_activate_object(Coop_Button);
+                instance_activate_object(Versus_Button);
             }
         }
     }
@@ -247,132 +255,181 @@ switch (menu_choice)
     {
    
     }
-    break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Menu Choice: Pregame Selection
+if (menu_choice == "Pregame Selection")
+{
+    if (Pregame_Background.b_startAnim == true)
+    {
+        Pregame_Background.f_translate_y = Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Pregame_Background.y = Pregame_Background.y + Pregame_Background.f_translate_y;
+        
+        // Objects that denotes solo game play
+        Item_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Character_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Weapon_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Single_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Multi_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Solo_OK_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Back_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        
+        // Objects that denotes multiplayer game play
+        Coop_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Versus_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+            
+        if (Pregame_Background.y &gt; Pregame_Background._posy)
+        {
+            Pregame_Background.y = Pregame_Background._posy;
+            // Objects that denotes solo game play
+            Item_Button.y = Item_Button._posy;
+            Character_Button.y = Character_Button._posy;
+            Weapon_Button.y = Weapon_Button._posy;
+            Single_Button.y = Single_Button._posy;
+            Multi_Button.y = Multi_Button._posy;
+            Solo_OK_Button.y = Solo_OK_Button._posy;
+            Back_Button.y = Back_Button._posy;
+            
+            // Objects that denotes multiplayer game play
+            Coop_Button.y = Coop_Button._posy;
+            Versus_Button.y = Versus_Button._posy;
+                 
+            Pregame_Background.f_translate_y = 0;
+            Pregame_Background.b_startAnim = false;
+        }
+    }
     
-    case "Pregame Selection":
-        if (Pregame_Background.b_startAnim == true)
-        {
-            Pregame_Background.f_translate_y = Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Pregame_Background.y = Pregame_Background.y + Pregame_Background.f_translate_y;
-
-            Item_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Character_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Weapon_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Single_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Multi_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Solo_OK_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Back_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);    
-                
-            if (Pregame_Background.y &gt; Pregame_Background._posy)
-            {
-                Pregame_Background.y = Pregame_Background._posy;
-                
-                Item_Button.y = Item_Button._posy;
-                Character_Button.y = Character_Button._posy;
-                Weapon_Button.y = Weapon_Button._posy;
-                Single_Button.y = Single_Button._posy;
-                Multi_Button.y = Multi_Button._posy;
-                Solo_OK_Button.y = Solo_OK_Button._posy;
-                Back_Button.y = Back_Button._posy;       
-                     
-                Pregame_Background.f_translate_y = 0;
-                Pregame_Background.b_startAnim = false;
-            }
-        }
+    if (Pregame_Background.b_backAnim == true)
+    {
+        Pregame_Background.f_translate_y = Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        // Solo objects
+        Item_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Character_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Weapon_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Single_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Multi_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Solo_OK_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Back_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         
-        else if (Pregame_Background.b_backAnim == true)
-        {
-            Pregame_Background.f_translate_y = Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            
-            Item_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Character_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Weapon_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Single_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Multi_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Solo_OK_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Back_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            
-            Pregame_Background.y = Pregame_Background.y - Pregame_Background.f_translate_y;
-            
-            if (Pregame_Background.y &lt; Pregame_Background._offscreen_y)
-            {
-                Pregame_Background.y = Pregame_Background._offscreen_y;
-                
-                Item_Button.y = Item_Button._posy;
-                Character_Button.y = Character_Button._posy;
-                Weapon_Button.y = Weapon_Button._posy;
-                Single_Button.y = Single_Button._posy;
-                Multi_Button.y = Multi_Button._posy;
-                Solo_OK_Button.y = Solo_OK_Button._posy;
-                Back_Button.y = Back_Button._posy;
-                
-                Pregame_Background.f_translate_y = 0;
-                Pregame_Background.b_backAnim = false;                             
-                // Deactivate Pregame Selection Objects
-     
-                // Activate Main Menu objects
-                instance_activate_object(Start_Button);
-                instance_activate_object(Option_Button);
-                instance_activate_object(Exit_Button);
-                instance_activate_object(Game_Title);
-                
-                // Main Menu resets
-                script_execute(Start_Button_Soft_Reset);
-                script_execute(Option_Button_Soft_Reset);
-                script_execute(Exit_Button_Soft_Reset);
-                script_execute(Game_Title_Soft_Reset);
-                script_execute(MainMenuStructure_Soft_Reset);
-                
-                // Pre-game Selection Resets
-                script_execute(Pregame_Background_Reset);
-                script_execute(Item_Button_Reset);
-                script_execute(Character_Button_Reset);
-                script_execute(Weapon_Button_Reset);                
-                script_execute(Single_Button_Reset);                
-                script_execute(Multi_Button_Reset);               
-                script_execute(Back_Button_Reset);                
-                
-                // Deactivate Pre-game Selection objects
-                instance_deactivate_object(Item_Button);
-                instance_deactivate_object(Character_Button);
-                instance_deactivate_object(Weapon_Button);
-                instance_deactivate_object(Single_Button);
-                instance_deactivate_object(Multi_Button);
-                instance_deactivate_object(Solo_OK_Button);
-                instance_deactivate_object(Back_Button);
-                instance_deactivate_object(Pregame_Background);
-            }            
-        }
+        // Multiplayer objects
+        Coop_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Versus_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         
-        else if (Pregame_Background.b_nextAnim == true)
+        Pregame_Background.y = Pregame_Background.y - Pregame_Background.f_translate_y;
+        
+        if (Pregame_Background.y &lt; Pregame_Background._offscreen_y)
         {
-            Pregame_Background.f_translate_y = Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+            Pregame_Background.y = Pregame_Background._offscreen_y;
+            // Solo objects
+            Item_Button.y = Item_Button._posy;
+            Character_Button.y = Character_Button._posy;
+            Weapon_Button.y = Weapon_Button._posy;
+            Single_Button.y = Single_Button._posy;
+            Multi_Button.y = Multi_Button._posy;
+            Solo_OK_Button.y = Solo_OK_Button._posy;
+            Back_Button.y = Back_Button._posy;
             
-            Item_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Character_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Weapon_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Single_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Multi_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Solo_OK_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
-            Back_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+            // Multiplayer objects
+            Coop_Button.y = Coop_Button._posy;
+            Versus_Button.y = Versus_Button._posy;
             
-            Pregame_Background.y = Pregame_Background.y - Pregame_Background.f_translate_y;
+            Pregame_Background.f_translate_y = 0;
+            Pregame_Background.b_backAnim = false;                             
+            // Deactivate Pregame Selection Objects
+ 
+            // Activate Main Menu objects
+            instance_activate_object(Start_Button);
+            instance_activate_object(Option_Button);
+            instance_activate_object(Exit_Button);
+            instance_activate_object(Game_Title);
             
-            if (Pregame_Background.y &lt; Pregame_Background._offscreen_y)
+            // Main Menu resets
+            script_execute(Start_Button_Soft_Reset);
+            script_execute(Option_Button_Soft_Reset);
+            script_execute(Exit_Button_Soft_Reset);
+            script_execute(Game_Title_Soft_Reset);
+            script_execute(MainMenuStructure_Soft_Reset);
+            
+            // Pre-game Selection Resets
+            script_execute(Pregame_Background_Reset);
+            script_execute(Item_Button_Reset);
+            script_execute(Character_Button_Reset);
+            script_execute(Weapon_Button_Reset);                
+            script_execute(Single_Button_Reset);                
+            script_execute(Multi_Button_Reset);               
+            script_execute(Back_Button_Reset);                
+            
+            // Deactivate Pre-game Selection objects (Solo)
+            instance_deactivate_object(Item_Button);
+            instance_deactivate_object(Character_Button);
+            instance_deactivate_object(Weapon_Button);
+            instance_deactivate_object(Single_Button);
+            instance_deactivate_object(Multi_Button);
+            instance_deactivate_object(Solo_OK_Button);
+            instance_deactivate_object(Back_Button);
+            instance_deactivate_object(Pregame_Background);
+            // Deactivate Pre-game Selection objects (Multiplayer)
+            instance_deactivate_object(Coop_Button);
+            instance_deactivate_object(Versus_Button);
+        }            
+    }
+    
+    else if (Pregame_Background.b_nextAnim == true)
+    {
+        Pregame_Background.f_translate_y = Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        // Solo objects
+        Item_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Character_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Weapon_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Single_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Multi_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Solo_OK_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Back_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        // Multiplayer objects
+        Coop_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Versus_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        
+        Pregame_Background.y = Pregame_Background.y - Pregame_Background.f_translate_y;
+        
+        if (Pregame_Background.y &lt; Pregame_Background._offscreen_y)
+        {
+            Pregame_Background.y = Pregame_Background._offscreen_y;
+            // Solo objects
+            Item_Button.y = Item_Button._posy;
+            Character_Button.y = Character_Button._posy;
+            Weapon_Button.y = Weapon_Button._posy;
+            Single_Button.y = Single_Button._posy;
+            Multi_Button.y = Multi_Button._posy;
+            Solo_OK_Button.y = Solo_OK_Button._posy;
+            Back_Button.y = Back_Button._posy;
+            // Multiplayer objects
+            Coop_Button.y = Coop_Button._posy;
+            Versus_Button.y = Versus_Button._posy;
+            
+            Pregame_Background.f_translate_y = 0;
+            Pregame_Background.b_nextAnim = false;                    
+            
+            if (b_solo == true)
             {
-                Pregame_Background.y = Pregame_Background._offscreen_y;
-                
-                Item_Button.y = Item_Button._posy;
-                Character_Button.y = Character_Button._posy;
-                Weapon_Button.y = Weapon_Button._posy;
-                Single_Button.y = Single_Button._posy;
-                Multi_Button.y = Multi_Button._posy;
-                Solo_OK_Button.y = Solo_OK_Button._posy;
-                Back_Button.y = Back_Button._posy;
-                
-                Pregame_Background.f_translate_y = 0;
-                Pregame_Background.b_nextAnim = false;                    
-                
                 // Determine which character's stats is going to be based on what the player decides to choose
                 if (Character_Button.b_selectedSlot[0] == true &amp;&amp;
                     Character_Button.b_selectedSlot[1] == false &amp;&amp; 
@@ -397,48 +454,74 @@ switch (menu_choice)
                 
                 // Determine the weapons to bring in to game
                 script_execute(Equipment);
-                
-                // Deactivate Pre-game Selection objects
-                instance_deactivate_object(Item_Button);
-                instance_deactivate_object(Character_Button);
-                instance_deactivate_object(Weapon_Button);
-                instance_deactivate_object(Single_Button);
-                instance_deactivate_object(Multi_Button);
-                instance_deactivate_object(Solo_OK_Button);
-                instance_deactivate_object(Back_Button);
-                instance_deactivate_object(Pregame_Background);
-                
-                // Activate the next objects
-                instance_activate_object(Map_Background);
-                instance_activate_object(Back_To_Pregame_Button);
-                instance_activate_object(Start_Game_Button);
-                menu_choice = "Map Selection";
-            }            
-        }
-    break;
-    
-    case "Map Selection":
-        if (Map_Background.b_startAnim == true)
-        {
-            Map_Background.f_translate_y = Map_Background.f_translate_y + 25 * (1 / room_speed);
-            Map_Background.y = Map_Background.y + Map_Background.f_translate_y;  
-            Back_To_Pregame_Button.y = Back_To_Pregame_Button.y + Map_Background.f_translate_y;
-            Start_Game_Button.y = Start_Game_Button.y + Map_Background.f_translate_y;
-                
-            if (Map_Background.y &gt; Map_Background._posy)
-            {
-                Map_Background.y = Map_Background._posy;    
-                Back_To_Pregame_Button.y = Back_To_Pregame_Button._posy;
-                Start_Game_Button.y = Start_Game_Button._posy;
-                     
-                Map_Background.f_translate_y = 0;
-                Map_Background.b_startAnim = false;
             }
+            
+            else
+            {
+                
+            }
+                
+            // Deactivate Pre-game Selection objects (Solo)
+            instance_deactivate_object(Item_Button);
+            instance_deactivate_object(Character_Button);
+            instance_deactivate_object(Weapon_Button);
+            instance_deactivate_object(Single_Button);
+            instance_deactivate_object(Multi_Button);
+            instance_deactivate_object(Solo_OK_Button);
+            instance_deactivate_object(Back_Button);
+            instance_deactivate_object(Pregame_Background);
+            // Deactivate Pre-game Selection objects (Multiplayer)
+            instance_deactivate_object(Coop_Button);
+            instance_deactivate_object(Versus_Button);
+            
+            // Activate the next objects
+            instance_activate_object(Map_Background);
+            instance_activate_object(Back_To_Pregame_Button);
+            instance_activate_object(Start_Game_Button);
+            menu_choice = "Map Selection";
+        }            
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Menu Choice: Map Selection
+if (menu_choice == "Map Selection")
+{
+    if (Map_Background.b_startAnim == true)
+    {
+        Map_Background.f_translate_y = Map_Background.f_translate_y + 25 * (1 / room_speed);
+        Map_Background.y = Map_Background.y + Map_Background.f_translate_y;  
+        Back_To_Pregame_Button.y = Back_To_Pregame_Button.y + Map_Background.f_translate_y;
+        Start_Game_Button.y = Start_Game_Button.y + Map_Background.f_translate_y;
+            
+        if (Map_Background.y &gt; Map_Background._posy)
+        {
+            Map_Background.y = Map_Background._posy;    
+            Back_To_Pregame_Button.y = Back_To_Pregame_Button._posy;
+            Start_Game_Button.y = Start_Game_Button._posy;
+                 
+            Map_Background.f_translate_y = 0;
+            Map_Background.b_startAnim = false;
         }
-    break;
-    
-    case "Option":
-    break;
+    }
 }
 </string>
           </argument>

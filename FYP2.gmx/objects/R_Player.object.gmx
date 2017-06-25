@@ -31,7 +31,7 @@ f_horizontalSpeed = 0;
 f_jumpSpeed = 14;
 f_noDamageCooldown = 2;
 f_noDamageTimer = 0;
-b_noDamage = false;
+b_noDamage = true;
 
 // Checks if the player is jumping
 b_isJumping = false;
@@ -62,9 +62,6 @@ i_reducedDamage = 0
 i_armourPierceDamage = 0;
 i_armourPierceMaxDamage = 50;
 
-// Viewing stats for either player or current equipments
-b_viewPlayerTab = false;
-
 instance_create(0, 0, R_Handgun);
 
 // Creating the depth of the player
@@ -72,9 +69,6 @@ depth = -1;
 
 // Creating the down time for players if players die
 b_deadAnim = false;
-b_isDead = false;
-b_respawnTimer = 0;
-b_respawnTime = 5;
 </string>
           </argument>
         </arguments>
@@ -108,7 +102,7 @@ if (f_verticalSpeed &lt; 10)
     f_verticalSpeed += global.f_gravity;
 }
 
-if (b_deadAnim == false &amp;&amp; b_isDead == false)
+if (b_deadAnim == false)
 {
     // React to inputs
     move = -MOVELEFT + MOVERIGHT;
@@ -279,26 +273,14 @@ if (b_deadAnim == true)
     f_horizontalSpeed = 0;
     if (image_index &gt; image_number - 1)
     {
-        image_index = image_number - 1;
-        image_speed = 0;
-        b_isDead = true;
-    }
-}
-
-if (b_isDead == true)
-{
-    b_respawnTimer = b_respawnTimer + 1 * (1 / room_speed);    
-    if (b_respawnTimer &gt; b_respawnTime)
-    {
-        b_respawnTimer = 0;
-        b_deadAnim = false;
-        b_isDead = false;
-        b_noDamage = true;
-        if (b_faceLeft == true &amp;&amp; b_faceRight == false)
-        sprite_index = R_Player_Idle_Left;
-        
-        else
-        sprite_index = R_Player_Idle_Right;
+        with (R_Handgun)
+        {
+            instance_destroy();
+        }
+        PlayerHandleObj.b_R_Player_dead = true;
+        PlayerHandleObj._R_Player_x = x;
+        PlayerHandleObj._R_Player_y = y;
+        instance_destroy();
     }
 }
 
@@ -360,7 +342,7 @@ y += f_verticalSpeed;
             <kind>1</kind>
             <string>draw_self();
 
-if (b_deadAnim == false &amp;&amp; b_isDead == false)
+if (b_deadAnim == false)
 {
     draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), (i_health / i_maxHealth) * 100, c_black, c_red, c_lime, 0, true, true);
 }

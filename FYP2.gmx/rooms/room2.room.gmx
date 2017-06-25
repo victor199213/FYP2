@@ -11,7 +11,9 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>// Shared Gravity across all objects in the room
-global.f_gravity = 0.5;</code>
+global.f_gravity = 0.5;
+
+instance_create(0, 0, PlayerHandleObj);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

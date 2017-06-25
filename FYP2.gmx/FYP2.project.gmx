@@ -449,6 +449,7 @@
         <objects name="PVP">
           <object>objects\R_Player</object>
           <object>objects\B_Player</object>
+          <object>objects\PlayerHandleObj</object>
         </objects>
       </objects>
     </objects>
@@ -464,8 +465,10 @@
         <object>objects\Handgun</object>
         <object>objects\AK_47</object>
         <objects name="Multiplayer">
-          <object>objects\R_Handgun</object>
-          <object>objects\B_Handgun</object>
+          <objects name="PvP">
+            <object>objects\R_Handgun</object>
+            <object>objects\B_Handgun</object>
+          </objects>
         </objects>
       </objects>
       <objects name="Projectiles">
@@ -524,12 +527,14 @@
         </objects>
         <objects name="Multiplayer">
           <object>objects\Multi_Button</object>
+          <object>objects\Coop_Button</object>
+          <object>objects\Versus_Button</object>
         </objects>
       </objects>
       <objects name="Map Selection">
         <object>objects\Map_Background</object>
-        <object>objects\Back_To_Pregame_Button</object>
         <object>objects\Start_Game_Button</object>
+        <object>objects\Back_To_Pregame_Button</object>
       </objects>
     </objects>
     <object>objects\EnemyProjectileParticle</object>
