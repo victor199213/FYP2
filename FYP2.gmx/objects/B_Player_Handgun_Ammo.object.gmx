@@ -95,7 +95,7 @@ if (place_meeting(x + f_bullet_hspeed, y, Wall))
     instance_destroy();
 }
 
-if (place_meeting(x, y, REnemy))
+if (instance_place(x, y, REnemy))
 {
     f_bullet_hspeed = 0;
     REnemy.ammo_onhit_x = x;
@@ -106,7 +106,7 @@ if (place_meeting(x, y, REnemy))
     instance_destroy();
 }
 
-if (place_meeting(x, y, REnemyShooting))
+else if (instance_place(x, y, REnemyShooting))
 {
     f_bullet_hspeed = 0;
     REnemyShooting.ammo_onhit_x = x;
@@ -117,7 +117,7 @@ if (place_meeting(x, y, REnemyShooting))
     instance_destroy();
 }
 
-if (place_meeting(x, y, REnemyElite))
+else if (instance_place(x, y, REnemyElite))
 {
     f_bullet_hspeed = 0;
     REnemyElite.ammo_onhit_x = x;
@@ -128,10 +128,11 @@ if (place_meeting(x, y, REnemyElite))
     instance_destroy();  
 }
 
-if (place_meeting(x, y, R_Player))
+else if (place_meeting(x, y, R_Player))
 {
     f_bullet_hspeed = 0;
     R_Player.ammo_onhit_x = x;
+    
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;
     AmmoExplosion.image_yscale *= 0.5;

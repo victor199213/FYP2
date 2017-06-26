@@ -314,24 +314,29 @@ if (place_meeting(round(x),round(y+vsp),Wall))
 }
 y += vsp;
 
-if(place_meeting(x,y,B_Player_Handgun_Ammo))
+if (place_meeting(x - 2, y - 2, B_Player_Handgun_Ammo) ||
+    place_meeting(x + 2, y - 2, B_Player_Handgun_Ammo) ||
+    place_meeting(x - 2, y + 2, B_Player_Handgun_Ammo) ||
+    place_meeting(x + 2, y + 2, B_Player_Handgun_Ammo))
 {
-
-    HP -= B_Player_Handgun_Ammo.i_damage;
-
-    if (b_isKnockback == false)
+    if (HP &gt; B_Player_Handgun_Ammo)
     {
-        b_isKnockback = true;
+        HP -= B_Player_Handgun_Ammo.i_damage;
+        if (b_isKnockback == false)
+        {
+            b_isKnockback = true;
+        }
+        
+        else
+        {
+            f_knockback_timer = 0;
+        }
     }
     
     else
     {
-        f_knockback_timer = 0;
-    }
-    
-    if(HP &lt;= 0)
-    {
         path_end();
+        HP = 0;
         speed = 0;
         state = e_state.dying;
     }

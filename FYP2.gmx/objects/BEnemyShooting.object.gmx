@@ -229,25 +229,33 @@ if (place_meeting(round(x),round(y+vsp),Wall))
 }
 y += vsp;
 
-if(place_meeting(x,y,R_Player_Handgun_Ammo))
-{
-    HP -= R_Player_Handgun_Ammo.i_damage;
-    
-    if (b_isKnockback == false)
+if (place_meeting(x - 2, y - 2, R_Player_Handgun_Ammo) ||
+    place_meeting(x + 2, y - 2, R_Player_Handgun_Ammo) ||
+    place_meeting(x - 2 ,y + 2, R_Player_Handgun_Ammo) ||
+    place_meeting(x + 2,y + 2, R_Player_Handgun_Ammo))
     {
-        b_isKnockback = true;
+        if (HP &gt; R_Player_Handgun_Ammo.i_damage)
+        {
+            HP -= R_Player_Handgun_Ammo.i_damage;
+            if (b_isKnockback == false)
+            {
+                b_isKnockback = true;
+            }
+            
+            else
+            {
+                f_knockback_timer = 0;
+            }
+        }
+        
+        else
+        {
+            path_end();
+            HP = 0;
+            speed = 0;
+            state = e_state.dying;
+        }
     }
-    
-    else
-    {
-        f_knockback_timer = 0;
-    }
-    
-    if(HP &lt;= 0)
-    {
-        state = e_state.dying;
-    }
-}
 
 if (b_isKnockback == true)
 {
@@ -255,14 +263,13 @@ if (b_isKnockback == true)
     f_knockback_timer = f_knockback_timer + (1 / room_speed);
     knockback_direction = sign(ammo_onhit_x - x);
         
-    f_knockback_speed = knockback_acceleration * (f_maxKnockback_time - f_knockback_timer) * knockback_direction;           
-}
-
-if (f_knockback_timer &gt;= f_maxKnockback_time)
-{
-    f_knockback_timer = 0;
-    f_knockback_speed = 0;
-    b_isKnockback = false;
+    f_knockback_speed = knockback_acceleration * (f_maxKnockback_time - f_knockback_timer) * knockback_direction;
+    if (f_knockback_timer &gt;= f_maxKnockback_time)
+    {
+        f_knockback_timer = 0;
+        f_knockback_speed = 0;
+        b_isKnockback = false;
+    }
 }
 
 if(place_meeting(x,y,BObjective))

@@ -81,7 +81,6 @@ depth = -2;
           <argument>
             <kind>1</kind>
             <string>i_spawnCounter = i_spawnCounter + (1 / room_speed);
-
 if (i_spawnCounter &gt; i_spawnTime)
 {
     instance_destroy();
@@ -96,7 +95,7 @@ if (place_meeting(x + f_bullet_hspeed, y, Wall))
     instance_destroy();
 }
 
-else if (place_meeting(x, y, BEnemy))
+else if (instance_place(x, y, BEnemy))
 {
     f_bullet_hspeed = 0;
     BEnemy.ammo_onhit_x = x;
@@ -107,7 +106,7 @@ else if (place_meeting(x, y, BEnemy))
     instance_destroy();
 }
 
-else if (place_meeting(x, y, BEnemyShooting))
+else if (instance_place(x, y, BEnemyShooting))
 {
     f_bullet_hspeed = 0;
     BEnemyShooting.ammo_onhit_x = x;
@@ -118,7 +117,7 @@ else if (place_meeting(x, y, BEnemyShooting))
     instance_destroy();
 }
 
-else if (place_meeting(x, y, BEnemyElite))
+else if (instance_place(x, y, BEnemyElite))
 {
     f_bullet_hspeed = 0;
     BEnemyElite.ammo_onhit_x = x;
@@ -133,6 +132,7 @@ else if (place_meeting(x, y, B_Player))
 {
     f_bullet_hspeed = 0;
     B_Player.ammo_onhit_x = x;
+    
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;
     AmmoExplosion.image_yscale *= 0.5;
