@@ -81,7 +81,6 @@ depth = -2;
           <argument>
             <kind>1</kind>
             <string>i_spawnCounter = i_spawnCounter + (1 / room_speed);
-
 if (i_spawnCounter &gt; i_spawnTime)
 {
     instance_destroy();
@@ -123,6 +122,16 @@ if (place_meeting(x, y, REnemyElite))
     f_bullet_hspeed = 0;
     REnemyElite.ammo_onhit_x = x;
 
+    instance_create(x, y, AmmoExplosion);
+    AmmoExplosion.image_xscale *= 0.5;
+    AmmoExplosion.image_yscale *= 0.5;
+    instance_destroy();  
+}
+
+if (place_meeting(x, y, R_Player))
+{
+    f_bullet_hspeed = 0;
+    R_Player.ammo_onhit_x = x;
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;
     AmmoExplosion.image_yscale *= 0.5;

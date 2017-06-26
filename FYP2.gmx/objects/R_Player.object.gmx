@@ -42,7 +42,7 @@ b_faceRight = true;
 
 // Stats for the player
 // 1. Health, and the max Health. Can be upgraded.
-i_health = 1
+i_health = 400
 i_maxHealth = 400
 
 // 2. Damage Multiplier
@@ -69,6 +69,16 @@ depth = -1;
 
 // Creating the down time for players if players die
 b_deadAnim = false;
+
+// Gets knockback and disable movements if player gets knock-back
+b_knockback = false;
+knockback_direction = 0;
+f_knockbackTimer = 0;
+f_knockbackTime = 1;
+f_knockbackSpeed = 0;
+// Knockback calculations upon hitting other player's ammo
+f_knockbackAccel = 10;
+ammo_onhit_x = 0;
 </string>
           </argument>
         </arguments>
@@ -173,6 +183,34 @@ if (b_deadAnim == false)
             }
         }
     }
+    
+    if (b_knockback == true)
+    {
+        // Knock back when hit by other player's bullet
+        f_knockbackTimer = f_knockbackTimer + (1 / room_speed);
+        knockback_direction = sign(ammo_onhit_x - x);
+        
+        f_knockbackSpeed = f_knockbackAccel * (f_knockbackTime - f_knockbackTimer) * knockback_direction;
+        if (position_meeting(x - f_knockbackSpeed, y, Wall))
+        {
+            f_knockbackTimer = 0;
+            f_knockbackSpeed = 0;
+            x = x + sign(ammo_onhit_x - x) * 30;
+            b_knockback = false;
+        }
+        
+        else
+        {
+            x -= f_knockbackSpeed;
+        }
+        
+        if (f_knockbackTimer &gt;= f_knockbackTime)
+        {
+            f_knockbackTimer = 0;
+            f_knockbackSpeed = 0;
+            b_knockback = false;
+        }
+    }
 }
 
 // Taking damage from the enemy
@@ -236,7 +274,7 @@ if (place_meeting(x, y, BEnemyEliteProObj))
     }
 }
 
-// 3. EnemyElite close attack
+// 4. EnemyElite close attack
 if (place_meeting(x, y, BEnemyElite))
 {
     if (b_noDamage == false)
@@ -254,6 +292,27 @@ if (place_meeting(x, y, BEnemyElite))
         }    
         b_noDamage = true;
     }
+}
+
+// Other player's ammo
+if (place_meeting(x, y, B_Player_Handgun_Ammo))
+{
+    if (i_health &gt; B_Player_Handgun_Ammo.i_damage)
+    {
+        i_health = i_health - B_Player_Handgun_Ammo.i_damage;
+        if (b_knockback == false)
+        {
+            b_knockback = true;
+        }
+    }
+    
+    else
+    {
+        i_health = 0;
+        b_deadAnim = true;
+    }
+    
+    b_noDamage = true;
 }
 
 if (b_deadAnim == true)
