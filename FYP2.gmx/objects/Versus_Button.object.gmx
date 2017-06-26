@@ -88,9 +88,15 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (b_hover == true)
+            <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
 {
-    b_hover = false;
+    if (MainMenuStructure.b_solo == false)
+    {
+        if (b_hover == true)
+        {
+            b_hover = false;
+        }
+    }
 }
 </string>
           </argument>
@@ -114,9 +120,15 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (b_hover == false)
+            <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
 {
-    b_hover = true;
+    if (MainMenuStructure.b_solo == false)
+    {
+        if (b_hover == false)
+        {
+            b_hover = true;
+        }
+    }
 }
 </string>
           </argument>
@@ -140,19 +152,25 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (b_hover == true &amp;&amp; b_isVersus == false)
+            <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
 {
-    b_hover = false;
-    b_isVersus = true;
-    if (Coop_Button.b_isCoop == true)
+    if (MainMenuStructure.b_solo == false)
     {
-        Coop_Button.b_isCoop = false;
+        if (b_hover == true &amp;&amp; b_isVersus == false)
+        {
+            b_hover = false;
+            b_isVersus = true;
+            if (Coop_Button.b_isCoop == true)
+            {
+                Coop_Button.b_isCoop = false;
+            }
+        }
+        
+        if (b_hover == true &amp;&amp; b_isVersus == true)
+        {
+            b_isVersus = false;
+        }
     }
-}
-
-if (b_hover == true &amp;&amp; b_isVersus == true)
-{
-    b_isVersus = false;
 }
 </string>
           </argument>

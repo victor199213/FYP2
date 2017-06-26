@@ -96,11 +96,11 @@ switch (_currEquipOne)
     break;
     
     case "Handgun":
-    instance_create(0, 0, Handgun);
+    instance_create(x, y, Handgun);
     break;
     
     case "AK-47":
-    instance_create(0, 0, AK_47);
+    instance_create(x, y, AK_47);
     break;
 }
 
@@ -110,11 +110,11 @@ switch (_currEquipTwo)
     break;
     
     case "Handgun":
-    instance_create(0, 0, Handgun);
+    instance_create(x, y, Handgun);
     break;
     
     case "AK-47":
-    instance_create(0, 0, AK_47);
+    instance_create(x, y, AK_47);
     break;
 }
 
@@ -128,8 +128,6 @@ i_playerMaxUpgrade = 3;
 b_daniel_sprite = global.b_isDaniel;
 b_terry_sprite = global.b_isTerry;
 b_keith_sprite = global.b_isKeith;
-show_debug_message(b_daniel_sprite)
-show_debug_message(b_terry_sprite)
 
 if (b_daniel_sprite == true)
 {

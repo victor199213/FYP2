@@ -75,7 +75,7 @@ image_xscale *= 1.5;
 image_yscale *= 1.5;
 
 // Creating offsets to match with Pleyer
-offset_x = sprite_get_width(Player) * 0.4;
+offset_x = 32 * 0.5;
 offset_y = 15;
 
 // Creating the depth of the Handgun
@@ -103,6 +103,8 @@ depth = -2;
           <argument>
             <kind>1</kind>
             <string>AK_47.f_cooldown_timer = AK_47.f_cooldown_timer + (1 / room_speed);
+x = Player.x + offset_x;
+y = Player.y + offset_y;
 
 if (AK_47.f_cooldown_timer &gt; AK_47.f_cooldown)
 {
@@ -153,20 +155,17 @@ if (b_isReload == true)
     }
 }
 
-x = Player.x + offset_x;
-y = Player.y + offset_y;
-
 // Rotate the image if the player is facing left
 if (Player.b_faceLeft == true)
 {
     image_xscale = -1.5;
-    offset_x = sprite_get_width(Player) * 0.3 * -1;
+    offset_x = 32 * 0.5 * -1;
 }
 
 else if (Player.b_faceRight == true)
 {
     image_xscale = 1.5;
-    offset_x = sprite_get_width(Player) * 0.3;
+    offset_x = 32 * 0.5;
 }
 </string>
           </argument>
