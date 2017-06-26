@@ -50,12 +50,19 @@ direction = point_direction(x, y, B_Player.x, B_Player.y);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(place_meeting(x,y,B_Player)||place_meeting(x,y,Wall))
+            <string>if (PlayerHandleObj.b_B_Player_dead == false)
+{
+    if(place_meeting(x,y,B_Player)||place_meeting(x,y,Wall))
+    {
+        instance_destroy();
+        instance_create(x,y,EnemyProjectileParticle)
+    }
+}
+else
 {
     instance_destroy();
     instance_create(x,y,EnemyProjectileParticle)
 }
-
 </string>
           </argument>
         </arguments>
