@@ -231,18 +231,7 @@ y += vsp;
 
 if(place_meeting(x,y,B_Player_Handgun_Ammo))
 {
-    HP -= B_Player_Handgun_Ammo.i_damage;
-    
-    with (B_Player_Handgun_Ammo)
-    {
-        f_bullet_hspeed = 0;
-        REnemyShooting.ammo_onhit_x = x;
-
-        instance_create(x, y, AmmoExplosion);
-        AmmoExplosion.image_xscale *= 0.5;
-        AmmoExplosion.image_yscale *= 0.5;
-        instance_destroy();    
-    }
+    HP -= B_Player_Handgun_Ammo.i_damage;  
     
     if (b_isKnockback == false)
     {
