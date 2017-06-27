@@ -74,7 +74,7 @@ instance_create(0, 0, PlayerHandleObj);</code>
     <instance objName="Wall" x="160" y="608" name="inst_063386EA" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="1760" y="608" name="inst_A8A165D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="1760" y="608" name="inst_61BD7018" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="1504" y="448" name="inst_A43E9AF5" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Wall" x="1504" y="448" name="inst_A43E9AF5" locked="0" code="" scaleX="7.046875" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="416" y="448" name="inst_BCA091B1" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="960" y="288" name="inst_DC8EEA4B" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="160" y="288" name="inst_054804ED" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
@@ -85,7 +85,7 @@ instance_create(0, 0, PlayerHandleObj);</code>
     <instance objName="Avoid" x="160" y="448" name="inst_2841CD10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Avoid" x="1376" y="288" name="inst_F7CB642B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Avoid" x="1504" y="288" name="inst_D6CD5781" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Avoid" x="1248" y="448" name="inst_A35CC5B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Avoid" x="1216" y="448" name="inst_A35CC5B6" locked="0" code="" scaleX="2.5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Avoid" x="1760" y="448" name="inst_CD9176C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Avoid" x="1440" y="608" name="inst_5F8ED3CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Avoid" x="1568" y="608" name="inst_BBE74D6C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
