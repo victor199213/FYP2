@@ -92,6 +92,10 @@ if(PVPgui.sec &gt;= 0)
     part_emitter_region(particle,particle_emitter,x - 60, x + 60,y,y,ps_shape_ellipse,ps_distr_linear);
     part_emitter_stream(particle,particle_emitter,sparkle,1);
 }
+else
+{
+    part_emitter_destroy_all(particle);
+}
 </string>
           </argument>
         </arguments>

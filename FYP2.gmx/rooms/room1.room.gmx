@@ -262,6 +262,7 @@ enum e_state
     <tile bgName="scifi_floorTiles" x="-32" y="64" w="64" h="64" xo="0" yo="384" id="10001281" name="inst_1E17FCB4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="scifi_floorTiles" x="-32" y="0" w="64" h="64" xo="0" yo="384" id="10001282" name="inst_A4A29085" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="scifi_floorTiles" x="1888" y="-32" w="64" h="64" xo="0" yo="384" id="10001283" name="inst_987E6014" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="scifi_floorTiles" x="928" y="992" w="64" h="64" xo="0" yo="64" id="10001286" name="inst_69B5BE70" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

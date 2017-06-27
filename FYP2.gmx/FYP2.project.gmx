@@ -338,6 +338,7 @@
       <sprite>sprites\Volcano</sprite>
       <sprite>sprites\Snow</sprite>
     </sprites>
+    <sprite>sprites\RedBlue</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>

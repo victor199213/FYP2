@@ -28,6 +28,7 @@
             <string>minute = 0;
 sec = 180;
 showSec = 60;
+roomTimer = 10;
 BScore = 0;
 RScore = 0;
 </string>
@@ -58,6 +59,14 @@ if(sec &gt; 0)
 {   
     minute = floor(sec / 60);
     showSec -= 1 / room_speed;
+}
+else if(sec &lt; 0)
+{
+    roomTimer -= 1 / room_speed;
+    if(roomTimer &lt;= 0)
+    {   
+        room_goto(MainMenu);
+    }
 }
 if(minute &gt;= 0)
 {
@@ -93,24 +102,31 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(800,20,"Minute: " + string(minute) + " Sec:" + string(floor(showSec)));
-draw_text(750,20,"B:" + string(BScore));
-draw_text(950,20,"R:" + string(RScore));
-draw_text(800, 40, "FPS = " + string(fps_real));
+            <string>draw_set_font(fnt_UIDescriptiontwo);
+draw_set_valign(fa_middle);
+draw_set_color(c_white);
+draw_sprite_ext(spr_background_stat, 0, global.GUI_width * 0.5, global.GUI_height *0.07, 1, 0.4, 0, c_white, 0.7);
+draw_sprite_ext(RedBlue, 0, global.GUI_width * 0.468, global.GUI_height *0.085, 2, 2, 0, c_white, 1);
+draw_text_transformed(global.GUI_width * 0.475 ,global.GUI_height * 0.04,"Time: " + string(minute) + ":" + string(floor(showSec)),1.5,1.5,0);
+draw_text_transformed(global.GUI_width * 0.525 ,global.GUI_height * 0.085,string(BScore),2,2,0);
+draw_text_transformed(global.GUI_width * 0.465 ,global.GUI_height * 0.085,string(RScore),2,2,0);
 
 if(sec &lt; 1)
 {   
+    draw_sprite_ext(spr_background_stat, 0, global.GUI_width * 0.5, global.GUI_height *0.5, 1,1, 0, c_white, 1);
+    draw_text_transformed(global.GUI_width * 0.42 ,global.GUI_height * 0.54,"RETURNING TO MENU:",2,2,1);
+    draw_text_transformed(global.GUI_width * 0.42 ,global.GUI_height * 0.56,string(roomTimer),2,2,1);
     if(BScore &gt; RScore)
     {   
-        draw_text(800,80,"Blue Win");
+        draw_text_transformed(global.GUI_width * 0.42 ,global.GUI_height * 0.5,"Blue Win",5,5,1);
     }
     if(BScore &lt; RScore)
     {   
-        draw_text(800,80,"Red Win");
+        draw_text_transformed(global.GUI_width * 0.42 ,global.GUI_height * 0.5,"Red Win",5,5,1);
     }
     if(BScore == RScore)
     {   
-        draw_text(800,80,"Draw");
+        draw_text_transformed(global.GUI_width * 0.42 ,global.GUI_height * 0.5,"Draw",5,5,1);
     }
 }
 </string>
