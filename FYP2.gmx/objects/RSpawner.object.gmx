@@ -89,7 +89,7 @@ if(PVPgui.sec &gt;= 0)
     part_type_direction(sparkle,270,270,0,4);
     part_type_life(sparkle,20,50);
     
-    part_emitter_region(particle,particle_emitter,x - 30, x + 30,y,y,ps_shape_ellipse,ps_distr_linear);
+    part_emitter_region(particle,particle_emitter,x - 60, x + 60,y,y,ps_shape_ellipse,ps_distr_linear);
     part_emitter_stream(particle,particle_emitter,sparkle,1);
 }
 </string>
