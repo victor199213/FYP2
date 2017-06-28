@@ -111,14 +111,14 @@ if(wave &gt;= 6)
 {
     instance_destroy();
     part_emitter_destroy_all(particle);
-    room_goto(3);
+    room_goto(Win);
 }
 
-if(Player.i_health &lt;= 0)
+if(Objective.health &lt;= 0)
 {
     instance_destroy();
     part_emitter_destroy_all(particle);
-    room_goto(2);
+    room_goto(GameOver);
 }
 
 if(wave &lt; 5)
@@ -156,8 +156,13 @@ if(wave &lt; 5)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(800,20,"Wave: " + string( wave) + " WaveTime: " + string(waveTime) + "WaveDelay: " + string(waveDelay));
-draw_text(800, 40, "FPS = " + string(fps_real));
+            <string>draw_set_font(fnt_UIDescriptiontwo);
+draw_set_valign(fa_middle);
+draw_set_color(c_white);
+draw_sprite_ext(spr_background_stat, 0, global.GUI_width * 0.5, global.GUI_height *0.07, 1, 0.4, 0, c_white, 0.7);
+draw_text_transformed(global.GUI_width * 0.415 ,global.GUI_height * 0.045,"Wave: " + string( wave) + "/5",2,1.5,0);
+draw_text_transformed(global.GUI_width * 0.415 ,global.GUI_height * 0.065,"WaveTime: " + string(waveTime) ,2,1.5,0);
+draw_text_transformed(global.GUI_width * 0.415 ,global.GUI_height * 0.085,"WaveDelay: " + string(waveDelay),2,1.5,0);
 </string>
           </argument>
         </arguments>

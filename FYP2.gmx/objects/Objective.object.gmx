@@ -116,10 +116,6 @@ else
         }    
     }
 }
-if(health &lt;= 0)
-{
-    room_goto(2);
-}
 </string>
           </argument>
         </arguments>
