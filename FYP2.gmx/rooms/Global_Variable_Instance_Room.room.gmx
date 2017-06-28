@@ -63,7 +63,7 @@ ds_list_add(global.EquipmentList, "Handgun");
 ds_list_add(global.EquipmentList, "AK-47");
 
 // Player's wallet for cash during game-play
-global.i_currency = 5000;
+global.i_currency = 50000;
 global.i_baseLoot = 10;
 
 room_goto(MainMenu);</code>

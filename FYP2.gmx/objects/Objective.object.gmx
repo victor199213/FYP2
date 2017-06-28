@@ -70,14 +70,16 @@ if (b_shopIsOpen == true)
         if (b_menuIsOpen == false)
         {
             b_menuIsOpen = true;
-            if (object_exists(Shop))
+            if (!instance_exists(Shop))
             {
                 instance_create(0, 0, Shop);
+                show_debug_message("Instantiated");
             }
             
             else
             {
-                instance_activate_object(Shop);            
+                instance_activate_object(Shop); 
+                show_debug_message("Activated");           
             }
 
         }
@@ -85,10 +87,16 @@ if (b_shopIsOpen == true)
         else if (b_menuIsOpen == true)
         {
             b_menuIsOpen = false;
-            if (instance_exists(Shop == true))
+            if (instance_exists(Shop))
             {
                 instance_deactivate_object(Shop);
-            }                
+                show_debug_message("Deactivated");
+            }
+            
+            else
+            {
+                show_debug_message("What?");
+            }
         }
     }
     
@@ -97,9 +105,10 @@ if (b_shopIsOpen == true)
         if (b_menuIsOpen == true)
         {
             b_menuIsOpen = false;
-            if (instance_exists(Shop == true))
+            if (instance_exists(Shop))
             {
                 instance_deactivate_object(Shop);
+                show_debug_message("Too far");
             }
         }
     }
@@ -110,7 +119,7 @@ else
     if (b_menuIsOpen == true)
     {
         b_menuIsOpen = false;
-        if (instance_exists(Shop == true))
+        if (instance_exists(Shop))
         {
             instance_deactivate_object(Shop);
         }    

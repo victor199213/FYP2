@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Properties of a Handgun
+            <string>// Properties of a AK47
 i_ammo = WeaponHandleObj.AK47_ammo;
 i_maxAmmo = WeaponHandleObj.AK47_maxAmmo;
 

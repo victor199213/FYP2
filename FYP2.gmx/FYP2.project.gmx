@@ -511,6 +511,10 @@
     </scripts>
     <scripts name="Weaponry">
       <script>scripts\Equipment.gml</script>
+      <script>scripts\EquipOne_Load_Stats.gml</script>
+      <script>scripts\EquipTwo_Load_Stats.gml</script>
+      <script>scripts\EquipOne_Save_Stats.gml</script>
+      <script>scripts\EquipTwo_Save_Stats.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

@@ -175,6 +175,7 @@ SHOOT = keyboard_check(ord('Z'));
 OPEN = keyboard_check_pressed(ord('O'));
 RELOAD = keyboard_check_pressed(ord('R'));
 VIEWSTAT = keyboard_check_pressed(vk_tab);
+CHANGE = keyboard_check_pressed(vk_up);
 
 
 // React to inputs
@@ -317,6 +318,91 @@ if (VIEWSTAT)
     else if (b_viewPlayerTab == false)
     {
         b_viewPlayerTab = true;
+    }
+}
+
+// Changing equipment
+if (CHANGE)
+{
+    if (i_currEquip &lt; 2)
+    {
+        i_currEquip += 1;
+    }
+    
+    else
+    {
+        i_currEquip = 1;
+    }
+
+    switch (i_currEquip)
+    {
+        default:
+        break;
+        
+        case 1:
+        script_execute(EquipTwo_Save_Stats);
+        switch (_currEquipOne)
+        {
+            default:
+            break;
+            
+            case "Handgun":
+            instance_activate_object(Handgun);
+            break;
+            
+            case "AK-47":
+            instance_activate_object(AK_47);
+            break;
+        }
+
+        switch (_currEquipTwo)
+        {
+            default:
+            break;
+            
+            case "Handgun":
+            instance_deactivate_object(Handgun);
+            break;
+            
+            case "AK-47":
+            instance_deactivate_object(AK_47)
+            break;
+        }
+        script_execute(EquipOne_Load_Stats);
+        break;
+        
+        case 2:
+        script_execute(EquipOne_Save_Stats);
+        switch (_currEquipOne)
+        {
+            default:
+            break;
+            
+            case "Handgun":
+            instance_deactivate_object(Handgun);
+            break;
+            
+            case "AK-47":
+            instance_deactivate_object(AK_47);
+            break;
+        }
+        
+        switch (_currEquipTwo)
+        {
+            default:
+            break;
+            
+            case "Handgun":
+            instance_activate_object(Handgun);
+            break;
+            
+            case "AK-47":
+            instance_activate_object(AK_47)
+            break;
+        }
+        script_execute(EquipTwo_Load_Stats);
+        break;
+        
     }
 }
 
@@ -568,6 +654,69 @@ if (b_viewPlayerTab == false)
         break;
         
         case 2:
+        switch (_currEquipTwo)
+        {
+            default:
+            break;
+            
+            case "Handgun":
+            draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
+            
+            // Drawing the following stats of a handgun
+            // 1. Ammos
+            draw_set_colour(c_aqua);
+            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(Handgun.i_ammo));
+            
+            // 2. Magazine
+            draw_set_colour(c_aqua);
+            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(Handgun.i_magazine));
+            
+            // 3. Damage
+            draw_set_colour(c_aqua);
+            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(Handgun.i_damage));
+            
+            // 4. Fire-rate
+            draw_set_colour(c_aqua);
+            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(Handgun.f_cooldown));
+            break;
+            
+            case "AK-47":
+            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
+            
+            // Drawing the following stats of a handgun
+            // 1. Ammos
+            draw_set_colour(c_aqua);
+            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(AK_47.i_ammo));
+            
+            // 2. Magazine
+            draw_set_colour(c_aqua);
+            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(AK_47.i_magazine));
+            
+            // 3. Damage
+            draw_set_colour(c_aqua);
+            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(AK_47.i_damage));
+            
+            // 4. Fire-rate
+            draw_set_colour(c_aqua);
+            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(AK_47.f_cooldown));
+            break;
+        }
         break;
     }
 }
