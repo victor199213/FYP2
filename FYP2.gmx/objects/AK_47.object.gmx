@@ -26,44 +26,44 @@
           <argument>
             <kind>1</kind>
             <string>// Properties of a Handgun
-i_ammo = 30;
-i_maxAmmo = 30;
+i_ammo = WeaponHandleObj.AK47_ammo;
+i_maxAmmo = WeaponHandleObj.AK47_maxAmmo;
 
 // Reload speed of the handgun. Cannot be upgraded
-f_reloadSpeed = 0.6;
-f_reloadTime = 0;
-b_isReload = false;
+f_reloadSpeed = WeaponHandleObj.AK47_reloadSpeed;
+f_reloadTime = WeaponHandleObj.AK47_reloadTime;
+b_isReload = WeaponHandleObj.AK47_isReload;
 
 // Magazines of handgun, and the total number of magazines you can hold. Can be upgraded
-i_magazine = 1;
-i_maxMagazineIncrement = 2;
-i_baseMagazine = 1;
-i_maxMagazine = 10;
+i_magazine = WeaponHandleObj.AK47_magazine;
+i_maxMagazineIncrement = WeaponHandleObj.AK47_maxMagazineIncrement;
+i_baseMagazine = WeaponHandleObj.AK47_baseMagazine;
+i_maxMagazine = WeaponHandleObj.AK47_maxMagazine;
 // Maximum number of Magazines upgrade
-i_maxMagazineLevel = 1;
-i_maxMagazineUpgradeCost = 20;
+i_maxMagazineLevel = WeaponHandleObj.AK47_maxMagazineLevel;
+i_maxMagazineUpgradeCost = WeaponHandleObj.AK47_maxMagazineUpgradeCost;
 
 // Damage of the handgun. Can be upgraded
-i_damage = 10;
-i_damageIncrement = 2.5;
-i_baseDamage = 10;
-i_maxDamage = 20;
+i_damage = WeaponHandleObj.AK47_damage;
+i_damageIncrement = WeaponHandleObj.AK47_damageIncrement;
+i_baseDamage = WeaponHandleObj.AK47_baseDamage;
+i_maxDamage = WeaponHandleObj.AK47_maxDamage;
 // Damage upgrade
-i_damageLevel = 1;
-i_damageUpgradeCost = 5;
+i_damageLevel = WeaponHandleObj.AK47_damageLevel;
+i_damageUpgradeCost = WeaponHandleObj.AK47_damageUpgradeCost;
 
 // Fire rate of the handgun. Can be upgraded
-f_cooldown = 3 / 5;
-f_cooldownIncrement = 1 / 6;
-f_maxcooldown = 1 / 5;
-f_basecooldown = 3 / 5;
-f_cooldown_timer = 0;
+f_cooldown = WeaponHandleObj.AK47_cooldown;
+f_cooldownIncrement = WeaponHandleObj.AK47_cooldownIncrement;
+f_maxcooldown = WeaponHandleObj.AK47_maxcooldown;
+f_basecooldown = WeaponHandleObj.AK47_basecooldown;
+f_cooldown_timer = WeaponHandleObj.AK47_cooldown_timer;
 // Handgun's fire rate upgrade
-i_cooldownLevel = 1;
-i_cooldownUpgradeCost = 30;
+i_cooldownLevel = WeaponHandleObj.AK47_cooldownLevel;
+i_cooldownUpgradeCost = WeaponHandleObj.AK47_cooldownUpgradeCost;
 
 // Handgun's upgrades available, and its cost
-i_MaxLevel = 3;
+i_MaxLevel = WeaponHandleObj.AK47_MaxLevel;
 
 b_fire = true;
 name = "Handgun";

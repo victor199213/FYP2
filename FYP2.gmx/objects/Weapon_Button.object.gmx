@@ -252,7 +252,7 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
             // Checking on mouse left-click to determine chosen weapon on which slot
             if (device_mouse_check_button_pressed(0, mb_left))
             {
-                if (_equippedSlot[0] == "" &amp;&amp; (_equippedSlot[1] == "" || _equippedSlot[1] != "") &amp;&amp; _slotweaponName != _equippedSlot[1])
+                if (_equippedSlot[0] == "" &amp;&amp; _slotweaponName != _equippedSlot[1])
                 {
                     switch (i_weaponrySlot)
                     {
@@ -261,10 +261,12 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                         
                         case 1:
                             _equippedSlot[0] = _slotweaponName;
+                            show_debug_message(_equippedSlot[0]);
                         break;
                         
                         case 2:
                             _equippedSlot[0] = _slotweaponName;
+                            show_debug_message(_equippedSlot[0]);
                         break;
                         
                         case 3:
@@ -275,7 +277,7 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                     }
                 }
                 
-                else if (_equippedSlot[0] != "" &amp;&amp; _equippedSlot[1] == "" &amp;&amp; _slotweaponName != _equippedSlot[0])
+                if (_equippedSlot[0] != "" &amp;&amp; _equippedSlot[1] == "" &amp;&amp; _slotweaponName != _equippedSlot[0])
                 {
                     switch (i_weaponrySlot)
                     {
@@ -284,10 +286,12 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                         
                         case 1:
                             _equippedSlot[1] = _slotweaponName;
+                            show_debug_message(_equippedSlot[1]);
                         break;
                         
                         case 2:
-                            _equippedSlot[0] = _slotweaponName;
+                            _equippedSlot[1] = _slotweaponName;
+                            show_debug_message(_equippedSlot[1]);
                         break;
                         
                         case 3:
@@ -526,7 +530,7 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
             break;
             
             case "AK-47":
-            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.65, global.GUI_height * 0.4, 2, 2, 0, c_white, 1);
+            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.65, global.GUI_height * 0.55, 2, 2, 0, c_white, 1);
             break;
         }
     }

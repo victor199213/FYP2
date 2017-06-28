@@ -26,44 +26,44 @@
           <argument>
             <kind>1</kind>
             <string>// Properties of a Handgun
-i_ammo = 20;
-i_maxAmmo = 20;
+i_ammo = WeaponHandleObj.Handgun_ammo;
+i_maxAmmo = WeaponHandleObj.Handgun_maxAmmo;
 
 // Reload speed of the handgun. Cannot be upgraded
-f_reloadSpeed = 1;
-f_reloadTime = 0;
-b_isReload = false;
+f_reloadSpeed = WeaponHandleObj.Handgun_reloadSpeed;
+f_reloadTime = WeaponHandleObj.Handgun_reloadTime;
+b_isReload = WeaponHandleObj.Handgun_isReload;
 
 // Magazines of handgun, and the total number of magazines you can hold. Can be upgraded
-i_magazine = 3;
-i_maxMagazineIncrement = 1;
-i_baseMagazine = 1;
-i_maxMagazine = 1;
+i_magazine = WeaponHandleObj.Handgun_magazine;
+i_maxMagazineIncrement = WeaponHandleObj.Handgun_maxMagazineIncrement;
+i_baseMagazine = WeaponHandleObj.Handgun_baseMagazine;
+i_maxMagazine = WeaponHandleObj.Handgun_maxMagazine;
 // Maximum number of Magazines upgrade
-i_maxMagazineLevel = 1;
-i_maxMagazineUpgradeCost = 10;
+i_maxMagazineLevel = WeaponHandleObj.Handgun_maxMagazineLevel;
+i_maxMagazineUpgradeCost = WeaponHandleObj.Handgun_maxMagazineUpgradeCost;
 
 // Damage of the handgun. Can be upgraded
-i_damage = 30;
-i_damageIncrement = 5;
-i_baseDamage = 30;
-i_maxDamage = 100;
+i_damage = WeaponHandleObj.Handgun_damage;
+i_damageIncrement = WeaponHandleObj.Handgun_damageIncrement;
+i_baseDamage = WeaponHandleObj.Handgun_baseDamage;
+i_maxDamage = WeaponHandleObj.Handgun_maxDamage;
 // Damage upgrade
-i_damageLevel = 1;
-i_damageUpgradeCost = 15;
+i_damageLevel = WeaponHandleObj.Handgun_damageLevel;
+i_damageUpgradeCost = WeaponHandleObj.Handgun_damageUpgradeCost;
 
 // Fire rate of the handgun. Can be upgraded
-f_cooldown = 1;
-f_cooldownIncrement = 0.1;
-f_maxcooldown = 0.5;
-f_basecooldown = 1;
-f_cooldown_timer = 0;
+f_cooldown = WeaponHandleObj.Handgun_cooldown;
+f_cooldownIncrement = WeaponHandleObj.Handgun_cooldownIncrement;
+f_maxcooldown = WeaponHandleObj.Handgun_maxcooldown;
+f_basecooldown = WeaponHandleObj.Handgun_basecooldown;
+f_cooldown_timer = WeaponHandleObj.Handgun_cooldown_timer;
 // Handgun's fire rate upgrade
-i_cooldownLevel = 1;
-i_cooldownUpgradeCost = 30;
+i_cooldownLevel = WeaponHandleObj.Handgun_cooldownLevel;
+i_cooldownUpgradeCost = WeaponHandleObj.Handgun_cooldownUpgradeCost;
 
 // Handgun's upgrades available, and its cost
-i_MaxLevel = 3;
+i_MaxLevel = WeaponHandleObj.Handgun_MaxLevel;
 
 b_fire = true;
 name = "Handgun";

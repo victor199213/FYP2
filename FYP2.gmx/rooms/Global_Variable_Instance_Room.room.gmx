@@ -66,7 +66,7 @@ ds_list_add(global.EquipmentList, "AK-47");
 global.i_currency = 5000;
 global.i_baseLoot = 10;
 
-room_goto(room2);</code>
+room_goto(MainMenu);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

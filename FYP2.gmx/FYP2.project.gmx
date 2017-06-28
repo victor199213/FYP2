@@ -553,8 +553,11 @@
     <object>objects\Objective</object>
     <objects name="Weaponry Objects">
       <objects name="Guns">
-        <object>objects\Handgun</object>
-        <object>objects\AK_47</object>
+        <objects name="Solo">
+          <object>objects\Handgun</object>
+          <object>objects\AK_47</object>
+          <object>objects\WeaponHandleObj</object>
+        </objects>
         <objects name="Multiplayer">
           <objects name="PvP">
             <object>objects\R_Handgun</object>

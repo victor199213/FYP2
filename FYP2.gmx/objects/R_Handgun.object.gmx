@@ -50,7 +50,7 @@ image_xscale *= 1.5;
 image_yscale *= 1.5;
 
 // Creating offsets to match with Pleyer
-offset_x = sprite_get_width(R_Player) * 0.4;
+offset_x = 32 * 0.3;
 offset_y = 15;
 
 // Creating the depth of the Handgun
@@ -105,13 +105,13 @@ y = R_Player.y + offset_y;
 if (R_Player.b_faceLeft == true)
 {
     image_xscale = -1.5;
-    offset_x = sprite_get_width(R_Player) * 0.3 * -1;
+    offset_x = 32 * 0.34 * -1;
 }
 
 else if (R_Player.b_faceRight == true)
 {
     image_xscale = 1.5;
-    offset_x = sprite_get_width(R_Player) * 0.3;
+    offset_x = 32 * 0.4;
 }
 </string>
           </argument>

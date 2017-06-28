@@ -12,6 +12,7 @@
   <showcolour>-1</showcolour>
   <code>// Shared Gravity across all objects in the room
 global.f_gravity = 0.5;
+instance_create(0, 0, WeaponHandleObj);
 instance_create(Objective.x, Objective.y, Player);
 
 
