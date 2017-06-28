@@ -160,7 +160,7 @@ if(wave &lt; 5)
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
 draw_sprite_ext(spr_background_stat, 0, global.GUI_width * 0.5, global.GUI_height *0.07, 1, 0.4, 0, c_white, 0.7);
-draw_text_transformed(global.GUI_width * 0.415 ,global.GUI_height * 0.045,"Wave: " + string( wave),2,1.5,0);
+draw_text_transformed(global.GUI_width * 0.415 ,global.GUI_height * 0.045,"Wave: " + string( wave) + "/5",2,1.5,0);
 draw_text_transformed(global.GUI_width * 0.415 ,global.GUI_height * 0.065,"WaveTime: " + string(waveTime) ,2,1.5,0);
 draw_text_transformed(global.GUI_width * 0.415 ,global.GUI_height * 0.085,"WaveDelay: " + string(waveDelay),2,1.5,0);
 </string>
