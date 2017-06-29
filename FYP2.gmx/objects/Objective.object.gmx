@@ -65,7 +65,8 @@ if (Spawner.waveDelay &lt; 60 &amp;&amp; b_shopIsOpen == false)
 // Checking if player is nearby the Objective point to access the shop menu
 if (b_shopIsOpen == true)
 {
-    if (distance_to_object(Player) &lt; 20  &amp;&amp; Player.OPEN)
+    if (distance_to_object(Player) &lt; 20  &amp;&amp; Player.OPEN &amp;&amp;
+        Player.b_deadAnim == false &amp;&amp; Player.b_isDead == false)
     {
         if (b_menuIsOpen == false)
         {

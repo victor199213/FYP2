@@ -152,6 +152,12 @@ else if (b_keith_sprite == true)
 {
     
 }
+
+// Variables created to animate and check if player is dead
+b_deadAnim = false;
+b_isDead = false;
+f_deadTimer = 0;
+f_deadTime = 5;
 </string>
           </argument>
         </arguments>
@@ -184,134 +190,215 @@ RELOAD = keyboard_check_pressed(ord('R'));
 VIEWSTAT = keyboard_check_pressed(vk_tab);
 CHANGE = keyboard_check_pressed(vk_up);
 
-
-// React to inputs
-move = -MOVELEFT + MOVERIGHT;
-f_horizontalSpeed = move * f_moveSpeed;
+if (b_deadAnim == false &amp;&amp; b_isDead == false)
+{
+    // React to inputs
+    move = -MOVELEFT + MOVERIGHT;
+    f_horizontalSpeed = move * f_moveSpeed;
+    if (place_meeting(x, y + 1, Wall))
+    {
+        f_verticalSpeed = JUMP * - f_jumpSpeed;
+        b_isJumping = false;
+    }
+    
+    if (keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right))
+    {
+        b_faceLeft = true;
+        b_faceRight = false;
+    }
+    
+    if (!keyboard_check(vk_left) &amp;&amp; keyboard_check(vk_right))
+    {
+        b_faceLeft = false;
+        b_faceRight = true;
+    }
+    
+    if (JUMP)
+    {
+        b_isJumping = true;
+    }
+    
+    if (b_isJumping == true)
+    {
+        if (b_faceLeft == true &amp;&amp; b_faceRight == false)
+        {
+            if (b_daniel_sprite == true)
+            {
+                sprite_index = Daniel_Jump_Left;
+            }
+            
+            
+            else if (b_terry_sprite == true)
+            {
+                sprite_index = Terry_Jump_Left;
+            }
+        }
+        
+        if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+        {
+            if (b_daniel_sprite == true)
+            {
+                sprite_index = Daniel_Jump_Right;
+            }
+            
+            
+            else if (b_terry_sprite == true)
+            {
+                sprite_index = Terry_Jump_Right;
+            }
+        }
+    }
+    
+    else
+    {
+        if (b_faceLeft == true &amp;&amp; b_faceRight == false)
+        {
+            if (move &lt; 0)
+            {
+                if (b_daniel_sprite == true)
+                {
+                    sprite_index = Daniel_Walk_Left;
+                }
+                
+                
+                else if (b_terry_sprite == true)
+                {
+                    sprite_index = Terry_Walk_Left;
+                }
+                
+                image_speed = 10 / room_speed;
+            }
+            
+            else
+            {
+                if (b_daniel_sprite == true)
+                {
+                    sprite_index = Daniel_Idle_Left;
+                }
+                
+                
+                else if (b_terry_sprite == true)
+                {
+                    sprite_index = Terry_Idle_Left;
+                }
+            }
+        }
+        
+        if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+        {
+            if (move &gt; 0)
+            {
+                if (b_daniel_sprite == true)
+                {
+                    sprite_index = Daniel_Walk_Right;            
+                }
+    
+                else if (b_terry_sprite == true)
+                {
+                    sprite_index = Terry_Walk_Right; 
+                }
+            }
+            
+            else
+            {
+                if (b_daniel_sprite == true)
+                {
+                    sprite_index = Daniel_Idle_Right;           
+                }
+    
+                else if (b_terry_sprite == true)
+                {
+                    sprite_index = Terry_Idle_Right;
+                }
+            }
+            image_speed = 10 / room_speed;
+        }
+    }
+    
+    // Changing equipment
+    if (CHANGE)
+    {
+        if (i_currEquip == 1)
+        {
+            i_currEquip = 2;
+        }
+        
+        else if (i_currEquip == 2)
+        {
+            i_currEquip = 1;
+        }
+    
+        switch (i_currEquip)
+        {
+            default:
+            break;
+            
+            case 1:
+            switch (_currEquipOne)
+            {
+                default:
+                break;
+                
+                case "Handgun":
+                instance_activate_object(Handgun);
+                break;
+                
+                case "AK-47":
+                instance_activate_object(AK_47);
+                break;
+            }
+    
+            switch (_currEquipTwo)
+            {
+                default:
+                break;
+                
+                case "Handgun":
+                instance_deactivate_object(Handgun);
+                break;
+                
+                case "AK-47":
+                instance_deactivate_object(AK_47);
+                break;
+            }
+            break;
+            
+            case 2:
+            switch (_currEquipOne)
+            {
+                default:
+                break;
+                
+                case "Handgun":
+                instance_deactivate_object(Handgun);
+                break;
+                
+                case "AK-47":
+                instance_deactivate_object(AK_47);
+                break;
+            }
+            
+            switch (_currEquipTwo)
+            {
+                default:
+                break;
+                
+                case "Handgun":
+                instance_activate_object(Handgun);
+                break;
+                
+                case "AK-47":
+                instance_activate_object(AK_47);
+                break;
+            }
+            break;       
+        }
+    }
+}
 
 if (f_verticalSpeed &lt; 10)
 {
     f_verticalSpeed += global.f_gravity;
-}
-
-if (place_meeting(x, y + 1, Wall))
-{
-    f_verticalSpeed = JUMP * - f_jumpSpeed;
-    b_isJumping = false;
-}
-
-if (keyboard_check(vk_left) &amp;&amp; !keyboard_check(vk_right))
-{
-    b_faceLeft = true;
-    b_faceRight = false;
-}
-
-if (!keyboard_check(vk_left) &amp;&amp; keyboard_check(vk_right))
-{
-    b_faceLeft = false;
-    b_faceRight = true;
-}
-
-if (JUMP)
-{
-    b_isJumping = true;
-}
-
-if (b_isJumping == true)
-{
-    if (b_faceLeft == true &amp;&amp; b_faceRight == false)
-    {
-        if (b_daniel_sprite == true)
-        {
-            sprite_index = Daniel_Jump_Left;
-        }
-        
-        
-        else if (b_terry_sprite == true)
-        {
-            sprite_index = Terry_Jump_Left;
-        }
-    }
-    
-    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
-    {
-        if (b_daniel_sprite == true)
-        {
-            sprite_index = Daniel_Jump_Right;
-        }
-        
-        
-        else if (b_terry_sprite == true)
-        {
-            sprite_index = Terry_Jump_Right;
-        }
-    }
-}
-
-else
-{
-    if (b_faceLeft == true &amp;&amp; b_faceRight == false)
-    {
-        if (move &lt; 0)
-        {
-            if (b_daniel_sprite == true)
-            {
-                sprite_index = Daniel_Walk_Left;
-            }
-            
-            
-            else if (b_terry_sprite == true)
-            {
-                sprite_index = Terry_Walk_Left;
-            }
-            
-            image_speed = 10 / room_speed;
-        }
-        
-        else
-        {
-            if (b_daniel_sprite == true)
-            {
-                sprite_index = Daniel_Idle_Left;
-            }
-            
-            
-            else if (b_terry_sprite == true)
-            {
-                sprite_index = Terry_Idle_Left;
-            }
-        }
-    }
-    
-    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
-    {
-        if (move &gt; 0)
-        {
-            if (b_daniel_sprite == true)
-            {
-                sprite_index = Daniel_Walk_Right;            
-            }
-
-            else if (b_terry_sprite == true)
-            {
-                sprite_index = Terry_Walk_Right; 
-            }
-        }
-        
-        else
-        {
-            if (b_daniel_sprite == true)
-            {
-                sprite_index = Daniel_Idle_Right;           
-            }
-
-            else if (b_terry_sprite == true)
-            {
-                sprite_index = Terry_Idle_Right;
-            }
-        }
-        image_speed = 10 / room_speed;
-    }
 }
 
 // Changing the Stats tab from players to current equipments
@@ -325,86 +412,6 @@ if (VIEWSTAT)
     else if (b_viewPlayerTab == false)
     {
         b_viewPlayerTab = true;
-    }
-}
-
-// Changing equipment
-if (CHANGE)
-{
-    if (i_currEquip == 1)
-    {
-        i_currEquip = 2;
-    }
-    
-    else if (i_currEquip == 2)
-    {
-        i_currEquip = 1;
-    }
-
-    switch (i_currEquip)
-    {
-        default:
-        break;
-        
-        case 1:
-        switch (_currEquipOne)
-        {
-            default:
-            break;
-            
-            case "Handgun":
-            instance_activate_object(Handgun);
-            break;
-            
-            case "AK-47":
-            instance_activate_object(AK_47);
-            break;
-        }
-
-        switch (_currEquipTwo)
-        {
-            default:
-            break;
-            
-            case "Handgun":
-            instance_deactivate_object(Handgun);
-            break;
-            
-            case "AK-47":
-            instance_deactivate_object(AK_47);
-            break;
-        }
-        break;
-        
-        case 2:
-        switch (_currEquipOne)
-        {
-            default:
-            break;
-            
-            case "Handgun":
-            instance_deactivate_object(Handgun);
-            break;
-            
-            case "AK-47":
-            instance_deactivate_object(AK_47);
-            break;
-        }
-        
-        switch (_currEquipTwo)
-        {
-            default:
-            break;
-            
-            case "Handgun":
-            instance_activate_object(Handgun);
-            break;
-            
-            case "AK-47":
-            instance_activate_object(AK_47);
-            break;
-        }
-        break;       
     }
 }
 
@@ -424,6 +431,103 @@ switch (i_currEquip)
     break;
 }
 
+if (b_deadAnim == true)
+{
+    image_speed = 5 / room_speed;
+    if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+    {
+        if (b_daniel_sprite == true)
+        {
+            sprite_index = Daniel_Die_Right;            
+        }
+
+        else if (b_terry_sprite == true)
+        {
+            sprite_index = Terry_Die_Right; 
+        }
+        
+        else
+        {
+        
+        }
+    }
+    
+    else if (b_faceLeft == true &amp;&amp; b_faceRight == false)
+    {
+        if (b_daniel_sprite == true)
+        {
+            sprite_index = Daniel_Die_Left;            
+        }
+
+        else if (b_terry_sprite == true)
+        {
+            sprite_index = Terry_Die_Left; 
+        }
+        
+        else
+        {
+        
+        }    
+    }
+    
+    if (image_index &gt; image_number - 1)
+    {
+        image_index = image_number - 1;
+        image_speed = 0;
+        b_deadAnim = false;
+        b_isDead = true;
+    }
+}
+
+if (b_isDead == true)
+{
+    f_deadTimer = f_deadTimer + 1 * (1 / room_speed);
+    if (f_deadTimer &gt; f_deadTime)
+    {
+        f_deadTimer = 0;
+        i_health = i_maxHealth;
+        
+        if (b_faceLeft == false &amp;&amp; b_faceRight == true)
+        {
+            if (b_daniel_sprite == true)
+            {
+                sprite_index = Daniel_Idle_Right;            
+            }
+    
+            else if (b_terry_sprite == true)
+            {
+                sprite_index = Terry_Idle_Right; 
+            }
+            
+            else
+            {
+            
+            }
+        }
+        
+        else if (b_faceLeft == true &amp;&amp; b_faceRight == false)
+        {
+            if (b_daniel_sprite == true)
+            {
+                sprite_index = Daniel_Idle_Left;            
+            }
+    
+            else if (b_terry_sprite == true)
+            {
+                sprite_index = Terry_Idle_Left; 
+            }
+            
+            else
+            {
+            
+            }    
+        }
+        
+        b_isDead = false;
+        b_noDamage = true;
+    }
+}
+
 // Taking damage from the enemy
 // 1. Melee enemy
 if (place_meeting(x, y, Enemy))
@@ -439,6 +543,8 @@ if (place_meeting(x, y, Enemy))
         else
         {
             i_health = 0;
+            f_horizontalSpeed = 0;
+            b_deadAnim = true;
         }
         b_noDamage = true;
     }
@@ -458,6 +564,8 @@ if (place_meeting(x, y, EnemyProObj))
         else
         {
             i_health = 0;
+            f_horizontalSpeed = 0;
+            b_deadAnim = true;
         }    
         b_noDamage = true;
     }
@@ -477,12 +585,14 @@ if (place_meeting(x, y, EnemyEliteProObj))
         else
         {
             i_health = 0;
+            f_horizontalSpeed = 0;
+            b_deadAnim = true;
         }    
         b_noDamage = true;
     }
 }
 
-// 3. EnemyElite close attack
+// 4. EnemyElite close attack
 if (place_meeting(x, y, EnemyElite))
 {
     if (b_noDamage == false)
@@ -496,11 +606,14 @@ if (place_meeting(x, y, EnemyElite))
         else
         {
             i_health = 0;
+            f_horizontalSpeed = 0;
+            b_deadAnim = true;
         }    
         b_noDamage = true;
     }
 }
 
+// Invincibility counter
 if (b_noDamage == true)
 {
     f_noDamageTimer = f_noDamageTimer + (1 / room_speed);

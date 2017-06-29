@@ -524,6 +524,11 @@
     <font>fonts\fnt_UIDescriptiontwo</font>
   </fonts>
   <objects name="objects">
+    <objects name="Solo">
+      <objects name="Character">
+        <object>objects\Player</object>
+      </objects>
+    </objects>
     <objects name="Multiplayer">
       <objects name="Characters">
         <objects name="PVP">
@@ -549,10 +554,9 @@
         </objects>
       </objects>
     </objects>
-    <object>objects\Player</object>
     <object>objects\Spawner</object>
-    <object>objects\Enemy</object>
     <object>objects\EnemyShooting</object>
+    <object>objects\Enemy</object>
     <object>objects\Wall</object>
     <object>objects\Objective</object>
     <objects name="Weaponry Objects">

@@ -111,7 +111,8 @@ if (AK_47.f_cooldown_timer &gt; AK_47.f_cooldown)
     AK_47.b_fire = true;
 }
 
-if (Player.SHOOT &amp;&amp; AK_47.b_fire == true &amp;&amp; b_isReload == false)
+if (Player.SHOOT &amp;&amp; Player.b_deadAnim == false &amp;&amp; Player.b_isDead == false &amp;&amp;
+    AK_47.b_fire == true &amp;&amp; b_isReload == false)
 {
     if (i_ammo &gt; 0)
     {      
@@ -123,7 +124,8 @@ if (Player.SHOOT &amp;&amp; AK_47.b_fire == true &amp;&amp; b_isReload == false)
     }
 }
 
-if (Player.RELOAD &amp;&amp; b_isReload == false)
+if (Player.RELOAD &amp;&amp; Player.b_deadAnim == false &amp;&amp; Player.b_isDead == false &amp;&amp;
+    b_isReload == false)
 {
     if (i_magazine &gt; 0)
     {
