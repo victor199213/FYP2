@@ -82,3 +82,4 @@ switch (Player._currEquipOne)
     WeaponHandleObj.AK47_cooldownUpgradeCost = AK_47.i_cooldownUpgradeCost;
     break;
 }
+show_debug_message("Equip One Saved");

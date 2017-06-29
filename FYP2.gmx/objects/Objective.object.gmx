@@ -73,15 +73,8 @@ if (b_shopIsOpen == true)
             if (!instance_exists(Shop))
             {
                 instance_create(0, 0, Shop);
-                show_debug_message("Instantiated");
+                show_debug_message("Created");
             }
-            
-            else
-            {
-                instance_activate_object(Shop); 
-                show_debug_message("Activated");           
-            }
-
         }
         
         else if (b_menuIsOpen == true)
@@ -89,8 +82,11 @@ if (b_shopIsOpen == true)
             b_menuIsOpen = false;
             if (instance_exists(Shop))
             {
-                instance_deactivate_object(Shop);
-                show_debug_message("Deactivated");
+                with (Shop)
+                {
+                    instance_destroy();
+                }
+                show_debug_message("Destroyed");
             }
             
             else
@@ -107,7 +103,10 @@ if (b_shopIsOpen == true)
             b_menuIsOpen = false;
             if (instance_exists(Shop))
             {
-                instance_deactivate_object(Shop);
+                with (Shop)
+                {
+                    instance_destroy();
+                }
                 show_debug_message("Too far");
             }
         }
@@ -121,7 +120,10 @@ else
         b_menuIsOpen = false;
         if (instance_exists(Shop))
         {
-            instance_deactivate_object(Shop);
+            with (Shop)
+            {
+                instance_destroy();
+            }
         }    
     }
 }
