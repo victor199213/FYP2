@@ -548,13 +548,13 @@
           <object>objects\REnemyProObj</object>
           <object>objects\REnemyElite</object>
           <object>objects\REnemyEliteProObj</object>
-          <object>objects\EnemyElite</object>
           <object>objects\PVPgui</object>
           <object>objects\REnemy</object>
         </objects>
       </objects>
     </objects>
     <object>objects\Spawner</object>
+    <object>objects\EnemyElite</object>
     <object>objects\EnemyShooting</object>
     <object>objects\Enemy</object>
     <object>objects\Wall</object>
@@ -649,8 +649,6 @@
     <room>rooms\Game_Loading_Room</room>
     <room>rooms\room1</room>
     <room>rooms\room2</room>
-    <room>rooms\GameOver</room>
-    <room>rooms\Win</room>
   </rooms>
   <constants number="14">
     <constant name="c_CityMap">"New York City"</constant>
