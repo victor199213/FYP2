@@ -421,13 +421,19 @@ switch (i_currEquip)
     break;
     
     case 1:
-    i_equipTwoID.x = x + i_equipTwoID.offset_x;
-    i_equipTwoID.y = y + i_equipTwoID.offset_y;
+    if (_currEquipTwo != "")
+    {
+        i_equipTwoID.x = x + i_equipTwoID.offset_x;
+        i_equipTwoID.y = y + i_equipTwoID.offset_y;
+    }
     break;
     
     case 2:
-    i_equipOneID.x = x + i_equipOneID.offset_x;
-    i_equipOneID.y = y + i_equipOneID.offset_y;
+    if (_currEquipOne != "")
+    {
+        i_equipOneID.x = x + i_equipOneID.offset_x;
+        i_equipOneID.y = y + i_equipOneID.offset_y;
+    }
     break;
 }
 

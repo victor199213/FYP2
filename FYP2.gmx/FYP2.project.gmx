@@ -631,6 +631,7 @@
           <object>objects\Multi_Button</object>
           <object>objects\Coop_Button</object>
           <object>objects\Versus_Button</object>
+          <object>objects\Multi_OK_Button</object>
         </objects>
       </objects>
       <objects name="Map Selection">
