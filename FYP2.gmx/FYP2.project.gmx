@@ -642,7 +642,6 @@
     </objects>
     <object>objects\EnemyProjectileParticle</object>
     <object>objects\EnemyExplode</object>
-    <object>objects\TmpSwitchRoom</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Global_Variable_Instance_Room</room>

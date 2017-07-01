@@ -92,7 +92,6 @@ instance_create(0, 0, PlayerHandleObj);</code>
     <instance objName="Avoid" x="480" y="608" name="inst_F90ED9C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Avoid" x="352" y="608" name="inst_94E0A668" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Wall" x="576" y="768" name="inst_0BA04996" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="TmpSwitchRoom" x="96" y="992" name="inst_CB5DF0BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="RSpawner" x="96" y="64" name="inst_6D886881" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="RObjective" x="1856" y="1024" name="inst_7468026F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="BObjective" x="64" y="1024" name="inst_EF7D6740" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
