@@ -47,7 +47,7 @@ i_maxHealthIncrement = global._maxHealthIncrement;
 i_baseMaxHealth = global._baseMaxHealth;
 i_maxHealth = global._maxHealth;
 // Max Health upgrade
-i_maxHealthLevel = 1;
+i_maxHealthLevel = 10000;
 i_maxHealthUpgradeCost = 50;
 
 // 2. Damage Multiplier
