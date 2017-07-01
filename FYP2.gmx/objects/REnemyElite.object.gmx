@@ -247,6 +247,7 @@ switch (state)
                 if(place_meeting(x,y,Wall)== false)
                 {
                     path_end();
+                    state = e_state.idle;
                     gravity = 0.2;
                 }
                 b_isKnockback = false;
