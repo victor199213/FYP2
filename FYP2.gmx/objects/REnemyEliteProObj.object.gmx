@@ -63,7 +63,7 @@ else
     instance_destroy();
     instance_create(x,y,EnemyProjectileParticle)
 }
-if(PVPgui.sec &lt;= 0)
+if(PVPgui.sec &lt;= 0 || REnemyElite.health &lt;= 0 )
 {
     instance_destroy();
 }
