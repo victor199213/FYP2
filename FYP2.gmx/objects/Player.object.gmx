@@ -440,6 +440,50 @@ switch (i_currEquip)
 if (b_deadAnim == true)
 {
     image_speed = 5 / room_speed;
+    switch (i_currEquip)
+    {
+        default:
+        break;
+        
+        case 1:
+        if (_currEquipOne != "")
+        {
+            switch (_currEquipOne)
+            {
+                default:
+                break;
+                
+                case "Handgun":
+                instance_deactivate_object(Handgun);
+                break;
+                
+                case "AK-47":
+                instance_deactivate_object(AK_47);
+                break;
+            }
+        }
+        break;
+        
+        case 2:
+        if (_currEquipTwo != "")
+        {
+            switch (_currEquipTwo)
+            {
+                default:
+                break;
+                
+                case "Handgun":
+                instance_deactivate_object(Handgun);
+                break;
+                
+                case "AK-47":
+                instance_deactivate_object(AK_47);
+                break;
+            }
+        }
+        break;
+    }
+        
     if (b_faceLeft == false &amp;&amp; b_faceRight == true)
     {
         if (b_daniel_sprite == true)
@@ -474,6 +518,50 @@ if (b_deadAnim == true)
         {
         
         }    
+    }
+    
+    switch (i_currEquip)
+    {
+        default:
+        break;
+        
+        case 1:
+        if (_currEquipOne != "")
+        {
+            switch (_currEquipOne)
+            {
+                default:
+                break;
+                
+                case "Handgun":
+                instance_deactivate_object(Handgun);
+                break;
+                
+                case "AK-47":
+                instance_deactivate_object(AK_47);
+                break;
+            }
+        }
+        break;
+        
+        case 2:
+        if (_currEquipTwo != "")
+        {
+            switch (_currEquipTwo)
+            {
+                default:
+                break;
+                
+                case "Handgun":
+                instance_deactivate_object(Handgun);
+                break;
+                
+                case "AK-47":
+                instance_deactivate_object(AK_47);
+                break;
+            }
+        }
+        break;
     }
     
     if (image_index &gt; image_number - 1)
@@ -527,6 +615,50 @@ if (b_isDead == true)
             {
             
             }    
+        }
+        
+        switch (i_currEquip)
+        {
+            default:
+            break;
+            
+            case 1:
+            if (_currEquipOne != "")
+            {
+                switch (_currEquipOne)
+                {
+                    default:
+                    break;
+                    
+                    case "Handgun":
+                    instance_activate_object(Handgun);
+                    break;
+                    
+                    case "AK-47":
+                    instance_activate_object(AK_47);
+                    break;
+                }
+            }
+            break;
+            
+            case 2:
+            if (_currEquipTwo != "")
+            {
+                switch (_currEquipTwo)
+                {
+                    default:
+                    break;
+                    
+                    case "Handgun":
+                    instance_activate_object(Handgun);
+                    break;
+                    
+                    case "AK-47":
+                    instance_activate_object(AK_47);
+                    break;
+                }
+            }
+            break;
         }
         
         b_isDead = false;
@@ -738,25 +870,25 @@ if (b_viewPlayerTab == false)
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(Handgun.i_ammo));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipOneID.i_ammo));
             
             // 2. Magazine
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(Handgun.i_magazine));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipOneID.i_magazine));
             
             // 3. Damage
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(Handgun.i_damage));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipOneID.i_damage));
             
             // 4. Fire-rate
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(Handgun.f_cooldown));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipOneID.f_cooldown));
             break;
             
             case "AK-47":
@@ -767,25 +899,25 @@ if (b_viewPlayerTab == false)
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(AK_47.i_ammo));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipOneID.i_ammo));
             
             // 2. Magazine
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(AK_47.i_magazine));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipOneID.i_magazine));
             
             // 3. Damage
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(AK_47.i_damage));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipOneID.i_damage));
             
             // 4. Fire-rate
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(AK_47.f_cooldown));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipOneID.f_cooldown));
             break;
         }
         break;
@@ -804,25 +936,25 @@ if (b_viewPlayerTab == false)
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(Handgun.i_ammo));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipTwoID.i_ammo));
             
             // 2. Magazine
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(Handgun.i_magazine));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipTwoID.i_magazine));
             
             // 3. Damage
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(Handgun.i_damage));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipTwoID.i_damage));
             
             // 4. Fire-rate
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(Handgun.f_cooldown));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipTwoID.f_cooldown));
             break;
             
             case "AK-47":
@@ -833,25 +965,25 @@ if (b_viewPlayerTab == false)
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(AK_47.i_ammo));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipTwoID.i_ammo));
             
             // 2. Magazine
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(AK_47.i_magazine));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipTwoID.i_magazine));
             
             // 3. Damage
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(AK_47.i_damage));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipTwoID.i_damage));
             
             // 4. Fire-rate
             draw_set_colour(c_aqua);
             draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
             draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(AK_47.f_cooldown));
+            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipTwoID.f_cooldown));
             break;
         }
         break;
@@ -886,6 +1018,8 @@ draw_set_color(c_black);
           <argument>
             <kind>1</kind>
             <string>draw_self();
+
+if (b_deadAnim == false &amp;&amp; b_isDead == false)
 draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), (i_health / i_baseMaxHealth) * 100, c_black, c_red, c_lime, 0, true, true);
 
 </string>
