@@ -132,6 +132,7 @@ switch (state)
         if (distance_to_object(Player) &lt; 94 &amp;&amp; (Player.b_deadAnim == false &amp;&amp; Player.b_isDead == false)) 
         {
             path_end();
+            speed = 0;
             state = e_state.shoot;
         }
             
@@ -199,9 +200,9 @@ switch (state)
         }
         if(place_meeting(x ,y + 1,Wall)== true)
         {
+            gravity = 0;
             speed = 0;
             direction = point_direction(x, y, Player.x, Player.y);
-            gravity = 0;
         }
         if(direction &gt; 90 &amp;&amp; direction &lt; 270)
         {

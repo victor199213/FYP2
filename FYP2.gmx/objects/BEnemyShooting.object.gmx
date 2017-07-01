@@ -103,6 +103,7 @@ switch (state)
         if (distance_to_object(R_Player) &lt; 94) 
         {
             path_end();
+            speed = 0;
             state = e_state.shoot;
         }
                    

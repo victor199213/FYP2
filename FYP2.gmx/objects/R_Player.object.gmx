@@ -219,7 +219,7 @@ if (place_meeting(x, y, BEnemy))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(BEnemy.damage / f_armour);
+        i_reducedDamage = round(10 / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        
@@ -239,7 +239,7 @@ if (place_meeting(x, y, BEnemyProObj))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(BEnemyShooting.damage / f_armour);
+        i_reducedDamage = round(10 / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        
@@ -259,7 +259,7 @@ if (place_meeting(x, y, BEnemyEliteProObj))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(BEnemyElite.damage / f_armour);
+        i_reducedDamage = round(10 / f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        
@@ -279,7 +279,7 @@ if (place_meeting(x, y, BEnemyElite))
 {
     if (b_noDamage == false)
     {
-        i_reducedDamage = round(BEnemyElite.damage / f_armour);
+        i_reducedDamage = round(10/ f_armour);
         if (i_health &gt; i_reducedDamage)
         {
             i_health = i_health - i_reducedDamage;        

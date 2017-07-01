@@ -44,9 +44,9 @@ vsp = 0;
 hsp = 0;
 HP = 100;
 maxHP = 100;
-damage = 0;
 pc = 0;
 seconds = 0;
+damage = 0;
 
 switch(Spawner.wave)
 {
@@ -147,6 +147,7 @@ switch (state)
                 break;
                 case 2:
                 {
+                    speed = 0;
                     state = e_state.shoot;
                 }
                 break
@@ -280,9 +281,9 @@ switch (state)
         }
         if(place_meeting(x ,y + 1,Wall)== true)
         {
+            gravity = 0;
             speed = 0;
             direction = point_direction(x, y, Player.x, Player.y);
-            gravity = 0;
         }
         if(direction &gt; 90 &amp;&amp; direction &lt; 270)
         {

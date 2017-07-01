@@ -118,6 +118,7 @@ switch (state)
                 break;
                 case 2:
                 {
+                    speed = 0;
                     state = e_state.shoot;
                 }
                 break
