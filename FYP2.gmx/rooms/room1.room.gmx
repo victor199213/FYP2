@@ -114,7 +114,6 @@ enum e_state
     <instance objName="wall2obj" x="1824" y="608" name="inst_0EFE6B2B" locked="0" code="" scaleX="6.80000019073486" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
     <instance objName="wall2obj" x="96" y="608" name="inst_9907D321" locked="0" code="" scaleX="6.80000019073486" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
     <instance objName="wall2obj" x="576" y="768" name="inst_6FB65847" locked="0" code="" scaleX="7.80000019073486" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="0" y="0" name="inst_42178E2C" locked="0" code="" scaleX="0" scaleY="0" colour="0" rotation="0"/>
     <instance objName="wall2obj" x="1344" y="768" name="inst_C4EC0221" locked="0" code="" scaleX="7.80000019073486" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
     <instance objName="wall2obj" x="960" y="928" name="inst_24F6A409" locked="0" code="" scaleX="5.84999990463257" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
     <instance objName="wall2obj" x="960" y="1088" name="inst_5D9C8FB3" locked="0" code="" scaleX="30.2063484191895" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>

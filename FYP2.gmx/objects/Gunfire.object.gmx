@@ -90,13 +90,19 @@ switch (Player.i_currEquip)
         break;
         
         case "Handgun":
-        x = Handgun.x + gunfire_offset_x;
-        y = Handgun.y - gunfire_offset_y;
+        if (instance_exists(Handgun))
+        {
+            x = Handgun.x + gunfire_offset_x;
+            y = Handgun.y - gunfire_offset_y;
+        }
         break;
         
         case "AK-47":
-        x = AK_47.x + gunfire_offset_x;
-        y = AK_47.y - gunfire_offset_y;
+        if (instance_exists(AK_47))
+        {
+            x = AK_47.x + gunfire_offset_x;
+            y = AK_47.y - gunfire_offset_y;
+        }
         break;
     }
     break;
@@ -108,13 +114,19 @@ switch (Player.i_currEquip)
         break;
         
         case "Handgun":
-        x = Handgun.x + gunfire_offset_x;
-        y = Handgun.y - gunfire_offset_y;
+        if (instance_exists(Handgun))
+        {
+            x = Handgun.x + gunfire_offset_x;
+            y = Handgun.y - gunfire_offset_y;
+        }
         break;
         
         case "AK-47":
-        x = AK_47.x + gunfire_offset_x;
-        y = AK_47.y - gunfire_offset_y;
+        if (instance_exists(AK_47))
+        {
+            x = AK_47.x + gunfire_offset_x;
+            y = AK_47.y - gunfire_offset_y;
+        }
         break;
     }
     break;

@@ -26,7 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>// Properties of a Handgun Ammo
-i_damage = round(Handgun.i_damage * Player.f_damageMultiplier);
+if (instance_exists(Handgun))
+{
+    if (Player.b_deadAnim == false &amp;&amp; Player.b_isDead == false)
+    {
+        i_damage = round(Handgun.i_damage * Player.f_damageMultiplier);
+    }
+}
 f_bullet_hspeed = 0;
 i_spawnTime = 3;
 i_spawnCounter = 0;
@@ -34,11 +40,15 @@ i_spawnCounter = 0;
 if (Player.b_faceLeft == true)
 {
     direction = 180;
+    image_xscale = -2;
+    image_yscale = -2;
 }
 
 else if (Player.b_faceRight == true)
 {
     direction = 0;
+    image_xscale = 2;
+    image_yscale = 2;
 }
 
 if (direction == 180)
@@ -53,8 +63,6 @@ if (direction == 0)
 
 image_index = 6;
 image_speed = 0;
-image_xscale *= 2;
-image_yscale *= 2;
 
 // Creating the depth of the Handgun Ammo
 depth = -2;
