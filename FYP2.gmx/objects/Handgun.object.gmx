@@ -113,9 +113,10 @@ if (Handgun.f_cooldown_timer &gt; Handgun.f_cooldown)
 
 if (Player.SHOOT &amp;&amp; Player.b_deadAnim == false &amp;&amp; Player.b_isDead == false &amp;&amp;
     Handgun.b_fire == true &amp;&amp; b_isReload == false)
-{
+{   
     if (i_ammo &gt; 0)
-    {      
+    {
+        audio_play_sound(snd_gun_shot, 1, false);
         Handgun.b_fire = false;
         Handgun.f_cooldown_timer = 0;
         instance_create(Handgun.x, Handgun.y, Gunfire);

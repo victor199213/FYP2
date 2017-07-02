@@ -70,29 +70,24 @@ if (b_shopIsOpen == true)
     {
         if (b_menuIsOpen == false)
         {
+            audio_play_sound(snd_door_slam, 1, false);
             b_menuIsOpen = true;
             if (!instance_exists(Shop))
             {
                 instance_create(0, 0, Shop);
-                show_debug_message("Created");
             }
         }
         
         else if (b_menuIsOpen == true)
         {
             b_menuIsOpen = false;
+            audio_play_sound(snd_door_slam, 1, false);
             if (instance_exists(Shop))
             {
                 with (Shop)
                 {
                     instance_destroy();
                 }
-                show_debug_message("Destroyed");
-            }
-            
-            else
-            {
-                show_debug_message("What?");
             }
         }
     }
@@ -102,13 +97,13 @@ if (b_shopIsOpen == true)
         if (b_menuIsOpen == true)
         {
             b_menuIsOpen = false;
+            audio_play_sound(snd_door_slam, 1, false);
             if (instance_exists(Shop))
             {
                 with (Shop)
                 {
                     instance_destroy();
                 }
-                show_debug_message("Too far");
             }
         }
     }

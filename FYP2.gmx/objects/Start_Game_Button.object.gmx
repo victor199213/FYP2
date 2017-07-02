@@ -141,6 +141,10 @@ image_index = 1;
             break;
             
             case 1:
+            if (audio_is_playing(mus_titlescreen))
+            {
+                audio_stop_sound(mus_titlescreen);
+            }
             room_goto(room1);
             break;
             

@@ -12,6 +12,7 @@
   <showcolour>-1</showcolour>
   <code>// Instancing menu structure
 instance_create(1, 1, MainMenuStructure);
+audio_play_sound(mus_titlescreen, 0, true);
 
 // Alpha related variables for animations on instances
 global.f_alphaTime = 0.25;</code>

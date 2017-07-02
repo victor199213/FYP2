@@ -115,7 +115,8 @@ if (Player.SHOOT &amp;&amp; Player.b_deadAnim == false &amp;&amp; Player.b_isDea
     AK_47.b_fire == true &amp;&amp; b_isReload == false)
 {
     if (i_ammo &gt; 0)
-    {      
+    {
+        audio_play_sound(snd_gun_shot, 1, false);
         AK_47.b_fire = false;
         AK_47.f_cooldown_timer = 0;
         instance_create(AK_47.x, AK_47.y, Gunfire);
