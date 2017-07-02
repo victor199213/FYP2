@@ -293,6 +293,12 @@ if(PVPgui.sec &lt; 1)
     instance_create(x,y,EnemyExplode);
     instance_destroy();
 }
+
+if(place_meeting(x,y,wall2obj))
+{
+    HP = 0;
+    state = e_state.dying;
+}
 </string>
           </argument>
         </arguments>

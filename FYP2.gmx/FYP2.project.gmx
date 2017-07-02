@@ -414,6 +414,7 @@
       <sprite>sprites\Snow</sprite>
     </sprites>
     <sprite>sprites\RedBlue</sprite>
+    <sprite>sprites\wall2</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -558,6 +559,7 @@
     <object>objects\EnemyShooting</object>
     <object>objects\Enemy</object>
     <object>objects\Wall</object>
+    <object>objects\wall2obj</object>
     <object>objects\Objective</object>
     <objects name="Weaponry Objects">
       <objects name="Guns">
