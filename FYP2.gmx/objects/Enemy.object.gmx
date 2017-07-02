@@ -328,12 +328,14 @@ if (f_knockback_timer &gt;= f_maxKnockback_time)
 
 if(place_meeting(x,y,Objective))
 {
+    audio_play_sound(sound6,0, false);
     Objective.health -= 10;
     instance_create(x,y,EnemyExplode);
     instance_destroy();
 }
 if(Spawner.waveTime &gt;= 60 || Objective.health &lt;= 0)
 {
+    audio_play_sound(sound6,0, false);
     instance_create(x,y,EnemyExplode);
     instance_destroy();
 }

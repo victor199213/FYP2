@@ -36,6 +36,7 @@ part_system_depth(particle,50);
 sparkle = part_type_create();
 particle_emitter = part_emitter_create(particle);
 roomTimer = 10;
+audio_play_sound(mus_dungeon02,0, true);
 </string>
           </argument>
         </arguments>
@@ -111,6 +112,7 @@ if(waveTime &gt;= 60)
 if(wave &gt;= 5 &amp;&amp; waveTime &gt;= 60)
 {
     part_emitter_destroy_all(particle);
+    audio_stop_all();
     roomTimer -= 1 / room_speed;
     if(roomTimer &lt;= 0)
     {   

@@ -28,7 +28,7 @@
             <string>// Creating variables to open up the Shop System
 b_shopIsOpen = true;
 b_menuIsOpen = false;
-health = 100;
+health = 10;
 </string>
           </argument>
         </arguments>
@@ -127,6 +127,14 @@ else
             }
         }    
     }
+}
+if(health &gt; 0 &amp;&amp; health &lt;= 30)
+{
+    audio_play_sound(snd_heart,1,true);
+}
+else if(health &lt;= 0)
+{
+    audio_stop_all();
 }
 </string>
           </argument>

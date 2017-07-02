@@ -28,6 +28,7 @@
             <string>if(place_meeting(x,y,BEnemy)||place_meeting(x,y,BEnemyElite)||place_meeting(x,y,BEnemyShooting))
 {
     PVPgui.BScore += 10;
+    audio_play_sound(snd_levelup,0, false);
 }
 </string>
           </argument>

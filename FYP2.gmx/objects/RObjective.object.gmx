@@ -28,6 +28,7 @@
             <string>if(place_meeting(x,y,REnemy)||place_meeting(x,y,REnemyElite)||place_meeting(x,y,REnemyShooting))
 {
     PVPgui.RScore += 10;
+    audio_play_sound(snd_levelup,0, false);
 }
 </string>
           </argument>

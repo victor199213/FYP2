@@ -62,11 +62,20 @@ if(sec &gt; 0)
 }
 else if(sec &lt; 0)
 {
+    audio_stop_all();
     roomTimer -= 1 / room_speed;
     if(roomTimer &lt;= 0)
     {   
         room_goto(MainMenu);
     }
+}
+if(sec == 179)
+{
+    audio_play_sound(Track2, 0, true);
+}
+if(sec == 30)
+{
+    audio_play_sound(snd_heart, 0, true);
 }
 if(minute &gt;= 0)
 {
