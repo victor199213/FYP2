@@ -28,7 +28,7 @@
             <string>seconds = 0;
 waveTime = 0;
 wave = 1;
-waveDelay = 60;
+waveDelay = 30;
 randomize();
 
 particle = part_system_create();
@@ -104,7 +104,7 @@ if(waveTime &gt;= 60)
     if(waveDelay &lt; 0)
     {
         wave += 1;
-        waveDelay = 60;
+        waveDelay = 30;
         waveTime = 0;
     }
 }
