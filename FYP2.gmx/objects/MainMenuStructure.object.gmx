@@ -397,6 +397,7 @@ if (menu_choice == "Pregame Selection")
             // Deactivate Pre-game Selection objects (Multiplayer)
             instance_deactivate_object(Coop_Button);
             instance_deactivate_object(Versus_Button);
+            instance_deactivate_object(Multi_OK_Button);
         }            
     }
     
