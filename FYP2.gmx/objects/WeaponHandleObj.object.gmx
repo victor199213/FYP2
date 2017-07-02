@@ -35,10 +35,10 @@ Handgun_reloadTime = 0;
 Handgun_isReload = false;
 
 // Magazines of handgun, and the total number of magazines you can hold. Can be upgraded
-Handgun_magazine = 3;
+Handgun_magazine = 1;
 Handgun_maxMagazineIncrement = 1;
-Handgun_baseMagazine = 1;
-Handgun_maxMagazine = 1;
+Handgun_baseMagazine = 2;
+Handgun_maxMagazine = 2;
 // Maximum number of Magazines upgrade
 Handgun_maxMagazineLevel = 1;
 Handgun_maxMagazineUpgradeCost = 10;
@@ -97,7 +97,7 @@ AK47_isReload = false;
 AK47_magazine = 1;
 AK47_maxMagazineIncrement = 2;
 AK47_baseMagazine = 1;
-AK47_maxMagazine = 10;
+AK47_maxMagazine = 3;
 // Maximum number of Magazines upgrade
 AK47_maxMagazineLevel = 1;
 AK47_maxMagazineUpgradeCost = 20;

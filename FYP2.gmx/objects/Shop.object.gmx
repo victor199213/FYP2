@@ -29,19 +29,56 @@
 There will be 3 slots in total available for the necessary upgrades
 The first 2 slots will go to equipment Upgrades
 The 3rd slot goes to player Upgrades
+The 4th slot goes to item purchases
 */
 i_selectedSlot = 1;
 /*
 There will be pages for player slot Upgrade
 */
 i_playerSlotPage = 1;
+
+// Equipment variables
 i_totalEquipments = ds_list_size(global.EquipmentList);
 equipmentNames[0] = global._equipment[0];
 equipmentNames[1] = global._equipment[1];
 
+// Variables created for item purchases and its cost
+i_itemSlotPage = 1;
+i_equipOneMagazineCost = 0;
+i_equipTwoMagazineCost = 0;
+
+switch (equipmentNames[0])
+{
+    default:
+    break;
+    
+    case "Handgun":
+    i_equipOneMagazineCost = 5;
+    break;
+    
+    case "AK-47":
+    i_equipOneMagazineCost = 12;
+    break;
+}
+
+switch (equipmentNames[1])
+{
+    default:
+    break;
+    
+    case "Handgun":
+    i_equipTwoMagazineCost = 5;
+    break;
+    
+    case "AK-47":
+    i_equipTwoMagazineCost = 12;
+    break;
+}
+
 _slotOne_posy = global.GUI_height * 0.35;
-_slotTwo_posy = global.GUI_height * 0.5;
-_slotThree_posy = global.GUI_height * 0.65;
+_slotTwo_posy = global.GUI_height * 0.45;
+_slotThree_posy = global.GUI_height * 0.55;
+_slotFour_posy = global.GUI_height * 0.65;
 
 _allSlots_posx = global.GUI_width * 0.375;
 </string>
@@ -98,7 +135,7 @@ if (Objective.b_menuIsOpen == true)
     // First equipment in the EquipmentList will go to the first slot in the shop
     if (i_selectedSlot == 1)
     {
-        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotOne_posy, 1.5, 1.5, 0, c_white, 0.5);
+        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotOne_posy, 1, 1, 0, c_white, 0.5);
         
         switch (equipmentNames[0])
         {
@@ -107,7 +144,7 @@ if (Objective.b_menuIsOpen == true)
             
             // When the first equipment is Handgun
             case "Handgun":
-                draw_sprite_ext(shooter_wood_smallGuns, 0, _allSlots_posx, _slotOne_posy, 3, 3, 0, c_white, 1);
+                draw_sprite_ext(shooter_wood_smallGuns, 0, _allSlots_posx, _slotOne_posy, 1.5, 1.5, 0, c_white, 1);
                 // Giving the available options for upgrades, along with the name of the Item
                 // Name of the weapon in first slot
                 draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
@@ -144,7 +181,8 @@ if (Objective.b_menuIsOpen == true)
                                 global.i_currency = global.i_currency - WeaponHandleObj.Handgun_maxMagazineUpgradeCost;
                                 WeaponHandleObj.Handgun_maxMagazineLevel += 1;
                                 WeaponHandleObj.Handgun_maxMagazineUpgradeCost = round(WeaponHandleObj.Handgun_maxMagazineUpgradeCost * 1.5);
-                                WeaponHandleObj.Handgun_maxMagazine = WeaponHandleObj.Handgun_baseMagazine + WeaponHandleObj.Handgun_maxMagazineIncrement;                        
+                                WeaponHandleObj.Handgun_maxMagazine = WeaponHandleObj.Handgun_baseMagazine + (WeaponHandleObj.Handgun_maxMagazineLevel - 1) * WeaponHandleObj.Handgun_maxMagazineIncrement;
+                                show_debug_message(WeaponHandleObj.Handgun_maxMagazine);
                             }
                         }
                     }
@@ -251,7 +289,7 @@ if (Objective.b_menuIsOpen == true)
             break;
             
             case "AK-47":
-                draw_sprite_ext(shooter_wood_smallGuns, 1, _allSlots_posx, _slotOne_posy, 3, 3, 0, c_white, 1);
+                draw_sprite_ext(shooter_wood_smallGuns, 1, _allSlots_posx, _slotOne_posy, 1.5, 1.5, 0, c_white, 1);
                 // Giving the available options for upgrades, along with the name of the Item
                 // Name of the weapon in first slot
                 draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
@@ -288,7 +326,7 @@ if (Objective.b_menuIsOpen == true)
                                 global.i_currency = global.i_currency - WeaponHandleObj.AK47_maxMagazineUpgradeCost;
                                 WeaponHandleObj.AK47_maxMagazineLevel += 1;
                                 WeaponHandleObj.AK47_maxMagazineUpgradeCost = round(WeaponHandleObj.AK47_maxMagazineUpgradeCost * 1.5);
-                                WeaponHandleObj.AK47_maxMagazine = WeaponHandleObj.AK47_baseMagazine + WeaponHandleObj.AK47_maxMagazineIncrement;                        
+                                WeaponHandleObj.AK47_maxMagazine = WeaponHandleObj.AK47_baseMagazine + (WeaponHandleObj.AK47_maxMagazineLevel - 1) * WeaponHandleObj.AK47_maxMagazineIncrement;                        
                             }
                         }
                     }
@@ -398,18 +436,18 @@ if (Objective.b_menuIsOpen == true)
     
     else
     {
-        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotOne_posy, 1.5, 1.5, 0, c_white, 1);
+        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotOne_posy, 1, 1, 0, c_white, 1);
         switch (equipmentNames[0])
         {
             default:
             break;
             
             case "Handgun":
-            draw_sprite_ext(shooter_wood_smallGuns, 0, _allSlots_posx, _slotOne_posy, 3, 3, 0, c_white, 1);
+            draw_sprite_ext(shooter_wood_smallGuns, 0, _allSlots_posx, _slotOne_posy, 1.5, 1.5, 0, c_white, 1);
             break;
             
             case "AK-47":
-            draw_sprite_ext(shooter_wood_smallGuns, 1, _allSlots_posx, _slotOne_posy, 3, 3, 0, c_white, 1);
+            draw_sprite_ext(shooter_wood_smallGuns, 1, _allSlots_posx, _slotOne_posy, 1.5, 1.5, 0, c_white, 1);
             break;
         }
     }
@@ -446,7 +484,7 @@ if (Objective.b_menuIsOpen == true)
     // Second equipment in the EquipmentList will go to the Second slot in the shop
     if (i_selectedSlot == 2)
     {
-        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotTwo_posy, 1.5, 1.5, 0, c_white, 0.5);
+        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotTwo_posy, 1, 1, 0, c_white, 0.5);
         
         switch (equipmentNames[1])
         {
@@ -455,7 +493,7 @@ if (Objective.b_menuIsOpen == true)
             
             // When the first equipment is Handgun
             case "Handgun":
-                draw_sprite_ext(shooter_wood_smallGuns, 0, _allSlots_posx, _slotTwo_posy, 3, 3, 0, c_white, 1);
+                draw_sprite_ext(shooter_wood_smallGuns, 0, _allSlots_posx, _slotTwo_posy, 1.5, 1.5, 0, c_white, 1);
                 // Giving the available options for upgrades, along with the name of the Item
                 // Name of the weapon in first slot
                 draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
@@ -492,7 +530,7 @@ if (Objective.b_menuIsOpen == true)
                                 global.i_currency = global.i_currency - WeaponHandleObj.Handgun_maxMagazineUpgradeCost;
                                 WeaponHandleObj.Handgun_maxMagazineLevel += 1;
                                 WeaponHandleObj.Handgun_maxMagazineUpgradeCost = round(WeaponHandleObj.Handgun_maxMagazineUpgradeCost * 1.5);
-                                WeaponHandleObj.Handgun_maxMagazine = WeaponHandleObj.Handgun_baseMagazine + WeaponHandleObj.Handgun_maxMagazineIncrement;                        
+                                WeaponHandleObj.Handgun_maxMagazine = WeaponHandleObj.Handgun_baseMagazine + (WeaponHandleObj.Handgun_maxMagazineLevel - 1) * WeaponHandleObj.Handgun_maxMagazineIncrement;                        
                             }
                         }
                     }
@@ -599,7 +637,7 @@ if (Objective.b_menuIsOpen == true)
             break;
             
             case "AK-47":
-                draw_sprite_ext(shooter_wood_smallGuns, 1, _allSlots_posx, _slotTwo_posy, 3, 3, 0, c_white, 1);
+                draw_sprite_ext(shooter_wood_smallGuns, 1, _allSlots_posx, _slotTwo_posy, 1.5, 1.5, 0, c_white, 1);
                 // Giving the available options for upgrades, along with the name of the Item
                 // Name of the weapon in first slot
                 draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
@@ -636,7 +674,7 @@ if (Objective.b_menuIsOpen == true)
                                 global.i_currency = global.i_currency - WeaponHandleObj.AK47_maxMagazineUpgradeCost;
                                 WeaponHandleObj.AK47_maxMagazineLevel += 1;
                                 WeaponHandleObj.AK47_maxMagazineUpgradeCost = round(WeaponHandleObj.AK47_maxMagazineUpgradeCost * 1.5);
-                                WeaponHandleObj.AK47_maxMagazine = WeaponHandleObj.AK47_baseMagazine + WeaponHandleObj.AK47_maxMagazineIncrement;                        
+                                WeaponHandleObj.AK47_maxMagazine = WeaponHandleObj.AK47_baseMagazine + (WeaponHandleObj.AK47_maxMagazineLevel - 1) * WeaponHandleObj.AK47_maxMagazineIncrement;
                             }
                         }
                     }
@@ -746,18 +784,18 @@ if (Objective.b_menuIsOpen == true)
     
     else
     {
-        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotTwo_posy, 1.5, 1.5, 0, c_white, 1);
+        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotTwo_posy, 1, 1, 0, c_white, 1);
         switch (equipmentNames[1])
         {
             default:
             break;
             
             case "Handgun":
-            draw_sprite_ext(shooter_wood_smallGuns, 0, _allSlots_posx, _slotTwo_posy, 3, 3, 0, c_white, 1);
+            draw_sprite_ext(shooter_wood_smallGuns, 0, _allSlots_posx, _slotTwo_posy, 1.5, 1.5, 0, c_white, 1);
             break;
             
             case "AK-47":
-            draw_sprite_ext(shooter_wood_smallGuns, 1, _allSlots_posx, _slotTwo_posy, 3, 3, 0, c_white, 1);
+            draw_sprite_ext(shooter_wood_smallGuns, 1, _allSlots_posx, _slotTwo_posy, 1.5, 1.5, 0, c_white, 1);
             break;
         }
     }
@@ -794,7 +832,7 @@ if (Objective.b_menuIsOpen == true)
     // Slot 3 goes to player upgrades
     if (i_selectedSlot == 3)
     {       
-        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotThree_posy, 1.5, 1.5, 0, c_white, 0.5);
+        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotThree_posy, 1, 1, 0, c_white, 0.5);
         // Giving the available options for upgrades, along with the name of the Player
         // Name of the Character in the slot
         draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);
@@ -1046,9 +1084,370 @@ if (Objective.b_menuIsOpen == true)
     
     else
     {
-        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotThree_posy, 1.5, 1.5, 0, c_white, 1); 
+        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotThree_posy, 1, 1, 0, c_white, 1); 
     }
-    draw_sprite_ext(Daniel_Idle_Right, 0, _allSlots_posx, _slotThree_posy, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(Daniel_Idle_Right, 0, _allSlots_posx, _slotThree_posy, 0.8, 0.8, 0, c_white, 1);
+}
+
+// Setting back to the original fonts to prevent further change of fonts
+draw_set_font(-1);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_color(c_black);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Options for Slot 4: Item purchase &amp; magazine purchase
+/// Options for Slot 3 Upgrade
+if (Objective.b_menuIsOpen == true)
+{
+    // Slot 4 goes to item purchases
+    if (i_selectedSlot == 4)
+    {       
+        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotFour_posy, 1, 1, 0, c_white, 0.5);
+        // Giving the available options for upgrades, along with the name of the Items
+        // Name of the Items in the slot
+        draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);       
+        /*
+        There are 2 pages in the Items purchase &amp; Magazine section.
+        Players can flip through the page through clicking the button at the lower right corner of the shop page
+        */
+       
+        switch (i_playerSlotPage)
+        {
+            default:
+            break;
+            
+            case 1:
+            draw_set_font(fnt_UIName)
+            draw_set_halign(fa_center);
+            draw_set_valign(fa_middle);
+            draw_set_color(c_white);
+            draw_text(global.GUI_width * 0.55, global.GUI_height * 0.325, "Items");
+            draw_text(global.GUI_width * 0.55, global.GUI_height * 0.385, "Magazines");
+            draw_set_halign(fa_left);
+            draw_set_valign(fa_top);
+            
+            // Sensing the position of mouse upon clicking to change the selected slot of available upgrades
+            /*if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.6 - 12) &amp;&amp; 
+            device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.6 + 12) &amp;&amp; 
+            device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.385 - 13) &amp;&amp; 
+            device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.385 + 13))
+            {
+                draw_sprite_ext(spr_arrow_down, 1, global.GUI_width * 0.6, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
+                if (device_mouse_check_button_pressed(0, mb_left))
+                {
+                    if (i_playerSlotPage &lt; 3)
+                    {
+                        i_playerSlotPage += 1;                
+                    }            
+                }      
+            }
+            
+            else
+            {
+                draw_sprite_ext(spr_arrow_down, 0, global.GUI_width * 0.6, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
+            }*/
+            
+            // Magazine Purchase: Option 1
+            if (Player._currEquipOne != "")
+            {
+                switch (Player._currEquipOne)
+                {
+                    default:
+                    break;
+                    
+                    case "Handgun":
+                    draw_set_font(fnt_UIDescription);
+                    draw_set_valign(fa_middle);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Handgun Magazine: " + string(Player.i_equipOneID.i_magazine));
+                    
+                    draw_set_font(fnt_UIDescriptiontwo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
+                    
+                    if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                    device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.45 - 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.45 + 17))
+                    {
+                        draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                        if (device_mouse_check_button_pressed(0, mb_left))
+                        {
+                            // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                            if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipOneID.i_magazine &lt; WeaponHandleObj.Handgun_maxMagazine)
+                            {
+                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                Player.i_equipOneID.i_magazine += 1;
+                            }
+                        }
+                    }
+                    
+                    else
+                    {
+                        draw_set_font(fnt_UIDescription);
+                        draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                    }
+                    break;
+                    
+                    case "AK-47":
+                    draw_set_font(fnt_UIDescription);
+                    draw_set_valign(fa_middle);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "AK-47 Magazine: " + string(Player.i_equipOneID.i_magazine));
+                    
+                    draw_set_font(fnt_UIDescriptiontwo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
+                    
+                    if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                    device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.45 - 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.45 + 17))
+                    {
+                        draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                        if (device_mouse_check_button_pressed(0, mb_left))
+                        {
+                            // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                            if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipOneID.i_magazine &lt; WeaponHandleObj.AK47_maxMagazine)
+                            {
+                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                Player.i_equipOneID.i_magazine += 1;
+                            }
+                        }
+                    }
+                    
+                    else
+                    {
+                        draw_set_font(fnt_UIDescription);
+                        draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                    }
+                    break;
+                }
+            }
+            
+            // Magazine Purchase: Option 2
+            if (Player._currEquipOne == "" &amp;&amp; Player._currEquipTwo != "")
+            {
+                switch (Player._currEquipTwo)
+                {
+                    default:
+                    break;
+                    
+                    case "Handgun":
+                    draw_set_font(fnt_UIDescription);
+                    draw_set_valign(fa_middle);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Handgun Magazine: " + string(Player.i_equipTwoID.i_magazine));
+                    
+                    draw_set_font(fnt_UIDescriptiontwo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
+                    
+                    if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                    device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.45 - 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.45 + 17))
+                    {
+                        draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                        if (device_mouse_check_button_pressed(0, mb_left))
+                        {
+                            // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                            if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.Handgun_maxMagazine)
+                            {
+                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                Player.i_equipTwoID.i_magazine += 1;
+                            }
+                        }
+                    }
+                    
+                    else
+                    {
+                        draw_set_font(fnt_UIDescription);
+                        draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                    }
+                    break;
+                    
+                    case "AK-47":
+                    draw_set_font(fnt_UIDescription);
+                    draw_set_valign(fa_middle);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "AK-47 Magazine: " + string(Player.i_equipTwoID.i_magazine));
+                    
+                    draw_set_font(fnt_UIDescriptiontwo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
+                    
+                    if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                    device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.45 - 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.45 + 17))
+                    {
+                        draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                        if (device_mouse_check_button_pressed(0, mb_left))
+                        {
+                            // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                            if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.AK47_maxMagazine)
+                            {
+                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                Player.i_equipTwoID.i_magazine += 1;
+                            }
+                        }
+                    }
+                    
+                    else
+                    {
+                        draw_set_font(fnt_UIDescription);
+                        draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.45, 1, 1, 0, c_white, 1);
+                    }
+                    break;
+                }
+            }
+            
+            else if (Player._currEquipOne != "" &amp;&amp; Player._currEquipTwo != "")
+            {
+                switch (Player._currEquipTwo)
+                {
+                    default:
+                    break;
+                    
+                    case "Handgun":
+                    draw_set_font(fnt_UIDescription);
+                    draw_set_valign(fa_middle);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Handgun Magazine: " + string(Player.i_equipTwoID.i_magazine));
+                    
+                    draw_set_font(fnt_UIDescriptiontwo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_HealthUpgradeInfo);
+                    
+                    if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                    device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.55 - 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.55 + 17))
+                    {
+                        draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                        if (device_mouse_check_button_pressed(0, mb_left))
+                        {
+                            // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                            if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.Handgun_maxMagazine)
+                            {
+                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                Player.i_equipTwoID.i_magazine += 1;
+                            }
+                        }
+                    }
+                    
+                    else
+                    {
+                        draw_set_font(fnt_UIDescription);
+                        draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                    }
+                    break;
+                    
+                    case "AK-47":
+                    draw_set_font(fnt_UIDescription);
+                    draw_set_valign(fa_middle);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "AK-47 Magazine: " + string(Player.i_equipTwoID.i_magazine));
+                    
+                    draw_set_font(fnt_UIDescriptiontwo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_HealthUpgradeInfo);
+                    
+                    if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                    device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.55 - 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.55 + 17))
+                    {
+                        draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                        if (device_mouse_check_button_pressed(0, mb_left))
+                        {
+                            // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
+                            if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.AK47_maxMagazine)
+                            {
+                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                Player.i_equipTwoID.i_magazine += 1;
+                            }
+                        }
+                    }
+                    
+                    else
+                    {
+                        draw_set_font(fnt_UIDescription);
+                        draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                    }
+                    break;
+                }
+            }
+            
+            break;
+            
+            case 2:
+            // Sensing the position of mouse upon clicking to change the selected slot of available upgrades
+            // Go next page
+            /*if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.6 - 12) &amp;&amp; 
+            device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.6 + 12) &amp;&amp; 
+            device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.385 - 13) &amp;&amp; 
+            device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.385 + 13))
+            {
+                draw_sprite_ext(spr_arrow_down, 1, global.GUI_width * 0.6, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
+                if (device_mouse_check_button_pressed(0, mb_left))
+                {
+                    if (i_playerSlotPage &lt; 3)
+                    {
+                        i_playerSlotPage += 1;                
+                    }            
+                }
+            }
+            
+            else
+            {
+                draw_sprite_ext(spr_arrow_down, 0, global.GUI_width * 0.6, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
+            }
+            
+            // Go previous page
+            if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.5 - 12) &amp;&amp; 
+            device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.5 + 12) &amp;&amp; 
+            device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.385 - 13) &amp;&amp; 
+            device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.385 + 13))
+            {
+                draw_sprite_ext(spr_arrow_up, 1, global.GUI_width * 0.5, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
+                if (device_mouse_check_button_pressed(0, mb_left))
+                {
+                    if (i_playerSlotPage &gt; 1)
+                    {
+                        i_playerSlotPage -= 1;                
+                    }            
+                }
+            }
+            
+            else
+            {
+                draw_sprite_ext(spr_arrow_up, 0, global.GUI_width * 0.5, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
+            }
+            break;*/
+        }
+    
+    }
+    
+    else
+    {
+        draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotFour_posy, 1, 1, 0, c_white, 1); 
+    }
+    draw_sprite_ext(Daniel_Idle_Right, 0, _allSlots_posx, _slotFour_posy, 0.8, 0.8, 0, c_white, 1);
 }
 
 // Setting back to the original fonts to prevent further change of fonts
@@ -1081,10 +1480,10 @@ if (Objective.b_menuIsOpen == true)
 {
     if (device_mouse_check_button_pressed(0, mb_left))
     {
-        if (device_mouse_x_to_gui(0) &gt; (_allSlots_posx - 50) &amp;&amp; device_mouse_x_to_gui(0) &lt; (_allSlots_posx + 50))
+        if (device_mouse_x_to_gui(0) &gt; (_allSlots_posx - 28) &amp;&amp; device_mouse_x_to_gui(0) &lt; (_allSlots_posx + 28))
         {
             // Change to slot 1
-            if (device_mouse_y_to_gui(0) &gt; (_slotOne_posy - 50) &amp;&amp; device_mouse_y_to_gui(0) &lt; (_slotOne_posy + 50))
+            if (device_mouse_y_to_gui(0) &gt; (_slotOne_posy - 28) &amp;&amp; device_mouse_y_to_gui(0) &lt; (_slotOne_posy + 28))
             {
                 if (i_selectedSlot != 1)
                 {
@@ -1093,7 +1492,7 @@ if (Objective.b_menuIsOpen == true)
             }
             
             // Change to Slot 2
-            if (device_mouse_y_to_gui(0) &gt; (_slotTwo_posy - 50) &amp;&amp; device_mouse_y_to_gui(0) &lt; (_slotTwo_posy + 50))
+            if (device_mouse_y_to_gui(0) &gt; (_slotTwo_posy - 28) &amp;&amp; device_mouse_y_to_gui(0) &lt; (_slotTwo_posy + 28))
             {
                 if (i_selectedSlot != 2)
                 {
@@ -1102,11 +1501,20 @@ if (Objective.b_menuIsOpen == true)
             }
             
             // Change to slot 3
-            if (device_mouse_y_to_gui(0) &gt; (_slotThree_posy - 50) &amp;&amp; device_mouse_y_to_gui(0) &lt; (_slotThree_posy + 50))
+            if (device_mouse_y_to_gui(0) &gt; (_slotThree_posy - 28) &amp;&amp; device_mouse_y_to_gui(0) &lt; (_slotThree_posy + 28))
             {
                 if (i_selectedSlot != 3)
                 {
                     i_selectedSlot = 3;
+                }
+            }
+            
+            // Change to slot 4
+            if (device_mouse_y_to_gui(0) &gt; (_slotFour_posy - 28) &amp;&amp; device_mouse_y_to_gui(0) &lt; (_slotFour_posy + 28))
+            {
+                if (i_selectedSlot != 4)
+                {
+                    i_selectedSlot = 4;
                 }
             }
         }
