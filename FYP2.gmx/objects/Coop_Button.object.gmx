@@ -31,7 +31,7 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.1);
 
 // Changing the image Properties
 image_xscale = 0.6;
-image_yscale = 1;
+image_yscale = 0.7;
 image_speed = 0;
 image_index = 0;
 
@@ -42,6 +42,10 @@ y = _posy;
 // Variable to see if this is selected
 b_isCoop = false;
 b_hover = false;
+
+// Returns the width and height of the sprite
+_sprite_width = sprite_width;
+_sprite_height = sprite_height;
 </string>
           </argument>
         </arguments>
@@ -199,15 +203,23 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.1);
     if (MainMenuStructure.b_solo == false)
     {
         draw_self();
+        draw_set_font(fnt_UIDescriptiontwo);
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_set_color(c_white);
+        draw_text_transformed(x, y - _sprite_height * 0.25, "Co-Op", 2.5, 2.5, 0);
+        draw_text_transformed(x, y, "Coming soon", 1.5, 1.5, 0);
+        //draw_sprite_ext(R_Player_Idle_Right, 0, x - _sprite_width * 0.05, y + _sprite_height * 0.05, 1.5, 1.5, 0, c_white, 1);
+        //draw_sprite_ext(B_Player_Idle_Right, 0, x + _sprite_width * 0.05, y + _sprite_height * 0.05, 1.5, 1.5, 0, c_white, 1);
         
         if (b_hover == true &amp;&amp; b_isCoop == false)
         {
-            draw_sprite_ext(spr_fg_inv, 0, x, y, 0.6, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_fg_inv, 0, x, y, 0.6, 0.7, 0, c_white, 1);
         }
         
         if (b_isCoop == true)
         {
-            draw_sprite_ext(spr_fg_inv, 1, x, y, 0.6, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_fg_inv, 1, x, y, 0.6, 0.7, 0, c_white, 1);
         }
     }
 }

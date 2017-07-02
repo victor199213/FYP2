@@ -83,6 +83,7 @@ instance_create(0, 0, Solo_OK_Button);
 // Pregame Selection Objects (Multiplayer)
 instance_create(0, 0, Coop_Button);
 instance_create(0, 0, Versus_Button);
+instance_create(0, 0, Multi_OK_Button);
 /*
     1b. Pregame Selection
     Creating
@@ -104,6 +105,7 @@ instance_deactivate_object(Solo_OK_Button);
 instance_deactivate_object(Multi_Button);
 instance_deactivate_object(Coop_Button);
 instance_deactivate_object(Versus_Button);
+instance_deactivate_object(Multi_OK_Button);
 
 // Deactivate Map Selection Objects
 instance_deactivate_object(Map_Background);
@@ -242,6 +244,7 @@ if (menu_choice == "Main Menu")
                 // Pregame Selection activation (Multiplayer)
                 instance_activate_object(Coop_Button);
                 instance_activate_object(Versus_Button);
+                instance_activate_object(Multi_OK_Button);
             }
         }
     }
@@ -296,6 +299,7 @@ if (menu_choice == "Pregame Selection")
         // Objects that denotes multiplayer game play
         Coop_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Versus_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Multi_OK_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
             
         if (Pregame_Background.y &gt; Pregame_Background._posy)
         {
@@ -312,6 +316,7 @@ if (menu_choice == "Pregame Selection")
             // Objects that denotes multiplayer game play
             Coop_Button.y = Coop_Button._posy;
             Versus_Button.y = Versus_Button._posy;
+            Multi_OK_Button.y = Multi_OK_Button._posy;
                  
             Pregame_Background.f_translate_y = 0;
             Pregame_Background.b_startAnim = false;
@@ -333,6 +338,7 @@ if (menu_choice == "Pregame Selection")
         // Multiplayer objects
         Coop_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Versus_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Multi_OK_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         
         Pregame_Background.y = Pregame_Background.y - Pregame_Background.f_translate_y;
         
@@ -351,6 +357,7 @@ if (menu_choice == "Pregame Selection")
             // Multiplayer objects
             Coop_Button.y = Coop_Button._posy;
             Versus_Button.y = Versus_Button._posy;
+            Multi_OK_Button.y = Multi_OK_Button._posy;
             
             Pregame_Background.f_translate_y = 0;
             Pregame_Background.b_backAnim = false;                             
@@ -407,6 +414,7 @@ if (menu_choice == "Pregame Selection")
         // Multiplayer objects
         Coop_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Versus_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
+        Multi_OK_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         
         Pregame_Background.y = Pregame_Background.y - Pregame_Background.f_translate_y;
         
@@ -424,6 +432,7 @@ if (menu_choice == "Pregame Selection")
             // Multiplayer objects
             Coop_Button.y = Coop_Button._posy;
             Versus_Button.y = Versus_Button._posy;
+            Multi_OK_Button.y = Multi_OK_Button._posy;
             
             Pregame_Background.f_translate_y = 0;
             Pregame_Background.b_nextAnim = false;                    
@@ -473,6 +482,7 @@ if (menu_choice == "Pregame Selection")
             // Deactivate Pre-game Selection objects (Multiplayer)
             instance_deactivate_object(Coop_Button);
             instance_deactivate_object(Versus_Button);
+            instance_deactivate_object(Multi_OK_Button);
             
             // Activate the next objects
             instance_activate_object(Map_Background);

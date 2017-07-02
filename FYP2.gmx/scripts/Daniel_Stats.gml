@@ -6,7 +6,7 @@ global.b_isDaniel = true;
 global.b_isTerry = false;
 global.b_isKeith = false;
 // 1. Health, and the max Health.
-global._health = 100;
+global._health = 1;
 global._maxHealthIncrement = 10;
 global._baseMaxHealth = 100;
 global._maxHealth = 100;

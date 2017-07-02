@@ -133,17 +133,10 @@ image_index = 1;
             <kind>1</kind>
             <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
 {
-    if (Character_Button.b_selectedSlot[0] == true || 
-        Character_Button.b_selectedSlot[1] == true || 
-        Character_Button.b_selectedSlot[2] == true)
+    if (Versus_Button.b_isVersus == true &amp;&amp; Coop_Button.b_isCoop == false)
     {
-        if (Weapon_Button._equippedSlot[0] != "" || Weapon_Button._equippedSlot[1] != "")
-        {
-            Pregame_Background.b_nextAnim = true;
-            image_index = 1;           
-        }
+        room_goto(room2);
     }
-
 }
 </string>
           </argument>
