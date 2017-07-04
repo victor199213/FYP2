@@ -184,10 +184,10 @@ f_deadTime = 5;
 MOVELEFT = keyboard_check(vk_left);
 MOVERIGHT = keyboard_check(vk_right);
 JUMP = keyboard_check_pressed(vk_space);
-SHOOT = keyboard_check(ord('Z'));
-OPEN = keyboard_check_pressed(ord('O'));
-RELOAD = keyboard_check_pressed(ord('R'));
-VIEWSTAT = keyboard_check_pressed(vk_tab);
+SHOOT = keyboard_check(ord('C'));
+OPEN = keyboard_check_pressed(ord('F'));
+RELOAD = keyboard_check_pressed(ord('X'));
+VIEWSTAT = keyboard_check_pressed(ord('V'));
 CHANGE = keyboard_check_pressed(vk_up);
 
 if (b_deadAnim == false &amp;&amp; b_isDead == false)

@@ -106,22 +106,25 @@ switch (state)
             }
         }
         
-        if (distance_to_object(B_Player) &lt; 94) 
+        if (instance_exists(B_Player))
         {
-            path_end();
-            switch(irandom_range(1,2))
+            if (distance_to_object(B_Player) &lt; 94 &amp;&amp; PlayerHandleObj.b_B_Player_dead == false) 
             {
-                case 1:
+                path_end();
+                switch(irandom_range(1,2))
                 {
-                    state = e_state.chase;
+                    case 1:
+                    {
+                        state = e_state.chase;
+                    }
+                    break;
+                    case 2:
+                    {
+                        speed = 0;
+                        state = e_state.shoot;
+                    }
+                    break
                 }
-                break;
-                case 2:
-                {
-                    speed = 0;
-                    state = e_state.shoot;
-                }
-                break
             }
         }
             
@@ -152,13 +155,16 @@ switch (state)
         path = path_add();
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-
-        if (PlayerHandleObj.b_B_Player_dead == false)
+        
+        if (instance_exists(B_Player))
         {
-            dir = sign(B_Player.x - x);
-            hsp = (dir * 2);
-            vsp = (min(7,vsp+0.05));
-            mp_grid_path(grid,path,x,y,B_Player.x,B_Player.y + 1,false);
+            if (PlayerHandleObj.b_B_Player_dead == false)
+            {
+                dir = sign(B_Player.x - x);
+                hsp = (dir * 2);
+                vsp = (min(7,vsp+0.05));
+                mp_grid_path(grid,path,x,y,B_Player.x,B_Player.y + 1,false);
+            }
         }
         
         if (b_isKnockback == true)
@@ -216,23 +222,26 @@ switch (state)
         path_end();
         seconds += 1 / room_speed;
         
-        if (PlayerHandleObj.b_B_Player_dead == false)
+        if (instance_exists(B_Player))
         {
-            dir = sign(B_Player.x - x);
-            hsp = dir * 2;
-            vsp = (min(7,vsp+0.05));
-            
-            if(seconds &gt;= 0.5)
+            if (PlayerHandleObj.b_B_Player_dead == false)
             {
-                instance_create(x,y,REnemyEliteProObj);
-                seconds = 0;
-            }
-            
-            if(place_meeting(x ,y + 1,Wall)== true)
-            {
-                speed = 0;
-                direction = point_direction(x, y, B_Player.x, B_Player.y);
-                gravity = 0;
+                dir = sign(B_Player.x - x);
+                hsp = dir * 2;
+                vsp = (min(7,vsp+0.05));
+                
+                if(seconds &gt;= 0.5)
+                {
+                    instance_create(x,y,REnemyEliteProObj);
+                    seconds = 0;
+                }
+                
+                if(place_meeting(x ,y + 1,Wall)== true)
+                {
+                    speed = 0;
+                    direction = point_direction(x, y, B_Player.x, B_Player.y);
+                    gravity = 0;
+                }
             }
         }
         

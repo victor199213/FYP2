@@ -100,11 +100,14 @@ switch (state)
             }    
         }
         
-        if (distance_to_object(R_Player) &lt; 94) 
+        if (instance_exists(R_Player))
         {
-            path_end();
-            speed = 0;
-            state = e_state.shoot;
+            if (distance_to_object(R_Player) &lt; 94 &amp;&amp; PlayerHandleObj.b_R_Player_dead == false) 
+            {
+                path_end();
+                speed = 0;
+                state = e_state.shoot;
+            }
         }
                    
         if(place_meeting(x ,y + 1,Wall)== true)
@@ -132,23 +135,26 @@ switch (state)
         path_end();
         seconds += 1 / room_speed;
         
-        if (PlayerHandleObj.b_R_Player_dead == false)
+        if (instance_exists(R_Player))
         {
-            dir = sign(R_Player.x - x);
-            hsp = dir * 2;
-            vsp = (min(7,vsp+0.05));    
-            
-            if(seconds &gt;= 0.5)
+            if (PlayerHandleObj.b_R_Player_dead == false)
             {
-                instance_create(x,y,BEnemyProObj);
-                seconds = 0;
-            }
-            
-            if(place_meeting(x ,y + 1,Wall)== true)
-            {
-                speed = 0;
-                direction = point_direction(x, y, R_Player.x, R_Player.y);
-                gravity = 0;
+                dir = sign(R_Player.x - x);
+                hsp = dir * 2;
+                vsp = (min(7,vsp+0.05));    
+                
+                if(seconds &gt;= 0.5)
+                {
+                    instance_create(x,y,BEnemyProObj);
+                    seconds = 0;
+                }
+                
+                if(place_meeting(x ,y + 1,Wall)== true)
+                {
+                    speed = 0;
+                    direction = point_direction(x, y, R_Player.x, R_Player.y);
+                    gravity = 0;
+                }
             }
         }
                

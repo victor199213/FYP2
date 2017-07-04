@@ -27,7 +27,14 @@
             <kind>1</kind>
             <string>speed = 10;
 seconds = 0;
+
+if (instance_exists(R_Player))
 direction = point_direction(x, y, R_Player.x, R_Player.y);
+
+else
+{
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -50,15 +57,16 @@ direction = point_direction(x, y, R_Player.x, R_Player.y);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (PlayerHandleObj.b_R_Player_dead == false)
+            <string>if (instance_exists(R_Player))
 {
-    if(place_meeting(x,y,R_Player)||place_meeting(x,y,Wall))
+    if(place_meeting(x,y,R_Player) &amp;&amp; PlayerHandleObj.b_R_Player_dead == false)
     {
         instance_destroy();
         instance_create(x,y,EnemyProjectileParticle)
     }
 }
-else
+
+if (place_meeting(x,y,Wall))
 {
     instance_destroy();
     instance_create(x,y,EnemyProjectileParticle)

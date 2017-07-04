@@ -44,7 +44,7 @@ Handgun_maxMagazineLevel = 1;
 Handgun_maxMagazineUpgradeCost = 10;
 
 // Damage of the handgun. Can be upgraded
-Handgun_damage = 30;
+Handgun_damage = 40;
 Handgun_damageIncrement = 5;
 Handgun_baseDamage = 30;
 Handgun_maxDamage = 100;
@@ -103,7 +103,7 @@ AK47_maxMagazineLevel = 1;
 AK47_maxMagazineUpgradeCost = 20;
 
 // Damage of the AK-47. Can be upgraded
-AK47_damage = 10;
+AK47_damage = 15;
 AK47_damageIncrement = 2.5;
 AK47_baseDamage = 10;
 AK47_maxDamage = 20;

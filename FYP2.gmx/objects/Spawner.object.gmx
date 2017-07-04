@@ -126,6 +126,7 @@ if(Objective.health &lt;= 0)
     roomTimer -= 1 / room_speed;
     if(roomTimer &lt;= 0)
     {   
+        audio_stop_all();
         room_goto(MainMenu);
     }
 }

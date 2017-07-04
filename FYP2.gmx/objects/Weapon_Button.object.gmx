@@ -261,12 +261,10 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                         
                         case 1:
                             _equippedSlot[0] = _slotweaponName;
-                            show_debug_message(_equippedSlot[0]);
                         break;
                         
                         case 2:
                             _equippedSlot[0] = _slotweaponName;
-                            show_debug_message(_equippedSlot[0]);
                         break;
                         
                         case 3:
@@ -286,12 +284,10 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                         
                         case 1:
                             _equippedSlot[1] = _slotweaponName;
-                            show_debug_message(_equippedSlot[1]);
                         break;
                         
                         case 2:
                             _equippedSlot[1] = _slotweaponName;
-                            show_debug_message(_equippedSlot[1]);
                         break;
                         
                         case 3:
@@ -330,7 +326,7 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                 // Drawing the stat rating
                 draw_set_halign(fa_right);
                 // Character One
-                draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.48, "Good", 0.6, 0.6, 0);
+                draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.48, "Average", 0.6, 0.6, 0);
                 draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.51, "Average", 0.6, 0.6, 0);
                 draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.54, "Average", 0.6, 0.6, 0);
                 // Description of the gun
@@ -357,8 +353,13 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                 draw_set_halign(fa_right);
                 // Character One
                 draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.48, "Good", 0.6, 0.6, 0);
-                draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.51, "Average", 0.6, 0.6, 0);
-                draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.54, "Average", 0.6, 0.6, 0);
+                draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.51, "Slow", 0.6, 0.6, 0);
+                draw_text_transformed(global.GUI_width * 0.455, global.GUI_height * 0.54, "Fast", 0.6, 0.6, 0);
+                // Description of the gun
+                draw_set_halign(fa_middle);
+                draw_text_ext_transformed(_draw_weapon_posx, global.GUI_height * 0.625, c_AK47Description, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);            
+                // Resetting horizontal align
+                draw_set_halign(fa_left);
             break;
             
             case 3:
