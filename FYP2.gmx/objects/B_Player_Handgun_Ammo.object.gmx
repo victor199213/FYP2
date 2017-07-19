@@ -130,13 +130,16 @@ else if (instance_place(x, y, REnemyElite))
 
 else if (place_meeting(x, y, R_Player))
 {
-    f_bullet_hspeed = 0;
-    R_Player.ammo_onhit_x = x;
-    
-    instance_create(x, y, AmmoExplosion);
-    AmmoExplosion.image_xscale *= 0.5;
-    AmmoExplosion.image_yscale *= 0.5;
-    instance_destroy();  
+    if (R_Player.b_deadAnim == false &amp;&amp; R_Player.b_isDead == false)
+    {
+        f_bullet_hspeed = 0;
+        R_Player.ammo_onhit_x = x;
+        
+        instance_create(x, y, AmmoExplosion);
+        AmmoExplosion.image_xscale *= 0.5;
+        AmmoExplosion.image_yscale *= 0.5;
+        instance_destroy(); 
+    } 
 }
 
 x += f_bullet_hspeed;

@@ -69,6 +69,7 @@ depth = -1;
 
 // Creating the down time for players if players die
 b_deadAnim = false;
+b_isDead = false;
 
 // Gets knockback and disable movements if player gets knock-back
 b_knockback = false;
@@ -112,7 +113,7 @@ if (f_verticalSpeed &lt; 10)
     f_verticalSpeed += global.f_gravity;
 }
 
-if (b_deadAnim == false)
+if (b_deadAnim == false &amp;&amp; b_isDead == false)
 {
     // React to inputs
     move = -MOVELEFT + MOVERIGHT;
@@ -338,7 +339,8 @@ if (b_deadAnim == true)
         PlayerHandleObj.b_R_Player_dead = true;
         PlayerHandleObj._R_Player_x = x;
         PlayerHandleObj._R_Player_y = y;
-        instance_destroy();
+        b_deadAnim = false;
+        b_isDead = true;
     }
 }
 
@@ -398,11 +400,13 @@ y += f_verticalSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-
-if (b_deadAnim == false)
+            <string>if (b_isDead == false)
 {
-    draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), (i_health / i_maxHealth) * 100, c_black, c_red, c_lime, 0, true, true);
+    draw_self();
+    if (b_deadAnim == false)
+    {
+        draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), (i_health / i_maxHealth) * 100, c_black, c_red, c_lime, 0, true, true);
+    }
 }
 
 </string>

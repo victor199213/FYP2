@@ -135,6 +135,10 @@ image_index = 1;
 {
     if (Versus_Button.b_isVersus == true &amp;&amp; Coop_Button.b_isCoop == false)
     {
+        if (audio_is_playing(mus_titlescreen))
+        {
+            audio_stop_sound(mus_titlescreen);
+        }
         room_goto(room2);
     }
 }

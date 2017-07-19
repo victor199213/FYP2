@@ -84,7 +84,7 @@ if (f_cooldown_timer &gt; f_cooldown)
     b_fire = true;
 }
 
-if (B_Player.b_deadAnim == false)
+if (B_Player.b_deadAnim == false &amp;&amp; B_Player.b_isDead == false)
 {
     if (B_Player.SHOOT &amp;&amp; b_fire == true)
     {
