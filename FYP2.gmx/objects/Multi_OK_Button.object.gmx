@@ -133,14 +133,17 @@ image_index = 1;
             <kind>1</kind>
             <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
 {
-    if (Versus_Button.b_isVersus == true &amp;&amp; Coop_Button.b_isCoop == false)
+    /*if (Versus_Button.b_isVersus == true &amp;&amp; Coop_Button.b_isCoop == false)
     {
         if (audio_is_playing(mus_titlescreen))
         {
             audio_stop_sound(mus_titlescreen);
         }
         room_goto(room2);
-    }
+
+    }*/
+    Pregame_Background.b_nextAnim = true;
+    image_index = 1;
 }
 </string>
           </argument>

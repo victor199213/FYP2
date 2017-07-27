@@ -38,6 +38,7 @@ f_alphaAnimMainPage = 1;
     1. Main Menu
         a. Pregame Selection (Item, Character Selection, Weapons)
         b. Map Selection (Choosing of map to play with)
+        c. Skill Selection (Choosing of skills for co-op)
             
     2. Option
         - Volume
@@ -84,6 +85,7 @@ instance_create(0, 0, Solo_OK_Button);
 instance_create(0, 0, Coop_Button);
 instance_create(0, 0, Versus_Button);
 instance_create(0, 0, Multi_OK_Button);
+
 /*
     1b. Pregame Selection
     Creating
@@ -93,6 +95,15 @@ instance_create(0, 0, Multi_OK_Button);
 instance_create(0, 0, Map_Background);
 instance_create(0, 0, Back_To_Pregame_Button);
 instance_create(0, 0, Start_Game_Button);
+
+/*
+    1c. Skill Selection
+    Creating
+    Instancing the buttons in the Skill selection
+*/
+instance_create(0, 0, Skill_Background);
+instance_create(0, 0, Coop_OK_Button);
+instance_create(0, 0, Coop_Back_To_Pregame_Button);
 
 // Deactivate Pregame Selection Objects
 instance_deactivate_object(Pregame_Background);
@@ -106,6 +117,9 @@ instance_deactivate_object(Multi_Button);
 instance_deactivate_object(Coop_Button);
 instance_deactivate_object(Versus_Button);
 instance_deactivate_object(Multi_OK_Button);
+instance_deactivate_object(Skill_Background);
+instance_deactivate_object(Coop_OK_Button);
+instance_deactivate_object(Coop_Back_To_Pregame_Button);
 
 // Deactivate Map Selection Objects
 instance_deactivate_object(Map_Background);
@@ -464,32 +478,62 @@ if (menu_choice == "Pregame Selection")
                 
                 // Determine the weapons to bring in to game
                 script_execute(Equipment);
+                
+                // Deactivate Pre-game Selection objects (Solo)
+                instance_deactivate_object(Item_Button);
+                instance_deactivate_object(Character_Button);
+                instance_deactivate_object(Weapon_Button);
+                instance_deactivate_object(Single_Button);
+                instance_deactivate_object(Multi_Button);
+                instance_deactivate_object(Solo_OK_Button);
+                instance_deactivate_object(Back_Button);
+                instance_deactivate_object(Pregame_Background);
+                // Deactivate Pre-game Selection objects (Multiplayer)
+                instance_deactivate_object(Coop_Button);
+                instance_deactivate_object(Versus_Button);
+                instance_deactivate_object(Multi_OK_Button);
+                
+                // Activate the next objects
+                instance_activate_object(Map_Background);
+                instance_activate_object(Back_To_Pregame_Button);
+                instance_activate_object(Start_Game_Button);
+                menu_choice = "Map Selection";
             }
             
             else
             {
+                // Deactivate Pre-game Selection objects (Solo)
+                instance_deactivate_object(Item_Button);
+                instance_deactivate_object(Character_Button);
+                instance_deactivate_object(Weapon_Button);
+                instance_deactivate_object(Single_Button);
+                instance_deactivate_object(Multi_Button);
+                instance_deactivate_object(Solo_OK_Button);
+                instance_deactivate_object(Back_Button);
+                instance_deactivate_object(Pregame_Background);
                 
+                if (Versus_Button.b_isVersus == false &amp;&amp; Coop_Button.b_isCoop == true)
+                {
+                    instance_activate_object(Skill_Background);
+                    instance_activate_object(Coop_OK_Button);
+                    instance_activate_object(Coop_Back_To_Pregame_Button);
+                    menu_choice = "Skill Selection";
+                }
+                
+                else if (Versus_Button.b_isVersus == true &amp;&amp; Coop_Button.b_isCoop == false)
+                {
+                    if (audio_is_playing(mus_titlescreen))
+                    {
+                        audio_stop_sound(mus_titlescreen);
+                    }
+                    room_goto(room2);
+                }
+                
+                // Deactivate Pre-game Selection objects (Multiplayer)
+                instance_deactivate_object(Coop_Button);
+                instance_deactivate_object(Versus_Button);
+                instance_deactivate_object(Multi_OK_Button);
             }
-                
-            // Deactivate Pre-game Selection objects (Solo)
-            instance_deactivate_object(Item_Button);
-            instance_deactivate_object(Character_Button);
-            instance_deactivate_object(Weapon_Button);
-            instance_deactivate_object(Single_Button);
-            instance_deactivate_object(Multi_Button);
-            instance_deactivate_object(Solo_OK_Button);
-            instance_deactivate_object(Back_Button);
-            instance_deactivate_object(Pregame_Background);
-            // Deactivate Pre-game Selection objects (Multiplayer)
-            instance_deactivate_object(Coop_Button);
-            instance_deactivate_object(Versus_Button);
-            instance_deactivate_object(Multi_OK_Button);
-            
-            // Activate the next objects
-            instance_activate_object(Map_Background);
-            instance_activate_object(Back_To_Pregame_Button);
-            instance_activate_object(Start_Game_Button);
-            menu_choice = "Map Selection";
         }            
     }
 }
@@ -531,6 +575,47 @@ if (menu_choice == "Map Selection")
                  
             Map_Background.f_translate_y = 0;
             Map_Background.b_startAnim = false;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Menu Choice: Skill Selection
+if (menu_choice == "Skill Selection")
+{
+    if (Skill_Background.b_startAnim == true)
+    {
+        Skill_Background.f_translate_y = Skill_Background.f_translate_y + 25 * (1 / room_speed);
+        Skill_Background.y += Skill_Background.f_translate_y;
+        Coop_OK_Button.y += Skill_Background.f_translate_y;
+        Coop_Back_To_Pregame_Button.y += Skill_Background.f_translate_y;
+        
+        if (Skill_Background.y &gt; Skill_Background._posy)
+        {
+            Skill_Background.y = Skill_Background._posy;
+            Coop_OK_Button.y = Coop_OK_Button._posy;
+            Coop_Back_To_Pregame_Button.y = Coop_Back_To_Pregame_Button._posy;
+            
+            Skill_Background.f_translate_y = 0;
+            Skill_Background.b_startAnim = false;
         }
     }
 }

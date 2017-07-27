@@ -415,6 +415,63 @@
     </sprites>
     <sprite>sprites\RedBlue</sprite>
     <sprite>sprites\wall2</sprite>
+    <sprites name="Ability">
+      <sprite>sprites\sprite181_16</sprite>
+      <sprite>sprites\sprite182_17</sprite>
+      <sprite>sprites\sprite183_18</sprite>
+      <sprite>sprites\sprite184_19</sprite>
+      <sprite>sprites\sprite185_20</sprite>
+      <sprite>sprites\sprite186_21</sprite>
+      <sprite>sprites\sprite187_22</sprite>
+      <sprite>sprites\spr_Movement_Down_Enemy</sprite>
+      <sprite>sprites\sprite189_24</sprite>
+      <sprite>sprites\sprite190_25</sprite>
+      <sprite>sprites\sprite191_26</sprite>
+      <sprite>sprites\spr_Heal_Overtime</sprite>
+      <sprite>sprites\spr_Instant_Heal</sprite>
+      <sprite>sprites\sprite194_29</sprite>
+      <sprite>sprites\sprite195_30</sprite>
+      <sprite>sprites\sprite196_31</sprite>
+      <sprite>sprites\sprite197_32</sprite>
+      <sprite>sprites\sprite198_33</sprite>
+      <sprite>sprites\sprite199_34</sprite>
+      <sprite>sprites\sprite200_35</sprite>
+      <sprite>sprites\sprite201_36</sprite>
+      <sprite>sprites\sprite202_37</sprite>
+      <sprite>sprites\sprite203_38</sprite>
+      <sprite>sprites\sprite204_39</sprite>
+      <sprite>sprites\sprite205_40</sprite>
+      <sprite>sprites\sprite206_41</sprite>
+      <sprite>sprites\sprite207_42</sprite>
+      <sprite>sprites\sprite208_43</sprite>
+      <sprite>sprites\spr_Armor_Increase</sprite>
+      <sprite>sprites\sprite210_45</sprite>
+      <sprite>sprites\sprite211_46</sprite>
+      <sprite>sprites\sprite212_47</sprite>
+      <sprite>sprites\sprite213_48</sprite>
+      <sprite>sprites\sprite214_49</sprite>
+      <sprite>sprites\sprite215_50</sprite>
+      <sprite>sprites\sprite216_51</sprite>
+      <sprite>sprites\sprite217_52</sprite>
+      <sprite>sprites\sprite218_53</sprite>
+      <sprite>sprites\sprite219_54</sprite>
+      <sprite>sprites\sprite220_55</sprite>
+      <sprite>sprites\sprite221_1</sprite>
+      <sprite>sprites\spr_Bloodrage</sprite>
+      <sprite>sprites\spr_Attack_Down_Enemy</sprite>
+      <sprite>sprites\spr_Attack_Increase</sprite>
+      <sprite>sprites\sprite225_5</sprite>
+      <sprite>sprites\sprite226_6</sprite>
+      <sprite>sprites\sprite227_7</sprite>
+      <sprite>sprites\spr_Armor_Piercing</sprite>
+      <sprite>sprites\sprite229_9</sprite>
+      <sprite>sprites\spr_Movement_Up</sprite>
+      <sprite>sprites\sprite231_11</sprite>
+      <sprite>sprites\sprite232_12</sprite>
+      <sprite>sprites\sprite233_13</sprite>
+      <sprite>sprites\sprite234_14</sprite>
+      <sprite>sprites\sprite235_15</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -552,6 +609,20 @@
           <object>objects\PVPgui</object>
           <object>objects\REnemy</object>
         </objects>
+        <objects name="Cooperation">
+          <object>objects\Player_1</object>
+          <object>objects\Player_2</object>
+          <objects name="Skills">
+            <object>objects\Instant_Heal</object>
+            <object>objects\Heal_Overtime</object>
+            <object>objects\Bloodrage</object>
+            <object>objects\Armor_Increase</object>
+            <object>objects\Attack_Increase</object>
+            <object>objects\Attack_Down_Enemy</object>
+            <object>objects\Move_Increase</object>
+            <object>objects\Move_Decrease_Enemy</object>
+          </objects>
+        </objects>
       </objects>
     </objects>
     <object>objects\Spawner</object>
@@ -634,6 +705,13 @@
           <object>objects\Coop_Button</object>
           <object>objects\Versus_Button</object>
           <object>objects\Multi_OK_Button</object>
+          <objects name="Cooperation">
+            <object>objects\Skill_Background</object>
+            <object>objects\Coop_OK_Button</object>
+            <object>objects\Coop_Back_To_Pregame_Button</object>
+            <object>objects\Skill_One_List</object>
+            <object>objects\Skill_Two_List</object>
+          </objects>
         </objects>
       </objects>
       <objects name="Map Selection">
@@ -652,8 +730,7 @@
     <room>rooms\room1</room>
     <room>rooms\room2</room>
   </rooms>
-  <constants number="15">
-    <constant name="c_CityMap">"New York City"</constant>
+  <constants number="25">
     <constant name="c_VolcanoMap">"Kilauea Volcano"</constant>
     <constant name="c_TwilightMap">"Alaska: Northen Lights"</constant>
     <constant name="c_ArticMap">"Antarctica"</constant>
@@ -668,6 +745,17 @@
     <constant name="c_MaxMagazineInfo">"+1 to max magazine."</constant>
     <constant name="c_AmmoDamageInfo">"Adds damage to your ammo."</constant>
     <constant name="c_CooldownInfo">"Shoots faster."</constant>
+    <constant name="c_CityMap">"New York City"</constant>
+    <constant name="c_InstantHeal">30</constant>
+    <constant name="c_HealOvertime">0.05</constant>
+    <constant name="c_BloodrageMinusHealth">0.05</constant>
+    <constant name="c_BloodrageAttackUp">2</constant>
+    <constant name="c_ArmourPiercing">0.3</constant>
+    <constant name="c_AmourIncrease">0.5</constant>
+    <constant name="c_AttackUp">1.3</constant>
+    <constant name="c_AttackDown">0.8</constant>
+    <constant name="c_PlayerMoveIncrease">1.5</constant>
+    <constant name="c_EnemyMoveDecrease">0.8</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

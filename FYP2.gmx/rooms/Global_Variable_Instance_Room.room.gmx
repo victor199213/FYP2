@@ -66,6 +66,16 @@ ds_list_add(global.EquipmentList, "AK-47");
 global.i_currency = 10;
 global.i_baseLoot = 10;
 
+// Cooperation's abilities: Whether it has been chosen or not
+global.b_InstantHeal_chosen = false;
+global.b_HealOvertime_chosen = false;
+global.b_Bloodrage_chosen = false;
+global.b_ArmourIncrease_chosen = false;
+global.b_AttackUp_chosen = false;
+global.b_EnemyAttackDown_chosen = false;
+global.b_MoveSpeedUp_chosen = false;
+global.b_EnemyMoveSpeedDown_chosen = false;
+
 room_goto(MainMenu);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
