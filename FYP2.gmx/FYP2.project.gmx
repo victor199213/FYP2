@@ -729,6 +729,7 @@
     <room>rooms\Game_Loading_Room</room>
     <room>rooms\room1</room>
     <room>rooms\room2</room>
+    <room>rooms\room3</room>
   </rooms>
   <constants number="25">
     <constant name="c_VolcanoMap">"Kilauea Volcano"</constant>
