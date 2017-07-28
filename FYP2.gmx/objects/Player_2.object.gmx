@@ -219,7 +219,7 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
 
 // Taking damage from the enemy
 // 1. Melee enemy
-if (place_meeting(x, y, REnemy))
+if (place_meeting(x, y, Enemy))
 {
     if (b_noDamage == false)
     {
@@ -239,7 +239,7 @@ if (place_meeting(x, y, REnemy))
 }
 
 // 2. Ranged enemy
-if (place_meeting(x, y, REnemyProObj))
+if (place_meeting(x, y, EnemyProObj))
 {
     if (b_noDamage == false)
     {
@@ -259,7 +259,7 @@ if (place_meeting(x, y, REnemyProObj))
 }
 
 // 3. EnemyElite range attack
-if (place_meeting(x, y, REnemyEliteProObj))
+if (place_meeting(x, y, EnemyEliteProObj))
 {
     if (b_noDamage == false)
     {
@@ -279,7 +279,7 @@ if (place_meeting(x, y, REnemyEliteProObj))
 }
 
 // 4. EnemyElite close attack
-if (place_meeting(x, y, REnemyElite))
+if (place_meeting(x, y, EnemyElite))
 {
     if (b_noDamage == false)
     {
