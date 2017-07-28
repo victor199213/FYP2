@@ -62,7 +62,7 @@ i_reducedDamage = 0
 i_armourPierceDamage = 0;
 i_armourPierceMaxDamage = 50;
 
-instance_create(0, 0, R_Handgun);
+instance_create(0, 0, Handgun_1);
 
 // Creating the depth of the player
 depth = -1;
@@ -80,6 +80,167 @@ f_knockbackSpeed = 0;
 // Knockback calculations upon hitting other player's ammo
 f_knockbackAccel = 10;
 ammo_onhit_x = 0;
+
+if (global.b_playerOne_skillSlot_chosen[0] == true &amp;&amp; global.b_playerOne_skillSlot_chosen[1] == true)
+{
+    switch (global.b_playerOne_skillSlot[0])
+    {
+        default:
+        break;
+        
+        case "Instant Heal":
+        instance_create(display_get_gui_width() * 0.3, display_get_gui_height() * 0.95, Instant_Heal);
+        break;
+        
+        case "Heal Overtime":
+        instance_create(display_get_gui_width() * 0.3, display_get_gui_height() * 0.95, Heal_Overtime);
+        break;
+        
+        case "Bloodrage":
+        instance_create(display_get_gui_width() * 0.3, display_get_gui_height() * 0.95, Bloodrage);
+        break;
+        
+        case "Armour Increase":
+        instance_create(display_get_gui_width() * 0.3, display_get_gui_height() * 0.95, Armor_Increase);
+        break;
+        
+        case "Attack Up":
+        instance_create(display_get_gui_width() * 0.3, display_get_gui_height() * 0.95, Attack_Increase);
+        break;
+        
+        case "Enemy Attack Down":
+        instance_create(display_get_gui_width() * 0.3, display_get_gui_height() * 0.95, Attack_Down_Enemy);
+        break;
+        
+        case "Movement Increase":
+        instance_create(display_get_gui_width() * 0.3, display_get_gui_height() * 0.95, Move_Increase);
+        break;
+        
+        case "Enemy Movement Decrease":
+        instance_create(display_get_gui_width() * 0.3, display_get_gui_height() * 0.95, Move_Decrease_Enemy);
+        break;
+    }
+    
+    switch (global.b_playerOne_skillSlot[1])
+    {
+        default:
+        break;
+        
+        case "Instant Heal":
+        instance_create(display_get_gui_width() * 0.35, display_get_gui_height() * 0.95, Instant_Heal);
+        break;
+        
+        case "Heal Overtime":
+        instance_create(display_get_gui_width() * 0.35, display_get_gui_height() * 0.95, Heal_Overtime);
+        break;
+        
+        case "Bloodrage":
+        instance_create(display_get_gui_width() * 0.35, display_get_gui_height() * 0.95, Bloodrage);
+        break;
+        
+        case "Armour Increase":
+        instance_create(display_get_gui_width() * 0.35, display_get_gui_height() * 0.95, Armor_Increase);
+        break;
+        
+        case "Attack Up":
+        instance_create(display_get_gui_width() * 0.35, display_get_gui_height() * 0.95, Attack_Increase);
+        break;
+        
+        case "Enemy Attack Down":
+        instance_create(display_get_gui_width() * 0.35, display_get_gui_height() * 0.95, Attack_Down_Enemy);
+        break;
+        
+        case "Movement Increase":
+        instance_create(display_get_gui_width() * 0.35, display_get_gui_height() * 0.95, Move_Increase);
+        break;
+        
+        case "Enemy Movement Decrease":
+        instance_create(display_get_gui_width() * 0.35, display_get_gui_height() * 0.95, Move_Decrease_Enemy);
+        break;
+    }
+}
+
+else if (global.b_playerOne_skillSlot_chosen[0] == true &amp;&amp; global.b_playerOne_skillSlot_chosen[1] == false)
+{
+    switch (global.b_playerOne_skillSlot[0])
+    {
+        default:
+        break;
+        
+        case "Instant Heal":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Instant_Heal);
+        break;
+        
+        case "Heal Overtime":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Heal_Overtime);
+        break;
+        
+        case "Bloodrage":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Bloodrage);
+        break;
+        
+        case "Armour Increase":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Armor_Increase);
+        break;
+        
+        case "Attack Up":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Attack_Increase);
+        break;
+        
+        case "Enemy Attack Down":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Attack_Down_Enemy);
+        break;
+        
+        case "Movement Increase":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Move_Increase);
+        break;
+        
+        case "Enemy Movement Decrease":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Move_Decrease_Enemy);
+        break;
+    }
+}
+
+else if (global.b_playerOne_skillSlot_chosen[0] == false &amp;&amp; global.b_playerOne_skillSlot_chosen[1] == true)
+{
+    switch (global.b_playerOne_skillSlot[1])
+    {
+        default:
+        break;
+        
+        case "Instant Heal":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Instant_Heal);
+        break;
+        
+        case "Heal Overtime":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Heal_Overtime);
+        break;
+        
+        case "Bloodrage":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Bloodrage);
+        break;
+        
+        case "Armour Increase":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Armor_Increase);
+        break;
+        
+        case "Attack Up":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Attack_Increase);
+        break;
+        
+        case "Enemy Attack Down":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Attack_Down_Enemy);
+        break;
+        
+        case "Movement Increase":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Move_Increase);
+        break;
+        
+        case "Enemy Movement Decrease":
+        instance_create(display_get_gui_width() * 0.325, display_get_gui_height() * 0.95, Move_Decrease_Enemy);
+        break;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -107,6 +268,8 @@ MOVELEFT = keyboard_check(ord('A'));
 MOVERIGHT = keyboard_check(ord('D'));
 JUMP = keyboard_check_pressed(ord('W'));
 SHOOT = keyboard_check(ord('C'));
+SKILLONE = keyboard_check_pressed(ord('Q'));
+SKILLTWO = keyboard_check_pressed(ord('E'));
 
 if (f_verticalSpeed &lt; 10)
 {
@@ -385,6 +548,16 @@ y += f_verticalSpeed;
     }
 }
 
+if (global.b_playerOne_skillSlot_chosen[0] == true &amp;&amp; global.b_playerOne_skillSlot_chosen[1] == true)
+{
+    draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.325, global.GUI_height * 0.95, 0.4, 0.3, 0, c_white, 0.7);
+}
+
+else if ((global.b_playerOne_skillSlot_chosen[0] == true &amp;&amp; global.b_playerOne_skillSlot_chosen[1] == false) ||
+(global.b_playerOne_skillSlot_chosen[0] == false &amp;&amp; global.b_playerOne_skillSlot_chosen[1] == true))
+{
+    draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.325, global.GUI_height * 0.95, 0.4, 0.3, 0, c_white, 0.7);
+}
 </string>
           </argument>
         </arguments>

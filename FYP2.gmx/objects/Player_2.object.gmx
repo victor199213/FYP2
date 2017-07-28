@@ -65,7 +65,7 @@ i_armourPierceMaxDamage = 50;
 // Viewing stats for either player or current equipments
 b_viewPlayerTab = false;
 
-instance_create(0, 0, B_Handgun);
+instance_create(0, 0, Handgun_2);
 
 // Creating the depth of the player
 depth = -1;

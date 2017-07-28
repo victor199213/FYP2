@@ -48,12 +48,6 @@ f_translate_y = 0;
 b_startAnim = true;
 b_backAnim = false;
 b_nextAnim = false;
-
-// Variables for skill selection
-b_playerOne_skillSlot[0] = false;
-b_playerOne_skillSlot[1] = false;
-b_playerTwo_skillSlot[0] = false;
-b_playerTwo_skillSlot[1] = false;
 </string>
           </argument>
         </arguments>

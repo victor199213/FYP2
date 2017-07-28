@@ -104,6 +104,8 @@ instance_create(0, 0, Start_Game_Button);
 instance_create(0, 0, Skill_Background);
 instance_create(0, 0, Coop_OK_Button);
 instance_create(0, 0, Coop_Back_To_Pregame_Button);
+instance_create(0, 0, Skill_One_List);
+instance_create(0, 0, Skill_Two_List);
 
 // Deactivate Pregame Selection Objects
 instance_deactivate_object(Pregame_Background);
@@ -120,6 +122,8 @@ instance_deactivate_object(Multi_OK_Button);
 instance_deactivate_object(Skill_Background);
 instance_deactivate_object(Coop_OK_Button);
 instance_deactivate_object(Coop_Back_To_Pregame_Button);
+instance_deactivate_object(Skill_One_List);
+instance_deactivate_object(Skill_Two_List);
 
 // Deactivate Map Selection Objects
 instance_deactivate_object(Map_Background);
@@ -517,6 +521,8 @@ if (menu_choice == "Pregame Selection")
                     instance_activate_object(Skill_Background);
                     instance_activate_object(Coop_OK_Button);
                     instance_activate_object(Coop_Back_To_Pregame_Button);
+                    instance_activate_object(Skill_One_List);
+                    instance_activate_object(Skill_Two_List);
                     menu_choice = "Skill Selection";
                 }
                 
@@ -607,16 +613,97 @@ if (menu_choice == "Skill Selection")
         Skill_Background.y += Skill_Background.f_translate_y;
         Coop_OK_Button.y += Skill_Background.f_translate_y;
         Coop_Back_To_Pregame_Button.y += Skill_Background.f_translate_y;
+        Skill_One_List.y += Skill_Background.f_translate_y;
+        Skill_Two_List.y += Skill_Background.f_translate_y;
         
         if (Skill_Background.y &gt; Skill_Background._posy)
         {
             Skill_Background.y = Skill_Background._posy;
             Coop_OK_Button.y = Coop_OK_Button._posy;
             Coop_Back_To_Pregame_Button.y = Coop_Back_To_Pregame_Button._posy;
+            Skill_One_List.y = Skill_One_List.y;
+            Skill_Two_List.y = Skill_Two_List.y;
             
             Skill_Background.f_translate_y = 0;
             Skill_Background.b_startAnim = false;
         }
+    }
+    
+    if (Skill_Background.b_backAnim == true)
+    {
+        Skill_Background.f_translate_y = Skill_Background.f_translate_y + 25 * (1 / room_speed);
+        Skill_Background.y -= Skill_Background.f_translate_y + 25 * (1 / room_speed);;
+        Coop_OK_Button.y -= Skill_Background.f_translate_y;
+        Coop_Back_To_Pregame_Button.y -= Skill_Background.f_translate_y;
+        Skill_One_List.y -= Skill_Background.f_translate_y;
+        Skill_Two_List.y -= Skill_Background.f_translate_y;
+        
+        if (Skill_Background.y &lt; Skill_Background._offscreen_y)
+        {
+            Skill_Background.y = Skill_Background._posy;
+            Coop_OK_Button.y = Coop_OK_Button._posy;
+            Coop_Back_To_Pregame_Button.y = Coop_Back_To_Pregame_Button._posy;
+            Skill_One_List.y = Skill_One_List._posy;
+            Skill_Two_List.y = Skill_Two_List._posy;
+            
+            Skill_Background.f_translate_y = 0;
+            Skill_Background.b_backAnim = false;
+            
+            instance_deactivate_object(Skill_Background);
+            instance_deactivate_object(Coop_OK_Button);
+            instance_deactivate_object(Coop_Back_To_Pregame_Button);
+            instance_deactivate_object(Skill_One_List);
+            instance_deactivate_object(Skill_Two_List);
+            
+            instance_activate_object(Item_Button);
+            instance_activate_object(Character_Button);
+            instance_activate_object(Weapon_Button);
+            instance_activate_object(Single_Button);
+            instance_activate_object(Multi_Button);
+            instance_activate_object(Solo_OK_Button);
+            instance_activate_object(Back_Button);
+            instance_activate_object(Pregame_Background);
+            
+            instance_activate_object(Coop_Button);
+            instance_activate_object(Versus_Button);
+            instance_activate_object(Multi_OK_Button);
+            menu_choice = "Pregame Selection";
+            Pregame_Background.b_startAnim = true;
+        }
+    }
+    
+    if (Skill_Background.b_nextAnim == true)
+    {
+        Skill_Background.f_translate_y = Skill_Background.f_translate_y + 25 * (1 / room_speed);
+        Skill_Background.y -= Skill_Background.f_translate_y + 25 * (1 / room_speed);;
+        Coop_OK_Button.y -= Skill_Background.f_translate_y;
+        Coop_Back_To_Pregame_Button.y -= Skill_Background.f_translate_y;
+        Skill_One_List.y -= Skill_Background.f_translate_y;
+        Skill_Two_List.y -= Skill_Background.f_translate_y;
+        
+        if (Skill_Background.y &lt; Skill_Background._offscreen_y)
+        {
+            Skill_Background.y = Skill_Background._posy;
+            Coop_OK_Button.y = Coop_OK_Button._posy;
+            Coop_Back_To_Pregame_Button.y = Coop_Back_To_Pregame_Button._posy;
+            Skill_One_List.y = Skill_One_List._posy;
+            Skill_Two_List.y = Skill_Two_List._posy;
+            
+            Skill_Background.f_translate_y = 0;
+            Skill_Background.b_nextAnim = false;
+            
+            instance_deactivate_object(Skill_Background);
+            instance_deactivate_object(Coop_OK_Button);
+            instance_deactivate_object(Coop_Back_To_Pregame_Button);
+            instance_deactivate_object(Skill_One_List);
+            instance_deactivate_object(Skill_Two_List);
+            
+            if (audio_is_playing(mus_titlescreen))
+            {
+                audio_stop_sound(mus_titlescreen);
+            }
+            room_goto(room3);
+        }        
     }
 }
 </string>

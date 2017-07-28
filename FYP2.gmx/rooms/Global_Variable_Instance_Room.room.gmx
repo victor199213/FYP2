@@ -11,6 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>randomize();
+global.f_gravity = 0.5;
 
 // Shared GUI sizes across all objects in the room
 global.GUI_width = display_get_gui_width();
@@ -75,6 +76,16 @@ global.b_AttackUp_chosen = false;
 global.b_EnemyAttackDown_chosen = false;
 global.b_MoveSpeedUp_chosen = false;
 global.b_EnemyMoveSpeedDown_chosen = false;
+
+// Variables for skill selection
+global.b_playerOne_skillSlot[0] = "";
+global.b_playerOne_skillSlot_chosen[0] = false;
+global.b_playerOne_skillSlot[1] = "";
+global.b_playerOne_skillSlot_chosen[1] = false;
+global.b_playerTwo_skillSlot[0] = "";
+global.b_playerTwo_skillSlot_chosen[0] = false;
+global.b_playerTwo_skillSlot[1] = "";
+global.b_playerTwo_skillSlot_chosen[1] = false;
 
 room_goto(MainMenu);</code>
   <enableViews>0</enableViews>

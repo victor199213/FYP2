@@ -644,6 +644,10 @@
             <object>objects\R_Handgun</object>
             <object>objects\B_Handgun</object>
           </objects>
+          <objects name="Cooperation">
+            <object>objects\Handgun_1</object>
+            <object>objects\Handgun_2</object>
+          </objects>
         </objects>
       </objects>
       <objects name="Projectiles">
@@ -652,18 +656,34 @@
         <object>objects\EnemyProObj</object>
         <object>objects\EnemyEliteProObj</object>
         <objects name="Multiplayer">
-          <object>objects\R_Player_Handgun_Ammo</object>
-          <object>objects\B_Player_Handgun_Ammo</object>
+          <objects name="PVP">
+            <object>objects\B_Player_Handgun_Ammo</object>
+            <object>objects\R_Player_Handgun_Ammo</object>
+          </objects>
+          <objects name="Cooperation">
+            <object>objects\Player_1_Handgun_Ammo</object>
+            <object>objects\Player_2_Handgun_Ammo</object>
+          </objects>
         </objects>
       </objects>
     </objects>
     <object>objects\Avoid</object>
     <objects name="Explosions">
       <objects name="GunFire">
-        <object>objects\Gunfire</object>
-        <object>objects\R_Gunfire</object>
-        <object>objects\B_Gunfire</object>
         <object>objects\AmmoExplosion</object>
+        <objects name="Solo">
+          <object>objects\Gunfire</object>
+        </objects>
+        <objects name="Multiplayer">
+          <objects name="PVP">
+            <object>objects\R_Gunfire</object>
+            <object>objects\B_Gunfire</object>
+          </objects>
+          <objects name="Cooperation">
+            <object>objects\Handgun_1_Gunfire</object>
+            <object>objects\Handgun_2_Gunfire</object>
+          </objects>
+        </objects>
       </objects>
     </objects>
     <objects name="Login">
@@ -731,7 +751,7 @@
     <room>rooms\room2</room>
     <room>rooms\room3</room>
   </rooms>
-  <constants number="25">
+  <constants number="31">
     <constant name="c_VolcanoMap">"Kilauea Volcano"</constant>
     <constant name="c_TwilightMap">"Alaska: Northen Lights"</constant>
     <constant name="c_ArticMap">"Antarctica"</constant>
@@ -747,16 +767,22 @@
     <constant name="c_AmmoDamageInfo">"Adds damage to your ammo."</constant>
     <constant name="c_CooldownInfo">"Shoots faster."</constant>
     <constant name="c_CityMap">"New York City"</constant>
-    <constant name="c_InstantHeal">30</constant>
-    <constant name="c_HealOvertime">0.05</constant>
-    <constant name="c_BloodrageMinusHealth">0.05</constant>
-    <constant name="c_BloodrageAttackUp">2</constant>
-    <constant name="c_ArmourPiercing">0.3</constant>
-    <constant name="c_AmourIncrease">0.5</constant>
-    <constant name="c_AttackUp">1.3</constant>
-    <constant name="c_AttackDown">0.8</constant>
-    <constant name="c_PlayerMoveIncrease">1.5</constant>
-    <constant name="c_EnemyMoveDecrease">0.8</constant>
+    <constant name="c_InstantHealName">"Heal"</constant>
+    <constant name="c_InstantHealDescription">"Instantly recovers a portion of your health."</constant>
+    <constant name="c_HealOvertimeName">"Recover"</constant>
+    <constant name="c_HealOvertimeDescription">"Recovers a percentage of your health over a few seconds."</constant>
+    <constant name="c_BloodrageName">"Bloodrage"</constant>
+    <constant name="c_BloodrageDescription">"Greatly increases your attack temporarily, at the cost of your health."</constant>
+    <constant name="c_ArmourIncreaseName">"Defense Up"</constant>
+    <constant name="c_ArmourIncreaseDescription">"Increases your defense, reducing damage taken."</constant>
+    <constant name="c_AttackUpName">"Focus"</constant>
+    <constant name="c_AttackUpDescription">"Heightens concentration, slightly increases your attack for a period of time."</constant>
+    <constant name="c_AttackDownName">"Detect"</constant>
+    <constant name="c_AttackDownDescription">"Increases your field of view with the latest technology. Enemies nearby you will be detected, reducing their attacks for a period of time."</constant>
+    <constant name="c_PlayerMoveIncreaseName">"Stealth"</constant>
+    <constant name="c_PlayerMoveIncreaseDescription">"Increases your movement speed for a period of time."</constant>
+    <constant name="c_EnemyMovementDecreaseName">"Spy"</constant>
+    <constant name="c_EnemyMovementDecreaseDescription">"With the help of binoculars, you predicted enemies' movement, reducing it for a period of time."</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
