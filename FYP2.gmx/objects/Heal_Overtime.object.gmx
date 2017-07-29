@@ -167,11 +167,7 @@ if (b_active == true)
         {
             Player_1.i_health = Player_1.i_maxHealth;
         }
-    }
-    
-    if (f_healTimer &gt;= f_healTime)
-    {
-        f_healTimer = 0;
+        
         if (Player_2.i_health + (f_healPercentage * Player_2.i_maxHealth) &lt; Player_2.i_maxHealth)
         {
             Player_2.i_health = Player_2.i_health + (f_healPercentage * Player_2.i_maxHealth);

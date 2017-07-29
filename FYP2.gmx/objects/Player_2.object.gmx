@@ -47,15 +47,24 @@ i_maxHealth = 100
 
 // 2. Damage Multiplier
 f_damageMultiplier = 1;
-f_maxDamageMultiplier = 1;
+f_maxDamageMultiplier = 2.5;
+f_baseDamageMultiplier = 1;
+f_damageMultiplierIncrement = 0.25;
+f_damageMultiplierLevel = 1;
 
 // 3. Movement Speed
 f_moveSpeed = 3;
-f_maxMoveSpeed = 3;
+f_maxMoveSpeed = 12;
+f_baseMoveSpeed = 3;
+f_MoveSpeedIncrement = 1.5;
+f_MoveSpeedLevel = 1;
 
 // 4. Armor
 f_armour = 1
-f_maxArmour = 1;
+f_maxArmour = 5;
+f_baseArmour = 1;
+f_armourIncrement = 0.5;
+f_armourLevel = 1;
 i_reducedDamage = 0
 
 // Stats to be added during power up
@@ -221,7 +230,7 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
 
 // Taking damage from the enemy
 // 1. Melee enemy
-if (place_meeting(x, y, Enemy))
+if (place_meeting(x, y, EnemyCoop))
 {
     if (b_noDamage == false)
     {
@@ -241,7 +250,7 @@ if (place_meeting(x, y, Enemy))
 }
 
 // 2. Ranged enemy
-if (place_meeting(x, y, EnemyProObj))
+if (place_meeting(x, y, EnemyProObjCoop2))
 {
     if (b_noDamage == false)
     {
@@ -261,7 +270,7 @@ if (place_meeting(x, y, EnemyProObj))
 }
 
 // 3. EnemyElite range attack
-if (place_meeting(x, y, EnemyEliteProObj))
+if (place_meeting(x, y, EnemyEliteProObjCoop2))
 {
     if (b_noDamage == false)
     {
@@ -281,7 +290,7 @@ if (place_meeting(x, y, EnemyEliteProObj))
 }
 
 // 4. EnemyElite close attack
-if (place_meeting(x, y, EnemyElite))
+if (place_meeting(x, y, EnemyEliteCoop))
 {
     if (b_noDamage == false)
     {
@@ -359,6 +368,96 @@ if (place_meeting(x, y + f_verticalSpeed, Wall))
 }
 
 y += f_verticalSpeed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculation for armour
+if (((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour &lt; f_maxArmour)
+{
+    f_armour = ((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour;
+}
+
+else
+{
+    f_armour = f_maxArmour;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculation for Movement Speed
+if (((f_MoveSpeedLevel - 1) * f_MoveSpeedIncrement) + f_baseMoveSpeed &lt; f_maxMoveSpeed)
+{
+    f_moveSpeed = ((f_MoveSpeedLevel - 1) * f_MoveSpeedIncrement) + f_baseMoveSpeed;
+}
+
+else
+{
+    f_moveSpeed = f_maxMoveSpeed;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculation for Damage Multiplier
+if (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier &lt; f_maxDamageMultiplier)
+{
+    f_damageMultiplier = ((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier;
+}
+
+else
+{
+    f_damageMultiplier = f_maxDamageMultiplier;
+}
 </string>
           </argument>
         </arguments>

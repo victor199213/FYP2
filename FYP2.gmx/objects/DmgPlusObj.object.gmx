@@ -55,8 +55,8 @@
 
 if(capturePoint &gt; 100)
 {
-    Player_1.f_damageMultiplier += 5;
-    Player_2.f_damageMultiplier += 5;
+    Player_1.f_damageMultiplierLevel += 1;
+    Player_2.f_damageMultiplierLevel += 1;
     instance_destroy();
 }
 if(CoopSpawner.waveTime &gt;= 60 || ObjectiveCoop.health &lt;= 0)

@@ -97,7 +97,7 @@ enum e_state
     dying
 }
 
-room_goto(room3);</code>
+room_goto(MainMenu);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
