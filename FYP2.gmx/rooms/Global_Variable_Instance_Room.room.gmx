@@ -87,7 +87,17 @@ global.b_playerTwo_skillSlot_chosen[0] = false;
 global.b_playerTwo_skillSlot[1] = "";
 global.b_playerTwo_skillSlot_chosen[1] = false;
 
-room_goto(MainMenu);</code>
+enum e_state
+{
+    idle,
+    chase,
+    chase2,
+    shoot,
+    shoot2,
+    dying
+}
+
+room_goto(room3);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

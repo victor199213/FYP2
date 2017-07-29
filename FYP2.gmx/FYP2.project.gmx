@@ -626,12 +626,17 @@
       </objects>
     </objects>
     <object>objects\Spawner</object>
+    <object>objects\CoopSpawner</object>
     <object>objects\EnemyElite</object>
+    <object>objects\EnemyEliteCoop</object>
     <object>objects\EnemyShooting</object>
+    <object>objects\EnemyShootingCoop</object>
     <object>objects\Enemy</object>
+    <object>objects\EnemyCoop</object>
     <object>objects\Wall</object>
     <object>objects\wall2obj</object>
     <object>objects\Objective</object>
+    <object>objects\ObjectiveCoop</object>
     <objects name="Weaponry Objects">
       <objects name="Guns">
         <objects name="Solo">
@@ -654,7 +659,11 @@
         <object>objects\Handgun_Ammo</object>
         <object>objects\AK_47_Ammo</object>
         <object>objects\EnemyProObj</object>
+        <object>objects\EnemyProObjCoop1</object>
+        <object>objects\EnemyProObjCoop2</object>
         <object>objects\EnemyEliteProObj</object>
+        <object>objects\EnemyEliteProObjCoop1</object>
+        <object>objects\EnemyEliteProObjCoop2</object>
         <objects name="Multiplayer">
           <objects name="PVP">
             <object>objects\B_Player_Handgun_Ammo</object>

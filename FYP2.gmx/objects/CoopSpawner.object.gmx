@@ -28,7 +28,7 @@
             <string>seconds = 0;
 waveTime = 0;
 wave = 1;
-waveDelay = 30;
+waveDelay = 10;
 randomize();
 
 particle = part_system_create();
@@ -63,11 +63,11 @@ audio_play_sound(mus_dungeon02,0, true);
 waveTime += 1 / room_speed;
 image_speed = 10/60;
 
-if(Objective.health &gt; 0)
+if(ObjectiveCoop.health &gt; 0)
 {
     if(waveTime &lt;= 60 &amp;&amp; wave &lt;= 5)
     {
-        if(seconds &gt;= 4)
+        if(seconds &gt;= 2.5)
         {
             switch(irandom_range(1,3))
             {
@@ -87,13 +87,13 @@ if(Objective.health &gt; 0)
             switch(irandom_range(1,3))
             {
                 case 1:
-                    instance_create(x, y, EnemyShooting);
+                    instance_create(x, y, EnemyShootingCoop);
                     break;
                 case 2:
-                    instance_create(x, y, Enemy);
+                    instance_create(x, y, EnemyCoop);
                     break;
                 case 3:
-                    instance_create(x, y, EnemyElite);
+                    instance_create(x, y, EnemyEliteCoop);
                     break;
             }
             seconds = 0;
@@ -123,7 +123,7 @@ if(wave &gt;= 5 &amp;&amp; waveTime &gt;= 60)
     }
 }
 
-if(Objective.health &lt;= 0)
+if(ObjectiveCoop.health &lt;= 0)
 {
     part_emitter_destroy_all(particle);
     roomTimer -= 1 / room_speed;
@@ -181,7 +181,7 @@ if(roomTimer &lt; 10)
     {   
         draw_text_transformed(global.GUI_width * 0.42 ,global.GUI_height * 0.5,"You Win",5,5,1);
     }
-    if(Objective.health &lt;= 0)
+    if(ObjectiveCoop.health &lt;= 0)
     {
         draw_text_transformed(global.GUI_width * 0.42 ,global.GUI_height * 0.5,"You Lose",5,5,1);
     }
