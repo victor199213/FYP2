@@ -3,7 +3,7 @@
   <spriteName>spr_Armor_Increase</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Variable creation for this skill
 b_active = false;
-b_ready = false;
+b_ready = true;
 f_cooldownTimer = 0;
 f_cooldownTime = 14;
 f_activeTimer = 0;

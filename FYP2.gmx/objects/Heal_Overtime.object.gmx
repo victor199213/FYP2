@@ -27,16 +27,199 @@
             <kind>1</kind>
             <string>/// Variable creation for this skill
 b_active = false;
-b_ready = false;
-f_cooldownTimer = 0;
-f_cooldownTime = 20;
+b_ready = true;
+f_cooldownTimer = 20;
+f_cooldownTime = 0;
 f_activeTimer = 0;
 f_activeTime = 10;
+f_healTimer = 0;
+f_healTime = 1;
+
+f_healPercentage = 0.025;
 
 image_xscale = 0.2;
 image_yscale = 0.2;
 image_index = 0;
 image_speed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Skill Usage for player 1
+if (global.b_playerOne_skillSlot[0] == "Heal Overtime")
+{
+    if (Player_1.SKILLONE)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+
+else if (global.b_playerOne_skillSlot[1] == "Heal Overtime")
+{
+    if (Player_1.SKILLTWO)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Skill Usage for player 2
+if (global.b_playerTwo_skillSlot[0] == "Heal Overtime")
+{
+    if (Player_2.SKILLONE)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+
+else if (global.b_playerTwo_skillSlot[1] == "Heal Overtime")
+{
+    if (Player_2.SKILLTWO)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Checks if skill is active (Usage in progress)
+if (b_active == true)
+{
+    image_index = 1;
+    b_ready = false;
+    f_activeTimer = f_activeTimer + 1 / (room_speed);
+    f_healTimer = f_healTimer + 1 / (room_speed);
+    
+    if (f_healTimer &gt;= f_healTime)
+    {
+        f_healTimer = 0;
+        if (Player_1.i_health + (f_healPercentage * Player_1.i_maxHealth) &lt; Player_1.i_maxHealth)
+        {
+            Player_1.i_health = Player_1.i_health + (f_healPercentage * Player_1.i_maxHealth);
+        }
+        
+        else
+        {
+            Player_1.i_health = Player_1.i_maxHealth;
+        }
+    }
+    
+    if (f_healTimer &gt;= f_healTime)
+    {
+        f_healTimer = 0;
+        if (Player_2.i_health + (f_healPercentage * Player_2.i_maxHealth) &lt; Player_2.i_maxHealth)
+        {
+            Player_2.i_health = Player_2.i_health + (f_healPercentage * Player_2.i_maxHealth);
+        }
+        
+        else
+        {
+            Player_2.i_health = Player_2.i_maxHealth;
+        }
+    }
+    
+    if (f_activeTimer &gt; f_activeTime)
+    {
+        b_active = false;
+        f_healTimer = 0;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Checks if skill is ready to be used again
+if (b_ready == false)
+{
+    f_cooldownTimer = f_cooldownTimer - 1 / (room_speed);
+    if (f_cooldownTimer &lt; f_cooldownTime)
+    {
+        f_cooldownTimer = 20;
+        b_ready = true;
+        image_index = 0;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -59,17 +242,33 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (b_active == true)
-{
-    draw_sprite_ext(spr_button, 1, x, y, 56 / sprite_width, 56 / sprite_height, 0, c_white, 1);
-}
-
-else
+            <string>if (b_ready == true)
 {
     draw_sprite_ext(spr_button, 0, x, y, 56 / sprite_width, 56 / sprite_height, 0, c_white, 1);
 }
 
+else
+{
+    draw_sprite_ext(spr_button, 4, x, y, 56 / sprite_width, 56 / sprite_height, 0, c_white, 1);
+}
+
 draw_self();
+
+draw_set_font(fnt_UIDescription);
+draw_set_valign(fa_middle);
+draw_set_halign(fa_center);
+draw_set_color(make_color_rgb(224,255,255));
+
+if (b_ready == false)
+{
+    draw_text_transformed(x, y, ceil(f_cooldownTimer), 2, 2, 0);
+}
+
+draw_set_font(-1);
+draw_set_valign(fa_left);
+draw_set_halign(fa_top);
+draw_set_color(c_black);
+
 </string>
           </argument>
         </arguments>

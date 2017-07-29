@@ -80,7 +80,69 @@ else if (global.b_playerOne_skillSlot[1] == "Instant Heal")
         }
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Skill usage for player 2
+if (global.b_playerTwo_skillSlot[0] == "Instant Heal")
+{
+    if (Player_2.SKILLONE)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
 
+else if (global.b_playerTwo_skillSlot[1] == "Instant Heal")
+{
+    if (Player_2.SKILLTWO)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Checks if skill is active (Usage in progress)
 if (b_active == true)
 {
     if (Player_1.i_health + i_heal &lt; Player_1.i_maxHealth)
@@ -92,11 +154,42 @@ if (b_active == true)
     {
         Player_1.i_health = Player_1.i_maxHealth;
     }
+    
+    if (Player_2.i_health + i_heal &lt; Player_2.i_maxHealth)
+    {
+        Player_2.i_health += i_heal;
+    }
+    
+    else
+    {
+        Player_2.i_health = Player_2.i_maxHealth;
+    }    
+    
     image_index = 1;
     b_ready = false;
     b_active = false;
 }
-
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Checks if skill is ready to be used again
 if (b_ready == false)
 {
     f_cooldownTimer = f_cooldownTimer - 1 / (room_speed);

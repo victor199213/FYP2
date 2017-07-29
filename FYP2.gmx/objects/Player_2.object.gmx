@@ -110,6 +110,8 @@ MOVELEFT = keyboard_check(ord('J'));
 MOVERIGHT = keyboard_check(ord('L'));
 JUMP = keyboard_check_pressed(ord('I'));
 SHOOT = keyboard_check(ord('P'));
+SKILLONE = keyboard_check_pressed(ord('U'));
+SKILLONE = keyboard_check_pressed(ord('O'));
 
 if (f_verticalSpeed &lt; 10)
 {
