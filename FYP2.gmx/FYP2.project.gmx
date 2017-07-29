@@ -472,6 +472,9 @@
       <sprite>sprites\sprite234_14</sprite>
       <sprite>sprites\sprite235_15</sprite>
     </sprites>
+    <sprite>sprites\DmgPlusSprite</sprite>
+    <sprite>sprites\ArmPlusSprite</sprite>
+    <sprite>sprites\SpdPlusSprite</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -751,6 +754,9 @@
     </objects>
     <object>objects\EnemyProjectileParticle</object>
     <object>objects\EnemyExplode</object>
+    <object>objects\DmgPlusObj</object>
+    <object>objects\ArmPlusObj</object>
+    <object>objects\SpdPlusObj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Global_Variable_Instance_Room</room>

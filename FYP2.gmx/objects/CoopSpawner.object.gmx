@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>seconds = 0;
+powerUpSec = 0;
 waveTime = 0;
 wave = 1;
 waveDelay = 10;
@@ -61,6 +62,7 @@ audio_play_sound(mus_dungeon02,0, true);
             <kind>1</kind>
             <string>seconds += 1 / room_speed;
 waveTime += 1 / room_speed;
+powerUpSec += 1 / room_speed;
 image_speed = 10/60;
 
 if(ObjectiveCoop.health &gt; 0)
@@ -98,6 +100,22 @@ if(ObjectiveCoop.health &gt; 0)
             }
             seconds = 0;
         }
+        if(powerUpSec &gt;= 40)
+        {
+            switch(irandom_range(1,3))
+            {
+                case 1:
+                    instance_create(1344, 352, DmgPlusObj);
+                    break;
+                case 2:
+                    instance_create(576, 352, ArmPlusObj);
+                    break;
+                case 3:
+                    instance_create(960, 544, SpdPlusObj);
+                    break;
+            }
+            powerUpSec = 0;
+        }
     }
 }
 if(waveTime &gt;= 60)
@@ -107,7 +125,7 @@ if(waveTime &gt;= 60)
     if(waveDelay &lt; 0)
     {
         wave += 1;
-        waveDelay = 30;
+        waveDelay = 10;
         waveTime = 0;
     }
 }
