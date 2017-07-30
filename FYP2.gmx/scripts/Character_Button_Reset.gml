@@ -1,5 +1,5 @@
 // Setting variable for fixed position of x and y, and sprite size
-Character_Button._posx = Pregame_Background.x;
+Character_Button._posx = Pregame_Background.x - Pregame_Background._sprite_size_x * 0.25;
 Character_Button._posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
 
 // Changing the image Properties
@@ -11,10 +11,6 @@ Character_Button.image_index = 0;
 switch (MainMenuStructure._Pregame_Selection)
 {
     default:
-    break;
-    
-    case "Items":
-    Character_Button.image_index = 0;
     break;
     
     case "Characters":

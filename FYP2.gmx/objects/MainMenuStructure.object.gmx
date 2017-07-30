@@ -70,10 +70,9 @@ instance_create(1, 1, Exit_Button);
     Creating
     Instancing the buttons in the Pregame selection
 */
-_Pregame_Selection = "Items";
+_Pregame_Selection = "Characters";
 // Pregame Selection Objects (Solo)
 instance_create(room_width * 0.5, room_height * 0.5, Pregame_Background);
-instance_create(0, 0, Item_Button);
 instance_create(0, 0, Character_Button);
 instance_create(0, 0, Weapon_Button);
 instance_create(0, 0, Back_Button);
@@ -109,7 +108,6 @@ instance_create(0, 0, Skill_Two_List);
 
 // Deactivate Pregame Selection Objects
 instance_deactivate_object(Pregame_Background);
-instance_deactivate_object(Item_Button);
 instance_deactivate_object(Character_Button);
 instance_deactivate_object(Weapon_Button);
 instance_deactivate_object(Back_Button);
@@ -306,7 +304,6 @@ if (menu_choice == "Pregame Selection")
         Pregame_Background.y = Pregame_Background.y + Pregame_Background.f_translate_y;
         
         // Objects that denotes solo game play
-        Item_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Character_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Weapon_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Single_Button.y += Pregame_Background.f_translate_y + 25 * (1 / room_speed);
@@ -323,7 +320,6 @@ if (menu_choice == "Pregame Selection")
         {
             Pregame_Background.y = Pregame_Background._posy;
             // Objects that denotes solo game play
-            Item_Button.y = Item_Button._posy;
             Character_Button.y = Character_Button._posy;
             Weapon_Button.y = Weapon_Button._posy;
             Single_Button.y = Single_Button._posy;
@@ -345,7 +341,6 @@ if (menu_choice == "Pregame Selection")
     {
         Pregame_Background.f_translate_y = Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         // Solo objects
-        Item_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Character_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Weapon_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Single_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
@@ -364,7 +359,6 @@ if (menu_choice == "Pregame Selection")
         {
             Pregame_Background.y = Pregame_Background._offscreen_y;
             // Solo objects
-            Item_Button.y = Item_Button._posy;
             Character_Button.y = Character_Button._posy;
             Weapon_Button.y = Weapon_Button._posy;
             Single_Button.y = Single_Button._posy;
@@ -396,7 +390,6 @@ if (menu_choice == "Pregame Selection")
             
             // Pre-game Selection Resets
             script_execute(Pregame_Background_Reset);
-            script_execute(Item_Button_Reset);
             script_execute(Character_Button_Reset);
             script_execute(Weapon_Button_Reset);                
             script_execute(Single_Button_Reset);                
@@ -404,7 +397,6 @@ if (menu_choice == "Pregame Selection")
             script_execute(Back_Button_Reset);                
             
             // Deactivate Pre-game Selection objects (Solo)
-            instance_deactivate_object(Item_Button);
             instance_deactivate_object(Character_Button);
             instance_deactivate_object(Weapon_Button);
             instance_deactivate_object(Single_Button);
@@ -423,7 +415,6 @@ if (menu_choice == "Pregame Selection")
     {
         Pregame_Background.f_translate_y = Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         // Solo objects
-        Item_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Character_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Weapon_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
         Single_Button.y -= Pregame_Background.f_translate_y + 25 * (1 / room_speed);
@@ -441,7 +432,6 @@ if (menu_choice == "Pregame Selection")
         {
             Pregame_Background.y = Pregame_Background._offscreen_y;
             // Solo objects
-            Item_Button.y = Item_Button._posy;
             Character_Button.y = Character_Button._posy;
             Weapon_Button.y = Weapon_Button._posy;
             Single_Button.y = Single_Button._posy;
@@ -484,7 +474,6 @@ if (menu_choice == "Pregame Selection")
                 script_execute(Equipment);
                 
                 // Deactivate Pre-game Selection objects (Solo)
-                instance_deactivate_object(Item_Button);
                 instance_deactivate_object(Character_Button);
                 instance_deactivate_object(Weapon_Button);
                 instance_deactivate_object(Single_Button);
@@ -507,7 +496,6 @@ if (menu_choice == "Pregame Selection")
             else
             {
                 // Deactivate Pre-game Selection objects (Solo)
-                instance_deactivate_object(Item_Button);
                 instance_deactivate_object(Character_Button);
                 instance_deactivate_object(Weapon_Button);
                 instance_deactivate_object(Single_Button);
@@ -581,6 +569,52 @@ if (menu_choice == "Map Selection")
                  
             Map_Background.f_translate_y = 0;
             Map_Background.b_startAnim = false;
+        }
+    }
+    
+    if (Map_Background.b_backAnim == true)
+    {
+        Map_Background.f_translate_y = Map_Background.f_translate_y + 25 * (1 / room_speed);
+        Map_Background.y = Map_Background.y - Map_Background.f_translate_y;  
+        Back_To_Pregame_Button.y = Back_To_Pregame_Button.y - Map_Background.f_translate_y;
+        Start_Game_Button.y = Start_Game_Button.y - Map_Background.f_translate_y;
+            
+        if (Map_Background.y &lt; Map_Background._offscreen_y)
+        {
+            Map_Background.y = Map_Background._posy;    
+            Back_To_Pregame_Button.y = Back_To_Pregame_Button._posy;
+            Start_Game_Button.y = Start_Game_Button._posy;
+                 
+            Map_Background.f_translate_y = 0;
+            Map_Background.b_backAnim = false;
+            
+            // Activate Pre-game Selection objects (Solo)
+            instance_activate_object(Character_Button);
+            instance_activate_object(Weapon_Button);
+            instance_activate_object(Single_Button);
+            instance_activate_object(Multi_Button);
+            instance_activate_object(Solo_OK_Button);
+            instance_activate_object(Back_Button);
+            instance_activate_object(Pregame_Background);
+            // Deactivate Pre-game Selection objects (Multiplayer)
+            instance_activate_object(Coop_Button);
+            instance_activate_object(Versus_Button);
+            instance_activate_object(Multi_OK_Button);
+            
+            // Pre-game Selection Resets
+            script_execute(Pregame_Background_Reset);
+            script_execute(Character_Button_Reset);
+            script_execute(Weapon_Button_Reset);                
+            script_execute(Single_Button_Reset);                
+            script_execute(Multi_Button_Reset);               
+            script_execute(Back_Button_Reset);  
+        
+            // Deactivate the next objects
+            instance_deactivate_object(Map_Background);
+            instance_deactivate_object(Back_To_Pregame_Button);
+            instance_deactivate_object(Start_Game_Button);
+            _Pregame_Selection = "Characters";
+            menu_choice = "Pregame Selection";
         }
     }
 }
@@ -672,7 +706,7 @@ if (menu_choice == "Skill Selection")
         }
     }
     
-    if (Skill_Background.b_nextAnim == true)
+    else if (Skill_Background.b_nextAnim == true)
     {
         Skill_Background.f_translate_y = Skill_Background.f_translate_y + 25 * (1 / room_speed);
         Skill_Background.y -= Skill_Background.f_translate_y + 25 * (1 / room_speed);;

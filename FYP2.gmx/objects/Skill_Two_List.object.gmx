@@ -41,7 +41,7 @@ x = _posx;
 y = _posy;
 
 i_skill = 1;
-i_skill_max = 8;
+i_skill_max = 6;
 </string>
           </argument>
         </arguments>
@@ -374,55 +374,6 @@ switch (i_skill)
     break;
     
     case 6:
-    if (global.b_EnemyAttackDown_chosen == true)
-    {
-        draw_sprite_ext(spr_button, 4, x + _sprite_size_x * 0.35, y, 1.5, 1.5, 0, c_white, 1);
-        draw_sprite_ext(spr_Attack_Down_Enemy, 1, x + _sprite_size_x * 0.35, y, (48 * 1.5)/ 256, (48 * 1.5) / 256, 0, c_white, 1);
-    }
-    
-    else
-    {
-        if (device_mouse_x_to_gui(0) &gt; (x + _sprite_size_x * 0.35) - 28 * 1.5 &amp;&amp;
-            device_mouse_x_to_gui(0) &lt; (x + _sprite_size_x * 0.35) + 28 * 1.5 &amp;&amp;
-            device_mouse_y_to_gui(0) &gt; y - 28 * 1.5 &amp;&amp;
-            device_mouse_y_to_gui(0) &lt; y + 28 * 1.5)
-        {
-            draw_sprite_ext(spr_button, 1, x + _sprite_size_x * 0.35, y, 1.5, 1.5, 0, c_white, 1);
-            if (device_mouse_check_button_pressed(0, mb_left))
-            {
-                if (global.b_playerTwo_skillSlot_chosen[0] = false &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == false)
-                {
-                    global.b_playerTwo_skillSlot_chosen[0] = true;
-                    global.b_playerTwo_skillSlot[0] = "Enemy Attack Down";
-                    global.b_EnemyAttackDown_chosen = true;
-                }
-                
-                else if (global.b_playerTwo_skillSlot_chosen[0] = true &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == false)
-                {
-                    global.b_playerTwo_skillSlot_chosen[1] = true;
-                    global.b_playerTwo_skillSlot[1] = "Enemy Attack Down";
-                    global.b_EnemyAttackDown_chosen = true;
-                }
-                
-                else if (global.b_playerTwo_skillSlot_chosen[0] = false &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == true)
-                {
-                    global.b_playerTwo_skillSlot_chosen[0] = true;
-                    global.b_playerTwo_skillSlot[0] = "Enemy Attack Down";
-                    global.b_EnemyAttackDown_chosen = true;
-                }
-            }
-        }
-        
-        else
-        {
-            draw_sprite_ext(spr_button, 0, x + _sprite_size_x * 0.35, y, 1.5, 1.5, 0, c_white, 1);
-        }
-        
-        draw_sprite_ext(spr_Attack_Down_Enemy, 0, x + _sprite_size_x * 0.35, y, (48 * 1.5)/ 256, (48 * 1.5) / 256, 0, c_white, 1);
-    }
-    break;
-    
-    case 7:
     if (global.b_MoveSpeedUp_chosen == true)
     {
         draw_sprite_ext(spr_button, 4, x + _sprite_size_x * 0.35, y, 1.5, 1.5, 0, c_white, 1);
@@ -468,55 +419,6 @@ switch (i_skill)
         }
         
         draw_sprite_ext(spr_Movement_Up, 0, x + _sprite_size_x * 0.35, y, (48 * 1.5)/ 256, (48 * 1.5) / 256, 0, c_white, 1);
-    }
-    break;
-    
-    case 8:
-    if (global.b_EnemyMoveSpeedDown_chosen == true)
-    {
-        draw_sprite_ext(spr_button, 4, x + _sprite_size_x * 0.35, y, 1.5, 1.5, 0, c_white, 1);
-        draw_sprite_ext(spr_Movement_Down_Enemy, 1, x + _sprite_size_x * 0.35, y, (48 * 1.5)/ 256, (48 * 1.5) / 256, 0, c_white, 1);
-    }
-    
-    else
-    {
-        if (device_mouse_x_to_gui(0) &gt; (x + _sprite_size_x * 0.35) - 28 * 1.5 &amp;&amp;
-            device_mouse_x_to_gui(0) &lt; (x + _sprite_size_x * 0.35) + 28 * 1.5 &amp;&amp;
-            device_mouse_y_to_gui(0) &gt; y - 28 * 1.5 &amp;&amp;
-            device_mouse_y_to_gui(0) &lt; y + 28 * 1.5)
-        {
-            draw_sprite_ext(spr_button, 1, x + _sprite_size_x * 0.35, y, 1.5, 1.5, 0, c_white, 1);
-            if (device_mouse_check_button_pressed(0, mb_left))
-            {
-                if (global.b_playerTwo_skillSlot_chosen[0] = false &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == false)
-                {
-                    global.b_playerTwo_skillSlot_chosen[0] = true;
-                    global.b_playerTwo_skillSlot[0] = "Enemy Movement Decrease";
-                    global.b_EnemyMoveSpeedDown_chosen = true;
-                }
-                
-                else if (global.b_playerTwo_skillSlot_chosen[0] = true &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == false)
-                {
-                    global.b_playerTwo_skillSlot_chosen[1] = true;
-                    global.b_playerTwo_skillSlot[1] = "Enemy Movement Decrease";
-                    global.b_EnemyMoveSpeedDown_chosen = true;
-                }
-                
-                else if (global.b_playerTwo_skillSlot_chosen[0] = false &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == true)
-                {
-                    global.b_playerTwo_skillSlot_chosen[0] = true;
-                    global.b_playerTwo_skillSlot[0] = "Enemy Movement Decrease";
-                    global.b_EnemyMoveSpeedDown_chosen = true;
-                }
-            }
-        }
-        
-        else
-        {
-            draw_sprite_ext(spr_button, 0, x + _sprite_size_x * 0.35, y, 1.5, 1.5, 0, c_white, 1);
-        }
-        
-        draw_sprite_ext(spr_Movement_Down_Enemy, 0, x + _sprite_size_x * 0.35, y, (48 * 1.5)/ 256, (48 * 1.5) / 256, 0, c_white, 1);
     }
     break;
 }
@@ -661,25 +563,11 @@ if (device_mouse_x_to_gui(0) &gt; (x - _sprite_size_x * 0.35) - 28 &amp;&amp;
                 global.b_AttackUp_chosen = false;
             }
             
-            if (global.b_playerTwo_skillSlot[0] == "Enemy Attack Down")
-            {
-                global.b_playerTwo_skillSlot_chosen[0] = false;
-                global.b_playerTwo_skillSlot[0] = "";
-                global.b_EnemyAttackDown_chosen = false;
-            }
-            
             if (global.b_playerTwo_skillSlot[0] == "Movement Increase")
             {
                 global.b_playerTwo_skillSlot_chosen[0] = false;
                 global.b_playerTwo_skillSlot[0] = "";
                 global.b_MoveSpeedUp_chosen = false;
-            }
-            
-            if (global.b_playerTwo_skillSlot[0] == "Enemy Movement Decrease")
-            {
-                global.b_playerTwo_skillSlot_chosen[0] = false;
-                global.b_playerTwo_skillSlot[0] = "";
-                global.b_EnemyMoveSpeedDown_chosen = false;
             }
         }
     }
@@ -756,25 +644,11 @@ if (device_mouse_x_to_gui(0) &gt; (x - _sprite_size_x * 0.35) - 28 &amp;&amp;
                 global.b_AttackUp_chosen = false;
             }
             
-            if (global.b_playerTwo_skillSlot[1] == "Enemy Attack Down")
-            {
-                global.b_playerTwo_skillSlot_chosen[1] = false;
-                global.b_playerTwo_skillSlot[1] = "";
-                global.b_EnemyAttackDown_chosen = false;
-            }
-            
             if (global.b_playerTwo_skillSlot[1] == "Movement Increase")
             {
                 global.b_playerTwo_skillSlot_chosen[1] = false;
                 global.b_playerTwo_skillSlot[1] = "";
                 global.b_MoveSpeedUp_chosen = false;
-            }
-            
-            if (global.b_playerTwo_skillSlot[1] == "Enemy Movement Decrease")
-            {
-                global.b_playerTwo_skillSlot_chosen[1] = false;
-                global.b_playerTwo_skillSlot[1] = "";
-                global.b_EnemyMoveSpeedDown_chosen = false;
             }
         }
     }
@@ -830,19 +704,9 @@ if (global.b_playerTwo_skillSlot[0] == "Attack Up")
     draw_sprite_ext(spr_Attack_Increase, 0, x - _sprite_size_x * 0.35, y - _sprite_size_y * 0.15, 48 / 256, 48 / 256, 0, c_white, 1);
 }
 
-if (global.b_playerTwo_skillSlot[0] == "Enemy Attack Down")
-{
-    draw_sprite_ext(spr_Attack_Down_Enemy, 0, x - _sprite_size_x * 0.35, y - _sprite_size_y * 0.15, 48 / 256, 48 / 256, 0, c_white, 1);
-}
-
 if (global.b_playerTwo_skillSlot[0] == "Movement Increase")
 {
     draw_sprite_ext(spr_Movement_Up, 0, x - _sprite_size_x * 0.35, y - _sprite_size_y * 0.15, 48 / 256, 48 / 256, 0, c_white, 1);
-}
-
-if (global.b_playerTwo_skillSlot[0] == "Enemy Movement Decrease")
-{
-    draw_sprite_ext(spr_Movement_Down_Enemy, 0, x - _sprite_size_x * 0.35, y - _sprite_size_y * 0.15, 48 / 256, 48 / 256, 0, c_white, 1);
 }
 </string>
           </argument>
@@ -890,19 +754,9 @@ if (global.b_playerTwo_skillSlot[1] == "Attack Up")
     draw_sprite_ext(spr_Attack_Increase, 0, x - _sprite_size_x * 0.35, y + _sprite_size_y * 0.15, 48 / 256, 48 / 256, 0, c_white, 1);
 }
 
-if (global.b_playerTwo_skillSlot[1] == "Enemy Attack Down")
-{
-    draw_sprite_ext(spr_Attack_Down_Enemy, 0, x - _sprite_size_x * 0.35, y + _sprite_size_y * 0.15, 48 / 256, 48 / 256, 0, c_white, 1);
-}
-
 if (global.b_playerTwo_skillSlot[1] == "Movement Increase")
 {
     draw_sprite_ext(spr_Movement_Up, 0, x - _sprite_size_x * 0.35, y + _sprite_size_y * 0.15, 48 / 256, 48 / 256, 0, c_white, 1);
-}
-
-if (global.b_playerTwo_skillSlot[1] == "Enemy Movement Decrease")
-{
-    draw_sprite_ext(spr_Movement_Down_Enemy, 0, x - _sprite_size_x * 0.35, y + _sprite_size_y * 0.15, 48 / 256, 48 / 256, 0, c_white, 1);
 }
 </string>
           </argument>
@@ -980,28 +834,10 @@ switch (i_skill)
     break;
     
     case 6:
-    draw_text_transformed(x, y - _sprite_size_y * 0.2, c_AttackDownName, 1.5, 1.5, 0);
-    draw_set_halign(fa_left);
-    draw_set_valign(fa_top);
-    draw_text_ext(x - _sprite_size_x * 0.2, y - _sprite_size_y * 0.1, c_AttackDownDescription, -1, 225);
-    draw_set_halign(fa_center);
-    draw_set_valign(fa_middle);
-    break;
-    
-    case 7:
     draw_text_transformed(x, y - _sprite_size_y * 0.2, c_PlayerMoveIncreaseName, 1.5, 1.5, 0);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_text_ext(x - _sprite_size_x * 0.2, y - _sprite_size_y * 0.1, c_PlayerMoveIncreaseDescription, -1, 225);
-    draw_set_halign(fa_center);
-    draw_set_valign(fa_middle);
-    break;
-    
-    case 8:
-    draw_text_transformed(x, y - _sprite_size_y * 0.2, c_EnemyMovementDecreaseName, 1.5, 1.5, 0);
-    draw_set_halign(fa_left);
-    draw_set_valign(fa_top);
-    draw_text_ext(x - _sprite_size_x * 0.2, y - _sprite_size_y * 0.1, c_EnemyMovementDecreaseDescription, -1, 225);
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
     break;

@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>// Setting variable for fixed position of x and y, and sprite size
-_posx = Pregame_Background.x + Pregame_Background._sprite_size_x - room_width * 0.125;
+_posx = Pregame_Background.x + Pregame_Background._sprite_size_x * 0.25;
 _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
 // Changing the image Properties
 image_xscale = 4;
@@ -198,7 +198,6 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
     MainMenuStructure._Pregame_Selection = "Weapons";
     image_index = 3;
     Character_Button.image_index = 0;
-    Item_Button.image_index = 0;
 }
 </string>
           </argument>
@@ -224,7 +223,7 @@ _posy = Pregame_Background.y - (Pregame_Background._sprite_size_y * 0.75);
             <kind>1</kind>
             <string>/// GUI with Interactions
 if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim == false &amp;&amp;
-    Pregame_Background.b_nextAnim == false)
+    Pregame_Background.b_nextAnim == false &amp;&amp; Pregame_Background.b_startAnim == false)
 {
     draw_set_font(fnt_UIName);
     draw_set_valign(fa_middle);

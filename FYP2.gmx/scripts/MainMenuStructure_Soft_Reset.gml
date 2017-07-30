@@ -23,4 +23,4 @@ MainMenuStructure.b_solo = true;
 
 // A boolean to lock for start of game
 MainMenuStructure.b_start = true;
-MainMenuStructure._Pregame_Selection = "Items";
+MainMenuStructure._Pregame_Selection = "Characters";

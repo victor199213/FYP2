@@ -131,7 +131,7 @@ image_index = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (MainMenuStructure.menu_choice == "Pregame Selection")
+            <string>if (MainMenuStructure.menu_choice == "Pregame Selection" &amp;&amp; MainMenuStructure.b_solo == true)
 {
     if (Character_Button.b_selectedSlot[0] == true || 
         Character_Button.b_selectedSlot[1] == true || 

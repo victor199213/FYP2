@@ -553,7 +553,6 @@
         <script>scripts\Pregame_Background_Reset.gml</script>
         <script>scripts\Back_Button_Reset.gml</script>
         <scripts name="Solo">
-          <script>scripts\Item_Button_Reset.gml</script>
           <script>scripts\Character_Button_Reset.gml</script>
           <script>scripts\Weapon_Button_Reset.gml</script>
           <script>scripts\Single_Button_Reset.gml</script>
@@ -622,9 +621,7 @@
             <object>objects\Bloodrage</object>
             <object>objects\Armor_Increase</object>
             <object>objects\Attack_Increase</object>
-            <object>objects\Attack_Down_Enemy</object>
             <object>objects\Move_Increase</object>
-            <object>objects\Move_Decrease_Enemy</object>
           </objects>
         </objects>
       </objects>
@@ -767,7 +764,7 @@
     <room>rooms\room2</room>
     <room>rooms\room3</room>
   </rooms>
-  <constants number="31">
+  <constants number="27">
     <constant name="c_VolcanoMap">"Kilauea Volcano"</constant>
     <constant name="c_TwilightMap">"Alaska: Northen Lights"</constant>
     <constant name="c_ArticMap">"Antarctica"</constant>
@@ -793,12 +790,8 @@
     <constant name="c_ArmourIncreaseDescription">"Increases your defense, reducing damage taken."</constant>
     <constant name="c_AttackUpName">"Focus"</constant>
     <constant name="c_AttackUpDescription">"Heightens concentration, slightly increases your attack for a period of time."</constant>
-    <constant name="c_AttackDownName">"Detect"</constant>
-    <constant name="c_AttackDownDescription">"Increases your field of view with the latest technology. Enemies nearby you will be detected, reducing their attacks for a period of time."</constant>
     <constant name="c_PlayerMoveIncreaseName">"Stealth"</constant>
     <constant name="c_PlayerMoveIncreaseDescription">"Increases your movement speed for a period of time."</constant>
-    <constant name="c_EnemyMovementDecreaseName">"Spy"</constant>
-    <constant name="c_EnemyMovementDecreaseDescription">"With the help of binoculars, you predicted enemies' movement, reducing it for a period of time."</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
