@@ -107,6 +107,8 @@ instance_create(Objective.x, Objective.y, Player);</code>
     <instance objName="wall2obj" x="1344" y="768" name="inst_C4EC0221" locked="0" code="" scaleX="7.80000019073486" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
     <instance objName="wall2obj" x="960" y="928" name="inst_24F6A409" locked="0" code="" scaleX="5.84999990463257" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
     <instance objName="wall2obj" x="960" y="1088" name="inst_5D9C8FB3" locked="0" code="" scaleX="30.2063484191895" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
+    <instance objName="wall2obj" x="0" y="544" name="inst_7FC62B55" locked="0" code="" scaleX="0.800000011920929" scaleY="20" colour="4294967295" rotation="0"/>
+    <instance objName="wall2obj" x="1920" y="576" name="inst_818EB950" locked="0" code="" scaleX="0.800000011920929" scaleY="20" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="scifi_floorTiles" x="768" y="896" w="64" h="64" xo="64" yo="384" id="10001114" name="inst_8370CA76" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
