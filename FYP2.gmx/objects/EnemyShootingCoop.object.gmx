@@ -133,14 +133,14 @@ switch (state)
         {
             path_end();
             speed = 0;
-            state = e_state.shoot2;
+            state = e_state.shoot;
         }
         
         if (distance_to_object(Player_2) &lt; 94 &amp;&amp; (Player_2.b_deadAnim == false &amp;&amp; Player_2.b_isDead == false)) 
         {
             path_end();
             speed = 0;
-            state = e_state.shoot;
+            state = e_state.shoot2;
         }
             
         if(place_meeting(x ,y + 1,Wall)== true)
@@ -222,10 +222,10 @@ switch (state)
         }
     }
     break;
-     case e_state.shoot2:
+    case e_state.shoot2:
     {
         path_end();
-        dir = sign(Player_1.x - x);
+        dir = sign(Player_2.x - x);
         hsp = dir * 2;
         vsp = (min(7,vsp+0.05));
         
