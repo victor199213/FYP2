@@ -751,6 +751,9 @@
       </objects>
     </objects>
     <object>objects\EnemyProjectileParticle</object>
+    <object>objects\SkillPartRed</object>
+    <object>objects\SkillPartBlue</object>
+    <object>objects\SkillPartGreen</object>
     <object>objects\EnemyExplode</object>
     <object>objects\DmgPlusObj</object>
     <object>objects\ArmPlusObj</object>
