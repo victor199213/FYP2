@@ -50,7 +50,7 @@
             <kind>1</kind>
             <string>if(distance_to_object(Player_1) &lt; 94 &amp;&amp; distance_to_object(Player_2) &lt; 94 )
 {
-    capturePoint += 0.2;
+    capturePoint += 0.5;
 }
 
 if(capturePoint &gt; 100)

@@ -113,6 +113,9 @@ instance_create(0, 0, PlayerHandleObj);</code>
     <instance objName="wall2obj" x="960" y="608" name="inst_2F07F171" locked="0" code="" scaleX="13.8000001907349" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
     <instance objName="wall2obj" x="960" y="288" name="inst_01066ACB" locked="0" code="" scaleX="11.8000001907349" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
     <instance objName="wall2obj" x="960" y="1088" name="inst_20C44BDD" locked="0" code="" scaleX="29.453125" scaleY="0.600000023841858" colour="4294967295" rotation="0"/>
+    <instance objName="&lt;undefined&gt;" x="0" y="0" name="inst_316777CD" locked="0" code="" scaleX="0" scaleY="0" colour="0" rotation="0"/>
+    <instance objName="wall2obj" x="0" y="544" name="inst_39EF1B0C" locked="0" code="" scaleX="0.800000011920929" scaleY="20" colour="4294967295" rotation="0"/>
+    <instance objName="wall2obj" x="1920" y="544" name="inst_FE593DDD" locked="0" code="" scaleX="0.800000011920929" scaleY="20" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="scifi_floorTiles" x="768" y="896" w="64" h="64" xo="64" yo="384" id="10001114" name="inst_8370CA76" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
