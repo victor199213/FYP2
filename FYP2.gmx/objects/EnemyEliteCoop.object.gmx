@@ -480,10 +480,10 @@ if (place_meeting(round(x),round(y+vsp),Wall))
 y += vsp;
 
 // damage taken from handgun
-if(place_meeting(x,y,Handgun_Ammo))
+if(place_meeting(x, y, Player_1_Handgun_Ammo))
 {
 
-    HP -= Handgun_Ammo.i_damage;    
+    HP -= Player_1_Handgun_Ammo.i_damage;    
     if (b_isKnockback == false)
     {
         b_isKnockback = true;
@@ -502,11 +502,10 @@ if(place_meeting(x,y,Handgun_Ammo))
     }
 }
 
-// Damage taken from AK_47
-if(place_meeting(x,y,AK_47_Ammo))
+if(place_meeting(x, y, Player_2_Handgun_Ammo))
 {
 
-    HP -= AK_47_Ammo.i_damage;
+    HP -= Player_2_Handgun_Ammo.i_damage;    
     if (b_isKnockback == false)
     {
         b_isKnockback = true;
