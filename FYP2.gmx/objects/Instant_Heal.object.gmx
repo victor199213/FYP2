@@ -234,21 +234,17 @@ else
 
 draw_self();
 
-draw_set_font(fnt_UIDescription);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
-draw_set_color(make_color_rgb(224,255,255));
 
 if (b_ready == false)
 {
-    draw_text_transformed(x, y, ceil(f_cooldownTimer), 2, 2, 0);
+    script_execute(Text_With_Outline(x, y, c_black, make_color_rgb(229, 229, 229), ceil(f_cooldownTimer), 2, fnt_UIDescription));//(x, y, ceil(f_cooldownTimer), 2, 2, 0);
 }
 
 draw_set_font(-1);
 draw_set_valign(fa_left);
 draw_set_halign(fa_top);
-draw_set_color(c_black);
-
 </string>
           </argument>
         </arguments>

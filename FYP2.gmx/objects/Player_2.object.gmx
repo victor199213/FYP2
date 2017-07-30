@@ -92,6 +92,167 @@ f_knockbackSpeed = 0;
 // Knockback calculations upon hitting other player's ammo
 f_knockbackAccel = 10;
 ammo_onhit_x = 0;
+
+if (global.b_playerTwo_skillSlot_chosen[0] == true &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == true)
+{
+    switch (global.b_playerTwo_skillSlot[0])
+    {
+        default:
+        break;
+        
+        case "Instant Heal":
+        instance_create(display_get_gui_width() * 0.65, display_get_gui_height() * 0.95, Instant_Heal);
+        break;
+        
+        case "Heal Overtime":
+        instance_create(display_get_gui_width() * 0.65, display_get_gui_height() * 0.95, Heal_Overtime);
+        break;
+        
+        case "Bloodrage":
+        instance_create(display_get_gui_width() * 0.65, display_get_gui_height() * 0.95, Bloodrage);
+        break;
+        
+        case "Armour Increase":
+        instance_create(display_get_gui_width() * 0.65, display_get_gui_height() * 0.95, Armor_Increase);
+        break;
+        
+        case "Attack Up":
+        instance_create(display_get_gui_width() * 0.65, display_get_gui_height() * 0.95, Attack_Increase);
+        break;
+        
+        case "Enemy Attack Down":
+        instance_create(display_get_gui_width() * 0.65, display_get_gui_height() * 0.95, Attack_Down_Enemy);
+        break;
+        
+        case "Movement Increase":
+        instance_create(display_get_gui_width() * 0.65, display_get_gui_height() * 0.95, Move_Increase);
+        break;
+        
+        case "Enemy Movement Decrease":
+        instance_create(display_get_gui_width() * 0.65, display_get_gui_height() * 0.95, Move_Decrease_Enemy);
+        break;
+    }
+    
+    switch (global.b_playerTwo_skillSlot[1])
+    {
+        default:
+        break;
+        
+        case "Instant Heal":
+        instance_create(display_get_gui_width() * 0.7, display_get_gui_height() * 0.95, Instant_Heal);
+        break;
+        
+        case "Heal Overtime":
+        instance_create(display_get_gui_width() * 0.7, display_get_gui_height() * 0.95, Heal_Overtime);
+        break;
+        
+        case "Bloodrage":
+        instance_create(display_get_gui_width() * 0.7, display_get_gui_height() * 0.95, Bloodrage);
+        break;
+        
+        case "Armour Increase":
+        instance_create(display_get_gui_width() * 0.7, display_get_gui_height() * 0.95, Armor_Increase);
+        break;
+        
+        case "Attack Up":
+        instance_create(display_get_gui_width() * 0.7, display_get_gui_height() * 0.95, Attack_Increase);
+        break;
+        
+        case "Enemy Attack Down":
+        instance_create(display_get_gui_width() * 0.7, display_get_gui_height() * 0.95, Attack_Down_Enemy);
+        break;
+        
+        case "Movement Increase":
+        instance_create(display_get_gui_width() * 0.7, display_get_gui_height() * 0.95, Move_Increase);
+        break;
+        
+        case "Enemy Movement Decrease":
+        instance_create(display_get_gui_width() * 0.7, display_get_gui_height() * 0.95, Move_Decrease_Enemy);
+        break;
+    }
+}
+
+else if (global.b_playerTwo_skillSlot_chosen[0] == true &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == false)
+{
+    switch (global.b_playerTwo_skillSlot[0])
+    {
+        default:
+        break;
+        
+        case "Instant Heal":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Instant_Heal);
+        break;
+        
+        case "Heal Overtime":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Heal_Overtime);
+        break;
+        
+        case "Bloodrage":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Bloodrage);
+        break;
+        
+        case "Armour Increase":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Armor_Increase);
+        break;
+        
+        case "Attack Up":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Attack_Increase);
+        break;
+        
+        case "Enemy Attack Down":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Attack_Down_Enemy);
+        break;
+        
+        case "Movement Increase":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Move_Increase);
+        break;
+        
+        case "Enemy Movement Decrease":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Move_Decrease_Enemy);
+        break;
+    }
+}
+
+else if (global.b_playerTwo_skillSlot_chosen[0] == false &amp;&amp; global.b_playerTwo_skillSlot_chosen[1] == true)
+{
+    switch (global.b_playerTwo_skillSlot[1])
+    {
+        default:
+        break;
+        
+        case "Instant Heal":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Instant_Heal);
+        break;
+        
+        case "Heal Overtime":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Heal_Overtime);
+        break;
+        
+        case "Bloodrage":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Bloodrage);
+        break;
+        
+        case "Armour Increase":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Armor_Increase);
+        break;
+        
+        case "Attack Up":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Attack_Increase);
+        break;
+        
+        case "Enemy Attack Down":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Attack_Down_Enemy);
+        break;
+        
+        case "Movement Increase":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Move_Increase);
+        break;
+        
+        case "Enemy Movement Decrease":
+        instance_create(display_get_gui_width() * 0.675, display_get_gui_height() * 0.95, Move_Decrease_Enemy);
+        break;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -120,7 +281,7 @@ MOVERIGHT = keyboard_check(ord('L'));
 JUMP = keyboard_check_pressed(ord('I'));
 SHOOT = keyboard_check(ord('P'));
 SKILLONE = keyboard_check_pressed(ord('U'));
-SKILLONE = keyboard_check_pressed(ord('O'));
+SKILLTWO = keyboard_check_pressed(ord('O'));
 
 if (f_verticalSpeed &lt; 10)
 {
@@ -388,15 +549,47 @@ y += f_verticalSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Calculation for armour
-if (((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour &lt; f_maxArmour)
+            <string>/// Calculation for armour (Armour Increase Skill Only)
+if (instance_exists(Armor_Increase))
 {
-    f_armour = ((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour;
+   if (Armor_Increase.b_active == true)
+   {
+        if ((((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour) * Armor_Increase.f_addArmourMultiplier &lt; f_maxArmour)
+        {
+            f_armour = (((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour) * Armor_Increase.f_addArmourMultiplier;
+        }
+        
+        else
+        {
+            f_armour = f_maxArmour;
+        }
+   }
+   
+   else
+   {
+        if ((((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour))
+        {
+            f_armour = (((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour);
+        }
+        
+        else
+        {
+            f_armour = f_maxArmour;
+        }
+   }
 }
 
 else
 {
-    f_armour = f_maxArmour;
+    if (((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour &lt; f_maxArmour)
+    {
+        f_armour = ((f_armourLevel - 1) * f_armourIncrement) + f_baseArmour;
+    }
+    
+    else
+    {
+        f_armour = f_maxArmour;
+    }
 }
 </string>
           </argument>
@@ -448,15 +641,245 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Calculation for Damage Multiplier
-if (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier &lt; f_maxDamageMultiplier)
+            <string>/// Calculation for Movement Speed (With Movement Increase Skill, either player or ally owns it)
+if (instance_exists(Move_Increase) == true)
 {
-    f_damageMultiplier = ((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier;
+    if (Move_Increase.b_active == true)
+    {
+        if (((f_MoveSpeedLevel - 1) * f_MoveSpeedIncrement) + f_baseMoveSpeed + Move_Increase.f_addMoveSpeed &lt; f_maxMoveSpeed)
+        {
+            f_moveSpeed = ((f_MoveSpeedLevel - 1) * f_MoveSpeedIncrement) + f_baseMoveSpeed + Move_Increase.f_addMoveSpeed;
+        }
+        
+        else
+        {
+            f_moveSpeed = f_maxMoveSpeed;
+        }
+    }
+    
+    else
+    {
+        if (((f_MoveSpeedLevel - 1) * f_MoveSpeedIncrement) + f_baseMoveSpeed &lt; f_maxMoveSpeed)
+        {
+            f_moveSpeed = ((f_MoveSpeedLevel - 1) * f_MoveSpeedIncrement) + f_baseMoveSpeed;
+        }
+        
+        else
+        {
+            f_moveSpeed = f_maxMoveSpeed;
+        }
+    }
 }
 
-else
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculation for Damage Multiplier (No Bloodrage or Attack Up skills in the game)
+if (instance_exists(Bloodrage) == false &amp;&amp; instance_exists(Attack_Increase) == false)
 {
-    f_damageMultiplier = f_maxDamageMultiplier;
+    if (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier &lt; f_maxDamageMultiplier)
+    {
+        f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier);
+    }
+    
+    else
+    {
+        f_damageMultiplier = f_maxDamageMultiplier;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculation for Damage Multiplier (Bloodrage Only)
+if ((global.b_playerTwo_skillSlot[0] == "Bloodrage" || global.b_playerTwo_skillSlot[1] == "Bloodrage") &amp;&amp;
+    (global.b_playerTwo_skillSlot[0] != "Attack Up" || global.b_playerTwo_skillSlot[1] != "Attack Up"))
+{
+    if (Bloodrage.b_active == true)
+    {
+        if ((((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Bloodrage.f_addDamageMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Bloodrage.f_addDamageMultiplier;
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+    
+    else
+    {
+        if (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier);
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculation for Damage Multiplier (Attack up only, either player owns or ally owns it)
+if ((global.b_playerTwo_skillSlot[0] != "Bloodrage" &amp;&amp; global.b_playerTwo_skillSlot[1] != "Bloodrage") &amp;&amp;
+    instance_exists(Attack_Increase) == true)
+{   
+    if (Attack_Increase.b_active == true)
+    {
+        if ((((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Attack_Increase.f_attackUpMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Attack_Increase.f_attackUpMultiplier;
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+    
+    else
+    {
+        if (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier);
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculation for Damage Multiplier (Bloodrage Only + Attack up)
+if ((global.b_playerTwo_skillSlot[0] == "Bloodrage" || global.b_playerTwo_skillSlot[1] == "Bloodrage") &amp;&amp;
+    instance_exists(Attack_Increase) == true)
+{
+    if (Bloodrage.b_active == true &amp;&amp; Attack_Increase.b_active == true)
+    {
+        if ((((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Bloodrage.f_addDamageMultiplier * Attack_Increase.f_attackUpMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Bloodrage.f_addDamageMultiplier;
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+    
+    else if (Bloodrage.b_active == true &amp;&amp; Attack_Increase.b_active == false)
+    {
+        if ((((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Bloodrage.f_addDamageMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Bloodrage.f_addDamageMultiplier;
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+    
+    else if (Bloodrage.b_active == false &amp;&amp; Attack_Increase.b_active == true)
+    {
+        if ((((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Attack_Increase.f_attackUpMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Attack_Increase.f_attackUpMultiplier;
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+    
+    else
+    {
+        if (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier);
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
 }
 </string>
           </argument>
@@ -488,6 +911,31 @@ if (b_isDead == false)
     {
         draw_healthbar(x - sprite_width * 0.5, y -(sprite_height * 0.6), x + sprite_width * 0.5, y - (sprite_height * 0.45), (i_health / i_maxHealth) * 100, c_black, c_red, c_lime, 0, true, true);
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Border for skills
+if (global.b_playerTwo_skillSlot_chosen[0] == true || global.b_playerTwo_skillSlot_chosen[1] == true)
+{
+    draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.675, global.GUI_height * 0.95, 0.4, 0.3, 0, c_white, 0.7);
 }
 </string>
           </argument>

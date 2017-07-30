@@ -28,15 +28,166 @@
             <string>/// Variable creation for this skill
 b_active = false;
 b_ready = true;
-f_cooldownTimer = 0;
-f_cooldownTime = 14;
+f_cooldownTimer = 14;
+f_cooldownTime = 0;
 f_activeTimer = 0;
-f_activeTime = 6
+f_activeTime = 5;
+f_addArmourMultiplier = 1.25;
 
 image_xscale = 0.2;
 image_yscale = 0.2;
 image_index = 0;
 image_speed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Skill Usage for player 1
+if (global.b_playerOne_skillSlot[0] == "Armour Increase")
+{
+    if (Player_1.SKILLONE)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+
+else if (global.b_playerOne_skillSlot[1] == "Armour Increase")
+{
+    if (Player_1.SKILLTWO)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Skill Usage for player 2
+if (global.b_playerTwo_skillSlot[0] == "Armour Increase")
+{
+    if (Player_2.SKILLONE)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+
+else if (global.b_playerTwo_skillSlot[1] == "Armour Increase")
+{
+    if (Player_2.SKILLTWO)
+    {
+        if (b_active == false &amp;&amp; b_ready == true)
+        {
+            b_active = true;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Checks if skill is active (Usage in progress)
+if (b_active == true)
+{
+    image_index = 1;
+    b_ready = false;
+    f_activeTimer = f_activeTimer + 1 / (room_speed);
+
+    if (f_activeTimer &gt; f_activeTime)
+    {
+        f_activeTimer = 0;
+        b_active = false;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Checks if skill is ready to be used again
+if (b_ready == false)
+{
+    f_cooldownTimer = f_cooldownTimer - 1 / (room_speed);
+    if (f_cooldownTimer &lt; f_cooldownTime)
+    {
+        f_cooldownTimer = 20;
+        b_ready = true;
+        image_index = 0;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -59,9 +210,14 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (b_active == true)
+            <string>if (b_active == true &amp;&amp; b_ready == false)
 {
     draw_sprite_ext(spr_button, 1, x, y, 56 / sprite_width, 56 / sprite_height, 0, c_white, 1);
+}
+
+else if (b_active == false &amp;&amp; b_ready == false)
+{
+    draw_sprite_ext(spr_button, 4, x, y, 56 / sprite_width, 56 / sprite_height, 0, c_white, 1);
 }
 
 else
@@ -70,6 +226,18 @@ else
 }
 
 draw_self();
+
+draw_set_valign(fa_middle);
+draw_set_halign(fa_center);
+
+if (b_ready == false)
+{
+    script_execute(Text_With_Outline(x, y, c_black, make_color_rgb(229, 229, 229), ceil(f_cooldownTimer), 2, fnt_UIDescription));//(x, y, ceil(f_cooldownTimer), 2, 2, 0);
+}
+
+draw_set_font(-1);
+draw_set_valign(fa_left);
+draw_set_halign(fa_top);
 </string>
           </argument>
         </arguments>

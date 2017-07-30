@@ -577,6 +577,7 @@
       <script>scripts\EquipOne_Save_Stats.gml</script>
       <script>scripts\EquipTwo_Save_Stats.gml</script>
     </scripts>
+    <script>scripts\Text_With_Outline.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_UITitle</font>

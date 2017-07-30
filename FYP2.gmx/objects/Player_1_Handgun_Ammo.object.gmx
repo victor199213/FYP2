@@ -95,10 +95,10 @@ if (place_meeting(x + f_bullet_hspeed, y, Wall))
     instance_destroy();
 }
 
-if (instance_place(x, y, Enemy))
+if (instance_place(x, y, EnemyCoop))
 {
     f_bullet_hspeed = 0;
-    Enemy.ammo_onhit_x = x;
+    EnemyCoop.ammo_onhit_x = x;
 
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;
@@ -106,10 +106,10 @@ if (instance_place(x, y, Enemy))
     instance_destroy();
 }
 
-else if (instance_place(x, y, EnemyShooting))
+else if (instance_place(x, y, EnemyShootingCoop))
 {
     f_bullet_hspeed = 0;
-    EnemyShooting.ammo_onhit_x = x;
+    EnemyShootingCoop.ammo_onhit_x = x;
 
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;
@@ -117,10 +117,10 @@ else if (instance_place(x, y, EnemyShooting))
     instance_destroy();
 }
 
-else if (instance_place(x, y, EnemyElite))
+else if (instance_place(x, y, EnemyEliteCoop))
 {
     f_bullet_hspeed = 0;
-    EnemyElite.ammo_onhit_x = x;
+    EnemyEliteCoop.ammo_onhit_x = x;
 
     instance_create(x, y, AmmoExplosion);
     AmmoExplosion.image_xscale *= 0.5;
