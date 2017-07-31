@@ -180,8 +180,8 @@
     <sound>sound\sound29</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\TmpSpawner</sprite>
     <sprite>sprites\TmpObjective</sprite>
+    <sprite>sprites\TmpSpawner</sprite>
     <sprite>sprites\TmpWall</sprite>
     <sprites name="explosions">
       <sprite>sprites\shooter_smokeExplosion</sprite>
@@ -475,6 +475,15 @@
     <sprite>sprites\DmgPlusSprite</sprite>
     <sprite>sprites\ArmPlusSprite</sprite>
     <sprite>sprites\SpdPlusSprite</sprite>
+    <sprites name="Screenshot">
+      <sprite>sprites\spr_select_hero</sprite>
+      <sprite>sprites\spr_select_weapon</sprite>
+      <sprite>sprites\spr_solo_shop_obj</sprite>
+      <sprite>sprites\spr_solo_shop</sprite>
+      <sprite>sprites\spr_pvp_obj</sprite>
+      <sprite>sprites\spr_coop_obj</sprite>
+      <sprite>sprites\spr_coop_skill</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\scifi_wallTiles</background>
@@ -773,7 +782,7 @@
     <room>rooms\room2</room>
     <room>rooms\room3</room>
   </rooms>
-  <constants number="28">
+  <constants number="37">
     <constant name="c_VolcanoMap">"Kilauea Volcano"</constant>
     <constant name="c_TwilightMap">"Alaska: Northen Lights"</constant>
     <constant name="c_ArticMap">"Antarctica"</constant>
@@ -802,6 +811,15 @@
     <constant name="c_PlayerMoveIncreaseName">"Stealth"</constant>
     <constant name="c_PlayerMoveIncreaseDescription">"Increases your movement speed for a period of time."</constant>
     <constant name="c_Introduction">"Aliens have invaded our land! Pick up your guns and fight against these evil aliens from taking over Earth! With passing time, those nasty aliens will increase their strength, making it more difficult to kill them. Luckily for you, shops are open for you to get your precious upgrades. Will you survive and defend our land, or succumb to the evil powers?"</constant>
+    <constant name="c_SelectHero">"Choose over different heroes to suit your play-style! Each hero has different attribute levels."</constant>
+    <constant name="c_SelectWeapon">"Select up to 2 different weapons to suit your play-style! Each weapon has different stats, so it is best to plan what weapon you want to use for your battle tactic."</constant>
+    <constant name="c_Objective_Solo">"Defend your base! Prevent the aliens from invading your base. Kill them and pick up loots to purchase upgrades in the shop."</constant>
+    <constant name="c_Overview_PVP">"Are you itching for a fight? Grab your friend and fight each other in a battle of wits, guts and skills! Each player will need to defend both the aliens from invading, while making sure you do not get hurt from your enemy!"</constant>
+    <constant name="c_Objective_PVP">" The player whose base has the lowest health, or get destroyed within the time frame loses!"</constant>
+    <constant name="c_Overview_CoOp">"Defend your base alongside your friend! With the power of friendship, new skills are given, at the cost of weapons. Will you overcome this trial together with your friend?"</constant>
+    <constant name="c_Objective_CoOp">"Protect the base together with your friend. Choose up to 2 skills from a variety of skills to help each other out!"</constant>
+    <constant name="c_Shop">"Select different options for different upgrades! Do not forget to refill your health and magazines, which can also be purchased from the shop!"</constant>
+    <constant name="c_Skills">"Choose up to 2 different skills from a variety of skill sets for your battle! Beware though, you may not be able to choose the same skill twice, irregardless of who chose it."</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

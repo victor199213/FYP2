@@ -50,7 +50,7 @@ b_backAnim = false;
 b_nextAnim = false; 
 
 i_page = 1;
-i_maxPage = 10;
+i_maxPage = 13;
 </string>
           </argument>
         </arguments>
@@ -190,35 +190,69 @@ switch (i_page)
     default:
     break;
     
+    // Introduction
     case 1:
     draw_text_transformed(x, y - _sprite_size_y * 0.25, "Introduction", 2, 2, 0);
     break;
     
+    // Menu Overview (Solo) - Select Hero
     case 2:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Menu Overview: Select Hero", 2, 2, 0);
     break;
     
+    // Menu Overview (Solo) - Select Weapon
     case 3:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Menu Overview: Select Weapons", 2, 2, 0);
     break;
     
+    // Objective (Solo)
     case 4:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Solo: Objective", 2, 2, 0);
     break;
     
+    // Shop (Solo)
     case 5:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Solo: Shop", 2, 2, 0);
     break;
     
+    // Controls (Solo)
     case 6:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Solo: Controls", 2, 2, 0);
     break;
     
+    // Menu Overview (Multiplayer - PVP)
     case 7:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Menu Overview: PvP", 2, 2, 0);
     break;
     
+    // Objective (PVP)
     case 8:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "PvP: Objective", 2, 2, 0);
     break;
     
+    // Controls (Controls)
     case 9:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "PvP: Controls", 2, 2, 0);
     break;
     
+    // Menu Overview (Multiplayer - Co-Op)
     case 10:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Menu Overview: Co-Op", 2, 2, 0);
+    break;
+    
+    // Skills (Co-Op)
+    case 11:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Co-Op: Skills", 2, 2, 0);
+    break;
+    
+    // Objective (Co-Op)
+    case 12:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Co-Op: Objective", 2, 2, 0);
+    break;
+    
+    // Controls (Co-Op)
+    case 13:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Co-Op: Controls", 2, 2, 0);
     break;
 }
 
@@ -257,37 +291,187 @@ switch (i_page)
     default:
     break;
     
+    // Introduction
     case 1:
     draw_text_ext_transformed(x, y, c_Introduction, -1, 500, 1.3, 1.3, 0);
     break;
     
+    // Menu Overview (Solo) - Select Hero
     case 2:
+    draw_sprite_ext(spr_select_hero, 0, x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.1, 0.8, 0.6, 0, c_white, 1);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, c_SelectHero, -1, 300, 1.3, 1.3, 0);
     break;
     
+    // Menu Overview (Solo) - Select Weapon
     case 3:
+    draw_sprite_ext(spr_select_weapon, 0, x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.1, 0.8, 0.6, 0, c_white, 1);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, c_SelectWeapon, -1, 300, 1.3, 1.3, 0);
     break;
     
+    // Objective (Solo)
     case 4:
+    draw_sprite_ext(spr_solo_shop_obj, 0, x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.1, 0.8, 0.6, 0, c_white, 1);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, c_Objective_Solo, -1, 300, 1.3, 1.3, 0);
     break;
     
+    // Shop (Solo)
     case 5:
+    draw_sprite_ext(spr_solo_shop, 0, x - _sprite_size_x * 0.2, y + _sprite_size_y * 0.1, 0.8, 0.6, 0, c_white, 1);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, c_Shop, -1, 300, 1.3, 1.3, 0);
     break;
     
+    // Controls (Solo)
     case 6:
+    // Player's control type
+    draw_set_halign(fa_left);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y - _sprite_size_y * 0.12, "Move Left", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y - _sprite_size_y * 0.06, "Move Right", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y, "Jump", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.06, "Shoot", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.12, "Open Shop", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.18, "Reload Gun", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.24, "View Stats", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.3, "Change Weapon", -1, 500, 1.3, 1.3, 0);
+    
+    // Players Button for Control
+    draw_set_halign(fa_center);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y - _sprite_size_y * 0.12, "Left Arrow", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y - _sprite_size_y * 0.06, "Right Arrow", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, "Spacebar", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.06, "C", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.12, "F", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.18, "X", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.24, "V", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.3, "Up Arrow", -1, 500, 1.3, 1.3, 0);
     break;
     
+    // Menu Overview (Multiplayer - PVP)
     case 7:
+    draw_text_ext_transformed(x, y, c_Overview_PVP, -1, 500, 1.3, 1.3, 0);
     break;
     
+    // Objective (PVP)
     case 8:
+    draw_sprite_ext(spr_pvp_obj, 0, x - _sprite_size_x * 0.2, y + _sprite_size_y * 0.1, 0.2, 0.2, 0, c_white, 1);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, c_Objective_PVP, -1, 300, 1.3, 1.3, 0);
     break;
     
+    // Controls (Controls)
     case 9:
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y - _sprite_size_y * 0.06, "Move Left", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y, "Move Right", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y + _sprite_size_y * 0.06, "Jump", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y + _sprite_size_y * 0.12, "Shoot", -1, 500, 1.3, 1.3, 0);
+    
+    // Player 1 Button for Control
+    draw_text_ext_transformed(x, y - _sprite_size_y * 0.12, "Player 1", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y - _sprite_size_y * 0.06, "A", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y, "D", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y + _sprite_size_y * 0.06, "W", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y + _sprite_size_y * 0.12, "C", -1, 500, 1.3, 1.3, 0);
+    
+    // Player 2 Button for Control
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y - _sprite_size_y * 0.12, "Player 2", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y - _sprite_size_y * 0.06, "J", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y, "L", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.06, "I", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.12, "P", -1, 500, 1.3, 1.3, 0);
     break;
     
+    // Menu Overview (Multiplayer - Co-Op)
     case 10:
+    draw_text_ext_transformed(x, y, c_Overview_CoOp, -1, 500, 1.3, 1.3, 0);
+    break;
+    
+    // Objective (Co-Op)
+    case 11:
+    draw_sprite_ext(spr_coop_obj, 0, x - _sprite_size_x * 0.2, y + _sprite_size_y * 0.1, 0.2, 0.2, 0, c_white, 1);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, c_Objective_CoOp, -1, 300, 1.3, 1.3, 0);
+    break;
+    
+    // Skills (Co-Op)
+    case 12:
+    draw_sprite_ext(spr_coop_skill, 0, x - _sprite_size_x * 0.2, y + _sprite_size_y * 0.1, 1, 1, 0, c_white, 1);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, c_Skills, -1, 300, 1.3, 1.3, 0);
+    break;
+    
+    // Controls (Co-Op)
+    case 13:
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y - _sprite_size_y * 0.06, "Move Left", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y, "Move Right", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y + _sprite_size_y * 0.06, "Jump", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y + _sprite_size_y * 0.12, "Shoot", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y + _sprite_size_y * 0.18, "Skill One", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.3, y + _sprite_size_y * 0.24, "Skill Two", -1, 500, 1.3, 1.3, 0);
+    
+    // Player 1 Button for Control
+    draw_text_ext_transformed(x, y - _sprite_size_y * 0.12, "Player 1", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y - _sprite_size_y * 0.06, "A", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y, "D", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y + _sprite_size_y * 0.06, "W", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y + _sprite_size_y * 0.12, "C", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y + _sprite_size_y * 0.18, "Q", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x, y + _sprite_size_y * 0.24, "E", -1, 500, 1.3, 1.3, 0);
+    
+    // Player 2 Button for Control
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y - _sprite_size_y * 0.12, "Player 2", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y - _sprite_size_y * 0.06, "J", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y, "L", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.06, "I", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.12, "P", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.18, "U", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.24, "O", -1, 500, 1.3, 1.3, 0);
     break;
 }
+
+draw_set_font(-1);
+draw_set_valign(fa_left);
+draw_set_halign(fa_top);
+draw_set_color(c_black);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Press OK to Back
+draw_set_font(fnt_UIDescriptiontwo);
+draw_set_valign(fa_middle);
+draw_set_halign(fa_center);
+draw_set_color(make_color_rgb(224,255,255));
+
+if (device_mouse_x_to_gui(0) &gt; x - 84 * 0.6 &amp;&amp;
+    device_mouse_x_to_gui(0) &lt; x + 84 * 0.6 &amp;&amp;
+    device_mouse_y_to_gui(0) &gt; (y + _sprite_size_y * 0.4) - 16 &amp;&amp;
+    device_mouse_y_to_gui(0) &lt; (y + _sprite_size_y * 0.4) + 16)
+{
+    draw_sprite_ext(spr_textfield_stat, 1, x, y + _sprite_size_y * 0.4, 0.6, 1, 0, c_white, 1);
+    if (device_mouse_check_button_pressed(0, mb_left))
+    {
+        b_nextAnim = true;
+    }
+}
+
+else
+{
+    draw_sprite_ext(spr_textfield_stat, 0, x, y + _sprite_size_y * 0.4, 0.6, 1, 0, c_white, 1);
+}
+
+draw_text_transformed(x, y + _sprite_size_y * 0.4, "OK", 1, 1, 0);
 
 draw_set_font(-1);
 draw_set_valign(fa_left);

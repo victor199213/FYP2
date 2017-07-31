@@ -295,7 +295,6 @@ draw_set_color(c_black);*/
           <argument>
             <kind>1</kind>
             <string>/// Press OK to Back
-/// Sound Effect
 draw_set_font(fnt_UIDescriptiontwo);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);

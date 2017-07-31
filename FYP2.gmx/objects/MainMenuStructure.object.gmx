@@ -500,6 +500,38 @@ if (menu_choice == "Instruction")
             Instruction.b_startAnim = false;
         }
     }
+    
+    if (Instruction.b_nextAnim == true)
+    {
+        Instruction.f_translate_y = Instruction.f_translate_y + 25 * (1 / room_speed);
+        Instruction.y = Instruction.y - Instruction.f_translate_y;
+            
+        if (Instruction.y &lt; Instruction._offscreen_y)
+        {
+            Instruction.y = Instruction._offscreen_y;
+                 
+            Instruction.f_translate_y = 0;
+            Instruction.b_nextAnim = false;
+            Instruction.b_startAnim = true;
+            
+            // Activate Main Menu objects
+            instance_activate_object(Start_Button);
+            instance_activate_object(Option_Button);
+            instance_activate_object(Instruction_Button);
+            instance_activate_object(Exit_Button);
+            instance_activate_object(Game_Title);
+            
+            // Main Menu resets
+            script_execute(Start_Button_Soft_Reset);
+            script_execute(Option_Button_Soft_Reset);
+            script_execute(Instruction_Button_Soft_Reset);
+            script_execute(Exit_Button_Soft_Reset);
+            script_execute(Game_Title_Soft_Reset);
+            script_execute(MainMenuStructure_Soft_Reset);
+            
+            instance_deactivate_object(Instruction);
+        }
+    }
 }
 </string>
           </argument>
