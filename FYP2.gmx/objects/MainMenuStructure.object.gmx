@@ -63,7 +63,14 @@ b_start = false;
 instance_create(1, 1, Game_Title);
 instance_create(1, 1, Start_Button);
 instance_create(1, 1, Option_Button);
+instance_create(1, 1, Instruction_Button);
 instance_create(1, 1, Exit_Button);
+
+/*
+    Options and Instructions
+*/
+instance_create(1, 1, Option);
+instance_create(1, 1, Instruction);
 
 /*
     1a. Pregame Selection
@@ -105,6 +112,10 @@ instance_create(0, 0, Coop_OK_Button);
 instance_create(0, 0, Coop_Back_To_Pregame_Button);
 instance_create(0, 0, Skill_One_List);
 instance_create(0, 0, Skill_Two_List);
+
+// Deactivate Option and Instruction
+instance_deactivate_object(Option);
+instance_deactivate_object(Instruction);
 
 // Deactivate Pregame Selection Objects
 instance_deactivate_object(Pregame_Background);
@@ -193,6 +204,15 @@ if (menu_choice == "Main Menu")
                 }
             }
             
+            with (Instruction_Button)
+            {
+                image_alpha = Game_Title.draw_alpha + global.f_alphaTime * (1 / room_speed);
+                if (image_alpha &gt;= 1)
+                {
+                    image_alpha = 1;
+                }
+            }
+            
             with (Exit_Button)
             {
                 image_alpha = Game_Title.draw_alpha + global.f_alphaTime * (1 / room_speed);
@@ -220,6 +240,11 @@ if (menu_choice == "Main Menu")
                 image_alpha = MainMenuStructure.f_alphaAnimUnselected;
             }
             
+            with (Instruction_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
             with(Exit_Button)
             {
                 image_alpha = MainMenuStructure.f_alphaAnimUnselected;
@@ -235,6 +260,7 @@ if (menu_choice == "Main Menu")
             y = y - f_translate_y;
             
             instance_deactivate_object(Option_Button);
+            instance_deactivate_object(Instruction_Button);
             instance_deactivate_object(Exit_Button);
             instance_deactivate_object(Game_Title);
             
@@ -245,7 +271,6 @@ if (menu_choice == "Main Menu")
                 f_translate_y = 0;
                 b_startAnim = false;
                 image_index = 0;
-                MainMenuStructure.menu_choice = "Pregame Selection";
                 
                 instance_deactivate_object(Start_Button);
                 // Pregame Selection activation (Solo)
@@ -261,18 +286,219 @@ if (menu_choice == "Main Menu")
                 instance_activate_object(Coop_Button);
                 instance_activate_object(Versus_Button);
                 instance_activate_object(Multi_OK_Button);
+                
+                MainMenuStructure.menu_choice = "Pregame Selection";
             }
         }
     }
     
     with (Option_Button)
     {
-
+        if (b_startAnim == true)
+        {
+            image_index = 1;
+            with(Start_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
+            with(Instruction_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
+            with (Exit_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
+            with(Game_Title)
+            {
+                draw_alpha = 0;
+                draw_set_alpha(draw_alpha);
+            }
+            
+            f_translate_y = f_translate_y + 25 * (1 / room_speed);
+            y = y - f_translate_y;
+            
+            instance_deactivate_object(Start_Button);
+            instance_deactivate_object(Instruction_Button);
+            instance_deactivate_object(Exit_Button);
+            instance_deactivate_object(Game_Title);
+            
+            if (y &lt; (0 - sprite_height))
+            {
+                draw_set_alpha(1);
+                y = (0 - sprite_height);
+                f_translate_y = 0;
+                b_startAnim = false;
+                image_index = 0;
+                
+                instance_activate_object(Option);
+                instance_deactivate_object(Option_Button);
+                MainMenuStructure.menu_choice = "Option";
+            }
+        }
+    }
+    
+    with (Instruction_Button)
+    {
+        if (b_startAnim == true)
+        {
+            image_index = 1;
+            with(Start_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
+            with(Option_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
+            with (Exit_Button)
+            {
+                image_alpha = MainMenuStructure.f_alphaAnimUnselected;
+            }
+            
+            with(Game_Title)
+            {
+                draw_alpha = 0;
+                draw_set_alpha(draw_alpha);
+            }
+            
+            f_translate_y = f_translate_y + 25 * (1 / room_speed);
+            y = y - f_translate_y;
+            
+            instance_deactivate_object(Start_Button);
+            instance_deactivate_object(Option_Button);
+            instance_deactivate_object(Exit_Button);
+            instance_deactivate_object(Game_Title);
+            
+            if (y &lt; (0 - sprite_height))
+            {
+                draw_set_alpha(1);
+                y = _posy;
+                f_translate_y = 0;
+                b_startAnim = false;
+                image_index = 0;
+                MainMenuStructure.menu_choice = "Instruction";
+                
+                instance_deactivate_object(Instruction_Button);
+                instance_activate_object(Instruction);
+            }
+        }
     }
     
     with (Exit_Button)
     {
    
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Menu Choice: Option
+if (menu_choice == "Option")
+{
+    if (Option.b_startAnim == true)
+    {
+        Option.f_translate_y = Option.f_translate_y + 25 * (1 / room_speed);
+        Option.y = Option.y + Option.f_translate_y;
+            
+        if (Option.y &gt; Option._posy)
+        {
+            Option.y = Option._posy;
+                 
+            Option.f_translate_y = 0;
+            Option.b_startAnim = false;
+        }
+    }
+    
+    if (Option.b_nextAnim == true)
+    {
+        Option.f_translate_y = Option.f_translate_y + 25 * (1 / room_speed);
+        Option.y = Option.y - Option.f_translate_y;
+            
+        if (Option.y &lt; Option._offscreen_y)
+        {
+            Option.y = Option._offscreen_y;
+                 
+            Option.f_translate_y = 0;
+            Option.b_nextAnim = false;
+            Option.b_startAnim = true;
+            
+            // Activate Main Menu objects
+            instance_activate_object(Start_Button);
+            instance_activate_object(Option_Button);
+            instance_activate_object(Instruction_Button);
+            instance_activate_object(Exit_Button);
+            instance_activate_object(Game_Title);
+            
+            // Main Menu resets
+            script_execute(Start_Button_Soft_Reset);
+            script_execute(Option_Button_Soft_Reset);
+            script_execute(Instruction_Button_Soft_Reset);
+            script_execute(Exit_Button_Soft_Reset);
+            script_execute(Game_Title_Soft_Reset);
+            script_execute(MainMenuStructure_Soft_Reset);
+            
+            instance_deactivate_object(Option);
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Menu Choice: Instruction
+if (menu_choice == "Instruction")
+{
+    if (Instruction.b_startAnim == true)
+    {
+        Instruction.f_translate_y = Instruction.f_translate_y + 25 * (1 / room_speed);
+        Instruction.y = Instruction.y + Instruction.f_translate_y;
+            
+        if (Instruction.y &gt; Instruction._posy)
+        {
+            Instruction.y = Instruction._posy;
+                 
+            Instruction.f_translate_y = 0;
+            Instruction.b_startAnim = false;
+        }
     }
 }
 </string>
@@ -378,12 +604,14 @@ if (menu_choice == "Pregame Selection")
             // Activate Main Menu objects
             instance_activate_object(Start_Button);
             instance_activate_object(Option_Button);
+            instance_activate_object(Instruction_Button);
             instance_activate_object(Exit_Button);
             instance_activate_object(Game_Title);
             
             // Main Menu resets
             script_execute(Start_Button_Soft_Reset);
             script_execute(Option_Button_Soft_Reset);
+            script_execute(Instruction_Button_Soft_Reset);
             script_execute(Exit_Button_Soft_Reset);
             script_execute(Game_Title_Soft_Reset);
             script_execute(MainMenuStructure_Soft_Reset);
@@ -741,6 +969,26 @@ if (menu_choice == "Skill Selection")
     }
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>

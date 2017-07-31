@@ -544,6 +544,7 @@
       <script>scripts\Start_Button_Hard_Reset.gml</script>
       <script>scripts\Option_Button_Soft_Reset.gml</script>
       <script>scripts\Option_Button_Hard_Reset.gml</script>
+      <script>scripts\Instruction_Button_Soft_Reset.gml</script>
       <script>scripts\Exit_Button_Soft_Reset.gml</script>
       <script>scripts\Exit_Button_Hard_Reset.gml</script>
       <script>scripts\Game_Title_Soft_Reset.gml</script>
@@ -717,8 +718,13 @@
         <object>objects\MainMenuStructure</object>
         <object>objects\Start_Button</object>
         <object>objects\Option_Button</object>
+        <object>objects\Instruction_Button</object>
         <object>objects\Exit_Button</object>
         <object>objects\Game_Title</object>
+        <objects name="Option/ Instruction GUI">
+          <object>objects\Option</object>
+          <object>objects\Instruction</object>
+        </objects>
       </objects>
       <objects name="Pre-Game GUI">
         <object>objects\Pregame_Background</object>
@@ -767,7 +773,7 @@
     <room>rooms\room2</room>
     <room>rooms\room3</room>
   </rooms>
-  <constants number="27">
+  <constants number="28">
     <constant name="c_VolcanoMap">"Kilauea Volcano"</constant>
     <constant name="c_TwilightMap">"Alaska: Northen Lights"</constant>
     <constant name="c_ArticMap">"Antarctica"</constant>
@@ -795,6 +801,7 @@
     <constant name="c_AttackUpDescription">"Heightens concentration, slightly increases your attack for a period of time."</constant>
     <constant name="c_PlayerMoveIncreaseName">"Stealth"</constant>
     <constant name="c_PlayerMoveIncreaseDescription">"Increases your movement speed for a period of time."</constant>
+    <constant name="c_Introduction">"Aliens have invaded our land! Pick up your guns and fight against these evil aliens from taking over Earth! With passing time, those nasty aliens will increase their strength, making it more difficult to kill them. Luckily for you, shops are open for you to get your precious upgrades. Will you survive and defend our land, or succumb to the evil powers?"</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

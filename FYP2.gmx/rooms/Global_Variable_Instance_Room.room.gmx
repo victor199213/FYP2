@@ -87,6 +87,9 @@ global.b_playerTwo_skillSlot_chosen[0] = false;
 global.b_playerTwo_skillSlot[1] = "";
 global.b_playerTwo_skillSlot_chosen[1] = false;
 
+// Music Mute on or off
+global.b_music = true;
+
 enum e_state
 {
     idle,

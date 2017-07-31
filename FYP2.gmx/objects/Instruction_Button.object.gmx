@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_posx = room_width * 0.5;
-_posy = room_height * 0.7;
+            <string>// Setting variable for fixed position of x and y
+_posx = room_width * 0.5;
+_posy = room_height * 0.6;
 
 // Changing the image Properties
 image_xscale = 1.5;
@@ -37,6 +38,13 @@ image_alpha = 0;
 // Positioning of the instance
 x = _posx;
 y = _posy;
+
+// Translation for animation purposes
+f_translate_x = 0;
+f_translate_y = 0;
+
+// Own boolean switch for animation purpose
+b_startAnim = false;
 </string>
           </argument>
         </arguments>
@@ -113,7 +121,10 @@ y = _posy;
             <kind>1</kind>
             <string>if (MainMenuStructure.b_start == true)
 {
-    game_end();
+    if (b_startAnim == false)
+    {
+        b_startAnim = true;
+    }    
 }
 </string>
           </argument>
@@ -144,7 +155,7 @@ draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 
 //script_execute(Text_With_Outline(x, y, c_black, make_color_rgb(224,255,255), "Start", 2, 2, fnt_UIDescription));
-draw_text_transformed_color(x, y, "Exit", 2, 2, 0, c_white, c_white, c_white, c_white, image_alpha);
+draw_text_transformed_color(x, y, "Instruction", 2, 2, 0, c_white, c_white, c_white, c_white, image_alpha);
 
 draw_set_font(-1);
 draw_set_valign(fa_left);

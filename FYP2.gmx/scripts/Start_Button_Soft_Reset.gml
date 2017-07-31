@@ -1,7 +1,7 @@
 // Start Button Reset Script
 // Setting variable for fixed position of x and y
 Start_Button._posx = room_width * 0.5;
-Start_Button._posy = room_height * 0.5;
+Start_Button._posy = room_height * 0.4;
 
 // Changing the image Properties
 Start_Button.image_xscale = 1.5;
