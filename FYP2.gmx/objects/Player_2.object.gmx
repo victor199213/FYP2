@@ -47,7 +47,7 @@ i_maxHealth = 100
 
 // 2. Damage Multiplier
 f_damageMultiplier = 1;
-f_maxDamageMultiplier = 2.5;
+f_maxDamageMultiplier = 5;
 f_baseDamageMultiplier = 1;
 f_damageMultiplierIncrement = 0.25;
 f_damageMultiplierLevel = 1;

@@ -40,5 +40,5 @@ global._equipment[0] = "";
 global._equipment[1] = "";
 
 // Player's wallet for cash during game-play
-global.i_currency = 50;
-global.i_baseLoot = 10;
+global.i_currency = 30;
+global.i_baseLoot = 20;

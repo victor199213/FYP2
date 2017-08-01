@@ -47,7 +47,7 @@ i_maxHealth = 100
 
 // 2. Damage Multiplier
 f_damageMultiplier = 1;
-f_maxDamageMultiplier = 2.5;
+f_maxDamageMultiplier = 5;
 f_baseDamageMultiplier = 1;
 f_damageMultiplierIncrement = 0.25;
 f_damageMultiplierLevel = 1;
@@ -772,6 +772,56 @@ if ((global.b_playerOne_skillSlot[0] == "Bloodrage" || global.b_playerOne_skillS
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Calculation for Damage Multiplier (Attack up only, either player owns or ally owns it)
+if ((global.b_playerOne_skillSlot[0] != "Bloodrage" &amp;&amp; global.b_playerOne_skillSlot[1] != "Bloodrage") &amp;&amp;
+    instance_exists(Attack_Increase) == true)
+{   
+    if (Attack_Increase.b_active == true)
+    {
+        if ((((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Attack_Increase.f_attackUpMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Attack_Increase.f_attackUpMultiplier;
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+    
+    else
+    {
+        if (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier &lt; f_maxDamageMultiplier)
+        {
+            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier);
+        }
+        
+        else
+        {
+            f_damageMultiplier = f_maxDamageMultiplier;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Calculation for Damage Multiplier (Bloodrage Only + Attack up)
 if ((global.b_playerOne_skillSlot[0] == "Bloodrage" || global.b_playerOne_skillSlot[1] == "Bloodrage") &amp;&amp;
     instance_exists(Attack_Increase) == true)
@@ -829,56 +879,6 @@ if ((global.b_playerOne_skillSlot[0] == "Bloodrage" || global.b_playerOne_skillS
     }
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Calculation for Damage Multiplier (Attack up only, either player owns or ally owns it)
-if ((global.b_playerOne_skillSlot[0] != "Bloodrage" &amp;&amp; global.b_playerOne_skillSlot[1] != "Bloodrage") &amp;&amp;
-    instance_exists(Attack_Increase) == true)
-{   
-    if (Attack_Increase.b_active == true)
-    {
-        if ((((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Attack_Increase.f_attackUpMultiplier &lt; f_maxDamageMultiplier)
-        {
-            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier) * Attack_Increase.f_attackUpMultiplier;
-        }
-        
-        else
-        {
-            f_damageMultiplier = f_maxDamageMultiplier;
-        }
-    }
-    
-    else
-    {
-        if (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier &lt; f_maxDamageMultiplier)
-        {
-            f_damageMultiplier = (((f_damageMultiplierLevel - 1) * f_damageMultiplierIncrement) + f_baseDamageMultiplier);
-        }
-        
-        else
-        {
-            f_damageMultiplier = f_maxDamageMultiplier;
-        }
-    }
-}
 </string>
           </argument>
         </arguments>
