@@ -272,7 +272,7 @@ if (MainMenuStructure._Pregame_Selection == "Characters" &amp;&amp; MainMenuStru
     
     // Character Three
     draw_set_color(c_aqua);
-    draw_sprite_ext(Daniel_Idle_Right, 0, f_thirdBox, global.GUI_height * 0.35, 1.5, 1.5, 0, c_white, 1);
+    draw_sprite_ext(Keith_Idle_Right, 0, f_thirdBox, global.GUI_height * 0.35, 1.5, 1.5, 0, c_white, 1);
     draw_text_transformed(global.GUI_width * 0.595, global.GUI_height * 0.42, "Health:", 0.6, 0.6, 0);
     draw_text_transformed(global.GUI_width * 0.595, global.GUI_height * 0.45, "Dmg Multiplier:", 0.6, 0.6, 0);
     draw_text_transformed(global.GUI_width * 0.595, global.GUI_height * 0.48, "Move Speed:", 0.6, 0.6, 0);
@@ -305,7 +305,7 @@ if (MainMenuStructure._Pregame_Selection == "Characters" &amp;&amp; MainMenuStru
     // Character One
     draw_text_ext_transformed(f_firstBox, global.GUI_height * 0.6, c_DanielDescription, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);
     draw_text_ext_transformed(f_secondBox, global.GUI_height * 0.6, c_TerryDescription, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);
-    draw_text_ext_transformed(f_thirdBox, global.GUI_height * 0.6, c_DanielDescription, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);
+    draw_text_ext_transformed(f_thirdBox, global.GUI_height * 0.6, c_KeithDescription, -1, global.GUI_width * 0.15, 0.6, 0.6, 0);
     
     draw_set_halign(fa_left);
     // Checking if the mouse is inside the particular character selection box or not

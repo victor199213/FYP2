@@ -330,8 +330,7 @@ switch (i_page)
     draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.06, "Shoot", -1, 500, 1.3, 1.3, 0);
     draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.12, "Open Shop", -1, 500, 1.3, 1.3, 0);
     draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.18, "Reload Gun", -1, 500, 1.3, 1.3, 0);
-    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.24, "View Stats", -1, 500, 1.3, 1.3, 0);
-    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.3, "Change Weapon", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y + _sprite_size_y * 0.24, "Change Weapon", -1, 500, 1.3, 1.3, 0);
     
     // Players Button for Control
     draw_set_halign(fa_center);
@@ -341,8 +340,7 @@ switch (i_page)
     draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.06, "C", -1, 500, 1.3, 1.3, 0);
     draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.12, "F", -1, 500, 1.3, 1.3, 0);
     draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.18, "X", -1, 500, 1.3, 1.3, 0);
-    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.24, "V", -1, 500, 1.3, 1.3, 0);
-    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.3, "Up Arrow", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.24, "Up Arrow", -1, 500, 1.3, 1.3, 0);
     break;
     
     // Menu Overview (Multiplayer - PVP)

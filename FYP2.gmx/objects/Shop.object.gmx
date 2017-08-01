@@ -1141,30 +1141,9 @@ if (Objective.b_menuIsOpen == true)
             draw_set_valign(fa_middle);
             draw_set_color(c_white);
             draw_text(global.GUI_width * 0.55, global.GUI_height * 0.325, "Items");
-            draw_text(global.GUI_width * 0.55, global.GUI_height * 0.385, "Magazines");
+            draw_text(global.GUI_width * 0.55, global.GUI_height * 0.385, "Magazines &amp; Health");
             draw_set_halign(fa_left);
             draw_set_valign(fa_top);
-            
-            // Sensing the position of mouse upon clicking to change the selected slot of available upgrades
-            /*if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.6 - 12) &amp;&amp; 
-            device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.6 + 12) &amp;&amp; 
-            device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.385 - 13) &amp;&amp; 
-            device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.385 + 13))
-            {
-                draw_sprite_ext(spr_arrow_down, 1, global.GUI_width * 0.6, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
-                if (device_mouse_check_button_pressed(0, mb_left))
-                {
-                    if (i_playerSlotPage &lt; 3)
-                    {
-                        i_playerSlotPage += 1;                
-                    }            
-                }      
-            }
-            
-            else
-            {
-                draw_sprite_ext(spr_arrow_down, 0, global.GUI_width * 0.6, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
-            }*/
             
             // Magazine Purchase: Option 1
             if (Player._currEquipOne != "")
@@ -1181,7 +1160,7 @@ if (Objective.b_menuIsOpen == true)
                     
                     draw_set_font(fnt_UIDescriptiontwo);
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                     device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -1214,7 +1193,7 @@ if (Objective.b_menuIsOpen == true)
                     
                     draw_set_font(fnt_UIDescriptiontwo);
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                     device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -1257,7 +1236,7 @@ if (Objective.b_menuIsOpen == true)
                     
                     draw_set_font(fnt_UIDescriptiontwo);
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                     device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -1290,7 +1269,7 @@ if (Objective.b_menuIsOpen == true)
                     
                     draw_set_font(fnt_UIDescriptiontwo);
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_HealthUpgradeInfo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                     device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -1332,7 +1311,7 @@ if (Objective.b_menuIsOpen == true)
                     
                     draw_set_font(fnt_UIDescriptiontwo);
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipOneMagazineCost));
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_HealthUpgradeInfo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                     device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -1365,7 +1344,7 @@ if (Objective.b_menuIsOpen == true)
                     
                     draw_set_font(fnt_UIDescriptiontwo);
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipOneMagazineCost));
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_HealthUpgradeInfo);
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
                     device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
@@ -1393,52 +1372,77 @@ if (Objective.b_menuIsOpen == true)
                 }
             }
             
+            // Option 3: Health Restoration
+            draw_set_font(fnt_UIDescription);
+            draw_set_valign(fa_middle);
+            if ((Player._currEquipOne == "" &amp;&amp; Player._currEquipTwo != "") ||
+                (Player._currEquipOne != "" &amp;&amp; Player._currEquipTwo == ""))
+            {
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Health");
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(Player.i_healCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_RestoreHealth);
+                
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                    device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.55 - 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.55 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Heals the player back to full health
+                        if (global.i_currency &gt;= Player.i_healCost)
+                        {
+                            global.i_currency = global.i_currency - Player.i_healCost;
+                            Player.i_health = Player.i_maxHealth;
+                        }
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.55, 1, 1, 0, c_white, 1);
+                }
+            }
+            
+            else if (Player._currEquipOne != "" &amp;&amp; Player._currEquipTwo != "")
+            {
+                draw_set_font(fnt_UIDescription);
+                draw_set_valign(fa_middle);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.625, "Health");  
+                draw_set_font(fnt_UIDescriptiontwo);
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.65, "Cost: " + string(Player.i_healCost));
+                draw_text(global.GUI_width * 0.5, global.GUI_height * 0.675, c_RestoreHealth);
+                
+                if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
+                    device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.65 + 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.65 - 17) &amp;&amp; 
+                    device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.65 + 17))
+                {
+                    draw_sprite_ext(spr_plus_round, 1, global.GUI_width * 0.65, global.GUI_height * 0.65, 1, 1, 0, c_white, 1);
+                    if (device_mouse_check_button_pressed(0, mb_left))
+                    {
+                        // Heals the player back to full health
+                        if (global.i_currency &gt;= Player.i_healCost)
+                        {
+                            global.i_currency = global.i_currency - Player.i_healCost;
+                            Player.i_health = Player.i_maxHealth;
+                        }
+                    }
+                }
+                
+                else
+                {
+                    draw_set_font(fnt_UIDescription);
+                    draw_sprite_ext(spr_plus_round, 0, global.GUI_width * 0.65, global.GUI_height * 0.65, 1, 1, 0, c_white, 1);
+                }          
+            }
             break;
             
             case 2:
-            // Sensing the position of mouse upon clicking to change the selected slot of available upgrades
-            // Go next page
-            /*if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.6 - 12) &amp;&amp; 
-            device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.6 + 12) &amp;&amp; 
-            device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.385 - 13) &amp;&amp; 
-            device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.385 + 13))
-            {
-                draw_sprite_ext(spr_arrow_down, 1, global.GUI_width * 0.6, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
-                if (device_mouse_check_button_pressed(0, mb_left))
-                {
-                    if (i_playerSlotPage &lt; 3)
-                    {
-                        i_playerSlotPage += 1;                
-                    }            
-                }
-            }
-            
-            else
-            {
-                draw_sprite_ext(spr_arrow_down, 0, global.GUI_width * 0.6, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
-            }
-            
-            // Go previous page
-            if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.5 - 12) &amp;&amp; 
-            device_mouse_x_to_gui(0) &lt; (global.GUI_width * 0.5 + 12) &amp;&amp; 
-            device_mouse_y_to_gui(0) &gt; (global.GUI_height * 0.385 - 13) &amp;&amp; 
-            device_mouse_y_to_gui(0) &lt; (global.GUI_height * 0.385 + 13))
-            {
-                draw_sprite_ext(spr_arrow_up, 1, global.GUI_width * 0.5, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
-                if (device_mouse_check_button_pressed(0, mb_left))
-                {
-                    if (i_playerSlotPage &gt; 1)
-                    {
-                        i_playerSlotPage -= 1;                
-                    }            
-                }
-            }
-            
-            else
-            {
-                draw_sprite_ext(spr_arrow_up, 0, global.GUI_width * 0.5, global.GUI_height * 0.385, 0.5, 0.5, 0, c_white, 1);
-            }
-            break;*/
+            break;
         }
     
     }
@@ -1447,7 +1451,7 @@ if (Objective.b_menuIsOpen == true)
     {
         draw_sprite_ext(spr_slot_inv, 0, _allSlots_posx, _slotFour_posy, 1, 1, 0, c_white, 1); 
     }
-    draw_sprite_ext(Daniel_Idle_Right, 0, _allSlots_posx, _slotFour_posy, 0.8, 0.8, 0, c_white, 1);
+    draw_sprite_ext(CoinChest, 0, _allSlots_posx, _slotFour_posy, 0.5, 0.5, 0, c_white, 1);
 }
 
 // Setting back to the original fonts to prevent further change of fonts

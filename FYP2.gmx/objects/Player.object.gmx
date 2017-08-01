@@ -46,9 +46,10 @@ i_health = global._health;
 i_maxHealthIncrement = global._maxHealthIncrement;
 i_baseMaxHealth = global._baseMaxHealth;
 i_maxHealth = global._maxHealth;
-// Max Health upgrade
+// Max Health (and current health) upgrade
 i_maxHealthLevel = 1;
 i_maxHealthUpgradeCost = 50;
+i_healCost = 10;
 
 // 2. Damage Multiplier
 f_damageMultiplier = global._damageMultiplier;
@@ -81,9 +82,6 @@ i_maxArmourUpgradeCost = 80;
 // Stats to be added during power up
 i_armourPierceDamage = 0;
 i_armourPierceMaxDamage = 50;
-
-// Viewing stats for either player or current equipments
-b_viewPlayerTab = false;
 
 //Getting the first weapon on the list of EquipmentList
 i_currEquip = 1;
@@ -150,7 +148,7 @@ else if (b_terry_sprite == true)
 
 else if (b_keith_sprite == true)
 {
-    
+    sprite_index = Keith_Idle_Right;
 }
 
 // Variables created to animate and check if player is dead
@@ -187,7 +185,6 @@ JUMP = keyboard_check_pressed(vk_space);
 SHOOT = keyboard_check(ord('C'));
 OPEN = keyboard_check_pressed(ord('F'));
 RELOAD = keyboard_check_pressed(ord('X'));
-VIEWSTAT = keyboard_check_pressed(ord('V'));
 CHANGE = keyboard_check_pressed(vk_up);
 
 if (b_deadAnim == false &amp;&amp; b_isDead == false)
@@ -227,10 +224,14 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
                 sprite_index = Daniel_Jump_Left;
             }
             
-            
             else if (b_terry_sprite == true)
             {
                 sprite_index = Terry_Jump_Left;
+            }
+            
+            else if (b_keith_sprite == true)
+            {
+                sprite_index = Keith_Jump_Left;
             }
         }
         
@@ -240,11 +241,15 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
             {
                 sprite_index = Daniel_Jump_Right;
             }
-            
-            
+
             else if (b_terry_sprite == true)
             {
                 sprite_index = Terry_Jump_Right;
+            }
+            
+            else if (b_keith_sprite == true)
+            {
+                sprite_index = Keith_Jump_Right;
             }
         }
     }
@@ -266,6 +271,11 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
                     sprite_index = Terry_Walk_Left;
                 }
                 
+                else if (b_keith_sprite == true)
+                {
+                    sprite_index = Keith_Walk_Left;
+                }
+                
                 image_speed = 10 / room_speed;
             }
             
@@ -280,6 +290,11 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
                 else if (b_terry_sprite == true)
                 {
                     sprite_index = Terry_Idle_Left;
+                }
+                
+                else if (b_keith_sprite == true)
+                {
+                    sprite_index = Keith_Idle_Left;
                 }
             }
         }
@@ -297,6 +312,11 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
                 {
                     sprite_index = Terry_Walk_Right; 
                 }
+                
+                else if (b_keith_sprite == true)
+                {
+                    sprite_index = Keith_Walk_Right; 
+                }
             }
             
             else
@@ -309,6 +329,11 @@ if (b_deadAnim == false &amp;&amp; b_isDead == false)
                 else if (b_terry_sprite == true)
                 {
                     sprite_index = Terry_Idle_Right;
+                }
+                
+                else if (b_keith_sprite == true)
+                {
+                    sprite_index = Keith_Idle_Right;
                 }
             }
             image_speed = 10 / room_speed;
@@ -401,20 +426,6 @@ if (f_verticalSpeed &lt; 10)
     f_verticalSpeed += global.f_gravity;
 }
 
-// Changing the Stats tab from players to current equipments
-if (VIEWSTAT)
-{
-    if (b_viewPlayerTab == true)
-    {
-        b_viewPlayerTab = false;
-    }
-    
-    else if (b_viewPlayerTab == false)
-    {
-        b_viewPlayerTab = true;
-    }
-}
-
 switch (i_currEquip)
 {
     default:
@@ -498,7 +509,7 @@ if (b_deadAnim == true)
         
         else
         {
-        
+            sprite_index = Keith_Die_Right;
         }
     }
     
@@ -516,7 +527,7 @@ if (b_deadAnim == true)
         
         else
         {
-        
+            sprite_index = Keith_Die_Left;
         }    
     }
     
@@ -595,7 +606,7 @@ if (b_isDead == true)
             
             else
             {
-            
+                sprite_index = Keith_Idle_Right;
             }
         }
         
@@ -613,7 +624,7 @@ if (b_isDead == true)
             
             else
             {
-            
+                sprite_index = Keith_Idle_Left;
             }    
         }
         
@@ -808,186 +819,152 @@ y += f_verticalSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.11, global.GUI_height * 0.065, 0.6, 0.375, 0, c_white, 0.9);
+            <string>/// Player's current equipment stats
+draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.11, global.GUI_height * 0.065, 0.6, 0.375, 0, c_white, 0.9);
 
 // Setting fonts across this page of codes
 draw_set_font(fnt_UIDescriptiontwo);
 draw_set_valign(fa_middle);
 
-if (b_viewPlayerTab == true)
-{
-    // GUI for the Player.
-    draw_sprite_ext(spr_slot_gear, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 1.2, 1.2, 0, c_white, 1);
-    draw_sprite_ext(Daniel_Idle_Right, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 0.8, 0.8, 0, c_white, 1);
+// Drawing the current equipped weapon sprite
+draw_sprite_ext(spr_slot_gear, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 1.2, 1.2, 0, c_white, 1);
 
-    // Drawing the currency the player currently has
-    draw_set_colour(c_aqua);
-    draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Currency: ");
-    draw_set_color(c_white);
-    draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, global.i_currency);
-    
-    // Drawing the following stats of the player
-    // 1. Damage Multiplier
-    draw_set_colour(c_aqua);
-    draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Damage Multiplier: ");
-    draw_set_color(c_white);
-    draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(f_damageMultiplier));
-    
-    // 2. Movement Speed
-    draw_set_colour(c_aqua);
-    draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Movement Speed: ");
-    draw_set_color(c_white);
-    draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(f_moveSpeed));
-    
-    // 3. Armour
-    draw_set_color(c_aqua);
-    draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Armour: ");
-    draw_set_color(c_white);
-    draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(f_armour));
-}
-
-if (b_viewPlayerTab == false)
+switch (i_currEquip)
 {
-    // Drawing the current equipped weapon sprite
-    draw_sprite_ext(spr_slot_gear, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 1.2, 1.2, 0, c_white, 1);
+    default:
+    break;
     
-    switch (i_currEquip)
+    case 1:
+    switch (_currEquipOne)
     {
         default:
         break;
         
-        case 1:
-        switch (_currEquipOne)
-        {
-            default:
-            break;
-            
-            case "Handgun":
-            draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
-            
-            // Drawing the following stats of a handgun
-            // 1. Ammos
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipOneID.i_ammo));
-            
-            // 2. Magazine
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipOneID.i_magazine));
-            
-            // 3. Damage
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipOneID.i_damage));
-            
-            // 4. Fire-rate
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipOneID.f_cooldown));
-            break;
-            
-            case "AK-47":
-            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
-            
-            // Drawing the following stats of a AK-47
-            // 1. Ammos
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipOneID.i_ammo));
-            
-            // 2. Magazine
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipOneID.i_magazine));
-            
-            // 3. Damage
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipOneID.i_damage));
-            
-            // 4. Fire-rate
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipOneID.f_cooldown));
-            break;
-        }
+        case "Handgun":
+        draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
+        
+        // Drawing the following stats of a handgun
+        // 1. Ammos
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipOneID.i_ammo));
+        
+        // 2. Magazine
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipOneID.i_magazine));
+        
+        // 3. Damage
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipOneID.i_damage));
+        
+        // 4. Fire-rate
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipOneID.f_cooldown));
         break;
         
-        case 2:
-        switch (_currEquipTwo)
-        {
-            default:
-            break;
-            
-            case "Handgun":
-            draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
-            
-            // Drawing the following stats of a handgun
-            // 1. Ammos
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipTwoID.i_ammo));
-            
-            // 2. Magazine
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipTwoID.i_magazine));
-            
-            // 3. Damage
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipTwoID.i_damage));
-            
-            // 4. Fire-rate
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipTwoID.f_cooldown));
-            break;
-            
-            case "AK-47":
-            draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
-            
-            // Drawing the following stats of a AK-47
-            // 1. Ammos
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipTwoID.i_ammo));
-            
-            // 2. Magazine
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipTwoID.i_magazine));
-            
-            // 3. Damage
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipTwoID.i_damage));
-            
-            // 4. Fire-rate
-            draw_set_colour(c_aqua);
-            draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
-            draw_set_color(c_white);
-            draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipTwoID.f_cooldown));
-            break;
-        }
+        case "AK-47":
+        draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
+        
+        // Drawing the following stats of a AK-47
+        // 1. Ammos
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipOneID.i_ammo));
+        
+        // 2. Magazine
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipOneID.i_magazine));
+        
+        // 3. Damage
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipOneID.i_damage));
+        
+        // 4. Fire-rate
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipOneID.f_cooldown));
         break;
     }
+    break;
+    
+    case 2:
+    switch (_currEquipTwo)
+    {
+        default:
+        break;
+        
+        case "Handgun":
+        draw_sprite_ext(shooter_wood_smallGuns, 0, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
+        
+        // Drawing the following stats of a handgun
+        // 1. Ammos
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipTwoID.i_ammo));
+        
+        // 2. Magazine
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipTwoID.i_magazine));
+        
+        // 3. Damage
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipTwoID.i_damage));
+        
+        // 4. Fire-rate
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipTwoID.f_cooldown));
+        break;
+        
+        case "AK-47":
+        draw_sprite_ext(shooter_wood_smallGuns, 1, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
+        
+        // Drawing the following stats of a AK-47
+        // 1. Ammos
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.025, "Ammo: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.025, string(i_equipTwoID.i_ammo));
+        
+        // 2. Magazine
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.05, "Magazine: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.05, string(i_equipTwoID.i_magazine));
+        
+        // 3. Damage
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.075, "Damage: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.075, string(i_equipTwoID.i_damage));
+        
+        // 4. Fire-rate
+        draw_set_colour(c_aqua);
+        draw_text(global.GUI_width * 0.08, global.GUI_height * 0.1, "Fire-rate: ");
+        draw_set_color(c_white);
+        draw_text(global.GUI_width * 0.165, global.GUI_height * 0.1, string(i_equipTwoID.f_cooldown));
+        break;
+    }
+    break;
 }
 
 
@@ -995,6 +972,60 @@ if (b_viewPlayerTab == false)
 draw_set_font(-1);
 draw_set_valign(fa_top);
 draw_set_color(c_black);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Player's current stats
+draw_sprite_ext(spr_background_inv, 0, global.GUI_width * 0.885, global.GUI_height * 0.065, 0.6, 0.375, 0, c_white, 0.9);
+
+// Setting fonts across this page of codes
+draw_set_font(fnt_UIDescriptiontwo);
+draw_set_valign(fa_middle);
+// GUI for the Player.
+draw_sprite_ext(spr_slot_gear, 0, global.GUI_width * 0.825, global.GUI_height * 0.065, 1.2, 1.2, 0, c_white, 1);
+draw_sprite_ext(Daniel_Idle_Right, 0, global.GUI_width * 0.825, global.GUI_height * 0.065, 0.8, 0.8, 0, c_white, 1);
+
+// Drawing the currency the player currently has
+draw_set_colour(c_aqua);
+draw_text(global.GUI_width * 0.855, global.GUI_height * 0.025, "Currency: ");
+draw_set_color(c_white);
+draw_text(global.GUI_width * 0.94, global.GUI_height * 0.025, global.i_currency);
+
+// Drawing the following stats of the player
+// 1. Damage Multiplier
+draw_set_colour(c_aqua);
+draw_text(global.GUI_width * 0.855, global.GUI_height * 0.05, "Damage Multi4plier: ");
+draw_set_color(c_white);
+draw_text(global.GUI_width * 0.94, global.GUI_height * 0.05, string(f_damageMultiplier));
+
+// 2. Movement Speed
+draw_set_colour(c_aqua);
+draw_text(global.GUI_width * 0.855, global.GUI_height * 0.075, "Movement Speed: ");
+draw_set_color(c_white);
+draw_text(global.GUI_width * 0.94, global.GUI_height * 0.075, string(f_moveSpeed));
+
+// 3. Armour
+draw_set_color(c_aqua);
+draw_text(global.GUI_width * 0.855, global.GUI_height * 0.1, "Armour: ");
+draw_set_color(c_white);
+draw_text(global.GUI_width * 0.94, global.GUI_height * 0.1, string(f_armour));
 </string>
           </argument>
         </arguments>

@@ -18,9 +18,9 @@ global._baseDamageMultiplier = 1.5;
 global._maxDamageMultiplier = 3;
 
 // 3. Movement Speed
-global._moveSpeed = 3.6;
-global._moveSpeedIncrement = 0.8;
-global._baseMoveSpeed = 3.6;
+global._moveSpeed = 4;
+global._moveSpeedIncrement = 1.5;
+global._baseMoveSpeed = 4;
 global._maxMoveSpeed = 15;
 
 // 4. Armor

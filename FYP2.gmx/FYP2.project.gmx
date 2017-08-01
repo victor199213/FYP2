@@ -299,6 +299,16 @@
             <sprite>sprites\Terry_Jump_Left</sprite>
             <sprite>sprites\Terry_Die_Left</sprite>
           </sprites>
+          <sprites name="Character Three">
+            <sprite>sprites\Keith_Idle_Right</sprite>
+            <sprite>sprites\Keith_Walk_Right</sprite>
+            <sprite>sprites\Keith_Jump_Right</sprite>
+            <sprite>sprites\Keith_Die_Right</sprite>
+            <sprite>sprites\Keith_Idle_Left</sprite>
+            <sprite>sprites\Keith_Walk_Left</sprite>
+            <sprite>sprites\Keith_Jump_Left</sprite>
+            <sprite>sprites\Keith_Die_Left</sprite>
+          </sprites>
         </sprites>
       </sprites>
     </sprites>
@@ -406,7 +416,7 @@
       </sprites>
     </sprites>
     <sprite>sprites\spr_street_tile</sprite>
-    <sprite>sprites\Coin</sprite>
+    <sprite>sprites\CoinChest</sprite>
     <sprites name="Maps">
       <sprite>sprites\City</sprite>
       <sprite>sprites\Twilight</sprite>
@@ -782,7 +792,7 @@
     <room>rooms\room2</room>
     <room>rooms\room3</room>
   </rooms>
-  <constants number="37">
+  <constants number="40">
     <constant name="c_VolcanoMap">"Kilauea Volcano"</constant>
     <constant name="c_TwilightMap">"Alaska: Northen Lights"</constant>
     <constant name="c_ArticMap">"Antarctica"</constant>
@@ -792,11 +802,14 @@
     <constant name="c_MaxArmourInfo">"Reduces damage taken."</constant>
     <constant name="c_DanielDescription">"An average man with an average stats. However, he can be nutured to become a better soldier."</constant>
     <constant name="c_TerryDescription">"The most aggressive man you have ever met, full of vitality. Friendship is all about contracts."</constant>
+    <constant name="c_KeithDescription">"Forced into battle, his cowardice takes over his mind. He does not know the meaning of exhaustion, and will run as fast as he can to ensure his safety of his life."</constant>
     <constant name="c_HandgunDescription">"The most basic weapon you can ever have. Very useful in tight situations."</constant>
     <constant name="c_AK47Description">"Keep enemies away from you. Use this gun for fast fire-rate.f"</constant>
     <constant name="c_MaxMagazineInfo">"+1 to max magazine."</constant>
     <constant name="c_AmmoDamageInfo">"Adds damage to your ammo."</constant>
     <constant name="c_CooldownInfo">"Shoots faster."</constant>
+    <constant name="c_RestoreHealth">"Heal yourself to full health."</constant>
+    <constant name="c_Magazine">"Purchase a new magazine."</constant>
     <constant name="c_CityMap">"New York City"</constant>
     <constant name="c_InstantHealName">"Heal"</constant>
     <constant name="c_InstantHealDescription">"Instantly recovers a portion of your health."</constant>
