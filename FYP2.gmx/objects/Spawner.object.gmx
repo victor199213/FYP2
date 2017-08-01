@@ -67,7 +67,7 @@ if(Objective.health &gt; 0)
 {
     if(waveTime &lt;= 60 &amp;&amp; wave &lt;= 5)
     {
-        if(seconds &gt;= 4)
+        if(seconds &gt;= 3)
         {
             switch(irandom_range(1,3))
             {
