@@ -392,7 +392,7 @@ if(place_meeting(x,y,wall2obj))
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_healthbar(x - 30,y - 40, x+ 30, y - 50, HP, c_black, c_red, c_lime, 0, true, true);
+draw_healthbar(x - 30,y - 40, x+ 30, y - 50, (HP / maxHP) * 100, c_black, c_red, c_lime, 0, true, true);
 </string>
           </argument>
         </arguments>
