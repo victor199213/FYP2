@@ -89,6 +89,13 @@ else
     sec = 0;
     minute = 0;
 }
+
+if (keyboard_check_pressed(vk_escape))
+{
+   sec = 0;
+   showSec = 0;
+   minute = 0;
+}
 </string>
           </argument>
         </arguments>
