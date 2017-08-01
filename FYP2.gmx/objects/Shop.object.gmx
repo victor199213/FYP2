@@ -1558,7 +1558,7 @@ if (Objective.b_menuIsOpen == true)
                 }
             }
             
-            // Magazine Purchase: Option 2
+            // Magazine Purchase: Option 1 (Equipment Slot 1 is empty)
             if (Player._currEquipOne == "" &amp;&amp; Player._currEquipTwo != "")
             {
                 switch (Player._currEquipTwo)
@@ -1572,7 +1572,7 @@ if (Objective.b_menuIsOpen == true)
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Handgun Magazine: " + string(Player.i_equipTwoID.i_magazine));
                     
                     draw_set_font(fnt_UIDescriptiontwo);
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipTwoMagazineCost));
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
@@ -1586,7 +1586,7 @@ if (Objective.b_menuIsOpen == true)
                             // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
                             if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.Handgun_maxMagazine)
                             {
-                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                global.i_currency = global.i_currency - i_equipTwoMagazineCost;
                                 Player.i_equipTwoID.i_magazine += 1;
                             }
                         }
@@ -1605,7 +1605,7 @@ if (Objective.b_menuIsOpen == true)
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "AK-47 Magazine: " + string(Player.i_equipTwoID.i_magazine));
                     
                     draw_set_font(fnt_UIDescriptiontwo);
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipTwoMagazineCost));
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
@@ -1619,7 +1619,7 @@ if (Objective.b_menuIsOpen == true)
                             // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
                             if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.AK47_maxMagazine)
                             {
-                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                global.i_currency = global.i_currency - i_equipTwoMagazineCost;
                                 Player.i_equipTwoID.i_magazine += 1;
                             }
                         }
@@ -1638,7 +1638,7 @@ if (Objective.b_menuIsOpen == true)
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.425, "Rocket Magazine: " + string(Player.i_equipTwoID.i_magazine));
                     
                     draw_set_font(fnt_UIDescriptiontwo);
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.45, "Cost: " + string(i_equipTwoMagazineCost));
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.475, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
@@ -1652,7 +1652,7 @@ if (Objective.b_menuIsOpen == true)
                             // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
                             if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.Rocket_maxMagazine)
                             {
-                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                global.i_currency = global.i_currency - i_equipTwoMagazineCost;
                                 Player.i_equipTwoID.i_magazine += 1;
                             }
                         }
@@ -1680,7 +1680,7 @@ if (Objective.b_menuIsOpen == true)
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Handgun Magazine: " + string(Player.i_equipTwoID.i_magazine));
                     
                     draw_set_font(fnt_UIDescriptiontwo);
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipTwoMagazineCost));
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
@@ -1694,7 +1694,7 @@ if (Objective.b_menuIsOpen == true)
                             // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
                             if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.Handgun_maxMagazine)
                             {
-                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                global.i_currency = global.i_currency - i_equipTwoMagazineCost;
                                 Player.i_equipTwoID.i_magazine += 1;
                             }
                         }
@@ -1713,7 +1713,7 @@ if (Objective.b_menuIsOpen == true)
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "AK-47 Magazine: " + string(Player.i_equipTwoID.i_magazine));
                     
                     draw_set_font(fnt_UIDescriptiontwo);
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipTwoMagazineCost));
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
@@ -1727,7 +1727,7 @@ if (Objective.b_menuIsOpen == true)
                             // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
                             if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.AK47_maxMagazine)
                             {
-                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                global.i_currency = global.i_currency - i_equipTwoMagazineCost;
                                 Player.i_equipTwoID.i_magazine += 1;
                             }
                         }
@@ -1746,7 +1746,7 @@ if (Objective.b_menuIsOpen == true)
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.525, "Rocket Magazine: " + string(Player.i_equipTwoID.i_magazine));
                     
                     draw_set_font(fnt_UIDescriptiontwo);
-                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipOneMagazineCost));
+                    draw_text(global.GUI_width * 0.5, global.GUI_height * 0.55, "Cost: " + string(i_equipTwoMagazineCost));
                     draw_text(global.GUI_width * 0.5, global.GUI_height * 0.575, c_Magazine);
                     
                     if (device_mouse_x_to_gui(0) &gt; (global.GUI_width * 0.65 - 17) &amp;&amp; 
@@ -1760,7 +1760,7 @@ if (Objective.b_menuIsOpen == true)
                             // Minus the current upgrade cost from the player's wallet if the player has enough currency to upgrade
                             if (global.i_currency &gt;= i_equipOneMagazineCost &amp;&amp; Player.i_equipTwoID.i_magazine &lt; WeaponHandleObj.Rocket_maxMagazine)
                             {
-                                global.i_currency = global.i_currency - i_equipOneMagazineCost;
+                                global.i_currency = global.i_currency - i_equipTwoMagazineCost;
                                 Player.i_equipTwoID.i_magazine += 1;
                             }
                         }

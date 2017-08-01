@@ -150,6 +150,15 @@ if (b_active == true)
     image_index = 1;
     b_ready = false;
     f_activeTimer = f_activeTimer + 1 / (room_speed);
+    if (Player_1.b_deadAnim == false &amp;&amp; Player_1.b_isDead == false)
+    {
+    instance_create(Player_1.x, Player_1.y, SkillPartBlue);
+    }
+    
+    if (Player_2.b_deadAnim == false &amp;&amp; Player_2.b_isDead == false)
+    {
+        instance_create(Player_2.x, Player_2.y, SkillPartBlue);
+    }
 
     if (f_activeTimer &gt; f_activeTime)
     {

@@ -155,34 +155,50 @@ if (b_active == true)
     f_activeTimer = f_activeTimer + 1 / (room_speed);
     f_healTimer = f_healTimer + 1 / (room_speed);
     
+    if (Player_1.b_deadAnim == false &amp;&amp; Player_1.b_isDead == false)
+    {
+        instance_create(Player_1.x, Player_1.y, SkillPartGreen);
+    }
+    
+    if (Player_2.b_deadAnim == false &amp;&amp; Player_2.b_isDead == false)
+    {
+        instance_create(Player_2.x, Player_2.y, SkillPartGreen);
+    }
+    
     if (f_healTimer &gt;= f_healTime)
     {
         f_healTimer = 0;
-        if (Player_1.i_health + (f_healPercentage * Player_1.i_maxHealth) &lt; Player_1.i_maxHealth)
+        if (Player_1.b_deadAnim == false &amp;&amp; Player_1.b_isDead == false)
         {
-            Player_1.i_health = Player_1.i_health + (f_healPercentage * Player_1.i_maxHealth);
+            if (Player_1.i_health + (f_healPercentage * Player_1.i_maxHealth) &lt; Player_1.i_maxHealth)
+            {
+                Player_1.i_health = Player_1.i_health + (f_healPercentage * Player_1.i_maxHealth);
+            }
+            
+            else
+            {
+                Player_1.i_health = Player_1.i_maxHealth;
+            }
         }
         
-        else
+        if (Player_2.b_deadAnim == false &amp;&amp; Player_2.b_isDead == false)
         {
-            Player_1.i_health = Player_1.i_maxHealth;
-        }
-        
-        if (Player_2.i_health + (f_healPercentage * Player_2.i_maxHealth) &lt; Player_2.i_maxHealth)
-        {
-            Player_2.i_health = Player_2.i_health + (f_healPercentage * Player_2.i_maxHealth);
-        }
-        
-        else
-        {
-            Player_2.i_health = Player_2.i_maxHealth;
+            if (Player_2.i_health + (f_healPercentage * Player_2.i_maxHealth) &lt; Player_2.i_maxHealth)
+            {
+                Player_2.i_health = Player_2.i_health + (f_healPercentage * Player_2.i_maxHealth);
+            }
+            
+            else
+            {
+                Player_2.i_health = Player_2.i_maxHealth;
+            }
         }
     }
     
     if (f_activeTimer &gt; f_activeTime)
     {
+        f_activeTimer = 0;
         b_active = false;
-        f_healTimer = 0;
     }
 }
 </string>

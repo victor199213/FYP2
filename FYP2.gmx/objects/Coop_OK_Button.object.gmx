@@ -85,7 +85,7 @@ _posy = Skill_Background.y + (Skill_Background._sprite_size_y * 0.8);
             <kind>1</kind>
             <string>if (MainMenuStructure.menu_choice == "Skill Selection")
 {
-    image_index = 1;
+    image_index = 0;
 }
 </string>
           </argument>

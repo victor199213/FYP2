@@ -162,6 +162,16 @@ if (b_active == true)
     f_activeTimer = f_activeTimer + 1 / (room_speed);
     f_healthReduceTimer = f_healthReduceTimer + 1 / (room_speed);
     
+    if (b_playerOne_use == true)
+    {
+        instance_create(Player_1.x, Player_1.y, SkillPartRed);    
+    }
+    
+    else if (b_playerTwo_use == true)
+    {
+        instance_create(Player_2.x, Player_2.y, SkillPartRed);    
+    }
+    
     if (f_healthReduceTimer &gt;= f_healthReduceTime)
     {
         f_healthReduceTimer = 0;

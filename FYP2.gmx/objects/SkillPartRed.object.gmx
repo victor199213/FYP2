@@ -30,6 +30,7 @@ part_system_depth(particle,50);
 sparkle = part_type_create();
 particle_emitter = part_emitter_create(particle);
 seconds = 0;
+i_spawnTime = 0;
 </string>
           </argument>
         </arguments>
