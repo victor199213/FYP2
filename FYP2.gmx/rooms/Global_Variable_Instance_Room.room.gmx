@@ -59,13 +59,13 @@ global._equipment[0] = "";
 global._equipment[1] = "";
 
 // Player's equipment list for the gun. Does not need reset
-global.EquipmentList = ds_list_create();
-ds_list_add(global.EquipmentList, "Handgun");
-ds_list_add(global.EquipmentList, "AK-47");
+//global.EquipmentList = ds_list_create();
+//ds_list_add(global.EquipmentList, "Handgun");
+//ds_list_add(global.EquipmentList, "AK-47");
 
 // Player's wallet for cash during game-play
-global.i_currency = 10;
-global.i_baseLoot = 10;
+global.i_currency = 100000;
+global.i_baseLoot = 20;
 
 // Cooperation's abilities: Whether it has been chosen or not
 global.b_InstantHeal_chosen = false;

@@ -298,6 +298,30 @@ if(place_meeting(x,y,AK_47_Ammo))
     }
 }
 
+// Damage Taken from Rocket
+if(place_meeting(x,y,Rocket_Ammo))
+{
+
+    HP -= Rocket_Ammo.i_damage;
+    
+    if (b_isKnockback == false)
+    {
+        b_isKnockback = true;
+    }
+    
+    else
+    {
+        f_knockback_timer = 0;
+    }
+    
+    if(HP &lt;= 0)
+    {
+        path_end();
+        speed = 0;
+        state = e_state.dying;
+    }
+}
+
 if (b_isKnockback == true)
 {
     // Knockback everytime it is hit by a bullet

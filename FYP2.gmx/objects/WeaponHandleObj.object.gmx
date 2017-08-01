@@ -127,6 +127,65 @@ AK47_MaxLevel = 3;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Properties of a Rocket
+Rocket_ammo = 2;
+Rocket_maxAmmo = 2;
+
+// Reload speed of the handgun. Cannot be upgraded
+Rocket_reloadSpeed = 5;
+Rocket_reloadTime = 0;
+Rocket_isReload = false;
+
+// Magazines of handgun, and the total number of magazines you can hold. Can be upgraded
+Rocket_magazine = 5;
+Rocket_maxMagazineIncrement = 2;
+Rocket_baseMagazine = 5;
+Rocket_maxMagazine = 20;
+// Maximum number of Magazines upgrade
+Rocket_maxMagazineLevel = 1;
+Rocket_maxMagazineUpgradeCost = 5;
+
+// Damage of the handgun. Can be upgraded
+Rocket_damage = 100;
+Rocket_damageIncrement = 20;
+Rocket_baseDamage = 100;
+Rocket_maxDamage = 500;
+// Damage upgrade
+Rocket_damageLevel = 1;
+Rocket_damageUpgradeCost = 32;
+
+// Fire rate of the handgun. Can be upgraded
+Rocket_cooldown = 10;
+Rocket_cooldownIncrement = 0.75;
+Rocket_maxcooldown = 0.5;
+Rocket_basecooldown = 5;
+Rocket_cooldown_timer = 0;
+// Handgun's fire rate upgrade
+Rocket_cooldownLevel = 1;
+Rocket_cooldownUpgradeCost = 40;
+
+// Handgun's upgrades available, and its cost
+Rocket_MaxLevel = 3;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>

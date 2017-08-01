@@ -663,6 +663,7 @@
         <objects name="Solo">
           <object>objects\Handgun</object>
           <object>objects\AK_47</object>
+          <object>objects\Rocket</object>
           <object>objects\WeaponHandleObj</object>
         </objects>
         <objects name="Multiplayer">
@@ -679,6 +680,7 @@
       <objects name="Projectiles">
         <object>objects\Handgun_Ammo</object>
         <object>objects\AK_47_Ammo</object>
+        <object>objects\Rocket_Ammo</object>
         <object>objects\EnemyProObj</object>
         <object>objects\EnemyProObjCoop1</object>
         <object>objects\EnemyProObjCoop2</object>
@@ -701,8 +703,10 @@
     <objects name="Explosions">
       <objects name="GunFire">
         <object>objects\AmmoExplosion</object>
+        <object>objects\RocketExplosion</object>
         <objects name="Solo">
           <object>objects\Gunfire</object>
+          <object>objects\RocketFire</object>
         </objects>
         <objects name="Multiplayer">
           <objects name="PVP">
@@ -792,7 +796,7 @@
     <room>rooms\room2</room>
     <room>rooms\room3</room>
   </rooms>
-  <constants number="40">
+  <constants number="41">
     <constant name="c_VolcanoMap">"Kilauea Volcano"</constant>
     <constant name="c_TwilightMap">"Alaska: Northen Lights"</constant>
     <constant name="c_ArticMap">"Antarctica"</constant>
@@ -804,7 +808,8 @@
     <constant name="c_TerryDescription">"The most aggressive man you have ever met, full of vitality. Friendship is all about contracts."</constant>
     <constant name="c_KeithDescription">"Forced into battle, his cowardice takes over his mind. He does not know the meaning of exhaustion, and will run as fast as he can to ensure his safety of his life."</constant>
     <constant name="c_HandgunDescription">"The most basic weapon you can ever have. Very useful in tight situations."</constant>
-    <constant name="c_AK47Description">"Keep enemies away from you. Use this gun for fast fire-rate.f"</constant>
+    <constant name="c_AK47Description">"Keep enemies away from you. Use this gun for fast fire-rate."</constant>
+    <constant name="c_RocketDescription">"Such destructive power, you can be rest assured the rocket launcher will save you when you need it the most."</constant>
     <constant name="c_MaxMagazineInfo">"+1 to max magazine."</constant>
     <constant name="c_AmmoDamageInfo">"Adds damage to your ammo."</constant>
     <constant name="c_CooldownInfo">"Shoots faster."</constant>

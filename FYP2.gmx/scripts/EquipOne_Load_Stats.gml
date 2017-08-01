@@ -31,4 +31,18 @@ switch (Player._currEquipOne)
         AK_47.f_cooldown = WeaponHandleObj.AK47_cooldown;
     }
     break;
+    
+    case "Rocket": 
+    if (instance_exists(Rocket))
+    {   
+        // Magazines of handgun, and the total number of magazines you can hold. Can be upgraded
+        Rocket.i_maxMagazine = WeaponHandleObj.Rocket_maxMagazine;
+        
+        // Damage of the handgun. Can be upgraded
+        Rocket.i_damage = WeaponHandleObj.Rocket_damage;
+        
+        // Fire rate of the handgun. Can be upgraded
+        Rocket.f_cooldown = WeaponHandleObj.Rocket_cooldown;
+    }
+    break;
 }
