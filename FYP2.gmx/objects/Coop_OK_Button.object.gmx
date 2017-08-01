@@ -139,7 +139,13 @@ _posy = Skill_Background.y + (Skill_Background._sprite_size_y * 0.8);
 {
     if (Skill_Background.b_startAnim == false &amp;&amp; Skill_Background.b_backAnim == false &amp;&amp; Skill_Background.b_nextAnim == false)
     {
-        Skill_Background.b_nextAnim = true;
+        if (global.b_playerOne_skillSlot_chosen[0] = true &amp;&amp;
+            global.b_playerOne_skillSlot_chosen[1] = true &amp;&amp;
+            global.b_playerTwo_skillSlot_chosen[0] = true &amp;&amp;
+            global.b_playerTwo_skillSlot_chosen[1] = true)
+        {
+            Skill_Background.b_nextAnim = true;
+        }
     }
 }
 </string>
