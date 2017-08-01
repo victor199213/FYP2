@@ -152,6 +152,11 @@ if(ObjectiveCoop.health &lt;= 0)
     }
 }
 
+if (keyboard_check_pressed(vk_escape))
+{
+   ObjectiveCoop.health = 0;
+}
+
 if(wave &lt; 5)
 {
     part_type_shape(sparkle,pt_shape_spark);
