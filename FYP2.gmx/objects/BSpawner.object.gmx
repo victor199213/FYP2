@@ -59,7 +59,7 @@ image_speed = 10/60;
 
 if(PVPgui.sec &gt; 0)
 {
-    if(seconds &gt;= 5)
+    if(seconds &gt;= 3)
     {
         switch(irandom_range(1,3))
         {
