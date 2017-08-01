@@ -14,3 +14,5 @@ Pregame_Background.f_translate_y = 0;
 Pregame_Background.b_startAnim = true;
 Pregame_Background.b_backAnim = false;
 Pregame_Background.b_nextAnim = false;
+
+MainMenuStructure._Pregame_Selection = "Characters";

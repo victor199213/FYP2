@@ -937,7 +937,7 @@ if (Objective.b_menuIsOpen == true)
             break;
             
             case "Rocket":
-                draw_sprite_ext(shooter_bigGuns, 5, _allSlots_posx, _slotTwo_posy, 1.5, 1.5, 0, c_white, 1);
+                draw_sprite_ext(shooter_bigGuns, 5, _allSlots_posx, _slotTwo_posy, 1.3, 1.3, 0, c_white, 1);
                 // Giving the available options for upgrades, along with the name of the Item
                 // Name of the weapon in first slot
                 draw_sprite_ext(spr_hud2_nametag, 0, global.GUI_width * 0.55, global.GUI_height * 0.325, 2, 2, 0, c_white, 1);

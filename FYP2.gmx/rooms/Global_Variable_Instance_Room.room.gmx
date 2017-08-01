@@ -59,9 +59,10 @@ global._equipment[0] = "";
 global._equipment[1] = "";
 
 // Player's equipment list for the gun. Does not need reset
-//global.EquipmentList = ds_list_create();
-//ds_list_add(global.EquipmentList, "Handgun");
-//ds_list_add(global.EquipmentList, "AK-47");
+global.EquipmentList = ds_list_create();
+ds_list_add(global.EquipmentList, "Handgun");
+ds_list_add(global.EquipmentList, "AK-47");
+ds_list_add(global.EquipmentList, "Rocket");
 
 // Player's wallet for cash during game-play
 global.i_currency = 100000;

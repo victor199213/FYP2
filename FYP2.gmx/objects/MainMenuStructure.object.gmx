@@ -747,10 +747,14 @@ if (menu_choice == "Pregame Selection")
                 instance_deactivate_object(Multi_OK_Button);
                 
                 // Activate the next objects
-                instance_activate_object(Map_Background);
-                instance_activate_object(Back_To_Pregame_Button);
-                instance_activate_object(Start_Game_Button);
-                menu_choice = "Map Selection";
+                //instance_activate_object(Map_Background);
+                //instance_activate_object(Back_To_Pregame_Button);
+                //instance_activate_object(Start_Game_Button);
+                if (audio_is_playing(mus_titlescreen))
+                {
+                    audio_stop_sound(mus_titlescreen);
+                }
+                room_goto(room1);
             }
             
             else

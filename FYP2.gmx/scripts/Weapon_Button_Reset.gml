@@ -14,10 +14,6 @@ if (MainMenuStructure.b_solo == true)
         default:
         break;
         
-        case "Items":
-        Weapon_Button.image_index = 0;
-        break;
-        
         case "Characters":
         Weapon_Button.image_index = 0;
         break;
@@ -35,7 +31,7 @@ Weapon_Button.y = Weapon_Button._posy;
 
 // Variables created to specifically show the weapon's sprite and stats, and position
 Weapon_Button.i_weaponrySlot = 1;
-Weapon_Button.i_maxWeaponry = 4;
+Weapon_Button.i_maxWeaponry = 3;
 Weapon_Button._equippedSlot[0] = "";
 Weapon_Button._equippedSlot[1] = "";
 Weapon_Button._slotweaponName = "";

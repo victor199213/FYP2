@@ -1033,7 +1033,7 @@ switch (i_currEquip)
         break;
         
         case "Rocket":
-        draw_sprite_ext(shooter_bigGuns, 5, global.GUI_width * 0.05, global.GUI_height * 0.065, 2.4, 2.4, 0, c_white, 1);
+        draw_sprite_ext(shooter_bigGuns, 5, global.GUI_width * 0.05, global.GUI_height * 0.065, 1.6, 1.6, 0, c_white, 1);
         
         // Drawing the following stats of a Rocket
         // 1. Ammos

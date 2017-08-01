@@ -269,9 +269,6 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                         case 3:
                             _equippedSlot[0] = _slotweaponName;
                         break;
-                        
-                        case 4:
-                        break;
                     }
                 }
                 
@@ -292,9 +289,6 @@ if (MainMenuStructure.b_solo == true &amp;&amp; Pregame_Background.b_backAnim ==
                         
                         case 3:
                             _equippedSlot[1] = _slotweaponName;
-                        break;
-                        
-                        case 4:
                         break;
                     }                
                 }
