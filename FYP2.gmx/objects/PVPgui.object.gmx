@@ -66,7 +66,6 @@ else if(sec &lt; 0)
     roomTimer -= 1 / room_speed;
     if(roomTimer &lt;= 0)
     {   
-        ds_grid_destroy(Wall_Grid);
         room_goto(MainMenu);
     }
 }
