@@ -298,14 +298,24 @@ switch (state)
         path_end();
         direction = point_direction(x, y, Player.x, Player.y);
         speed = 0;
-        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        /*if(direction &gt; 90 &amp;&amp; direction &lt; 270)
         {
             sprite_index=Elite_dying_left;
         }
         if(direction &lt; 90 &amp;&amp; direction &gt; -90)
         {
             sprite_index=Elite_dying_right;
+        }*/
+        if (sprite_index == Elite_left)
+        {
+            sprite_index = Elite_dying_left;
         }
+        
+        else if (sprite_index == Elite_right)
+        {
+            sprite_index = Elite_dying_right;
+        }
+        
         if(image_index &gt;= 6)
         {
             i_loot = round(f_multiplierLoot * global.i_baseLoot);

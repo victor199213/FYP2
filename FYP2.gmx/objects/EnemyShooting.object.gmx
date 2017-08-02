@@ -220,13 +220,22 @@ switch (state)
         direction = point_direction(x, y, Player.x, Player.y);
         path_end();
         speed = 0;
-        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        /*if(direction &gt; 90 &amp;&amp; direction &lt; 270)
         {
             sprite_index=ShootingEnemy_dying_left;
         }
         if(direction &lt; 90 &amp;&amp; direction &gt; -90)
         {
             sprite_index=ShootingEnemy_dying_right;
+        }*/
+        if (sprite_index == ShootingEnemy_left)
+        {
+            sprite_index = ShootingEnemy_dying_left;
+        }
+        
+        else if (sprite_index == ShootingEnemy_right)
+        {
+            sprite_index = ShootingEnemy_dying_right;
         }
         
         if(image_index &gt;= 7)
@@ -252,6 +261,15 @@ if (place_meeting(round(x),round(y+vsp),Wall))
 {
     while(!place_meeting(round(x),round(y+sign(vsp)),Wall)) y += sign(vsp);
     vsp = 0;
+    
+    if(place_meeting(x,y,wall2obj))
+    {
+        path_end();
+        HP = 0;
+        state = e_state.dying;
+        show_debug_message("Shooting");
+        show_debug_message(state);
+    }
 }
 y += vsp;
 
@@ -345,12 +363,14 @@ if(place_meeting(x,y,Objective))
     instance_destroy();
     instance_create(x,y,EnemyExplode)
 }
+
 if(Spawner.waveTime &gt;= 60 || Objective.health &lt;= 0)
 {
     audio_play_sound(sound6,0, false);
     instance_destroy();
     instance_create(x,y,EnemyExplode)
 }
+
 if(place_meeting(x,y,wall2obj))
 {
     HP = 0;
