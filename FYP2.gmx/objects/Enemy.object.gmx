@@ -47,6 +47,7 @@ maxHP = 100;
 damage = 0;
 pc = 0;
 
+grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
 path = path_add();
 
 switch(Spawner.wave)
@@ -108,7 +109,7 @@ switch (state)
     {   
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-        mp_grid_path(global.grid,path,x,y,Objective.x,Objective.y,false);
+        mp_grid_path(grid,path,x,y,Objective.x,Objective.y,false);
         
         if (b_isKnockback == true)
         {
@@ -191,7 +192,7 @@ switch (state)
         
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-        mp_grid_path(global.grid,path,x,y,Player.x,Player.y + 1,false);
+        mp_grid_path(grid,path,x,y,Player.x,Player.y + 1,false);
         
         if (distance_to_object(Player) &gt; 128 || (Player.b_deadAnim == true || Player.b_isDead == true))
         {

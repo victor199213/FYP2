@@ -44,7 +44,7 @@ f_knockback_speed = 0;
 // Knock back distance on enemies upon hitting Ammo
 knockback_acceleration = 10;
 ammo_onhit_x = 0;
-
+grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
 path = path_add();
 </string>
           </argument>
@@ -76,7 +76,7 @@ switch (state)
     {   
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-        mp_grid_path(global.grid,path,x,y,BObjective.x,BObjective.y,false);
+        mp_grid_path(grid,path,x,y,BObjective.x,BObjective.y,false);
         
         if (b_isKnockback == true)
         {

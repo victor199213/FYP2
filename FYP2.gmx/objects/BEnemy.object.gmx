@@ -46,7 +46,7 @@ HP = 100;
 maxHP = 100;
 damage = 10;
 pc = 0;
-
+grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
 path = path_add();
 </string>
           </argument>
@@ -79,7 +79,7 @@ switch (state)
     {   
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-        mp_grid_path(global.grid,path,x,y,BObjective.x,BObjective.y,false);
+        mp_grid_path(grid,path,x,y,BObjective.x,BObjective.y,false);
         
         if (b_isKnockback == true)
         {
@@ -141,7 +141,7 @@ switch (state)
         dir = sign(R_Player.x - x);
         hsp = (dir * 2);
         vsp = (min(7,vsp+0.05));
-        mp_grid_path(global.grid,path,x,y,R_Player.x,R_Player.y + 1,false);
+        mp_grid_path(grid,path,x,y,R_Player.x,R_Player.y + 1,false);
                 
         if (b_isKnockback == true)
         {
