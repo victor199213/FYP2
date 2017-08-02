@@ -48,6 +48,9 @@ pc = 0;
 seconds = 0;
 damage = 0;
 
+grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
+path = path_add();
+
 switch(CoopSpawner.wave)
 {
     case 1:
@@ -106,8 +109,6 @@ switch (state)
 {
     case e_state.idle:
     {   
-        grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
-        path = path_add();
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
         mp_grid_path(grid,path,x,y,ObjectiveCoop.x,ObjectiveCoop.y,false);
@@ -223,9 +224,7 @@ switch (state)
                 x -= f_knockback_speed;
             }            
         }
-        
-        grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
-        path = path_add();
+    
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
         mp_grid_path(grid,path,x,y,Player_1.x,Player_1.y + 1,false);
@@ -286,8 +285,6 @@ switch (state)
             }            
         }
         
-        grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
-        path = path_add();
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
         mp_grid_path(grid,path,x,y,Player_2.x,Player_2.y + 1,false);

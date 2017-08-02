@@ -47,6 +47,9 @@ maxHP = 100;
 damage = 0;
 pc = 0;
 
+grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
+path = path_add();
+
 switch(Spawner.wave)
 {
     case 1:
@@ -104,8 +107,6 @@ switch (state)
 {
     case e_state.idle:
     {   
-        grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
-        path = path_add();
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
         mp_grid_path(grid,path,x,y,Objective.x,Objective.y,false);
@@ -189,8 +190,6 @@ switch (state)
             }            
         }
         
-        grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
-        path = path_add();
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
         mp_grid_path(grid,path,x,y,Player.x,Player.y + 1,false);
