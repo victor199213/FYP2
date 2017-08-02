@@ -111,7 +111,7 @@ _allSlots_posx = global.GUI_width * 0.375;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Setting the fonts for the shop
+            <string>/// Setting the background for Shop
 if (Objective.b_menuIsOpen == true)
 {
     // The background for Shop

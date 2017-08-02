@@ -52,12 +52,12 @@ health = 100;
           <argument>
             <kind>1</kind>
             <string>// Checking if Spawn wave has been cleared for shop to open
-if (Spawner.waveDelay &lt; 30 &amp;&amp; b_shopIsOpen == false)
+if (Spawner.b_isWaveDelay == true &amp;&amp; b_shopIsOpen == false)
 {
     b_shopIsOpen = true;
 }
 
-else if (Spawner.waveDelay &gt;= 30 &amp;&amp; b_shopIsOpen == true)
+else if (Spawner.b_isWaveDelay == false &amp;&amp; b_shopIsOpen == true)
 {
     b_shopIsOpen = false;
 }
