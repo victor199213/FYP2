@@ -47,7 +47,6 @@ maxHP = 100;
 damage = 0;
 pc = 0;
 
-grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
 path = path_add();
 
 switch(CoopSpawner.wave)
@@ -109,7 +108,7 @@ switch (state)
     {   
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-        mp_grid_path(grid,path,x,y,ObjectiveCoop.x,ObjectiveCoop.y,false);
+        mp_grid_path(global.grid,path,x,y,ObjectiveCoop.x,ObjectiveCoop.y,false);
         
         if (b_isKnockback == true)
         {
@@ -197,7 +196,7 @@ switch (state)
         }
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-        mp_grid_path(grid,path,x,y,Player_1.x,Player_1.y + 1,false);
+        mp_grid_path(global.grid,path,x,y,Player_1.x,Player_1.y + 1,false);
         
         if (distance_to_object(Player_1) &gt; 128 || (Player_1.b_deadAnim == true || Player_1.b_isDead == true))
         {
@@ -257,7 +256,7 @@ switch (state)
         }
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-        mp_grid_path(grid,path,x,y,Player_2.x,Player_2.y + 1,false);
+        mp_grid_path(global.grid,path,x,y,Player_2.x,Player_2.y + 1,false);
         
         if (distance_to_object(Player_2) &gt; 128 || (Player_2.b_deadAnim == true || Player_2.b_isDead == true))
         {

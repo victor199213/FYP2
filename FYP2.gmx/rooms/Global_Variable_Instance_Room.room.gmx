@@ -100,6 +100,7 @@ enum e_state
     shoot2,
     dying
 }
+global.grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
 
 room_goto(MainMenu);</code>
   <enableViews>0</enableViews>

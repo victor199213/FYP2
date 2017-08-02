@@ -81,7 +81,7 @@ switch (state)
     {   
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);
-        mp_grid_path(grid,path,x,y,RObjective.x,RObjective.y,false);
+        mp_grid_path(global.grid,path,x,y,RObjective.x,RObjective.y,false);
         
         if (b_isKnockback == true)
         {
@@ -156,7 +156,7 @@ switch (state)
         dir = sign(B_Player.x - x);
         hsp = (dir * 2);
         vsp = (min(7,vsp+0.05));
-        mp_grid_path(grid,path,x,y,B_Player.x,B_Player.y + 1,false);   
+        mp_grid_path(global.grid,path,x,y,B_Player.x,B_Player.y + 1,false);   
                 
         if (b_isKnockback == true)
         {
