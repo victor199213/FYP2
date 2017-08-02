@@ -194,13 +194,14 @@ switch (state)
         direction = point_direction(x, y, B_Player.x, B_Player.y);
         path_end();
         speed = 0;
-        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        if (sprite_index == RShootingEnemy_left)
         {
-            sprite_index=RShootingEnemy_dying_left;
+            sprite_index = RShootingEnemy_dying_left;
         }
-        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        
+        else if (sprite_index == RShootingEnemy_right)
         {
-            sprite_index=RShootingEnemy_dying_right;
+            sprite_index = RShootingEnemy_dying_right;
         }
         
         if(image_index &gt;= 7)

@@ -277,14 +277,16 @@ switch (state)
         path_end();
         direction = point_direction(x, y, R_Player.x, R_Player.y);
         speed = 0;
-        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        if (sprite_index == BElite_left)
         {
-            sprite_index=BElite_dying_left;
+            sprite_index = BElite_dying_left;
         }
-        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        
+        else if (sprite_index == BElite_right)
         {
-            sprite_index=BElite_dying_right;
+            sprite_index = BElite_dying_right;
         }
+        
         if(image_index &gt;= 6)
         {
             i_loot = round(f_multiplierLoot * global.i_baseLoot);

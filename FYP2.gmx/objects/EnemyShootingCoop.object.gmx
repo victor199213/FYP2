@@ -286,14 +286,16 @@ switch (state)
         direction = point_direction(x, y, Player_1.x, Player_1.y);
         path_end();
         speed = 0;
-        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        if (sprite_index == ShootingEnemy_left)
         {
-            sprite_index=ShootingEnemy_dying_left;
+            sprite_index = ShootingEnemy_dying_left;
         }
-        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        
+        else if (sprite_index == ShootingEnemy_right)
         {
-            sprite_index=ShootingEnemy_dying_right;
+            sprite_index = ShootingEnemy_dying_right;
         }
+        
         
         if(image_index &gt;= 7)
         {

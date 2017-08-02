@@ -290,13 +290,13 @@ switch (state)
         path_end();
         direction = point_direction(x, y, Player_1.x, Player_1.y);
         speed = 0;
-        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        if (sprite_index == Enemy_left)
         {
-            sprite_index=Enemy_dying_left;
+            sprite_index = Enemy_dying_left;
         }
-        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        else if (sprite_index == Enemy_right)
         {
-            sprite_index=Enemy_dying_right;
+            sprite_index = Enemy_dying_right;
         }
         if(image_index &gt;= 7)
         {

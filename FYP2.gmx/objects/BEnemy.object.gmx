@@ -199,13 +199,13 @@ switch (state)
         path_end();
         direction = point_direction(x, y, R_Player.x, R_Player.y);
         speed = 0;
-        if(direction &gt; 90 &amp;&amp; direction &lt; 270)
+        if (sprite_index == BEnemy_left)
         {
-            sprite_index=BEnemy_dying_left;
+            sprite_index = BEnemy_dying_left;
         }
-        if(direction &lt; 90 &amp;&amp; direction &gt; -90)
+        else if (sprite_index == BEnemy_right)
         {
-            sprite_index=BEnemy_dying_right;
+            sprite_index = BEnemy_dying_right;
         }
         if(image_index &gt;= 7)
         {
