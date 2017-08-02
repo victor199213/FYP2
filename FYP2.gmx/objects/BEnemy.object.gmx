@@ -136,8 +136,6 @@ switch (state)
     break;
     case e_state.chase:
     {        
-        grid = mp_grid_create(16,16,room_width/32,room_height/32,32,32);
-        path = path_add();
         mp_grid_add_instances(path,Wall,true);
         mp_grid_add_instances(path,Avoid,true);   
         dir = sign(R_Player.x - x);
@@ -283,8 +281,8 @@ if (b_isKnockback == true)
 if(place_meeting(x,y,BObjective))
 {
     BObjective.health -= 10;
-    instance_create(x,y,EnemyExplode);
     instance_destroy();
+    instance_create(x,y,EnemyExplode);
 }
 
 if(PVPgui.sec &lt; 1)

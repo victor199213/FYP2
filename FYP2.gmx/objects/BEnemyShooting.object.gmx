@@ -279,7 +279,7 @@ if(place_meeting(x,y,BObjective))
 {
     BObjective.score += 10;
     instance_destroy();
-    instance_create(x,y,EnemyExplode)
+    instance_create(x,y,EnemyExplode);
 }
 
 if(PVPgui.sec &lt; 1)
