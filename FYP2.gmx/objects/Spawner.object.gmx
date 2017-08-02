@@ -60,12 +60,12 @@ audio_play_sound(mus_dungeon02,0, true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>seconds += 1 / room_speed;
-waveTime += 1 / room_speed;
-image_speed = 10/60;
+            <string>image_speed = 10/60;
 
 if(Objective.health &gt; 0)
 {
+    seconds += 1 / room_speed;
+    waveTime += 1 / room_speed;
     if(waveTime &lt;= 60 &amp;&amp; wave &lt;= 5)
     {
         if(seconds &gt;= 3)
