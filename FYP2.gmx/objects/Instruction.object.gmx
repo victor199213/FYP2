@@ -50,7 +50,7 @@ b_backAnim = false;
 b_nextAnim = false; 
 
 i_page = 1;
-i_maxPage = 13;
+i_maxPage = 14;
 </string>
           </argument>
         </arguments>
@@ -254,6 +254,11 @@ switch (i_page)
     case 13:
     draw_text_transformed(x, y - _sprite_size_y * 0.25, "Co-Op: Controls", 2, 2, 0);
     break;
+    
+    // Credits
+    case 14:
+    draw_text_transformed(x, y - _sprite_size_y * 0.25, "Credits", 2, 2, 0);
+    break;
 }
 
 draw_set_font(-1);
@@ -419,6 +424,13 @@ switch (i_page)
     draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.12, "P", -1, 500, 1.3, 1.3, 0);
     draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.18, "U", -1, 500, 1.3, 1.3, 0);
     draw_text_ext_transformed(x + _sprite_size_x * 0.3, y + _sprite_size_y * 0.24, "O", -1, 500, 1.3, 1.3, 0);
+    break;
+    
+    // Credits
+    case 14:
+    draw_text_ext_transformed(x - _sprite_size_x * 0.15, y, "Programmers", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y, "Seetoo Wei Jie Victor", -1, 500, 1.3, 1.3, 0);
+    draw_text_ext_transformed(x + _sprite_size_x * 0.15, y + _sprite_size_y * 0.06, "Ng Jun Guo", -1, 500, 1.3, 1.3, 0);
     break;
 }
 
