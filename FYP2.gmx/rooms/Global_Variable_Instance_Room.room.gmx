@@ -65,7 +65,7 @@ ds_list_add(global.EquipmentList, "AK-47");
 ds_list_add(global.EquipmentList, "Rocket");
 
 // Player's wallet for cash during game-play
-global.i_currency = 30;
+global.i_currency = 1000000;
 global.i_baseLoot = 20;
 
 // Cooperation's abilities: Whether it has been chosen or not
