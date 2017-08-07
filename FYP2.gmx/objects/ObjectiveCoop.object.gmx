@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>// Creating variables to open up the Shop System
-health = 100;
+health = 1000000;
 </string>
           </argument>
         </arguments>

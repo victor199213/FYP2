@@ -28,7 +28,7 @@
             <string>// Creating variables to open up the Shop System
 b_shopIsOpen = true;
 b_menuIsOpen = false;
-health = 100;
+health = 100000000;
 </string>
           </argument>
         </arguments>
